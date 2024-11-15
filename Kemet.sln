@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34601.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kemet.APIs", "Kemet.APIs\Kemet.APIs.csproj", "{4A244852-ACC2-4094-90B0-79E2B4CD3062}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kemet.Core", "Kemet.Core\Kemet.Core.csproj", "{B74C0DD3-E4BD-4149-8447-BE8CA1E208E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kemet.Repository", "Kemet.Repository\Kemet.Repository.csproj", "{B8D629F6-325D-4C87-BDBA-93CA61974F6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kemet.Services", "Kemet.Services\Kemet.Services.csproj", "{A54290AB-CB1F-4DC7-88EA-B45BF6F6D7E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A244852-ACC2-4094-90B0-79E2B4CD3062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A244852-ACC2-4094-90B0-79E2B4CD3062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A244852-ACC2-4094-90B0-79E2B4CD3062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A244852-ACC2-4094-90B0-79E2B4CD3062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74C0DD3-E4BD-4149-8447-BE8CA1E208E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74C0DD3-E4BD-4149-8447-BE8CA1E208E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74C0DD3-E4BD-4149-8447-BE8CA1E208E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74C0DD3-E4BD-4149-8447-BE8CA1E208E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D629F6-325D-4C87-BDBA-93CA61974F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D629F6-325D-4C87-BDBA-93CA61974F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D629F6-325D-4C87-BDBA-93CA61974F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D629F6-325D-4C87-BDBA-93CA61974F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54290AB-CB1F-4DC7-88EA-B45BF6F6D7E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54290AB-CB1F-4DC7-88EA-B45BF6F6D7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54290AB-CB1F-4DC7-88EA-B45BF6F6D7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54290AB-CB1F-4DC7-88EA-B45BF6F6D7E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE4F5872-B6E9-485F-9D56-7CF174162CBC}
+	EndGlobalSection
+EndGlobal
