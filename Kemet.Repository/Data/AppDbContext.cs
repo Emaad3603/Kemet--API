@@ -22,5 +22,6 @@ namespace Kemet.Repository.Data
 
             base.OnModelCreating(modelBuilder);
         }
+        public DbSet<OTP> OTPs { get; set; }
     }
 }

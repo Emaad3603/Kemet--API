@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Kemet.APIs.DTOs
+namespace Kemet.APIs.DTOs.IdentityDTOs
 {
     public class CustomerRegisterDTO
     {
@@ -18,7 +18,7 @@ namespace Kemet.APIs.DTOs
         [Required]
         [Phone]
         public string PhoneNumber { get; set; }
-        [Required]       
+        [Required]
         public DateOnly DateOfBirth { get; set; }
         [Required]
         public string Nationality { get; set; }

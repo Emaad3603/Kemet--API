@@ -2,6 +2,7 @@ using Kemet.APIs.Extensions;
 using Kemet.APIs.Helpers;
 using Kemet.APIs.Middlewares;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Services.InterFaces;
 using Kemet.Repository.Data;
 using Kemet.Repository.Data.DataSeed.Identity;
@@ -41,8 +42,12 @@ namespace Kemet.APIs
                 // Allow spaces in the username and no special char except "._-   " 
                 options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._-   ";
                 options.User.RequireUniqueEmail = true; //  emails  unique
+                options.Tokens.ProviderMap.Add("Default", new TokenProviderDescriptor(typeof(DataProtectorTokenProvider<AppUser>)));
+
             }
-            ).AddEntityFrameworkStores<AppDbContext>();
+            ).AddEntityFrameworkStores<AppDbContext>()
+             .AddDefaultTokenProviders() // This registers the default token providers (including the DataProtectorTokenProvider)
+             .AddTokenProvider<DataProtectorTokenProvider<AppUser>>("Default"); // Register the DataProtectorTokenProvider explicitly;
 
             builder.Services.AddAuthentication(options =>
             {
@@ -63,7 +68,7 @@ namespace Kemet.APIs
 
                                             };
                                         });
-            builder.Services.AddScoped<ITokenServices, TokenServices>();
+           
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("MyPolicy", config =>
@@ -74,6 +79,8 @@ namespace Kemet.APIs
                 });
             });
 
+            builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+            builder.Services.AddTransient<IEmailSettings, EmailSettings>();
 
             #region Services 
 
@@ -107,6 +114,7 @@ namespace Kemet.APIs
                 logger.LogError(ex, "an Error has been accured during applying the migration");
 
             }
+
             #endregion
             #region Configure
             // Configure the HTTP request pipeline.
