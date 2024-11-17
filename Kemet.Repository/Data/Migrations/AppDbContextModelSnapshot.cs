@@ -22,6 +22,86 @@ namespace Kemet.Repository.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Kemet.Core.Entities.Activity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("CloseTime")
+                        .HasColumnType("Time");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GroupSize")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LocationId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LocationId1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("OpenTime")
+                        .HasColumnType("Time");
+
+                    b.Property<string>("PictureUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PlaceId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PlaceId1")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("LocationId");
+
+                    b.HasIndex("LocationId1")
+                        .IsUnique()
+                        .HasFilter("[LocationId1] IS NOT NULL");
+
+                    b.HasIndex("PlaceId");
+
+                    b.HasIndex("PlaceId1");
+
+                    b.ToTable("Activities");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("Kemet.Core.Entities.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -121,6 +201,87 @@ namespace Kemet.Repository.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("OTPs");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Location", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LocationLink")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlaceLatitude")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlaceLongitude")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Locations");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Place", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("CloseTime")
+                        .HasColumnType("Time");
+
+                    b.Property<string>("CultureTips")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("EntryFee")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("OpenTime")
+                        .HasColumnType("Time");
+
+                    b.Property<string>("PictureUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("locationId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("locationId")
+                        .IsUnique();
+
+                    b.ToTable("Places");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -313,6 +474,56 @@ namespace Kemet.Repository.Data.Migrations
                     b.HasDiscriminator().HasValue("TravelAgency");
                 });
 
+            modelBuilder.Entity("Kemet.Core.Entities.Activity", b =>
+                {
+                    b.HasOne("Kemet.Core.Entities.Category", null)
+                        .WithMany("Activity")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("Kemet.Core.Entities.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Kemet.Core.Entities.Location", null)
+                        .WithOne("Activity")
+                        .HasForeignKey("Kemet.Core.Entities.Activity", "LocationId1");
+
+                    b.HasOne("Kemet.Core.Entities.Place", "Place")
+                        .WithMany()
+                        .HasForeignKey("PlaceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Kemet.Core.Entities.Place", null)
+                        .WithMany("Activities")
+                        .HasForeignKey("PlaceId1");
+
+                    b.Navigation("Location");
+
+                    b.Navigation("Place");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Place", b =>
+                {
+                    b.HasOne("Kemet.Core.Entities.Category", "Category")
+                        .WithMany("Place")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Kemet.Core.Entities.Location", "Location")
+                        .WithOne("Place")
+                        .HasForeignKey("Kemet.Core.Entities.Place", "locationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Location");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -362,6 +573,27 @@ namespace Kemet.Repository.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Category", b =>
+                {
+                    b.Navigation("Activity");
+
+                    b.Navigation("Place");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Location", b =>
+                {
+                    b.Navigation("Activity")
+                        .IsRequired();
+
+                    b.Navigation("Place")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Place", b =>
+                {
+                    b.Navigation("Activities");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,5 @@
-﻿using Kemet.Core.Entities.Identity;
+﻿using Kemet.Core.Entities;
+using Kemet.Core.Entities.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,8 +21,17 @@ namespace Kemet.Repository.Data
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<OTP> OTPs { get; set; }
+        public DbSet<Place> Places { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<Location> Locations { get; set; }
+
+
+
+
     }
 }

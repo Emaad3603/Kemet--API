@@ -23,6 +23,7 @@ namespace Kemet.APIs
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            #region ConfigureServices
 
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
@@ -68,7 +69,7 @@ namespace Kemet.APIs
 
                                             };
                                         });
-           
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("MyPolicy", config =>
@@ -80,7 +81,8 @@ namespace Kemet.APIs
             });
 
             builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
-            builder.Services.AddTransient<IEmailSettings, EmailSettings>();
+            builder.Services.AddTransient<IEmailSettings, EmailSettings>(); 
+            #endregion
 
             #region Services 
 
