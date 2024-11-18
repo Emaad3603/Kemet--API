@@ -13,6 +13,9 @@ namespace Kemet.Repository.Data.Configuration.Identity
     {
         public void Configure(EntityTypeBuilder<TravelAgency> builder)
         {
+          
+
+
             builder.HasBaseType<AppUser>(); 
 
            

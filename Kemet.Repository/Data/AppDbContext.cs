@@ -29,7 +29,8 @@ namespace Kemet.Repository.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Location> Locations { get; set; }
-
+      
+        public DbSet<TravelAgencyPlan> TravelAgencyPlans { get; set; }
 
 
 
