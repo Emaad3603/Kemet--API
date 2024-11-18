@@ -7,6 +7,7 @@ using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Services.InterFaces;
 using Kemet.Repository.Data;
+using Kemet.Repository.Data.DataSeed;
 using Kemet.Repository.Data.DataSeed.Identity;
 using Kemet.Repository.Repositories;
 using Kemet.Services;
@@ -120,6 +121,7 @@ namespace Kemet.APIs
                 var _userManager = services.GetRequiredService<UserManager<AppUser>>();
 
                 await IdentityDbContextSeed.SeedUserAsync(_userManager, roleManager);
+                await CategoryDataSeed.SeedCategoriesAsync(_context);
             }
             catch (Exception ex)
             {

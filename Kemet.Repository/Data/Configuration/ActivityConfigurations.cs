@@ -39,12 +39,12 @@ namespace Kemet.Repository.Data.Configuration
             builder.HasOne(A => A.Place)
                 .WithMany()
                 .HasForeignKey(A => A.PlaceId)
-                .OnDelete(DeleteBehavior.Restrict); //Disable cascade Delete
+                .OnDelete(DeleteBehavior.SetNull); 
 
             builder.HasOne(A => A.Location)
                .WithMany()
                .HasForeignKey(A => A.LocationId)
-                .OnDelete(DeleteBehavior.Restrict); //Disable cascade Delete;
+                .OnDelete(DeleteBehavior.SetNull); //Disable cascade Delete;
 
 
 

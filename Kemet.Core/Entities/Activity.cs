@@ -17,12 +17,12 @@ namespace Kemet.Core.Entities
         public string PictureUrl { get; set; }
 
         //has one location
-        public int LocationId { get; set; }
-        public Location Location { get; set; }
+        public int? LocationId { get; set; }
+        public Location? Location { get; set; }
 
         //one place has many activities
-        public int PlaceId { get; set; }
-        public Place Place { get; set; }
+        public int? PlaceId { get; set; }
+        public Place? Place { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
     }
