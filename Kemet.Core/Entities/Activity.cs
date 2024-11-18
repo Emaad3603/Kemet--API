@@ -23,7 +23,6 @@ namespace Kemet.Core.Entities
         //one place has many activities
         public int PlaceId { get; set; }
         public Place Place { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+
     }
 }
