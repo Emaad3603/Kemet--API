@@ -13,3 +13,12 @@ C:\Users\osama yasser\Source\Repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\refint
 C:\Users\osama yasser\Source\Repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.pdb
 C:\Users\osama yasser\Source\Repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.genruntimeconfig.cache
 C:\Users\osama yasser\Source\Repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\ref\Kemet.Core.dll
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.csproj.AssemblyReference.cache
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.AssemblyInfoInputs.cache
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.AssemblyInfo.cs
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.csproj.CoreCompileInputs.cache
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.sourcelink.json
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.dll
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\refint\Kemet.Core.dll
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Core\obj\Debug\net6.0\Kemet.Core.pdb

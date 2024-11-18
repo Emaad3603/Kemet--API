@@ -19,8 +19,10 @@ namespace Kemet.Repository.Data.Configuration.Identity
                    .HasConversion(
                        v => v.ToDateTime(TimeOnly.MinValue),
                        v => DateOnly.FromDateTime(v));
+            builder.HasMany(c => c.CustomerInterests)
+              .WithOne(ci => ci.Customer)
+              .HasForeignKey(ci => ci.CustomerId);
 
-           
         }
     }
 }
