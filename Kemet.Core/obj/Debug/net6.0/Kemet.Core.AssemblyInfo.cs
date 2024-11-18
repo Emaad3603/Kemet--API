@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kemet.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9167526ebccbcfc7cb2910150bff3c94ae512bad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff6a90678b311b8b6e575ba48aa7054b91888b9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kemet.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kemet.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

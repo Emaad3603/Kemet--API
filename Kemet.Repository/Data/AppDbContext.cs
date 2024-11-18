@@ -1,5 +1,6 @@
 ﻿using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Entities.Intersts;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -32,6 +33,8 @@ namespace Kemet.Repository.Data
       
         public DbSet<TravelAgencyPlan> TravelAgencyPlans { get; set; }
 
+
+        public DbSet<CustomerInterest> CustomerInterests { get; set; }
 
 
     }

@@ -687,10 +687,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.36"
         },
         "runtime": {
-          "Kemet.Core.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Kemet.Core.dll": {}
         }
       },
       "Kemet.Repository/1.0.0": {
@@ -698,10 +695,7 @@
           "Kemet.Core": "1.0.0"
         },
         "runtime": {
-          "Kemet.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Kemet.Repository.dll": {}
         }
       },
       "Kemet.Services/1.0.0": {
@@ -711,10 +705,7 @@
           "MimeKit": "4.8.0"
         },
         "runtime": {
-          "Kemet.Services.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Kemet.Services.dll": {}
         }
       }
     }
