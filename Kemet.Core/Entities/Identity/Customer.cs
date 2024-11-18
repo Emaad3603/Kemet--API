@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kemet.Core.Entities.Intersts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace Kemet.Core.Entities.Identity
         public string Gender { get; set; }
 
         public string Nationality { get; set; }
+
+        public ICollection<CustomerInterest> CustomerInterests { get; set; } = new List<CustomerInterest>();
 
     }
 }
