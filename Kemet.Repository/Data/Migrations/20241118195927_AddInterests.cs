@@ -87,7 +87,7 @@ namespace Kemet.Repository.Data.Migrations
                 name: "CategoryId",
                 table: "Activities",
                 type: "int",
-                nullable: true,
+                nullable: false,
                 defaultValue: 0,
                 oldClrType: typeof(int),
                 oldType: "int",
@@ -98,7 +98,8 @@ namespace Kemet.Repository.Data.Migrations
                 columns: table => new
                 {
                     CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -120,7 +121,6 @@ namespace Kemet.Repository.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Places_locationId",
                 table: "Places",
-
                 column: "locationId");
 
             migrationBuilder.CreateIndex(
@@ -172,7 +172,6 @@ namespace Kemet.Repository.Data.Migrations
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Activities_Places_PlaceId",
-                
                 table: "Activities");
 
             migrationBuilder.DropForeignKey(

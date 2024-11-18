@@ -1,7 +1,10 @@
 ﻿using Kemet.APIs.Errors;
 using Kemet.APIs.Helpers;
+using Kemet.Core.Repositories.InterFaces;
+using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Services.InterFaces;
+using Kemet.Repository.Repositories;
 using Kemet.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +17,8 @@ namespace Kemet.APIs.Extensions
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddScoped<ITokenServices, TokenServices>();
             services.AddScoped<IEmailSettings, EmailSettings>();
+            services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            services.AddScoped<IinterestsRepository,InterestRepository>();
             services.AddScoped<OtpExtensions>();
             services.Configure<ApiBehaviorOptions>(options =>
             {

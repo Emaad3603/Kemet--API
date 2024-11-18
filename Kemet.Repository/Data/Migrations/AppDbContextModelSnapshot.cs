@@ -203,6 +203,9 @@ namespace Kemet.Repository.Data.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.HasKey("CustomerId", "CategoryId");
 
                     b.HasIndex("CategoryId");
