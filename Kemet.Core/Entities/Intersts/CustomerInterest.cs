@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kemet.Core.Entities.Intersts
 {
-    public class CustomerInterest
+    public class CustomerInterest : BaseEntity
     {
         public string CustomerId { get; set; }
         public Customer Customer { get; set; }

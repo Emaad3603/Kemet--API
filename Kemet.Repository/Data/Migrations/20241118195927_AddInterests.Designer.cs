@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kemet.Repository.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241118193408_AddInterests")]
+    [Migration("20241118195927_AddInterests")]
     partial class AddInterests
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -203,6 +203,9 @@ namespace Kemet.Repository.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.HasKey("CustomerId", "CategoryId");
