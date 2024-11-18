@@ -13,7 +13,6 @@ namespace Kemet.Core.Entities
         public string PlaceLatitude { get; set; }
         public string PlaceLongitude { get; set; }
 
-        public Activity Activity { get; set; }
-        public Place Place { get; set; }
+      
     }
 }
