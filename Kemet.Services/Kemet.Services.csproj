@@ -8,11 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="4.8.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="MimeKit" Version="4.8.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Kemet.Core\Kemet.Core.csproj" />
+    <ProjectReference Include="..\Kemet.Repository\Kemet.Repository.csproj" />
   </ItemGroup>
 
 </Project>

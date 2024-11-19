@@ -57,7 +57,7 @@ namespace Kemet.APIs.Controllers
 
             var customer = new Customer
             {
-                UserName = string.Concat(model.FirstName, model.LastName),
+                UserName = string.Concat(model.FirstName," ", model.LastName),
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
                 FirstName = model.FirstName,
