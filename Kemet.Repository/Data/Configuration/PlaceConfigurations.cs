@@ -24,9 +24,6 @@ namespace Kemet.Repository.Data.Configuration
 
             builder.Property(P => P.PictureUrl)
                   .IsRequired();
-           builder.Property(P=>P.EntryFee)
-                .HasColumnType("decimal(18,2)")
-                .IsRequired();
             builder.Property(P => P.OpenTime)
                    .HasColumnType("Time")
                    .IsRequired();
@@ -35,7 +32,9 @@ namespace Kemet.Repository.Data.Configuration
                    .IsRequired();
             builder.Property(P => P.Duration)
                   .IsRequired();
-           
+            builder.HasOne(P => P.Price)
+                   .WithOne()
+                   .OnDelete(DeleteBehavior.SetNull);
             
           
                 

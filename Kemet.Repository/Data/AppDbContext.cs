@@ -35,6 +35,6 @@ namespace Kemet.Repository.Data
 
         public DbSet<CustomerInterest> CustomerInterests { get; set; }
 
-
+        public DbSet<Price> Prices { get; set; }
     }
 }

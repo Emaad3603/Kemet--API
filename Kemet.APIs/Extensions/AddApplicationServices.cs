@@ -19,6 +19,7 @@ namespace Kemet.APIs.Extensions
             services.AddScoped<IEmailSettings, EmailSettings>();
             services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddScoped<IinterestsRepository,InterestRepository>();
+            services.AddScoped<ISearchInterface,SearchServices>();
             services.AddScoped<OtpExtensions>();
             services.Configure<ApiBehaviorOptions>(options =>
             {

@@ -33,9 +33,6 @@ namespace Kemet.Repository.Data.Configuration
             builder.Property(A => A.CloseTime)
                 .HasColumnType("Time")
                .IsRequired();
-            builder.Property(A => A.Price)
-                .HasColumnType("decimal(18,2)")
-                .IsRequired();
             builder.HasOne(A => A.Place)
                 .WithMany()
                 .HasForeignKey(A => A.PlaceId)
@@ -45,6 +42,11 @@ namespace Kemet.Repository.Data.Configuration
                .WithMany()
                .HasForeignKey(A => A.LocationId)
                 .OnDelete(DeleteBehavior.SetNull); //Disable cascade Delete;
+
+            builder.HasOne(A => A.Price)
+                   .WithOne()
+                   .OnDelete(DeleteBehavior.SetNull);
+                   
 
 
 

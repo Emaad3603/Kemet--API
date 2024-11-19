@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Kemet.APIs.DTOs.HomePageDTOs;
+using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Specifications.ActivitySpecs;
@@ -21,17 +22,31 @@ namespace Kemet.APIs.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet] // /api/places  Get
+        [HttpGet] // /api/Activities  Get
         public async Task<ActionResult<IEnumerable<Activity>>> GetActivity()
         {
-            var spec = new ActivityWithPlacesSpecifications();
-            var activity = await _activityRepo.GetAllWithSpecAsync(spec);
-            var Result = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activity);
-
-
-            return Ok(Result);
-
-
-        }
-    }
-}
+            try
+            {
+                var spec = new ActivityWithPlacesSpecifications();
+                var activity = await _activityRepo.GetAllWithSpecAsync(spec);
+                if(activity == null)
+                {
+                    return NotFound(new ApiResponse(404, "No Activities found "));
+                }
+                var Result = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activity);
+                if(Result == null)
+                {
+                    return NotFound(new ApiResponse(404, "No Activities found "));
+                }
+                return Ok(Result);
+            }catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
+                        
+                        
+                        
+        }               
+    }                   
+}                       
+                        

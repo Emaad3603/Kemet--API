@@ -10,7 +10,10 @@ namespace Kemet.Core.Entities
     {
         public string Name { get; set; }
         public int Duration { get; set; }
-        public decimal Price { get; set; }
+
+        // Price relation nav 
+        public int? priceId { get; set; }
+        public Price Price { get; set; }
         public TimeSpan OpenTime { get; set; }
         public TimeSpan CloseTime { get; set; }
         public int GroupSize { get; set; }

@@ -15,9 +15,6 @@ namespace Kemet.Repository.Data.Configuration
         {
             builder.Property(TP=>TP.PictureUrl)
                    .IsRequired();
-            builder.Property(TP => TP.Price)
-                   .HasColumnType("decimal(18,2)")
-                   .IsRequired();
             builder.Property(TP => TP.Description)
                    .IsRequired();
             builder.Property(TP => TP.Duration)
@@ -32,7 +29,9 @@ namespace Kemet.Repository.Data.Configuration
             builder.HasOne(TP => TP.TravelAgency)
                 .WithMany()
                 .HasForeignKey(TP => TP.TravelAgencyId);
-
+            builder.HasOne(TP=>TP.Price)
+                   .WithOne()
+                   .OnDelete(DeleteBehavior.SetNull);
 
         }
     }
