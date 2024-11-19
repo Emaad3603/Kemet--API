@@ -20,7 +20,7 @@ namespace Kemet.Core.Entities
         public int? locationId { get; set; }
         public Location? Location { get; set; }
 
-       // public List<Activity> Activities { get; set; }
+        public List<Activity> Activities { get; set; }
 
         //nav prop category and fk
         public int CategoryId { get; set; }
