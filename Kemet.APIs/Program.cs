@@ -1,11 +1,14 @@
 using Kemet.APIs.Extensions;
 using Kemet.APIs.Helpers;
 using Kemet.APIs.Middlewares;
+using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Services.InterFaces;
 using Kemet.Repository.Data;
 using Kemet.Repository.Data.DataSeed.Identity;
+using Kemet.Repository.Repositories;
 using Kemet.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -37,6 +40,14 @@ namespace Kemet.APIs
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            //allow the dependancy injection for  generic repository
+
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            //==================================================================================
+            builder.Services.AddAutoMapper(M => M.AddProfile(new MappingProfiles()));
+
             builder.Services.addApplicationServices();
             builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
             {

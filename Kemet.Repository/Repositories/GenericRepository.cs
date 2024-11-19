@@ -25,12 +25,18 @@ namespace Kemet.Repository.Repositories
 
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
-           
+            //if (typeof(T) == typeof(Place)) 
+            //{
+            //    //Include(P => P.Category).Include(P=>P.Activities).Include(P=>P.Location)
+            //    return (IReadOnlyList<T>)await _context.Places.ToListAsync();
+            
+            //}  
             return await _context.Set<T>().ToListAsync();
         }
 
         public async Task<T?> GetAsync(int id)
         {
+           
             return await _context.Set<T>().FindAsync(id);
         }
 
