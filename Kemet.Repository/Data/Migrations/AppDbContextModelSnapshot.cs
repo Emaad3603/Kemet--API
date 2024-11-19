@@ -293,6 +293,52 @@ namespace Kemet.Repository.Data.Migrations
                     b.ToTable("Places");
                 });
 
+            modelBuilder.Entity("Kemet.Core.Entities.TravelAgencyPlan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PictureUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlanAvailability")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlanName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("TravelAgencyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TravelAgencyId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TravelAgencyId");
+
+                    b.HasIndex("TravelAgencyId1");
+
+                    b.ToTable("TravelAgencyPlans");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -544,6 +590,21 @@ namespace Kemet.Repository.Data.Migrations
                     b.Navigation("Location");
                 });
 
+            modelBuilder.Entity("Kemet.Core.Entities.TravelAgencyPlan", b =>
+                {
+                    b.HasOne("Kemet.Core.Entities.Identity.TravelAgency", "TravelAgency")
+                        .WithMany()
+                        .HasForeignKey("TravelAgencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Kemet.Core.Entities.Identity.TravelAgency", null)
+                        .WithMany("TravelAgencyPlan")
+                        .HasForeignKey("TravelAgencyId1");
+
+                    b.Navigation("TravelAgency");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -607,6 +668,11 @@ namespace Kemet.Repository.Data.Migrations
             modelBuilder.Entity("Kemet.Core.Entities.Identity.Customer", b =>
                 {
                     b.Navigation("CustomerInterests");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Identity.TravelAgency", b =>
+                {
+                    b.Navigation("TravelAgencyPlan");
                 });
 #pragma warning restore 612, 618
         }

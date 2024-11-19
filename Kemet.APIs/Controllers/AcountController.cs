@@ -90,7 +90,7 @@ namespace Kemet.APIs.Controllers
                 return BadRequest(new ApiResponse(400, "Email already exists"));
             }
 
-            var travelAgency = new TravelAgency
+            var travelAgency = new TravelAgency()
             {
                 UserName = model.UserName,
                 Email = model.Email,
