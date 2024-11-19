@@ -39,6 +39,15 @@ namespace Kemet.APIs
                 option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
             builder.Services.addApplicationServices();
+
+            var uploadsFolder = builder.Configuration.GetValue<string>("UploadsFolder");
+
+            // Register services
+            builder.Services.AddScoped<IProfileService>(provider => new ProfileService(
+                provider.GetRequiredService<UserManager<AppUser>>(),
+                uploadsFolder));
+
+
             builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
             {
                 // Allow spaces in the username and no special char except "._-   " 

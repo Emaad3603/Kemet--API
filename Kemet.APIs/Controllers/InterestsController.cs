@@ -35,7 +35,11 @@ namespace Kemet.Api.Controllers
             try
             {
                 var userEmail = User.FindFirstValue(ClaimTypes.Email);
-                var user = await _userManager.FindByEmailAsync(userEmail);
+                if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
+
+                var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+                if (user == null) return NotFound("User not found.");
+
                 var spec = new CustomerInterestsSpecification(user.Id);
                 var interests = await _repository.GetAllWithSpecAsync(spec);
                 
@@ -63,7 +67,10 @@ namespace Kemet.Api.Controllers
             try
             {
                 var userEmail = User.FindFirstValue(ClaimTypes.Email);
-                var user = await _userManager.FindByEmailAsync(userEmail);
+                if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
+
+                var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+                if (user == null) return NotFound("User not found.");
 
                 var categoriesIDs = interests.CategoryIds;
                 await _repository.AddInterestsAsync(user.Id, categoriesIDs);
@@ -88,7 +95,11 @@ namespace Kemet.Api.Controllers
             try
             {
                 var userEmail = User.FindFirstValue(ClaimTypes.Email);
-                var user = await _userManager.FindByEmailAsync(userEmail);
+                if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
+
+                var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+                if (user == null) return NotFound("User not found.");
+
                 var interest = await _repository.GetUserInterestsAsync(user.Id);
                 if (interest == null)
                 {
