@@ -30,7 +30,7 @@ namespace Kemet.Repository.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<TimeSpan>("CloseTime")
@@ -42,10 +42,7 @@ namespace Kemet.Repository.Data.Migrations
                     b.Property<int>("GroupSize")
                         .HasColumnType("int");
 
-                    b.Property<int>("LocationId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("LocationId1")
+                    b.Property<int?>("LocationId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -59,10 +56,7 @@ namespace Kemet.Repository.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PlaceId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PlaceId1")
+                    b.Property<int?>("PlaceId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -74,13 +68,7 @@ namespace Kemet.Repository.Data.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.HasIndex("LocationId1")
-                        .IsUnique()
-                        .HasFilter("[LocationId1] IS NOT NULL");
-
                     b.HasIndex("PlaceId");
-
-                    b.HasIndex("PlaceId1");
 
                     b.ToTable("Activities");
                 });
@@ -94,6 +82,10 @@ namespace Kemet.Repository.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CategoryType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -203,6 +195,24 @@ namespace Kemet.Repository.Data.Migrations
                     b.ToTable("OTPs");
                 });
 
+            modelBuilder.Entity("Kemet.Core.Entities.Intersts.CustomerInterest", b =>
+                {
+                    b.Property<string>("CustomerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("CustomerId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("CustomerInterests");
+                });
+
             modelBuilder.Entity("Kemet.Core.Entities.Location", b =>
                 {
                     b.Property<int>("Id")
@@ -271,15 +281,14 @@ namespace Kemet.Repository.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("locationId")
+                    b.Property<int?>("locationId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("locationId")
-                        .IsUnique();
+                    b.HasIndex("locationId");
 
                     b.ToTable("Places");
                 });
@@ -476,33 +485,46 @@ namespace Kemet.Repository.Data.Migrations
 
             modelBuilder.Entity("Kemet.Core.Entities.Activity", b =>
                 {
-                    b.HasOne("Kemet.Core.Entities.Category", null)
+                    b.HasOne("Kemet.Core.Entities.Category", "Category")
                         .WithMany("Activity")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Kemet.Core.Entities.Location", "Location")
                         .WithMany()
                         .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Kemet.Core.Entities.Location", null)
-                        .WithOne("Activity")
-                        .HasForeignKey("Kemet.Core.Entities.Activity", "LocationId1");
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Kemet.Core.Entities.Place", "Place")
                         .WithMany()
                         .HasForeignKey("PlaceId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("Kemet.Core.Entities.Place", null)
-                        .WithMany("Activities")
-                        .HasForeignKey("PlaceId1");
+                    b.Navigation("Category");
 
                     b.Navigation("Location");
 
                     b.Navigation("Place");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Intersts.CustomerInterest", b =>
+                {
+                    b.HasOne("Kemet.Core.Entities.Category", "Category")
+                        .WithMany("CustomerInterests")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Kemet.Core.Entities.Identity.Customer", "Customer")
+                        .WithMany("CustomerInterests")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("Kemet.Core.Entities.Place", b =>
@@ -514,10 +536,8 @@ namespace Kemet.Repository.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Kemet.Core.Entities.Location", "Location")
-                        .WithOne("Place")
-                        .HasForeignKey("Kemet.Core.Entities.Place", "locationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("locationId");
 
                     b.Navigation("Category");
 
@@ -579,21 +599,14 @@ namespace Kemet.Repository.Data.Migrations
                 {
                     b.Navigation("Activity");
 
+                    b.Navigation("CustomerInterests");
+
                     b.Navigation("Place");
                 });
 
-            modelBuilder.Entity("Kemet.Core.Entities.Location", b =>
+            modelBuilder.Entity("Kemet.Core.Entities.Identity.Customer", b =>
                 {
-                    b.Navigation("Activity")
-                        .IsRequired();
-
-                    b.Navigation("Place")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Kemet.Core.Entities.Place", b =>
-                {
-                    b.Navigation("Activities");
+                    b.Navigation("CustomerInterests");
                 });
 #pragma warning restore 612, 618
         }

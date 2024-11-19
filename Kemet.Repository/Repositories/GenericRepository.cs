@@ -16,7 +16,7 @@ namespace Kemet.Repository.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
-        private readonly AppDbContext _context;
+        public readonly AppDbContext _context;
 
         public GenericRepository(AppDbContext context)
         {
