@@ -12,8 +12,8 @@ namespace Kemet.Core.Entities
         public string CategoryName { get; set; }
         public string CategoryType { get; set; }
         //Navigations PRoperties
-        public List<Activity> Activity { get; set; }
-        public List<Place> Place { get; set; }
+        public ICollection<Activity> Activity { get; set; }
+        public ICollection<Place> Place { get; set; }
         public ICollection<CustomerInterest> CustomerInterests { get; set; } = new List<CustomerInterest>();
     }
 }

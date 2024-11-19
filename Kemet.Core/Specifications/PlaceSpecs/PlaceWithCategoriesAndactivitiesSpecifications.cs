@@ -12,7 +12,7 @@ namespace Kemet.Core.Specifications.PlaceSpecs
         //this constructor will be used for creating object for get all places
         public PlaceWithCategoriesAndactivitiesSpecifications() :base()
         {
-            Includes.Add(P => P.Activities);
+        //    Includes.Add(P => P.Activities);
             Includes.Add(P => P.Category);
         }
     }

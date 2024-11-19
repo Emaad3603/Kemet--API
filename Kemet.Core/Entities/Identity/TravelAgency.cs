@@ -20,7 +20,7 @@ namespace Kemet.Core.Entities.Identity
         public string InstagramURL { get; set; }
         //navigation prop for travel agency plans
         //each travel agency have many plans
-        public List<TravelAgencyPlan> TravelAgencyPlan { get; set; }
+      //  public List<TravelAgencyPlan> TravelAgencyPlan { get; set; }
 
     }
 }
