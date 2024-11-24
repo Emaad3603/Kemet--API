@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Kemet.APIs.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Kemet.Core.Entities
@@ -14,10 +16,14 @@ namespace Kemet.Core.Entities
         // Price relation nav 
         public int? priceId { get; set; }
         public Price Price { get; set; }
+        [JsonConverter(typeof(CustomTimeSpanConverter))]
         public TimeSpan OpenTime { get; set; }
+
+        [JsonConverter(typeof(CustomTimeSpanConverter))]
         public TimeSpan CloseTime { get; set; }
-        public int Duration { get; set; }
-        public string PictureUrl { get; set; }
+
+        public string Duration { get; set; }
+        public string? PictureUrl { get; set; }
 
         public int? locationId { get; set; }
         public Location? Location { get; set; }

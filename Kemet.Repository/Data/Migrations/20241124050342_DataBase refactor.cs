@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Kemet.Repository.Data.Migrations
 {
-    public partial class AddPRicesTable : Migration
+    public partial class DataBaserefactor : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -79,12 +79,11 @@ namespace Kemet.Repository.Data.Migrations
                 name: "Locations",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LocationLink = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PlaceLatitude = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PlaceLongitude = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    LocationLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PlaceLatitude = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PlaceLongitude = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -111,8 +110,7 @@ namespace Kemet.Repository.Data.Migrations
                 name: "Prices",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     EgyptianAdult = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     EgyptianStudent = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     TouristAdult = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
@@ -245,13 +243,13 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.CustomerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_CustomerInterests_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -266,8 +264,8 @@ namespace Kemet.Repository.Data.Migrations
                     priceId = table.Column<int>(type: "int", nullable: true),
                     OpenTime = table.Column<TimeSpan>(type: "Time", nullable: false),
                     CloseTime = table.Column<TimeSpan>(type: "Time", nullable: false),
-                    Duration = table.Column<int>(type: "int", nullable: false),
-                    PictureUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Duration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PictureUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     locationId = table.Column<int>(type: "int", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -279,12 +277,13 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Places_Locations_locationId",
                         column: x => x.locationId,
                         principalTable: "Locations",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Places_Prices_priceId",
                         column: x => x.priceId,
@@ -315,7 +314,7 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.TravelAgencyId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_TravelAgencyPlans_Prices_priceId",
                         column: x => x.priceId,
@@ -331,12 +330,13 @@ namespace Kemet.Repository.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Duration = table.Column<int>(type: "int", nullable: false),
+                    Duration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     priceId = table.Column<int>(type: "int", nullable: true),
                     OpenTime = table.Column<TimeSpan>(type: "Time", nullable: false),
                     CloseTime = table.Column<TimeSpan>(type: "Time", nullable: false),
                     GroupSize = table.Column<int>(type: "int", nullable: false),
-                    PictureUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PictureUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LocationId = table.Column<int>(type: "int", nullable: true),
                     PlaceId = table.Column<int>(type: "int", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
@@ -349,7 +349,7 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Activities_Locations_LocationId",
                         column: x => x.LocationId,
@@ -361,7 +361,7 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.PlaceId,
                         principalTable: "Places",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Activities_Prices_priceId",
                         column: x => x.priceId,
@@ -389,7 +389,7 @@ namespace Kemet.Repository.Data.Migrations
                 name: "IX_Activities_priceId",
                 table: "Activities",
                 column: "priceId",
-                unique: true,
+            
                 filter: "[priceId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
@@ -450,7 +450,7 @@ namespace Kemet.Repository.Data.Migrations
                 name: "IX_Places_priceId",
                 table: "Places",
                 column: "priceId",
-                unique: true,
+             
                 filter: "[priceId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(

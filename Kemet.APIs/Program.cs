@@ -131,6 +131,7 @@ namespace Kemet.APIs
 
                 await IdentityDbContextSeed.SeedUserAsync(_userManager, roleManager);
                 await CategoryDataSeed.SeedCategoriesAsync(_context);
+                await DataSeeding.SeedDataAsync(_context);
             }
             catch (Exception ex)
             {

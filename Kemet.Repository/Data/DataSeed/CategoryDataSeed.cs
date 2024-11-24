@@ -33,10 +33,12 @@ namespace Kemet.Repository.Data.DataSeed
                 new Category { CategoryName = "Hiking", CategoryType = "Activity" },
                 new Category { CategoryName = "Water Sports and Nile Activities", CategoryType = "Activity" },
                 new Category { CategoryName = "Cultural Experience", CategoryType = "Activity" },
-                new Category { CategoryName = "Adventure Activity (Hot Balloons)", CategoryType = "Activity" },
+                new Category { CategoryName = "Adventure Activity", CategoryType = "Activity" },
                 new Category { CategoryName = "Relaxation and Wellness", CategoryType = "Activity" },
                 new Category { CategoryName = "Entertainment", CategoryType = "Activity" },
-                new Category { CategoryName = "Safari", CategoryType = "Activity" }
+                new Category { CategoryName = "Safari", CategoryType = "Activity" },
+                new Category { CategoryName = "Fancy Cafe", CategoryType = "Activity" },
+                new Category { CategoryName = "Fancy Restaurant", CategoryType = "Activity" }
             };
 
                 await  context.Categories.AddRangeAsync(placeCategories);

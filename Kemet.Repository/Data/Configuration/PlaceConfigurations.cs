@@ -22,8 +22,7 @@ namespace Kemet.Repository.Data.Configuration
             builder.Property(P => P.Description)
                   .IsRequired();
 
-            builder.Property(P => P.PictureUrl)
-                  .IsRequired();
+           
             builder.Property(P => P.OpenTime)
                    .HasColumnType("Time")
                    .IsRequired();
