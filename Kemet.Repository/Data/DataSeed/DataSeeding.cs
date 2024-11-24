@@ -78,13 +78,16 @@ namespace Kemet.Repository.Data.DataSeed
                         };
 
                         // Folder path for Place images
-                        var folderPath = Path.Combine(baseImagePath, "Places", place.Name);
+                        // var folderPath = Path.Combine(baseImagePath, "Places", place.Name);
+                        var folderPath = Path.Combine(baseImagePath, "Places", place.Name.Replace(" ", ""));
+
+
                         if (Directory.Exists(folderPath))
                         {
                             var imageFiles = Directory.GetFiles(folderPath);
                             var placeImages = imageFiles.Select(imageFile => new PlaceImage
                             {
-                                ImageUrl = $"/Images/Places/{place.Name}/{Path.GetFileName(imageFile)}",
+                                ImageUrl = $"/Images/Places/{place.Name.Replace(" ", "")}/{Path.GetFileName(imageFile)}",
                                 PlaceId = place.Id
                             }).ToList();
 
@@ -129,13 +132,16 @@ namespace Kemet.Repository.Data.DataSeed
                         };
 
                         // Folder path for Activity images
-                        var folderPath = Path.Combine(baseImagePath, "Activities", activity.Name);
+                        //  var folderPath = Path.Combine(baseImagePath, "Activities", activity.Name);
+                        var folderPath = Path.Combine(baseImagePath, "Activities", activity.Name.Replace(" ", ""));
+
+
                         if (Directory.Exists(folderPath))
                         {
                             var imageFiles = Directory.GetFiles(folderPath);
                             var activityImages = imageFiles.Select(imageFile => new ActivityImage
                             {
-                                ImageUrl = $"/Images/Activities/{activity.Name}/{Path.GetFileName(imageFile)}",
+                                ImageUrl = $"/Images/Activities/{activity.Name.Replace(" ", "")}/{Path.GetFileName(imageFile)}",
                                 ActivityId = activity.Id
                             }).ToList();
 

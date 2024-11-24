@@ -813,7 +813,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.36"
         },
         "runtime": {
-          "Kemet.Core.dll": {}
+          "Kemet.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Kemet.Repository/1.0.0": {
@@ -821,7 +824,10 @@
           "Kemet.Core": "1.0.0"
         },
         "runtime": {
-          "Kemet.Repository.dll": {}
+          "Kemet.Repository.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

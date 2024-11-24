@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj": {}
+    "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj": {
+    "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj",
+        "projectUniqueName": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj",
         "projectName": "Kemet.Core",
-        "projectPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj",
-        "packagesPath": "C:\\Users\\Emad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\obj\\",
+        "projectPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj",
+        "packagesPath": "C:\\Users\\osama yasser\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Emad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\osama yasser\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -82,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
