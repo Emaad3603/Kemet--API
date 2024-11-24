@@ -1,4 +1,5 @@
 ﻿using Kemet.APIs.Helpers;
+using Kemet.Core.Entities.Images;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Kemet.Core.Entities
     {
         public string Name { get; set; }
         public string Duration { get; set; }
+
+        public string CulturalTips { get; set; }
 
         public string Description { get; set; }
 
@@ -35,5 +38,7 @@ namespace Kemet.Core.Entities
         public Place? Place { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public ICollection<ActivityImage> Images { get; set; } = new List<ActivityImage>();
     }
 }

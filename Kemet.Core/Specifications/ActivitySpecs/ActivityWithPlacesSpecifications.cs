@@ -12,6 +12,7 @@ namespace Kemet.Core.Specifications.ActivitySpecs
         public ActivityWithPlacesSpecifications():base()
         {
             Includes.Add(A => A.Place);
+            Includes.Add(A => A.Images);
         }
     }
 }

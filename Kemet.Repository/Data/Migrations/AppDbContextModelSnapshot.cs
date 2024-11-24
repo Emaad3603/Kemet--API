@@ -36,6 +36,10 @@ namespace Kemet.Repository.Data.Migrations
                     b.Property<TimeSpan>("CloseTime")
                         .HasColumnType("Time");
 
+                    b.Property<string>("CulturalTips")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -201,6 +205,50 @@ namespace Kemet.Repository.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("OTPs");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Images.ActivityImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ActivityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ActivityId");
+
+                    b.ToTable("ActivityImages");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Images.PlaceImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PlaceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlaceId");
+
+                    b.ToTable("PlaceImages");
                 });
 
             modelBuilder.Entity("Kemet.Core.Entities.Intersts.CustomerInterest", b =>
@@ -588,6 +636,28 @@ namespace Kemet.Repository.Data.Migrations
                     b.Navigation("Price");
                 });
 
+            modelBuilder.Entity("Kemet.Core.Entities.Images.ActivityImage", b =>
+                {
+                    b.HasOne("Kemet.Core.Entities.Activity", "Activity")
+                        .WithMany("Images")
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Activity");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Images.PlaceImage", b =>
+                {
+                    b.HasOne("Kemet.Core.Entities.Place", "Place")
+                        .WithMany("Images")
+                        .HasForeignKey("PlaceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Place");
+                });
+
             modelBuilder.Entity("Kemet.Core.Entities.Intersts.CustomerInterest", b =>
                 {
                     b.HasOne("Kemet.Core.Entities.Category", "Category")
@@ -701,6 +771,11 @@ namespace Kemet.Repository.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Kemet.Core.Entities.Activity", b =>
+                {
+                    b.Navigation("Images");
+                });
+
             modelBuilder.Entity("Kemet.Core.Entities.Category", b =>
                 {
                     b.Navigation("Activity");
@@ -708,6 +783,11 @@ namespace Kemet.Repository.Data.Migrations
                     b.Navigation("CustomerInterests");
 
                     b.Navigation("Place");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Place", b =>
+                {
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("Kemet.Core.Entities.Identity.Customer", b =>

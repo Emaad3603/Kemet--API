@@ -1,5 +1,6 @@
 ﻿using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Entities.Images;
 using Kemet.Core.Entities.Intersts;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -41,5 +42,9 @@ namespace Kemet.Repository.Data
         public DbSet<CustomerInterest> CustomerInterests { get; set; }
 
         public DbSet<Price> Prices { get; set; }
+
+        public DbSet<PlaceImage> PlaceImages { get; set; }
+
+        public DbSet<ActivityImage> ActivityImages { get; set; }
     }
 }
