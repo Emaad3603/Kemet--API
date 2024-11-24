@@ -11,7 +11,8 @@ namespace Kemet.APIs.Helpers
         {
             CreateMap<Place, PlacesDto>()
               .ForMember(d=>d.Name,o=>o.MapFrom(s=>s.Name))
-              .ForMember(d=>d.Description,o=>o.MapFrom(s=>s.Description)).ReverseMap();
+              .ForMember(d=>d.Description,o=>o.MapFrom(s=>s.Description))
+              .ReverseMap();
 
             CreateMap<Activity, ActivityDTOs>()
                 .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))

@@ -1,4 +1,5 @@
 ﻿using Kemet.APIs.Helpers;
+using Kemet.Core.Entities.Images;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace Kemet.Core.Entities
         //nav prop category and fk
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public ICollection<PlaceImage> Images { get; set; } = new List<PlaceImage>();
 
     }
 }

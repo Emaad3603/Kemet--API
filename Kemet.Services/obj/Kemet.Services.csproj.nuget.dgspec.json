@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj": {}
+    "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj": {
+    "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj",
         "projectName": "Kemet.Core",
-        "projectPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj",
-        "packagesPath": "C:\\Users\\osama yasser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\obj\\",
+        "projectPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj",
+        "packagesPath": "C:\\Users\\Emad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\osama yasser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Emad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +25,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,17 +37,16 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.36, )"
@@ -81,21 +82,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj": {
+    "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Repository\\Kemet.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj",
-        "projectName": "Kemet.Services",
-        "projectPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj",
-        "packagesPath": "C:\\Users\\osama yasser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Services\\obj\\",
+        "projectUniqueName": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Repository\\Kemet.Repository.csproj",
+        "projectName": "Kemet.Repository",
+        "projectPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Repository\\Kemet.Repository.csproj",
+        "packagesPath": "C:\\Users\\Emad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Repository\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\osama yasser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Emad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,15 +107,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj": {
-                "projectPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj"
+              "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj": {
+                "projectPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Core\\Kemet.Core.csproj"
               }
             }
           }
@@ -120,11 +123,68 @@
           "warnAsError": [
             "NU1605"
           ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj",
+        "projectName": "Kemet.Services",
+        "projectPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj",
+        "packagesPath": "C:\\Users\\Emad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Emad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Repository\\Kemet.Repository.csproj": {
+                "projectPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Repository\\Kemet.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
         }
       },
       "frameworks": {
@@ -134,6 +194,10 @@
             "MailKit": {
               "target": "Package",
               "version": "[4.8.0, )"
+            },
+            "Microsoft.AspNetCore.Hosting": {
+              "target": "Package",
+              "version": "[2.2.7, )"
             },
             "MimeKit": {
               "target": "Package",
@@ -156,7 +220,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

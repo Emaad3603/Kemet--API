@@ -1,4 +1,5 @@
 ﻿using Kemet.Core.Entities;
+using Kemet.Core.Entities.Images;
 using Kemet.Repository.Data.DataSeed.DataSeedingDTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -30,6 +31,8 @@ namespace Kemet.Repository.Data.DataSeed
                 }
             }
 
+            await context.SaveChangesAsync();
+
             // Seed Prices
             if (!context.Prices.Any())
             {
@@ -42,67 +45,105 @@ namespace Kemet.Repository.Data.DataSeed
                 }
             }
 
-            if (!context.Activities.Any())
-            {
-                var activityData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Activities.json");
+            await context.SaveChangesAsync();
 
-                // Deserialize JSON into ActivityDto
-                var activityDtos = JsonSerializer.Deserialize<List<ActivitySeedDto>>(activityData, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true  // Allow case-insensitive property names
-                });
+            // Base directory for images
+            var baseImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images");
 
-                if (activityDtos != null)
-                {
-                    // Map DTOs to Activity entities
-                    var activities = activityDtos.Select(dto => new Activity
-                    {
-                        Id = dto.Id,
-                        Name = dto.Name,
-                        Description = dto.Description,
-                       
-                        Duration = dto.Duration,
-                        OpenTime = dto.OpenTime,
-                        CloseTime = dto.CloseTime,
-                        priceId = dto.PriceId,
-                        LocationId = dto.LocationId,
-                        CategoryId = dto.CategoryId
-                    }).ToList();
-
-                    await context.Activities.AddRangeAsync(activities);
-                }
-            }
-
-            // Seed Places
             if (!context.Places.Any())
             {
                 var placeData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Places.json");
-
-                // Deserialize JSON into PlaceDto
-                var placeDtos = JsonSerializer.Deserialize<List<PlaceSeedDto>>(placeData, new JsonSerializerOptions
+                var placesDto = JsonSerializer.Deserialize<List<PlaceSeedDto>>(placeData, new JsonSerializerOptions
                 {
-                    PropertyNameCaseInsensitive = true  // Allow case-insensitive property names
+                    PropertyNameCaseInsensitive = true
                 });
 
-                if (placeDtos != null)
+                if (placesDto != null)
                 {
-                    // Map DTOs to Place entities
-                    var places = placeDtos.Select(dto => new Place
+                    foreach (var placeDto in placesDto)
                     {
-                        Id = dto.Id,
-                        Name = dto.Name,
-                        CultureTips = dto.CulturalTip,
-                        Description = dto.Description,
-                        Duration = dto.Duration,
-                        OpenTime = dto.OpenTime,
-                        CloseTime = dto.CloseTime,
-                        
-                        priceId = dto.PriceId,
-                        locationId = dto.LocationId,
-                        CategoryId = dto.CategoryId
-                    }).ToList();
+                        // Map DTO to Entity
+                        var place = new Place
+                        {
+                            Id = placeDto.Id,
+                            Name = placeDto.Name,
+                            CultureTips = placeDto.CulturalTip,
+                            Description = placeDto.Description,
+                            Duration = placeDto.Duration,
+                            OpenTime = placeDto.OpenTime,
+                            CloseTime = placeDto.CloseTime,
+                            priceId = placeDto.PriceId,
+                            locationId = placeDto.LocationId,
+                            CategoryId = placeDto.CategoryId,
+                        };
 
-                    await context.Places.AddRangeAsync(places);
+                        // Folder path for Place images
+                        var folderPath = Path.Combine(baseImagePath, "Places", place.Name);
+                        if (Directory.Exists(folderPath))
+                        {
+                            var imageFiles = Directory.GetFiles(folderPath);
+                            var placeImages = imageFiles.Select(imageFile => new PlaceImage
+                            {
+                                ImageUrl = $"/Images/Places/{place.Name}/{Path.GetFileName(imageFile)}",
+                                PlaceId = place.Id
+                            }).ToList();
+
+                            place.Images = placeImages;
+                        }
+
+                        await context.Places.AddAsync(place);
+                    }
+                }
+               
+            }
+
+            await context.SaveChangesAsync();
+
+            // Seed Activities
+            if (!context.Activities.Any())
+            {
+                var activityData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Activities.json");
+                var activitiesDto = JsonSerializer.Deserialize<List<ActivitySeedDto>>(activityData, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+                if (activitiesDto != null)
+                {
+                    foreach (var activityDto in activitiesDto)
+                    {
+                        // Map DTO to Entity
+                        var activity = new Activity
+                        {
+                            Id = activityDto.Id,
+                            Name = activityDto.Name,
+                            CulturalTips = activityDto.CulturalTip ?? "No cultural tips available",
+                            Description = activityDto.Description,
+                            Duration = activityDto.Duration,
+                            OpenTime = activityDto.OpenTime,
+                            CloseTime = activityDto.CloseTime,
+                            priceId = activityDto.PriceId,
+                            LocationId = activityDto.LocationId,
+                            CategoryId = activityDto.CategoryId,
+                          //  PictureUrl = activityDto.PictureUrl // Optional main image URL
+                        };
+
+                        // Folder path for Activity images
+                        var folderPath = Path.Combine(baseImagePath, "Activities", activity.Name);
+                        if (Directory.Exists(folderPath))
+                        {
+                            var imageFiles = Directory.GetFiles(folderPath);
+                            var activityImages = imageFiles.Select(imageFile => new ActivityImage
+                            {
+                                ImageUrl = $"/Images/Activities/{activity.Name}/{Path.GetFileName(imageFile)}",
+                                ActivityId = activity.Id
+                            }).ToList();
+
+                            activity.Images = activityImages;
+                        }
+
+                        await context.Activities.AddAsync(activity);
+                    }
                 }
             }
 
