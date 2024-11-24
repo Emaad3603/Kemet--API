@@ -13,6 +13,8 @@ namespace Kemet.Repository.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<Price> builder)
         {
+            builder.Property(P=>P.Id).ValueGeneratedNever();
+
             builder.Property(P => P.EgyptianAdult)
                    .HasColumnType("decimal(18,2)");
 

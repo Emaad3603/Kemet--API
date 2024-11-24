@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kemet.Repository.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241119192213_AddPRicesTable")]
-    partial class AddPRicesTable
+    [Migration("20241124050342_DataBase refactor")]
+    partial class DataBaserefactor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,8 +38,13 @@ namespace Kemet.Repository.Data.Migrations
                     b.Property<TimeSpan>("CloseTime")
                         .HasColumnType("Time");
 
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Duration")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GroupSize")
                         .HasColumnType("int");
@@ -55,7 +60,6 @@ namespace Kemet.Repository.Data.Migrations
                         .HasColumnType("Time");
 
                     b.Property<string>("PictureUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PlaceId")
@@ -222,25 +226,19 @@ namespace Kemet.Repository.Data.Migrations
             modelBuilder.Entity("Kemet.Core.Entities.Location", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LocationLink")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlaceLatitude")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlaceLongitude")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -270,8 +268,9 @@ namespace Kemet.Repository.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
+                    b.Property<string>("Duration")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -281,7 +280,6 @@ namespace Kemet.Repository.Data.Migrations
                         .HasColumnType("Time");
 
                     b.Property<string>("PictureUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("locationId")
@@ -306,10 +304,7 @@ namespace Kemet.Repository.Data.Migrations
             modelBuilder.Entity("Kemet.Core.Entities.Price", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<decimal?>("EgyptianAdult")
                         .HasColumnType("decimal(18,2)");
@@ -568,7 +563,7 @@ namespace Kemet.Repository.Data.Migrations
                     b.HasOne("Kemet.Core.Entities.Category", "Category")
                         .WithMany("Activity")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Kemet.Core.Entities.Location", "Location")
@@ -600,13 +595,13 @@ namespace Kemet.Repository.Data.Migrations
                     b.HasOne("Kemet.Core.Entities.Category", "Category")
                         .WithMany("CustomerInterests")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Kemet.Core.Entities.Identity.Customer", "Customer")
                         .WithMany("CustomerInterests")
                         .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
@@ -619,12 +614,13 @@ namespace Kemet.Repository.Data.Migrations
                     b.HasOne("Kemet.Core.Entities.Category", "Category")
                         .WithMany("Place")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Kemet.Core.Entities.Location", "Location")
                         .WithMany()
-                        .HasForeignKey("locationId");
+                        .HasForeignKey("locationId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Kemet.Core.Entities.Price", "Price")
                         .WithOne()
@@ -643,7 +639,7 @@ namespace Kemet.Repository.Data.Migrations
                     b.HasOne("Kemet.Core.Entities.Identity.TravelAgency", "TravelAgency")
                         .WithMany()
                         .HasForeignKey("TravelAgencyId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Kemet.Core.Entities.Price", "Price")

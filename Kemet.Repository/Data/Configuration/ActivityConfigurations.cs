@@ -17,8 +17,7 @@ namespace Kemet.Repository.Data.Configuration
         {
 
             //-----------------------------------
-            builder.Property(A=>A.PictureUrl)
-                .IsRequired();
+           
             
             builder.Property(A => A.Name)
                .IsRequired();

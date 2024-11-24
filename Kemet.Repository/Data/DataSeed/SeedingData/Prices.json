@@ -1,0 +1,135 @@
+[
+    {
+      "EgyptianAdult": 60,
+      "EgyptianStudent": 30,
+      "TouristAdult": 700,
+      "TouristStudent": 350,
+      "Id": 1
+    },
+    {
+      "EgyptianAdult": 350,
+      "EgyptianStudent": 200,
+      "TouristAdult": 1200,
+      "TouristStudent": 750,
+      "Id": 2
+    },
+    {
+      "EgyptianAdult": 40,
+      "EgyptianStudent": 20,
+      "TouristAdult": 500,
+      "TouristStudent": 250,
+      "Id": 3
+    },
+    {
+      "EgyptianAdult": 60,
+      "EgyptianStudent": 30,
+      "TouristAdult": 200,
+      "TouristStudent": 100,
+      "Id": 4
+    },
+    {
+      "EgyptianAdult": 60,
+      "EgyptianStudent": 20,
+      "TouristAdult": 900,
+      "TouristStudent": 450,
+      "Id": 5
+    },
+    {
+      "EgyptianAdult": 40,
+      "EgyptianStudent": 20,
+      "TouristAdult": 600,
+      "TouristStudent": 300,
+      "Id": 6
+    },
+    {
+      "EgyptianAdult": 30,
+      "EgyptianStudent": 10,
+      "TouristAdult": 550,
+      "TouristStudent": 275,
+      "Id": 7
+    },
+    {
+      "EgyptianAdult": 30,
+      "EgyptianStudent": 10,
+      "TouristAdult": 400,
+      "TouristStudent": 200,
+      "Id": 8
+    },
+    {
+      "EgyptianAdult": 60,
+      "EgyptianStudent": 30,
+      "TouristAdult": 220,
+      "TouristStudent": 110,
+      "Id": 9
+    },
+    {
+      "EgyptianAdult": 20,
+      "EgyptianStudent": 5,
+      "TouristAdult": 220,
+      "TouristStudent": 110,
+      "Id": 10
+    },
+    {
+      "EgyptianAdult": 25,
+      "EgyptianStudent": 25,
+      "TouristAdult": 25,
+      "TouristStudent": 25,
+      "Id": 11
+    },
+    {
+      "EgyptianAdult": 20,
+      "EgyptianStudent": 20,
+      "TouristAdult": 20,
+      "TouristStudent": 20,
+      "Id": 12
+    },
+    {
+      "EgyptianAdult": 180,
+      "EgyptianStudent": 180,
+      "TouristAdult": 180,
+      "TouristStudent": 180,
+      "Id": 13
+    },
+    {
+      "EgyptianAdult": 0,
+      "EgyptianStudent": 0,
+      "TouristAdult": 0,
+      "TouristStudent": 0,
+      "Id": 14
+    },
+    {
+      "EgyptianAdult": 100,
+      "EgyptianStudent": 100,
+      "TouristAdult": 100,
+      "TouristStudent": 100,
+      "Id": 15
+    },
+    {
+      "EgyptianAdult": 200,
+      "EgyptianStudent": 200,
+      "TouristAdult": 200,
+      "TouristStudent": 200,
+      "Id": 16
+    },
+    {
+      "EgyptianAdult": 150,
+      "EgyptianStudent": 150,
+      "TouristAdult": 150,
+      "TouristStudent": 150,
+      "Id": 17
+    },
+    {
+      "EgyptianAdult": 50,
+      "EgyptianStudent": 50,
+      "TouristAdult": 50,
+      "TouristStudent": 50,
+      "Id": 18
+    },
+    {
+      "EgyptianAdult": 60,
+      "EgyptianStudent": 30,
+      "TouristAdult": 200,
+      "TouristStudent": 101,
+      "Id": 19
+    }
+  ]
