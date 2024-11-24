@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Kemet.APIs.DTOs.HomePageDTOs;
+using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Specifications;
@@ -27,17 +28,32 @@ namespace Kemet.APIs.Controllers
 
 
         [HttpGet] // /api/places  Get
-        public async Task<ActionResult<IEnumerable<Place>>> GetPlaces() 
+        public async Task<ActionResult<IEnumerable<Place>>> GetPlaces()
         {
+            try { 
+
             var spec = new PlaceWithCategoriesAndactivitiesSpecifications();
             var places = await _placesRepo.GetAllWithSpecAsync(spec);
-            var Result=  _mapper.Map<IEnumerable<Place>, IEnumerable<HomePlacesDto>>(places);
 
+                if(places == null)
+                {
+                return NotFound(new ApiResponse(404, "No Places found "));
+                }
 
-           return Ok(Result);
+            var Result=  _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(places);
 
+                 if (Result == null)
+                 {
+                return NotFound(new ApiResponse(404, "No Places found "));
+                 }
 
-        }
+                   return Ok(Result);
+        }catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
+
+}
        
 
     }
