@@ -6,9 +6,9 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
     public class ActivityDTOs
     {
         public string Name { get; set; }
-        public int Duration { get; set; }
+        public string Duration { get; set; }
 
-        public List<ActivityImage> images { get; set; }
+        public List<string> imageURLs { get; set; }
         
     }
 }

@@ -7,6 +7,7 @@ using Kemet.Core.Specifications.ActivitySpecs;
 using Kemet.Core.Specifications.PlaceSpecs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Kemet.APIs.Controllers
 {
@@ -33,11 +34,12 @@ namespace Kemet.APIs.Controllers
                 {
                     return NotFound(new ApiResponse(404, "No Activities found "));
                 }
-                var Result = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activity);
-                if(Result == null)
+                var Activities = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activity);
+                if(Activities == null)
                 {
                     return NotFound(new ApiResponse(404, "No Activities found "));
                 }
+                var Result = Activities.Where(A => A.imageURLs.Any()).ToList();
                 return Ok(Result);
             }catch (Exception ex)
             {

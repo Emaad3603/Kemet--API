@@ -33,19 +33,20 @@ namespace Kemet.APIs.Controllers
             try { 
 
             var spec = new PlaceWithCategoriesAndactivitiesSpecifications();
-            var places = await _placesRepo.GetAllWithSpecAsync(spec);
+            var place = await _placesRepo.GetAllWithSpecAsync(spec);
 
-                if(places == null)
+                if(place == null)
                 {
                 return NotFound(new ApiResponse(404, "No Places found "));
                 }
 
-            var Result=  _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(places);
+            var places=  _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(place);
 
-                 if (Result == null)
+                 if (places == null)
                  {
                 return NotFound(new ApiResponse(404, "No Places found "));
                  }
+                 var Result = places.Where(P=>P.ImageURLs.Any()).ToList();
 
                    return Ok(Result);
         }catch (Exception ex)
