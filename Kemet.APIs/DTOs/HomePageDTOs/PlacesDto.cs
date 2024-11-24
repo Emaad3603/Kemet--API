@@ -2,7 +2,7 @@
 
 namespace Kemet.APIs.DTOs.HomePageDTOs
 {
-    public class HomePlacesDto
+    public class PlacesDto
     {
         public string Name { get; set; }
         public string Description { get; set; }
