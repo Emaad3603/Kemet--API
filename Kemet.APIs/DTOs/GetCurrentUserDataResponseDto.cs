@@ -9,6 +9,8 @@
         public string Gender { get; set; }
         public string Nationality { get; set; }
 
+        public string ImageURL { get; set; }
+
         public List<int> InterestCategoryIds { get; set; } = new List<int>();
     }
 }

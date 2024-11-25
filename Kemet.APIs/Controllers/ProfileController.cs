@@ -50,6 +50,7 @@ namespace Kemet.APIs.Controllers
                 SSN = user.SSN,
                 Gender = user.Gender,
                 Nationality = user.Nationality,
+                ImageURL = user.ImageURL,
                 InterestCategoryIds = userInterests
             };
 
