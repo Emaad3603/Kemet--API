@@ -7,19 +7,21 @@ namespace Kemet.APIs.Helpers
 {
     public class MappingProfiles : Profile
     {
+       
+
+      
         public MappingProfiles()
         {
             CreateMap<Place, PlacesDto>()
-              .ForMember(d=>d.Name,o=>o.MapFrom(s=>s.Name))
-              .ForMember(d=>d.Description,o=>o.MapFrom(s=>s.Description))
-              .ForMember(d => d.ImageURLs, o => o.MapFrom(s => s.Images.Select(img => img.ImageUrl)))
-
+              .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
+              .ForMember(d => d.Description, o => o.MapFrom(s => s.Description))
+              .ForMember(d => d.ImageURLs, o => o.MapFrom<placesPicturesUrlResolver>())
               .ReverseMap();
 
             CreateMap<Activity, ActivityDTOs>()
                 .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
                 .ForMember(d => d.Duration, o => o.MapFrom(s => s.Duration))
-                 .ForMember(d => d.imageURLs, o => o.MapFrom(s => s.Images.Select(img => img.ImageUrl)))
+                 .ForMember(d => d.imageURLs, o => o.MapFrom<ActivityPicturesUrlResolver>())
                 .ReverseMap();
 
             // Map IEnumerable<Activity> to IEnumerable<ActivityDTOs>
@@ -29,7 +31,7 @@ namespace Kemet.APIs.Helpers
                 {
                     Name = a.Name,
                     Duration = a.Duration,
-                    imageURLs = a.Images.Select(img => img.ImageUrl).ToList()
+                    imageURLs = a.Images.Select(img => $"{"https://localhost:7051"}{img.ImageUrl}"/*img => img.ImageUrl*/).ToList()
                 }).ToList());
 
 
