@@ -51,12 +51,13 @@ namespace Kemet.APIs
 
             builder.Services.addApplicationServices();
 
-            var uploadsFolder = builder.Configuration.GetValue<string>("UploadsFolder");
+            var PPuploadsFolder = builder.Configuration.GetValue<string>("PPUploadsFolder");
+            var BGuploadsFolder = builder.Configuration.GetValue<string>("BGUploadsFolder");
 
             // Register services
             builder.Services.AddScoped<IProfileService>(provider => new ProfileService(
                 provider.GetRequiredService<UserManager<AppUser>>(),
-                uploadsFolder));
+                PPuploadsFolder, BGuploadsFolder));
 
 
             builder.Services.AddIdentity<AppUser, IdentityRole>(options =>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Kemet.APIs.DTOs.IdentityDTOs;
 using Kemet.APIs.Errors;
+using Kemet.APIs.Extensions;
 using Kemet.APIs.Helpers;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
@@ -54,10 +55,16 @@ namespace Kemet.APIs.Controllers
             {
                 return BadRequest(new ApiResponse(400, "Email already exists"));
             }
+            if (!await _userManager.CheckUserNameExistsAsync(model.UserName))
+            {
+                return BadRequest(new ApiResponse(400, "Username already exists"));
+            }
 
             var customer = new Customer
             {
-                UserName = string.Concat(model.FirstName," ", model.LastName),
+               
+               
+                UserName = model.UserName,
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
                 FirstName = model.FirstName,

@@ -1,4 +1,6 @@
 ﻿using Kemet.APIs.DTOs;
+using Kemet.APIs.Errors;
+using Kemet.APIs.Extensions;
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.Services.Interfaces;
@@ -17,17 +19,20 @@ namespace Kemet.APIs.Controllers
         private readonly IinterestsRepository _interestRepository;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IProfileService _profileService;
+        private readonly IConfiguration _configuration;
 
         public ProfileController(
             UserManager<AppUser> userManager,
             IinterestsRepository interestRepository,
               IWebHostEnvironment webHostEnvironment,
-              IProfileService profileService)
+              IProfileService profileService,
+              IConfiguration configuration)
         {
             _userManager = userManager;
             _interestRepository = interestRepository;
             _webHostEnvironment = webHostEnvironment;
             _profileService = profileService;
+            _configuration = configuration;
         }
 
         // GET: api/Profile/GetCurrentUserData
@@ -44,14 +49,27 @@ namespace Kemet.APIs.Controllers
 
             var response = new GetCurrentUserDataResponseDto()
             {
+                UserName = user.UserName,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 DateOfBirth = user.DateOfBirth,
                 SSN = user.SSN,
                 Gender = user.Gender,
                 Nationality = user.Nationality,
-                ImageURL = user.ImageURL,
-                InterestCategoryIds = userInterests
+                // Resolve Profile Image URL
+                ProfileImageURL = !string.IsNullOrEmpty(user.ImageURL)
+                        ? $"{_configuration["BaseUrl"]}/{user.ImageURL}"
+                        : string.Empty,
+                // Resolve Background Image URL
+                BackgroundImageURL = !string.IsNullOrEmpty(user.BackgroundImageURL)
+                        ? $"{_configuration["BaseUrl"]}/{user.BackgroundImageURL}"
+                        : string.Empty,
+                InterestCategoryIds = userInterests,
+                Bio = user.Bio,
+                WebsiteLink = user.WebsiteLink,
+                City = user.City,
+                Country = user.Country,
+                CreationDate = user.CreationDate,
             };
 
             return Ok(response);
@@ -59,7 +77,8 @@ namespace Kemet.APIs.Controllers
 
         // PUT: api/Profile/UpdateUserData
         [HttpPut("UpdateUserData")]
-        public async Task<IActionResult> UpdateUserData(UpdateUserDataDto dto)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> UpdateUserData([FromForm]UpdateUserDataDto dto)
         {
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
             if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
@@ -67,7 +86,19 @@ namespace Kemet.APIs.Controllers
             var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
             if (user == null) return NotFound("User not found.");
 
+            #region Update User Fields
             // Update user fields only if they are provided
+            if (!string.IsNullOrEmpty(dto.UserName))
+                if(await _userManager.CheckUserNameExistsAsync(dto.UserName))
+                {
+                    user.UserName = dto.UserName;
+                }
+                else
+                {
+                    return BadRequest(new ApiResponse(400, "Username already exists"));
+                }
+
+
             if (!string.IsNullOrEmpty(dto.FirstName))
                 user.FirstName = dto.FirstName;
 
@@ -83,9 +114,39 @@ namespace Kemet.APIs.Controllers
             if (!string.IsNullOrEmpty(dto.Nationality))
                 user.Nationality = dto.Nationality;
 
+            if (!string.IsNullOrEmpty(dto.Country))
+                user.Country = dto.Country;
+
+            if (!string.IsNullOrEmpty(dto.City))
+                user.City = dto.City;
+
+            if (!string.IsNullOrEmpty(dto.Bio))
+                user.Bio = dto.Bio;
+
+            if (!string.IsNullOrEmpty(dto.WebsiteLink))
+                user.WebsiteLink = dto.WebsiteLink; 
+            #endregion
+
+            #region Customer interests Region
             // Update user interests with InterestRepository if the list is not null
             if (dto.InterestCategoryIds != null && dto.InterestCategoryIds.Any())
                 await _interestRepository.UpdateInterestsAsync(user.Id, dto.InterestCategoryIds);
+
+            #endregion
+
+            #region Images Region
+            // Update user images if not null 
+            if(dto.ProfileImage != null || dto.BackgroundImage != null)
+            {
+                var ImagesDTO = new UploadProfileImageDto()
+                {
+                    ProfileImage = dto.ProfileImage,
+                    BackgroundImage = dto.BackgroundImage
+                };
+                await UploadProfileImage(ImagesDTO);
+            }
+          
+            #endregion
 
             // Save changes to the user in the database
             var result = await _userManager.UpdateAsync(user);
@@ -96,9 +157,9 @@ namespace Kemet.APIs.Controllers
         }
 
         [HttpPost("upload-profile-image")]
-        public async Task<IActionResult> UploadProfileImage([FromForm] IFormFile profileImage)
+        public async Task<IActionResult> UploadProfileImage([FromForm] UploadProfileImageDto model)
         {
-            if (profileImage == null || profileImage.Length == 0)
+            if (model.ProfileImage == null && model.BackgroundImage == null || model.ProfileImage.Length == 0 && model.BackgroundImage.Length == 0)
             {
                 return BadRequest(new { message = "No file uploaded." });
             }
@@ -111,7 +172,7 @@ namespace Kemet.APIs.Controllers
 
                 var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
                 if (user == null) return NotFound("User not found.");
-                var result = await _profileService.UploadProfileImageAsync(user.Email, profileImage);
+                var result = await _profileService.UploadProfileImageAsync(user.Email, model.ProfileImage, model.BackgroundImage);
 
                 if (!result.IsSuccess)
                 {

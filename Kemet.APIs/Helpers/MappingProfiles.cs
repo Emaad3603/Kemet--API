@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using AutoMapper.Execution;
+using Kemet.APIs.DTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.Core.Entities;
+using Kemet.Core.Entities.Identity;
 
 namespace Kemet.APIs.Helpers
 {
@@ -44,9 +46,8 @@ namespace Kemet.APIs.Helpers
                   .ForMember(d => d.EgyptianStudent, o => o.MapFrom(s => s.Price.EgyptianStudent))
                   .ForMember(d => d.TouristAdult, o => o.MapFrom(s => s.Price.TouristAdult))
                   .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
-                  .ReverseMap(); 
+                  .ReverseMap();
 
-            
         }
     }
 }

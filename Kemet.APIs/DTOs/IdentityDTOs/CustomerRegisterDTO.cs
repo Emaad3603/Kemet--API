@@ -5,6 +5,8 @@ namespace Kemet.APIs.DTOs.IdentityDTOs
     public class CustomerRegisterDTO
     {
         [Required]
+        public string UserName { get; set; }
+        [Required]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
@@ -24,7 +26,7 @@ namespace Kemet.APIs.DTOs.IdentityDTOs
         public string Nationality { get; set; }
         [Required]
         public string SSN { get; set; }
-
+        [Required]
         public string Gender { get; set; }
     }
 }

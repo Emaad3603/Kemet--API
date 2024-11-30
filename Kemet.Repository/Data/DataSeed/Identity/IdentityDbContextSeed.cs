@@ -55,6 +55,7 @@ namespace Kemet.Repository.Data.DataSeed.Identity
                 // Seed a TravelAgency
                 var travelAgency = new TravelAgency()
                 {
+                    Id = "d1e5b4a7 - 9c29 - 4e37 - 99d8 - 8c1a9e4b5f93",
                     UserName = "GlobalTravel",
                     Email = "contact@globetravel.com",
                     PhoneNumber = "0987654321",

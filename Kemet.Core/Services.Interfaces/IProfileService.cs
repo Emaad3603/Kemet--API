@@ -10,6 +10,6 @@ namespace Kemet.Core.Services.Interfaces
 {
     public interface IProfileService
     {
-        Task<(bool IsSuccess, string Message, string ImageUrl)> UploadProfileImageAsync(string userEmail, IFormFile profileImage);
+        Task<(bool IsSuccess, string Message, string ImageUrl)> UploadProfileImageAsync(string userEmail, IFormFile profileImage , IFormFile backgroundImage);
     }
 }

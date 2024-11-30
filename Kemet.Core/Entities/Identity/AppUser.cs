@@ -9,8 +9,12 @@ namespace Kemet.Core.Entities.Identity
 {
     public class AppUser : IdentityUser
     {
-       
+        
         public string? ImageURL { get; set; }
+
+        public string? BackgroundImageURL { get; set; }
+
+        public DateTime CreationDate { get; set; } = DateTime.UtcNow;
 
     }
 }

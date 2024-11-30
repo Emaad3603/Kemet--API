@@ -5,6 +5,7 @@ namespace Kemet.APIs.DTOs.IdentityDTOs
 {
     public class TravelAgencyRegisterDTO
     {
+
         [Required]
         public string UserName { get; set; }
         [Required]
