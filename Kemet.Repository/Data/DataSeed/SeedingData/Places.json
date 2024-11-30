@@ -1,6 +1,6 @@
  [
   {
-    "Name": "Great Pyramids of Egypt\n\n\n\n \n",
+    "Name": "Great Pyramids of Egypt",
     "CulturalTip": "*Dress Modestly\n*Stay Hydrated\n*Wear Comfortable Shoes\n*Protect from the Sun\n *Respect the Site\n",
     "Description": "\"The Great Pyramids of Egypt, located in Giza, are iconic monuments built as tombs for the Pharaohs over 4,000 years ago. The largest of these, the Pyramid of Khufu, remains a marvel of ancient architecture, reflecting the advanced engineering skills of ancient Egyptians.\nThese pyramids continue to awe visitors with their sheer size and Historical significance.\"",
     "Duration": "5 hours\n\n\n",
@@ -12,7 +12,7 @@
     "CategoryID": 1
   },
     {
-      "Name": "Grand Egyptian Museums\n\n\n\n",
+      "Name": "Grand Egyptian Museums",
       "CulturalTip": "*Dress Comfortably,\n *Respect the Artifacts\n *Avoid Flash Photography\n *Keep a Safe Distance from Exhibits\n *Visit Early for Less Crowds",
       "Description": "The Grand Egyptian Museums showcases Egypt's vast Historical treasures,\n including the complete Tutankhamun collection. \nVisitors should respect the artifacts and avoid flash photography.\n\n\n",
       "Duration": "2-4 hours\n\n\n\n\n",
@@ -24,7 +24,7 @@
       "CategoryID": 4
     },
     {
-      "Name": "Luxor Temple\n\n\n",
+      "Name": "Luxor Temple",
       "CulturalTip": "Wear Comfortable Shoes,\n Stay Hydrated,\n Respect the Sacred Site,\n Avoid Loud Noises,\n Ask Before Taking Photos",
       "Description": "Luxor Temple is an ancient Egyptian temple dedicated to Amun, Mut, and Khonsu. \nKnown for its towering obelisks and statues, it's a marvel of ancient architecture and Religious significance\n\n",
       "Duration": "2-3 hours \n\n\n",
@@ -36,7 +36,7 @@
       "CategoryID": 1
     },
     {
-      "Name": "Citadel of Qaitbay\n\n\n\n",
+      "Name": "Citadel of Qaitbay",
       "CulturalTip": "*Wear comfortable shoes\n *respect the site\n *avoid loud noises\n *be cautious near the water\n*ask permission before taking photos \nof locals.",
       "Description": "the Citadel of Qaitbay is a historic 15th-century fortress located on the site of the ancient Pharos Lighthouse,\n one of the Seven Wonders of the Ancient World. The citadel offers a panoramic view of the\n Mediterranean Sea and is a significant Historicaland architectural landmark in Alexandria.\n\n",
       "Duration": "1.5-2 hours\n\n\n\n",
@@ -48,7 +48,7 @@
       "CategoryID": 1
     },
     {
-      "Name": "Abu Simbel Temples\n\n\n\n\n\n\n",
+      "Name": "Abu Simbel Temples",
       "CulturalTip": "*Wear comfortable shoes\n* stay hydrated\n*bring sun protection\n*respect the sacred site\n*and be mindful of the extreme heat during midday\n*Photography is allowed but respect the rules of the site.\n\n\n\n",
       "Description": "The Abu Simbel Temples are two massive rock temples built by Pharaoh Ramesses II in the 13th century BCE.\n The larger temple is dedicated to Ramesses II himself, while the smaller temple is dedicated to his queen Nefertari.\n These temples are famous for their monumental statues and the engineering feat of relocating them to save them from\n rising waters caused by the construction of the Aswan High Dam.\n\n\n\n\n",
       "Duration": "2-3 hours \n\n\n\n\n\n\n\n\n",
@@ -60,7 +60,7 @@
       "CategoryID": 1
     },
     {
-      "Name": "Karnak Temple\n\n\n\n\n",
+      "Name": "Karnak Temple",
       "CulturalTip": "*Wear comfortable shoes\n *respect the site\n *avoid loud noises\n *be cautious near the water\n*ask permission before taking photos \nof locals.",
       "Description": "The Karnak Temple is one of the largest and most impressive Religious complexes in the world\n. Dedicated to the god Amun, it was expanded over a period of 2,000 years by several pharaohs. \nThe temple complex is known for its massive hypostyle hall, towering obelisks, and beautiful pylons,\n and it offers a fascinating insight into ancient Egyptian architecture and religion.",
       "Duration": "2-3 hours\n\n\n\n",
@@ -72,7 +72,7 @@
       "CategoryID": 1
     },
     {
-      "Name": "The Egyptian Museums\n\n\n\n\n",
+      "Name": "The Egyptian Museums",
       "CulturalTip": "*Wear comfortable shoes\n *stay hydrated\n *avoid flash photography\n *be respectful of the artifacts\n *keep a safe distance from exhibits.",
       "Description": "The Egyptian Museums in Cairo is one of the world's most famous Museumss, \nhousing a vast collection of ancient Egyptian antiquities. It contains over 120,000 items, \nincluding mummies, statues, and artifacts from the tomb of Tutankhamun. \nThe Museums provides a deep insight into Egypt’s ancient civilization and culture.",
       "Duration": "2-3 hours\n\n\n\n",
@@ -84,7 +84,7 @@
       "CategoryID": 4
     },
     {
-      "Name": "Luxor Museums\n\n\n\n\n",
+      "Name": "Luxor Museums",
       "CulturalTip": "*Dress Comfortably\n *Avoid Flash Photography\n *Stay Hydrated\n *Respect the Artifacts\n *Enjoy the Peaceful Displays",
       "Description": "The Luxor Museums is a world-class Museums that showcases an impressive collection of ancient Egyptian artifacts,\n including statues, pottery, and jewelry. It offers a more intimate and curated experience compared \nto larger Museumss,with highlights such as the statues of Amenhotep III and items from Tutankhamun's tomb.",
       "Duration": "1.5-2 hours\n\n\n",
@@ -96,7 +96,7 @@
       "CategoryID": 4
     },
     {
-      "Name": "Baron Empain Palace\n\n\n\n",
+      "Name": "Baron Empain Palace",
       "CulturalTip": "*Dress modestly\n* avoid flash photography\n *respect the Historical site\n *stay hydrated\n *explore the beautifully restored interiors and gardens.",
       "Description": "The Baron Empain Palace is an iconic architectural gem inspired by Hindu temples. \nBuilt in 1911 by Belgian industrialist Baron Édouard Empain, it is renowned for its intricate carvings, unique design,\n and Historical significance in shaping Heliopolis.",
       "Duration": "1-2 hours\n\n\n",
@@ -108,7 +108,7 @@
       "CategoryID": 4
     },
     {
-      "Name": "Alexandria National Museums\n\n\n\n",
+      "Name": "Alexandria National Museums",
       "CulturalTip": "*Dress modestly\n *avoid flash photography\n *stay hydrated\n *respect the artifacts\n *enjoy the chronological storytelling\n of Alexandria’s heritage.",
       "Description": "The Alexandria National Museums showcases Alexandria's rich history, spanning ancient Egyptian, Greco-Roman,\n Coptic, Islamic, and modern eras. The Museums is housed in a restored Italian-style villa \nand contains over 1,800 artifacts, including coins, statues, and maps.\n\n",
       "Duration": "1-2 hours\n\n\n",
@@ -120,7 +120,7 @@
       "CategoryID": 4
     },
     {
-      "Name": "Montazah Gardens\n\n\n",
+      "Name": "Montazah Gardens",
       "CulturalTip": "Wear Comfortable Shoes,\n Dress Modestly,\n Bring Sunscreen, \nRespect the Gardens,\n Enjoy the Scenic Ambiance",
       "Description": "The Montazah Gardens are a sprawling, beautifully landscaped park surrounding the historic Montazah Palace.\n With lush greenery, picturesque pathways, and stunning views of the Mediterranean Sea,it’s a perfect spot for relaxation, picnics, and photography.\n",
       "Duration": "2-3 hours\n\n",
@@ -132,7 +132,7 @@
       "CategoryID": 3
     },
     {
-      "Name": "Aquarium Grotto Garden\n\n\n\n\n",
+      "Name": "Aquarium Grotto Garden",
       "CulturalTip": "Wear comfortable shoes,\n dress modestly,\n respect the plants and animals,\n bring snacks or drinks,\n enjoy the peaceful environment.\n\n\n",
       "Description": "The Aquarium Grotto Garden is a charming 19th-century garden and aquarium,\n originally established by Khedive Ismail. The park features grottos, lush greenery, \nand small aquariums with various fish species. It's a serene spot for families and nature lovers\n\n\n",
       "Duration": "1-2 hours\n\n\n\n\n",
@@ -144,7 +144,7 @@
       "CategoryID": 3
     },
     {
-      "Name": "Al-Azhar Park\n\n\n\n\n\n",
+      "Name": "Al-Azhar Park",
       "CulturalTip": "Dress Modestly\n, Wear Comfortable Shoes\n, Bring Sunscreen,\n Respect the Environment\n, Enjoy the Scenic Views\n\n",
       "Description": "Al-Azhar Park is a beautifully landscaped public park offering breathtaking views of historic Cairo, including the Citadel. It features gardens, water fountains, walking paths, and several restaurants. It’s an ideal spot for relaxation, photography, and cultural exploration.\n\n\n\n",
       "Duration": "2-3 hours\n\n\n\n\n",
@@ -156,7 +156,7 @@
       "CategoryID": 3
     },
     {
-      "Name": "Aswan Botanical Garden\n\n\n",
+      "Name": "Aswan Botanical Garden",
       "CulturalTip": "Wear comfortable shoes\n, bring a hat and sunscreen\n, stay hydrated,\n respect the plants\n, enjoy the peaceful surroundings \nand scenic beauty.",
       "Description": "The Aswan Botanical Garden is a lush oasis on Kitchener's Island, featuring exotic plants and trees \nfrom around the world. The tranquil gardens offer stunning views of the Nile River,\n making it a serene escape for nature lovers and photographers.\n",
       "Duration": "1-2 hours\n\n\n",
@@ -168,7 +168,7 @@
       "CategoryID": 3
     },
     {
-      "Name": "Maadi Island\n\n\n",
+      "Name": "Maadi Island",
       "CulturalTip": "Wear comfortable clothes\n, bring a picnic basket,\n respect the cleanliness of the area,\n enjoy the serene Nile views, \nconsider taking a boat ride.",
       "Description": "Maadi Island is a popular leisure destination on the Nile River, offering green spaces, playgrounds, picnic spots,\n and scenic views of the river. It’s a great place for families, couples, and anyone looking for a relaxing outdoor experience.\n",
       "Duration": "2-3 hours\n\n\n",
@@ -180,7 +180,7 @@
       "CategoryID": 3
     },
     {
-      "Name": "Citadel of Saladin\n\n\n\n",
+      "Name": "Citadel of Saladin",
       "CulturalTip": "Dress modestly\n, wear comfortable shoes for walking\n, bring sunscreen\n, stay hydrated\n, respect the Historical landmarks\n take time to enjoy the breathtaking views.",
       "Description": "The Citadel of Saladin, built in the 12th century by Sultan Saladin, is a historic fortress that served \nas the seat of power in Cairo for centuries. It houses landmarks like the Muhammad Ali Mosque, \nmilitary Museumss, and offers panoramic views of the city.\n\n",
       "Duration": "2-3 hours\n\n\n\n",
@@ -192,7 +192,7 @@
       "CategoryID": 5
     },
     {
-      "Name": "Amr ibn al-As Mosque\n\n\n\n",
+      "Name": "Amr ibn al-As Mosque",
       "CulturalTip": "Dress Modestly \n(long sleeves, pants , headscarf for women),\n Remove Shoes Before Entering\n, Respect the Sacred Environment, \nAvoid Visiting During Prayers",
       "Description": "The Amr ibn al-As Mosque is the oldest mosque in Africa, built in 641 AD by Amr ibn al-As,\n the commander who led the Muslim conquest of Egypt. It is a peaceful place of worship \nand an iconic landmark reflecting early Islamic architecture and history.",
       "Duration": "1-2 hours\n\n\n",
@@ -204,7 +204,7 @@
       "CategoryID": 5
     },
     {
-      "Name": "\nSidi Morsi Abu al-Abbas Mosque\n\n\n\n\n",
+      "Name": "Sidi Morsi Abu al-Abbas Mosque",
       "CulturalTip": "Dress modestly (long sleeves, pants \n, headscarf for women), \nremove your shoes before entering\n, maintain silence,\n respect the sacred atmosphere\n avoid visiting during prayers unless attending for worship.",
       "Description": "The Sidi Morsi Abu al-Abbas Mosque, built in 1775, is one of Alexandria's most iconic landmarks.\n It is named after the 13th-century Sufi saint Abu al-Abbas al-Mursi. The mosque features intricate Islamic architecture,\n including domes, minarets, and a stunning prayer hall.\n\n",
       "Duration": "1-2 hours\n\n\n\n\n",
@@ -216,7 +216,7 @@
       "CategoryID": 5
     },
     {
-      "Name": "Saint Catherine's Monastery\n\n\n\n",
+      "Name": "Saint Catherine's Monastery",
       "CulturalTip": "Dress modestly (long sleeves and pants,\n headscarf for women),\n respect the sanctity of the monastery,\n avoid loud behavior,\n take time to appreciate its Historical and\n Religious significance.",
       "Description": "Saint Catherine's Monastery, a UNESCO World Heritage Site, is one of the world's oldest working monasteries\n. Founded in the 6th century, it houses ancient manuscripts, Religious icons, and the famous Burning Bush,\n making it a significant site for history, religion, and spirituality.\n\n",
       "Duration": "2-3 hours\n\n\n\n\n",
@@ -228,7 +228,7 @@
       "CategoryID": 5
     },
     {
-      "Name": "The Hanging Church\n\n\n\n\n",
+      "Name": "The Hanging Church",
       "CulturalTip": "Dress modestly (cover shoulders and knees)\n, remain quiet and respectful\n, photography may be restricted\n take time to appreciate the intricate art and architecture.",
       "Description": "The Hanging Church (Saint Virgin Mary's Coptic Orthodox Church) is one of the oldest churches in Egypt\n, dating back to the 3rd century. Built above a Roman gate tower, it is renowned for its stunning wooden ceiling, \nancient icons, and Coptic architecture.\n\n",
       "Duration": "1-2 hours\n\n\n\n\n",
@@ -252,7 +252,7 @@
       "CategoryID": 2
     },
     {
-      "Name": "The Grand Hotel Sharm El Sheikh\n\n\n\n",
+      "Name": "The Grand Hotel Sharm El Sheikh",
       "CulturalTip": "Dress casually for the resort\n, wear swimwear at pools or the beach (cover up when not),\n and be mindful of the local customs and traditions, especially when visiting nearby cultural sites.",
       "Description": "The Grand Hotel Sharm El Sheikh is a 5-star resort located in the heart of Naama Bay, \noffering beautiful views of the Red Sea. It features spacious rooms, multiple dining options, \na private beach, pools, and wellness facilities. It is ideal for both relaxation and adventure, \nwith activities like diving and snorkeling available.\nResort Stay Required",
       "Duration": "3-7 days\n\n\n",
@@ -264,7 +264,7 @@
       "CategoryID": 2
     },
     {
-      "Name": "Safir Dahab Resort\n\n\n\n",
+      "Name": "Safir Dahab Resort",
       "CulturalTip": "Dress casually and comfortably,\n wear swimwear at the pool or beach but cover up when walking around public areas\n, and respect the local culture.",
       "Description": "Dahab Resort is a luxurious beach resort located in the laid-back town of Dahab\n. The resort offers stunning views of the Red Sea, a private beach, pools, restaurants, \nand a variety of Water Sports and Nile Activities activities. It's a popular destination for both relaxation and adventure, particularly diving and snorkeling enthusiasts.\nResort Stay Required",
       "Duration": "3-7 days\n\n\n",
@@ -276,7 +276,7 @@
       "CategoryID": 2
     },
     {
-      "Name": "Four Seasons Hotel Alexandria\n \n\n\n\n",
+      "Name": "Four Seasons Hotel Alexandria",
       "CulturalTip": " Dress elegantly in public areas of the hotel, swimwear is only for the pool and beach (cover up when walking around the hotel), \nand be mindful of local customs, especially when visiting cultural sites in Alexandria.",
       "Description": "Four Seasons Hotel Alexandria at San Stefano is a luxury hotel overlooking the Mediterranean Sea. \nKnown for its exceptional service, it features a private beach, multiple fine dining restaurants, a full-service spa\n, and elegantly designed rooms. It's an ideal destination for both relaxation and cultural exploration in Alexandria.\nResort Stay Required",
       "Duration": "3-7 days\n\n\n\n",
@@ -288,7 +288,7 @@
       "CategoryID": 2
     },
     {
-      "Name": "Stella Di Mare Golf Hotel\n\n\n\n",
+      "Name": "Stella Di Mare Golf Hotel",
       "CulturalTip": "Dress casually\n and comfortably for resort activities\n, swimwear is for pool or beach areas (cover up in public areas), \nand be respectful of local customs and traditions.",
       "Description": "Stella Di Mare Golf Hotel is a luxurious resort located in Ain Sokhna, offering a tranquil escape with beautiful views of the Red Sea and the mountains.\n The resort features a golf course, outdoor swimming pools, fine dining options, and wellness facilities, making it perfect for a relaxing and active getaway.\nResort Stay Required",
       "Duration": "3-7 days\n\n\n",
@@ -300,7 +300,7 @@
       "CategoryID": 2
     },
     {
-      "Name": "The nubian village\n\n\n\n",
+      "Name": "The nubian village",
       "CulturalTip": "Dress modestly, especially when interacting with locals\n, ask for permission before taking photos\n, support local artisans by purchasing handmade goods, \nand respect their traditions and way of life.",
       "Description": "The Nubian Village is a vibrant and colorful settlement showcasing the unique culture, traditions, \nand hospitality of the Nubian people. Visitors can enjoy traditional music, food, handicrafts,\n and camel rides while learning about the rich history of Nubian heritage.",
       "Duration": "\t2-3 hours\n\n\n\n",
@@ -312,7 +312,7 @@
       "CategoryID": 6
     },
     {
-      "Name": "Cairo Tower\n\n\n\n",
+      "Name": "Cairo Tower",
       "CulturalTip": "Wear Comfortable Shoes, \nAvoid Littering\n\n\n",
       "Description": "The tallest structure in North Africa, offering stunning 360-degree views of Cairo and the Nile.\n\n\n",
       "Duration": "1-2 hours\n\n\n\n",
@@ -324,7 +324,7 @@
       "CategoryID": 6
     },
     {
-      "Name": "Al Manial Palace\n\n",
+      "Name": "Al Manial Palace",
       "CulturalTip": "Dress Respectfully,\n Follow Museums Guidelines\n",
       "Description": "A magnificent palace showcasing a mix of Islamic, Ottoman, and European design styles.\n\n",
       "Duration": "2-3 hours",
@@ -336,7 +336,7 @@
       "CategoryID": 6
     },
     {
-      "Name": "The Nile Corniche\t\n\n",
+      "Name": "The Nile Corniche",
       "CulturalTip": "Dress Comfortably, Stay Hydrated\n",
       "Description": "A bustling riverside stretch perfect for walking, relaxing, or enjoying the scenic Nile views.\t\n",
       "Duration": "1-2 hours",
@@ -348,7 +348,7 @@
       "CategoryID": 6
     },
     {
-      "Name": "Maadi Corniche\t\n\n",
+      "Name": "Maadi Corniche",
       "CulturalTip": "Dress Comfortably, Respect Local Customs\n",
       "Description": "A tranquil riverside area in Maadi with greenery, cafes, and family-friendly outdoor spaces.\n",
       "Duration": "1-2 hours",
@@ -360,7 +360,7 @@
       "CategoryID": 6
     },
     {
-      "Name": "Wadi Al-Hitan (Whale Valley)\n\n",
+      "Name": "Wadi Al-Hitan (Whale Valley)",
       "CulturalTip": "Follow Site Regulations, Avoid Touching Fossil Displays\n\n",
       "Description": "UNESCO World Heritage Site featuring fossils of prehistoric whales in a stunning Desert Landscape.\n\n\n\n",
       "Duration": "2-4 hours\n\n\n",
@@ -372,7 +372,7 @@
       "CategoryID": 7
     },
     {
-      "Name": "Wadi Degla Protectorate\n\n\n\n",
+      "Name": "Wadi Degla Protectorate",
       "CulturalTip": "Bring Water and Sun Protection, Follow Reserve Rules\n\n\n",
       "Description": "A peaceful valley near Cairo, celebrated for its picturesque hiking trails, rich desert biodiversity,\n stunning geological formations, and serene ambiance, making it an ideal destination for nature enthusiasts and adventurers.\n\n\n",
       "Duration": "2-4 hours\n\n\n\n",
@@ -384,7 +384,7 @@
       "CategoryID": 7
     },
     {
-      "Name": "Wadi El Rayan\n\n\n\n\n",
+      "Name": "Wadi El Rayan",
       "CulturalTip": "Follow Eco-Tourism Guidelines, \nStay in Designated Areas\n\n\n",
       "Description": "Wadi El Rayan is a stunning desert haven, featuring two expansive man-made lakes connected by Egypt's only waterfalls\n. Surrounded by golden sand dunes, it offers a unique blend of natural beauty and diverse wildlife, \nmaking it a perfect destination for eco-tourism and outdoor exploration.\n\n\n",
       "Duration": "Half day\n\n\n\n",
@@ -396,7 +396,7 @@
       "CategoryID": 7
     },
     {
-      "Name": "Siwa Oasis\n\n\n",
+      "Name": "Siwa Oasis",
       "CulturalTip": "Dress Modestly, Respect Local Traditions\n\n",
       "Description": "Siwa Oasis is a secluded paradise nestled within the vast Great Sand Sea, renowned for its serene salt lakes, \nlush palm groves, and rich cultural heritage. This enchanting destination is home to ancient ruins,\n traditional mud-brick architecture, and a vibrant local community, offering visitors a unique blend of natural beauty and Historical charm.",
       "Duration": "Multiple Days",
@@ -408,7 +408,7 @@
       "CategoryID": 7
     },
     {
-      "Name": "Great Sand Sea\n",
+      "Name": "Great Sand Sea",
       "CulturalTip": "Use a Guide for Navigation, \nPack Extra Supplies",
       "Description": "An expansive desert of dunes that stretch endlessly, ideal for adventurous safaris and stargazing.",
       "Duration": "Full day",

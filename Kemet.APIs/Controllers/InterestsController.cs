@@ -1,4 +1,4 @@
-﻿using Kemet.APIs.DTOs;
+﻿using Kemet.APIs.DTOs.ProfileDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;

@@ -53,6 +53,7 @@ namespace Kemet.Repository.Data.DataSeed
             if (!context.Places.Any())
             {
                 var placeData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Places.json");
+                placeData = JsonCleaner.CleanJson(placeData);
                 var placesDto = JsonSerializer.Deserialize<List<PlaceSeedDto>>(placeData, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
@@ -106,6 +107,7 @@ namespace Kemet.Repository.Data.DataSeed
             if (!context.Activities.Any())
             {
                 var activityData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Activities.json");
+                activityData = JsonCleaner.CleanJson(activityData);
                 var activitiesDto = JsonSerializer.Deserialize<List<ActivitySeedDto>>(activityData, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true

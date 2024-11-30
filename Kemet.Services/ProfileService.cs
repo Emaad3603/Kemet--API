@@ -14,17 +14,21 @@ namespace Kemet.Services
     public class ProfileService : IProfileService
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly string _uploadsFolder;
+        private readonly string _pPuploadsFolder;
+        private readonly string _bGuploadsFolder;
+        
 
-        public ProfileService(UserManager<AppUser> userManager, string uploadsFolder)
+        public ProfileService(UserManager<AppUser> userManager, string PPuploadsFolder , string BGuploadsFolder)
         {
             _userManager = userManager;
-            _uploadsFolder = uploadsFolder;
+            _pPuploadsFolder = PPuploadsFolder;
+            _bGuploadsFolder = BGuploadsFolder;
+            
         }
 
-        public async Task<(bool IsSuccess, string Message, string ImageUrl)> UploadProfileImageAsync(string userEmail, IFormFile profileImage)
+        public async Task<(bool IsSuccess, string Message, string ImageUrl)> UploadProfileImageAsync(string userEmail, IFormFile profileImage, IFormFile backgroundImage)
         {
-            if (profileImage == null || profileImage.Length == 0)
+            if (profileImage == null && backgroundImage == null || profileImage.Length == 0 && backgroundImage.Length ==0)
             {
                 return (false, "Please select an image to upload.", null);
             }
@@ -36,20 +40,38 @@ namespace Kemet.Services
             }
 
             // Ensure the directory exists
-            if (!Directory.Exists(_uploadsFolder))
+            if (!Directory.Exists(_pPuploadsFolder))
             {
-                Directory.CreateDirectory(_uploadsFolder);
+                Directory.CreateDirectory(_pPuploadsFolder);
+            }
+            if (!Directory.Exists(_bGuploadsFolder))
+            {
+                Directory.CreateDirectory(_bGuploadsFolder);
             }
 
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(profileImage.FileName);
-            string filePath = Path.Combine(_uploadsFolder, uniqueFileName);
-
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            if (profileImage != null)
             {
-                await profileImage.CopyToAsync(fileStream);
-            }
+                string pPuniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(profileImage.FileName);
+                string pPfilePath = Path.Combine(_pPuploadsFolder, pPuniqueFileName);
+                using (var fileStream = new FileStream(pPfilePath, FileMode.Create))
+                {
+                    await profileImage.CopyToAsync(fileStream);
+                }
+                user.ImageURL = "/uploads/ProfileImages/" + pPuniqueFileName;
 
-            user.ImageURL = "/uploads/" + uniqueFileName;
+            }
+            if(backgroundImage != null)
+            {
+                string bGuniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(profileImage.FileName);
+                string bGfilePath = Path.Combine(_bGuploadsFolder, bGuniqueFileName);
+
+                using (var fileStream = new FileStream(bGfilePath, FileMode.Create))
+                {
+                    await profileImage.CopyToAsync(fileStream);
+                }
+
+                user.BackgroundImageURL = "/uploads/BackGroundImages/" + bGuniqueFileName;
+            }
             var result = await _userManager.UpdateAsync(user);
 
             if (!result.Succeeded)

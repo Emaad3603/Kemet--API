@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Kemet.APIs.DTOs;
+using Kemet.APIs.DTOs.ProfileDTOs;
 using Kemet.Core.Entities.Identity;
 
 namespace Kemet.APIs.Helpers

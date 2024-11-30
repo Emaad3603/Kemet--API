@@ -1,4 +1,4 @@
-﻿namespace Kemet.APIs.DTOs
+﻿namespace Kemet.APIs.DTOs.ProfileDTOs
 {
     public class GetCurrentUserDataResponseDto
     {
