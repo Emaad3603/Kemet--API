@@ -13,7 +13,8 @@ namespace Kemet.Core.Entities
     {
         public string Name { get; set; }
         public string CultureTips { get; set; }
-        public string Description { get; set; }  
+        public string Description { get; set; }
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
         // Price relation nav 
         public int? priceId { get; set; }
         public Price Price { get; set; }
@@ -32,7 +33,7 @@ namespace Kemet.Core.Entities
         //nav prop category and fk
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-
+        
         public ICollection<PlaceImage> Images { get; set; } = new List<PlaceImage>();
 
     }

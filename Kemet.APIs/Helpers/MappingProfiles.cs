@@ -2,6 +2,7 @@
 using AutoMapper.Execution;
 using Kemet.APIs.DTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
+using Kemet.APIs.DTOs.ReviewsDTOs;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
 
@@ -18,13 +19,42 @@ namespace Kemet.APIs.Helpers
               .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
               .ForMember(d => d.Description, o => o.MapFrom(s => s.Description))
               .ForMember(d => d.ImageURLs, o => o.MapFrom<placesPicturesUrlResolver>())
-              .ReverseMap();
+              .ForMember(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews.Select(r => new ReviewDto
+              {
+                  Comment = r.Comment,
+                 Rating = r.Rating
+              }).ToList())).ForPath(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews.Select(r => new Review
+              {
+                  Comment = r.Comment,
+                  Rating = r.Rating
+              }).ToList()));
+
+            // CreateMap<Place, PlacesDto>()
+            //.ForMember(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews.Select(r => new ReviewDto
+            //{
+            //   Comment = r.Comment,
+            //   Rating = r.Rating
+            //}).ToList()));
 
             CreateMap<Activity, ActivityDTOs>()
                 .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
                 .ForMember(d => d.Duration, o => o.MapFrom(s => s.Duration))
                  .ForMember(d => d.imageURLs, o => o.MapFrom<ActivityPicturesUrlResolver>())
-                .ReverseMap();
+                    .ForMember(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews.Select(r => new ReviewDto
+                    {
+                        Comment = r.Comment,
+                        Rating = r.Rating
+                    }).ToList())).ForPath(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews.Select(r => new Review
+                    {
+                        Comment = r.Comment,
+                        Rating = r.Rating
+                    }).ToList()));
+            // CreateMap<Activity, ActivityDTOs>()
+            //.ForMember(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews.Select(r => new ReviewDto
+            //{
+            //    Comment = r.Comment,
+            //    Rating = r.Rating
+            //}).ToList()));
 
             // Map IEnumerable<Activity> to IEnumerable<ActivityDTOs>
 
@@ -33,7 +63,8 @@ namespace Kemet.APIs.Helpers
                 {
                     Name = a.Name,
                     Duration = a.Duration,
-                    imageURLs = a.Images.Select(img => $"{"https://localhost:7051"}{img.ImageUrl}"/*img => img.ImageUrl*/).ToList()
+                    imageURLs = a.Images.Select(img => $"{"https://localhost:7051"}{img.ImageUrl}"/*img => img.ImageUrl*/).ToList(),
+                    AverageRating= a.Reviews.Average(r => r.Rating),
                 }).ToList());
 
 
@@ -46,7 +77,26 @@ namespace Kemet.APIs.Helpers
                   .ForMember(d => d.EgyptianStudent, o => o.MapFrom(s => s.Price.EgyptianStudent))
                   .ForMember(d => d.TouristAdult, o => o.MapFrom(s => s.Price.TouristAdult))
                   .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
-                  .ReverseMap();
+                    .ForMember(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews.Select(r => new ReviewDto
+                    {
+                        Comment = r.Comment,
+                        Rating = r.Rating
+                    }).ToList())).ForPath(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews.Select(r => new Review
+                    {
+                        Comment = r.Comment,
+                        Rating = r.Rating
+                    }).ToList()));
+           
+            CreateMap<Review, ReviewDto>()
+                // .ForMember(dest=>dest.UserId,opt=>opt.MapFrom(src=>src.UserId))
+                 .ForMember(dest => dest.Comment, opt => opt.MapFrom(src => src.Comment))
+                 .ForMember(dest => dest.Rating, opt => opt.MapFrom(src => src.Rating))
+                 .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => src.ActivityId))
+                 .ForMember(dest => dest.PlaceId, opt => opt.MapFrom(src => src.PlaceId))
+                 .ForMember(dest => dest.TravelAgencyPlanId, opt => opt.MapFrom(src => src.TravelAgencyPlanId))
+                 .ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.ImageUrl));
+               
+
 
         }
     }

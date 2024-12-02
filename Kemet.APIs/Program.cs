@@ -3,6 +3,7 @@ using Kemet.APIs.Helpers;
 using Kemet.APIs.Middlewares;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Services.InterFaces;
@@ -59,7 +60,9 @@ namespace Kemet.APIs
                 provider.GetRequiredService<UserManager<AppUser>>(),
                 PPuploadsFolder, BGuploadsFolder));
 
-
+            //=================================================
+           builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+            //=================================================
             builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
             {
                 // Allow spaces in the username and no special char except "._-   " 

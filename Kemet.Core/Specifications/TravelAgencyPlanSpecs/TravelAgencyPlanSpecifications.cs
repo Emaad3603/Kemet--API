@@ -13,6 +13,7 @@ namespace Kemet.Core.Specifications.TravelAgencyPlanSpecs
         {
             Includes.Add(TA => TA.TravelAgency);
             Includes.Add(TA => TA.Price);
+            Includes.Add(TA => TA.Reviews);
         }
 
     }

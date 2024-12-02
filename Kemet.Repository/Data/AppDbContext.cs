@@ -46,5 +46,6 @@ namespace Kemet.Repository.Data
         public DbSet<PlaceImage> PlaceImages { get; set; }
 
         public DbSet<ActivityImage> ActivityImages { get; set; }
+        public DbSet<Review> Reviews { get; set; }
     }
 }

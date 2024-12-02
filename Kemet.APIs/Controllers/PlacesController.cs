@@ -54,7 +54,7 @@ namespace Kemet.APIs.Controllers
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
 
-}
+ }
        
 
     }

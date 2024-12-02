@@ -10,5 +10,8 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
      
         public List<string> ImageURLs { get; set;}
 
+        public ICollection<Review> Reviews { get; set; }
+        public double AverageRating { get; set; }
+
     }
 }
