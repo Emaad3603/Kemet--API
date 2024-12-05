@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kemet.Repository.Data.Configuration
+namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
 {
     public class TravelAgencyPlansConfigurations : IEntityTypeConfiguration<TravelAgencyPlan>
     {
         public void Configure(EntityTypeBuilder<TravelAgencyPlan> builder)
         {
-            builder.Property(TP=>TP.PictureUrl)
+            builder.Property(TP => TP.PictureUrl)
                    .IsRequired();
             builder.Property(TP => TP.Description)
                    .IsRequired();
@@ -29,7 +29,7 @@ namespace Kemet.Repository.Data.Configuration
             builder.HasOne(TP => TP.TravelAgency)
                 .WithMany()
                 .HasForeignKey(TP => TP.TravelAgencyId);
-            builder.HasOne(TP=>TP.Price)
+            builder.HasOne(TP => TP.Price)
                    .WithOne()
                    .OnDelete(DeleteBehavior.SetNull);
 

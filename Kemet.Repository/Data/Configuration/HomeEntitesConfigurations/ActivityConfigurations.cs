@@ -7,21 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kemet.Repository.Data.Configuration
+namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
 {
     internal class ActivityConfigurations : IEntityTypeConfiguration<Activity>
     {
-        
+
 
         public void Configure(EntityTypeBuilder<Activity> builder)
         {
 
             //-----------------------------------
-           
-            
+
+
             builder.Property(A => A.Name)
                .IsRequired();
-           
+
             builder.Property(A => A.Duration)
                .IsRequired();
             builder.Property(A => A.GroupSize)
@@ -35,7 +35,7 @@ namespace Kemet.Repository.Data.Configuration
             builder.HasOne(A => A.Place)
                 .WithMany()
                 .HasForeignKey(A => A.PlaceId)
-                .OnDelete(DeleteBehavior.SetNull); 
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(A => A.Location)
                .WithMany()
@@ -45,7 +45,7 @@ namespace Kemet.Repository.Data.Configuration
             builder.HasOne(A => A.Price)
                    .WithOne()
                    .OnDelete(DeleteBehavior.SetNull);
-                   
+
 
 
 

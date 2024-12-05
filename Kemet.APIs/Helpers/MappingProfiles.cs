@@ -2,8 +2,10 @@
 using AutoMapper.Execution;
 using Kemet.APIs.DTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
+using Kemet.APIs.DTOs.WishlistDtos;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Entities.WishlistEntites;
 
 namespace Kemet.APIs.Helpers
 {
@@ -47,6 +49,14 @@ namespace Kemet.APIs.Helpers
                   .ForMember(d => d.TouristAdult, o => o.MapFrom(s => s.Price.TouristAdult))
                   .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
                   .ReverseMap();
+
+            CreateMap<Wishlist, WishlistDto>()
+                .ForMember(w => w.Places, o => o.MapFrom(s => s.Places))
+                .ForMember(w => w.Activities, o => o.MapFrom(s => s.Activities))
+                .ForMember(w => w.Plans, o => o.MapFrom(s => s.Plans))
+                .ReverseMap();
+
+
 
         }
     }

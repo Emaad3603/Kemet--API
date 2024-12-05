@@ -5,6 +5,7 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
 {
     public class ActivityDTOs
     {
+        public int ActivityId { get; set; }
         public string Name { get; set; }
         public string Duration { get; set; }
 

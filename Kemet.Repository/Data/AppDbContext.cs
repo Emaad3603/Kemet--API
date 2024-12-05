@@ -2,6 +2,7 @@
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.Entities.Images;
 using Kemet.Core.Entities.Intersts;
+using Kemet.Core.Entities.WishlistEntites;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -46,5 +47,13 @@ namespace Kemet.Repository.Data
         public DbSet<PlaceImage> PlaceImages { get; set; }
 
         public DbSet<ActivityImage> ActivityImages { get; set; }
+
+        public DbSet<Wishlist> Wishlists { get; set; }
+
+        public DbSet<WishlistPlaces> WishlistPlaces { get; set; }
+
+        public DbSet<WishlistActivites> WishlistActivites { get; set; }
+
+        public DbSet<WishlistPlans> WishlistPlans { get; set;}
     }
 }

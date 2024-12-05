@@ -5,6 +5,8 @@ using Kemet.APIs.Extensions;
 using Kemet.APIs.Helpers;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Entities.WishlistEntites;
+using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Services.InterFaces;
 using Kemet.Repository.Data;
@@ -30,6 +32,7 @@ namespace Kemet.APIs.Controllers
         private readonly AppDbContext _context;
         private readonly IEmailSettings _emailSettings;
         private readonly OtpExtensions _otpExtensions;
+       
 
         public AccountsController(
             UserManager<AppUser> userManager,
@@ -38,6 +41,7 @@ namespace Kemet.APIs.Controllers
             AppDbContext context,
             IEmailSettings emailSettings,
             OtpExtensions otpExtensions
+          
             )
         {
             _userManager = userManager;
@@ -46,6 +50,7 @@ namespace Kemet.APIs.Controllers
             _context = context;
             _emailSettings = emailSettings;
             _otpExtensions = otpExtensions;
+            
         }
 
         [HttpPost("RegisterCustomer")]
@@ -126,7 +131,7 @@ namespace Kemet.APIs.Controllers
         [HttpPost("Login")]
         public async Task<ActionResult<UserDto>> Login(SignInDTO model)
         {
-            var user = await _userManager.FindByEmailAsync(model.Email);
+            var user = (Customer)await _userManager.FindByEmailAsync(model.Email);
             if (user == null) return Unauthorized(new ApiResponse(401));
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
@@ -134,6 +139,7 @@ namespace Kemet.APIs.Controllers
 
             var userRoles = await _userManager.GetRolesAsync(user);
             var token = await _tokenServices.CreateTokenAsync(user, _userManager);
+
 
             return Ok(new UserDto
             {

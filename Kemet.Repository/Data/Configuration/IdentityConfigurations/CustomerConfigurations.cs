@@ -23,6 +23,10 @@ namespace Kemet.Repository.Data.Configuration.Identity
               .WithOne(ci => ci.Customer)
               .HasForeignKey(ci => ci.CustomerId);
 
+            builder.HasOne(C=>C.Wishlist)
+                   .WithOne()
+                   .OnDelete(DeleteBehavior.SetNull);
+
         }
     }
 }
