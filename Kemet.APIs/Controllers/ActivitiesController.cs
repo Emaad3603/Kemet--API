@@ -7,6 +7,7 @@ using Kemet.Core.Specifications.ActivitySpecs;
 using Kemet.Core.Specifications.PlaceSpecs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Kemet.APIs.Controllers
@@ -24,7 +25,7 @@ namespace Kemet.APIs.Controllers
         }
 
         [HttpGet] // /api/Activities  Get
-        public async Task<ActionResult<IEnumerable<Activity>>> GetActivity()
+        public async Task<ActionResult<IEnumerable<Activity>>> GetActivity(int activityId)
         {
             try
             {
@@ -48,7 +49,9 @@ namespace Kemet.APIs.Controllers
                         
                         
                         
-        }               
-    }                   
+        }
+        
+
+    }
 }                       
                         

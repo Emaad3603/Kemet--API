@@ -11,7 +11,7 @@ namespace Kemet.Core.Entities
     {
         public string PlanName { get; set; }
         public int Duration { get; set; }
-
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
         // Price relation nav 
         public int? priceId { get; set; }
         public Price Price { get; set; }

@@ -9,10 +9,11 @@ namespace Kemet.Core.Specifications.ActivitySpecs
 {
     public class ActivityWithPlacesSpecifications : BaseSpecifications<Activity>
     {
-        public ActivityWithPlacesSpecifications():base()
+        public ActivityWithPlacesSpecifications() :base()
         {
             Includes.Add(A => A.Place);
             Includes.Add(A => A.Images);
+            Includes.Add(A=>A.Reviews);
         }
     }
 }

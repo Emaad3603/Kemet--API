@@ -18,6 +18,8 @@ namespace Kemet.Core.Entities
 
         public string Description { get; set; }
 
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+
         // Price relation nav 
         public int? priceId { get; set; }
         public Price Price { get; set; }
