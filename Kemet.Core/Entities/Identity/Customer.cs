@@ -1,4 +1,5 @@
 ﻿using Kemet.Core.Entities.Intersts;
+using Kemet.Core.Entities.WishlistEntites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,5 +31,9 @@ namespace Kemet.Core.Entities.Identity
         public string? City { get; set; }
 
         public string? WebsiteLink { get; set; }
+
+        public int? WishlistID { get; set; }
+
+        public Wishlist? Wishlist { get; set; }
     }
 }

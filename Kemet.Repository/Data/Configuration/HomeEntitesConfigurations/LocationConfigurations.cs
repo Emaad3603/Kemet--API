@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kemet.Repository.Data.Configuration
+namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
 {
     public class LocationConfigurations : IEntityTypeConfiguration<Location>
     {
         public void Configure(EntityTypeBuilder<Location> builder)
         {
-            builder.Property(L=>L.Id).ValueGeneratedNever();
+            builder.Property(L => L.Id).ValueGeneratedNever();
         }
     }
 }

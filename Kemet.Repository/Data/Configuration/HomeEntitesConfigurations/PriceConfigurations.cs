@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kemet.Repository.Data.Configuration
+namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
 {
     public class PriceConfigurations : IEntityTypeConfiguration<Price>
     {
         public void Configure(EntityTypeBuilder<Price> builder)
         {
-            builder.Property(P=>P.Id).ValueGeneratedNever();
+            builder.Property(P => P.Id).ValueGeneratedNever();
 
             builder.Property(P => P.EgyptianAdult)
                    .HasColumnType("decimal(18,2)");
