@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Security.Claims;
 
 namespace Kemet.APIs.Controllers
@@ -54,11 +55,10 @@ namespace Kemet.APIs.Controllers
                 if (reviewDto == null)
                     return BadRequest("Invalid review data.");
 
-                var activity = await _context.Activities.FindAsync(reviewDto.ActivityId);
-                if (activity == null)
-                    return NotFound("Activity not found.");
+          
 
                 string imageUrl = null;
+               
 
                 // Handle image upload
                 if (reviewDto.Image != null)
@@ -77,7 +77,9 @@ namespace Kemet.APIs.Controllers
                     TravelAgencyPlanId = reviewDto.TravelAgencyPlanId
                 };
 
-                await _reviewRepo.AddAsync(review); // Use the repository to add the review
+               await _reviewRepo.AddReviewAsync(review);
+
+            
                 return Ok("Review added successfully!");
             }
             catch (Exception ex)
@@ -86,29 +88,107 @@ namespace Kemet.APIs.Controllers
             }
         }
 
-        [HttpGet("{activityId}/details")]
+       [HttpPut("{reviewId}")]
+        public async Task<IActionResult> UpdateReview(int reviewId, [FromForm] ReviewDto reviewDto)
+        {
+            try
+            {
+                var oldReview = await _reviewRepo.GetAsync(reviewId);
+                if (oldReview == null)
+                {
+                    return NotFound("Review not found.");
+                }
+
+                if (reviewDto == null)
+                {
+                    return BadRequest("Invalid review data.");
+                }
+
+                // Update review fields
+                oldReview.Rating = reviewDto.Rating;
+                oldReview.Comment = reviewDto.Comment;
+
+                _reviewRepo.Update(oldReview); // Use your repository to update the review
+
+                // Update AverageRating and RatingsCount for the associated entity
+                if (oldReview.PlaceId != null)
+                {
+                    var entity = await _context.Places.FindAsync(oldReview.PlaceId); // Similar for Activity/Plan
+                    if (entity != null)
+                    {
+                        var totalRating = entity.AverageRating * entity.RatingsCount;
+                        totalRating = totalRating - oldReview.Rating + reviewDto.Rating;
+                        entity.AverageRating = totalRating / entity.RatingsCount;
+
+                        _context.Places.Update(entity);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                if (oldReview.ActivityId != null)
+                {
+                    var activity = await _context.Activities.FindAsync(oldReview.ActivityId);
+                    if (activity != null)
+                    {
+                        var totalRating = activity.AverageRating * activity.RatingsCount;
+                        totalRating = totalRating - oldReview.Rating + reviewDto.Rating;
+                        activity.AverageRating = totalRating / activity.RatingsCount;
+
+                        _context.Activities.Update(activity);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                if (oldReview.TravelAgencyPlanId != null)
+                {
+                    var plan = await _context.TravelAgencyPlans.FindAsync(oldReview.TravelAgencyPlanId);
+                    if (plan != null)
+                    {
+                        var totalRating = plan.AverageRating * plan.RatingsCount;
+                        totalRating = totalRating - oldReview.Rating + reviewDto.Rating;
+                        plan.AverageRating = totalRating / plan.RatingsCount;
+
+                        _context.TravelAgencyPlans.Update(plan);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                return Ok("Review updated successfully!");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+
+        [HttpGet("activity/details/{activityId}")]
         public async Task<IActionResult>GetActivityWithReviews(int activityId) 
         {
+            
+                var activity = await _reviewRepo.GetReviewsForActivityAsync(activityId);
+                if (activity == null) return NotFound("activity reviews not found.");
 
 
-            var activity = await _reviewRepo.GetReviewsForActivityAsync(activityId);
-            if (activity == null)
-                return NotFound("Activity reviews not found.");
-           
+
+
             return Ok(activity);
+          
+
+            
         }
-        [HttpGet("{placeId}/details")]
+        [HttpGet("place/details/{placeId}")]
         public async Task<IActionResult> GetPlaceWithReviews(int placeid)
         {
 
 
-            var Place = await _reviewRepo.GetReviewsForPlaceAsync(placeid);
-            if (Place == null)
+            var place = await _reviewRepo.GetReviewsForPlaceAsync(placeid);
+            if (place == null)
                 return NotFound("place reviews not found.");
 
-            return Ok(Place);
+            return Ok(place);
         }
-        [HttpGet("{TravelAgencyPlanId}/details")]
+        [HttpGet("travelagencyplan/details/{TravelAgencyPlanId}")]
         public async Task<IActionResult> GetReviewsForTravelAgencyPlan(int TravelAgencyPlanId)
         {
 
@@ -120,19 +200,19 @@ namespace Kemet.APIs.Controllers
             return Ok(TravelAgencyPlan);
         }
 
-        [HttpGet("place/{placeId}/average-rating")]
+        [HttpGet("place/average-rating/{placeId}")]
         public async Task<IActionResult> GetAverageRatingForPlace(int placeId)
         {
             var averageRating = await _reviewRepo.GetAverageRatingForPlaceAsync(placeId);
             return Ok(averageRating);
         }
-        [HttpGet("activity/{activityId}/average-rating")]
+        [HttpGet("activity/average-rating/{activityId}")]
         public async Task<IActionResult> GetAverageRatingForActivity(int activityId)
         {
             var averageRating = await _reviewRepo.GetAverageRatingForActivityAsync(activityId);
             return Ok(averageRating);
         }
-        [HttpGet("travelagencyplan/{planId}/average-rating")]
+        [HttpGet("travelagencyplan/average-rating/{planId}")]
         public async Task<IActionResult> GetAverageRatingForTravelAgencyPlan(int planId)
         {
             var averageRating = await _reviewRepo.GetAverageRatingForTravelAgencyPlanAsync(planId);

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using AutoMapper;
+
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.Core.Entities;
 

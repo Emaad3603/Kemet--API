@@ -12,6 +12,7 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
 
         public ICollection<Review> Reviews { get; set; }
         public double AverageRating { get; set; }
+        public int? RatingsCount { get; set; }
 
     }
 }

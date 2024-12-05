@@ -18,7 +18,9 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
         public decimal? TouristAdult { get; set; }
 
         public decimal? TouristStudent { get; set; }
-        public ICollection<Review> Reviews { get; set; } 
+        public ICollection<Review> Reviews { get; set; }
+        public double AverageRating { get; set; }
+        public int? RatingsCount { get; set; }
 
     }
 }
