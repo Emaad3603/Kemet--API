@@ -4,6 +4,7 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
 {
     public class TravelAgencyPlanDTOs
     {
+        public  int PlanId { get; set; }
         public string Name { get; set; }
         public string PlanName { get; set; }
         public string PlanAvailability { get; set; }

@@ -5,6 +5,7 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
 {
     public class PlacesDto
     {
+        public int PlaceID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
      

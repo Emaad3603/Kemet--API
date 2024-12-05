@@ -20,6 +20,7 @@ namespace Kemet.APIs.Helpers
         public MappingProfiles()
         {
             CreateMap<Place, PlacesDto>()
+              .ForMember(d=>d.PlaceID,o=>o.MapFrom(s=>s.Id))
               .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
               .ForMember(d => d.Description, o => o.MapFrom(s => s.Description))
               .ForMember(d => d.ImageURLs, o => o.MapFrom<placesPicturesUrlResolver>())
@@ -32,6 +33,7 @@ namespace Kemet.APIs.Helpers
             CreateMap<IEnumerable<Place>, IEnumerable<PlacesDto>>()
               .ConvertUsing((src, dest) => src.Select(a => new PlacesDto
               {
+                  PlaceID=a.Id,
                   Name = a.Name,
                   ImageURLs = a.Images.Select(img => $"{"https://localhost:7051"}{img.ImageUrl}").ToList(),
                   AverageRating = a.AverageRating,
@@ -42,6 +44,7 @@ namespace Kemet.APIs.Helpers
               }).ToList());
 
             CreateMap<Activity, ActivityDTOs>()
+                           .ForMember(d=>d.ActivityId , o=>o.MapFrom(s=>s.Id))
                            .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
                            .ForMember(d => d.Duration, o => o.MapFrom(s => s.Duration))
                            .ForMember(d => d.imageURLs, o => o.MapFrom<ActivityPicturesUrlResolver>())
@@ -60,6 +63,7 @@ namespace Kemet.APIs.Helpers
             CreateMap<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>()
                 .ConvertUsing((src, dest) => src.Select(a => new ActivityDTOs
                 {
+                    ActivityId=a.Id,
                     Name = a.Name,
                     Duration = a.Duration,
 
@@ -70,6 +74,7 @@ namespace Kemet.APIs.Helpers
 
 
             CreateMap<TravelAgencyPlan, TravelAgencyPlanDTOs>()
+                .ForMember(d=>d.PlanId ,o=>o.MapFrom(s=>s.Id))
                   .ForMember(d => d.Name, o => o.MapFrom(s => s.TravelAgency.UserName))
                   .ForMember(d => d.PlanName, o => o.MapFrom(s => s.PlanName))
                   .ForMember(d => d.Duration, o => o.MapFrom(s => s.Duration))
@@ -86,7 +91,7 @@ namespace Kemet.APIs.Helpers
 
             CreateMap<IEnumerable<TravelAgencyPlan>, IEnumerable<TravelAgencyPlanDTOs>>()
               .ConvertUsing((src, dest) => src.Select(a => new TravelAgencyPlanDTOs
-              {
+              {   PlanId = a.Id ,
                   Name = a.PlanName, 
                   AverageRating = a.AverageRating ,
                   RatingsCount = a.RatingsCount ,
@@ -113,6 +118,7 @@ namespace Kemet.APIs.Helpers
 
 
             CreateMap<Activity, DetailedActivityDTOs>()
+                .ForMember(a=>a.ActivityId ,o=>o.MapFrom(s=>s.Id))
                  .ForMember(w => w.Name, o => o.MapFrom(s => s.Name))
                  .ForMember(w => w.Duration, o => o.MapFrom(o => o.Duration))
                  .ForMember(w => w.CulturalTips, o => o.MapFrom(o => o.CulturalTips))
@@ -131,6 +137,7 @@ namespace Kemet.APIs.Helpers
                  .ForMember(d => d.CategoryName, o => o.MapFrom(s => s.Category.CategoryName))
                  .ReverseMap();
             CreateMap<Place,DetailedPlaceDto>()
+                .ForMember(w=>w.PlaceId,o=>o.MapFrom(s=>s.Id))
                  .ForMember(w => w.Name, o => o.MapFrom(s => s.Name))
                  .ForMember(w => w.Duration, o => o.MapFrom(o => o.Duration))
                  .ForMember(w => w.CulturalTips, o => o.MapFrom(o => o.CultureTips))
@@ -149,6 +156,7 @@ namespace Kemet.APIs.Helpers
                  .ReverseMap();
 
             CreateMap<TravelAgencyPlan,DetailedTravelAgencyPlanDto>()
+                .ForMember(Tp=>Tp.PlanId , o=>o.MapFrom(s=>s.Id))
                 .ForMember(Tp=>Tp.PlanName,o=>o.MapFrom(s=>s.PlanName))
                 .ForMember(Tp=>Tp.Description,o=>o.MapFrom(s=>s.Description))
                 .ForMember(Tp => Tp.Duration, o => o.MapFrom(s => s.Duration))
