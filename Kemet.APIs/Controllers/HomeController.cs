@@ -23,15 +23,48 @@ namespace Kemet.APIs.Controllers
           _travelagencyplanRepo = travelagencyplanRepo;
            _mapper = mapper;
         }
+        [HttpGet("{activityId}/details")]
+        public async Task<IActionResult> GetActivityWithReviews(int activityId)
+        {
 
+            var activity = await _activityRepo.GetAsync(activityId);
+            if (activity == null) return NotFound("activity reviews not found.");
+
+            return Ok(activity);
+
+
+
+        }
+        [HttpGet("{TravelAgencyPlanId}/details")]
+        public async Task<IActionResult> GetReviewsForTravelAgencyPlan(int TravelAgencyPlanId)
+        {
+
+
+            var TravelAgencyPlan = await _travelagencyplanRepo.GetAsync(TravelAgencyPlanId);
+            if (TravelAgencyPlan == null)
+                return NotFound("TravelAgencyPlan reviews not found.");
+
+            return Ok(TravelAgencyPlan);
+        }
+        [HttpGet("{placeId}/details")]
+        public async Task<IActionResult> GetPlaceWithReviews(int placeid)
+        {
+
+
+            var Place = await _placeRepo.GetAsync(placeid);
+            if (Place == null)
+                return NotFound("place reviews not found.");
+
+            return Ok(Place);
+        }
         [HttpGet("Places")]
-        public async Task<IActionResult> GetPlacesWithRatings() 
+        public async Task<IActionResult> GetPlacesWithRatings()
         {
             var places = await _placeRepo.GetAllWithSpecAsync(new PlaceWithReviewsSpecifications(0));
             var placesWithRatings = places.Select(p => new
             {
                 Place = p.Name,
-                AverageRating=p.Reviews.Any()?p.Reviews.Average(r=>r.Rating):0
+                AverageRating = p.Reviews.Any() ? p.Reviews.Average(r => r.Rating) : 0
 
 
             }).ToList();
@@ -40,15 +73,15 @@ namespace Kemet.APIs.Controllers
         [HttpGet("activities")]
         public async Task<IActionResult> GetActivitiesWithRatings()
         {
-            var activities = await _activityRepo.GetAllAsync(/*new ActivityWithReviewsSpecifications()*/); // Replace with actual filtering
+            var activities = await _activityRepo.GetAllWithSpecAsync(new ActivityWithReviewsSpecifications(0)); // Replace with actual filtering
 
-            //var activitiesWithRatings = activities.Select(a => new
-            //{                
-            //    Activity = a.Name, // Assuming 'Name' is a property of Activity
-            //    AverageRating = a.Reviews.Any() ? a.Reviews.Average(r => r.Rating) : 0,
+            var activitiesWithRatings = activities.Select(a => new
+            {
+                Activity = a.Name, // Assuming 'Name' is a property of Activity
+                AverageRating = a.Reviews.Any() ? a.Reviews.Average(r => r.Rating) : 0,
 
-            //}).ToList();
-         
+            }).ToList();
+
             var result = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activities);
             return Ok(result);
         }

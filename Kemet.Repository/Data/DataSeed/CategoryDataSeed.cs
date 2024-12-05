@@ -39,10 +39,22 @@ namespace Kemet.Repository.Data.DataSeed
                 new Category { CategoryName = "Safari", CategoryType = "Activity" },
                 new Category { CategoryName = "Fancy Cafe", CategoryType = "Activity" },
                 new Category { CategoryName = "Fancy Restaurant", CategoryType = "Activity" }
-            };
+               };
 
+                var hiddenGemsCategories = new[]
+                {
+               new Category{CategoryName="Hidden Gems",CategoryType="Place" },
+              
+               //===============================Activity HIdden Gems seeding=======================================
+                new Category{CategoryName="Hidden Gems",CategoryType="Activity"},
+
+
+
+             };
+                
                 await  context.Categories.AddRangeAsync(placeCategories);
                 await  context.Categories.AddRangeAsync(activityCategories);
+                await context.Categories.AddRangeAsync(hiddenGemsCategories);
                 await context.SaveChangesAsync();
             }
         }

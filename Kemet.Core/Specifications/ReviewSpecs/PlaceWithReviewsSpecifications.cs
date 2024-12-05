@@ -12,6 +12,9 @@ namespace Kemet.Core.Specifications.ReviewSpecs
         public PlaceWithReviewsSpecifications(int placeId):base(p=>p.Id==placeId)
         {
             Includes.Add(p => p.Reviews);
+          
+           
+
         }
     }
 }

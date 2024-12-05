@@ -54,12 +54,12 @@ namespace Kemet.Repository.Repositories
 
         public async Task<T?> GetWithSpecAsync(ISpecifictions<T> spec)
         {
-            return await SpecificationEvaluator<T>.GetQuery(_context.Set<T>(), spec).FirstOrDefaultAsync();
+            return await ApplySpecifications(spec).FirstOrDefaultAsync();
         }
 
         private IQueryable<T> ApplySpecifications (ISpecifictions<T> spec)
         {
-            return SpecificationEvaluator<T>.GetQuery(_context.Set<T>(), spec);
+            return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
         }
 
 

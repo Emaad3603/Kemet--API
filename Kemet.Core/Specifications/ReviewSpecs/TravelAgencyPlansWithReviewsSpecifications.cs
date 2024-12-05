@@ -12,6 +12,7 @@ namespace Kemet.Core.Specifications.ReviewSpecs
         public TravelAgencyPlansWithReviewsSpecifications(int travelAgencyPlanId):base(TA=>TA.Id==travelAgencyPlanId)
         {
             Includes.Add(TA => TA.Reviews);
+
         }
     }
 }

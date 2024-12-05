@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Kemet.Core.Repositories.InterFaces
 {
-    public interface IReviewRepository : IGenericRepository<Review>
+    public interface IReviewRepository : IGenericRepository<Review> 
     {
+        public Task AddReviewAsync(Review review);
         Task<double> GetAverageRatingForPlaceAsync(int placeId);
         Task<double> GetAverageRatingForActivityAsync(int activityId);
         Task<double> GetAverageRatingForTravelAgencyPlanAsync(int planId);

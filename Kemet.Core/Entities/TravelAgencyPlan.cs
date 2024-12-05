@@ -23,6 +23,9 @@ namespace Kemet.Core.Entities
         public string TravelAgencyId { get; set; } //FK
         public TravelAgency TravelAgency { get; set; }
 
+        public double AverageRating { get; set; } = 0.0;  // Default to 0
+        public int RatingsCount { get; set; } = 0;       // Default to 0
+
 
     }
 }

@@ -657,5 +657,75 @@
       "PlaceLatitude": "30.054° N",
       "PlaceLongitude": "31.226° E",
       "Id": 98
+    },
+    {
+      "Address": "Sheikh Zayed, Cairo",
+      "LocationLink": "https://maps.app.goo.gl/bTjm1hakoz6poaRA9",
+      "PlaceLatitude": "30.0238° N",
+      "PlaceLongitude": "31.0138° E",
+      "Id": 99
+    },
+    {
+      "Address": "Al-Moez Street, Islamic Cairo, Cairo",
+      "LocationLink": "https://maps.app.goo.gl/BvqSLHUaZFUHv8Rx7",
+      "PlaceLatitude": "30.0478° N",
+      "PlaceLongitude": "31.2625° E",
+      "Id": 100
+    },
+    {
+      "Address": "Al-Moez Street, Old Cairo, Cairo",
+      "LocationLink": "https://maps.app.goo.gl/RTgzHo6hrZn41uVT6",
+      "PlaceLatitude": "30.0444° N",
+      "PlaceLongitude": "31.2577° E",
+      "Id": 101
+    },
+    {
+      "Address": "Mokattam Hills, Cairo",
+      "LocationLink": "https://maps.app.goo.gl/cgGGzrShzsqmj9Ar9",
+      "PlaceLatitude": "30.0246° N",
+      "PlaceLongitude": "31.2769° E",
+      "Id": 102
+    },
+    {
+      "Address": "Khan El Khalili, Islamic Cairo, Cairo",
+      "LocationLink": "https://maps.app.goo.gl/PhqmkZRUdyXSS9LU6",
+      "PlaceLatitude": "30.0464° N",
+      "PlaceLongitude": "31.2610° E",
+      "Id": 103
+    },
+    {
+      "Address": "Downtown Cairo, Cairo, Egypt",
+      "LocationLink": "https://maps.app.goo.gl/M2or2gn6CY7bywJg8",
+      "PlaceLatitude": "30.0444° N",
+      "PlaceLongitude": "31.2357° E",
+      "Id": 104
+    },
+    {
+      "Address": "Nile River, Cairo, Egypt",
+      "LocationLink": "https://maps.app.goo.gl/21Dxujmu8uwdWa327",
+      "PlaceLatitude": "30.0444° N",
+      "PlaceLongitude": "31.2357° E",
+      "Id": 105
+    },
+    {
+      "Address": "2 El-Emam St, Downtown Cairo, Cairo, Egypt",
+      "LocationLink": "https://maps.app.goo.gl/jHc4c5aP6GAdZqJe7",
+      "PlaceLatitude": "30.0456° N",
+      "PlaceLongitude": "31.2349° E",
+      "Id": 106
+    },
+    {
+      "Address": "Abdeen, Cairo, Egypt",
+      "LocationLink": "https://maps.app.goo.gl/iaS25SBtQn9bA27x6",
+      "PlaceLatitude": "30.0382° N",
+      "PlaceLongitude": "31.2493° E",
+      "Id": 107
+    },
+    {
+      "Address": "El Manial, Cairo, Egypt",
+      "LocationLink": "https://maps.app.goo.gl/Jbn2xismVfx4xrVLA",
+      "PlaceLatitude": "30.0277° N",
+      "PlaceLongitude": "31.2310° E",
+      "Id": 108
     }
   ]

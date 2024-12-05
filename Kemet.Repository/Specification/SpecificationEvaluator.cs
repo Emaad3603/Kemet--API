@@ -34,6 +34,9 @@ namespace Kemet.Repository.Specification
                 query = query.Skip(spec.Skip).Take(spec.Take);
             }
             query = spec.Includes.Aggregate(query , (currentQuery,includeExpression) => currentQuery.Include(includeExpression));
+
+            
+
             return query;
         }
     }

@@ -502,5 +502,65 @@
       "priceId": 14,
       "LocationId": 42,
       "CategoryID": 8
+    },
+    {
+      "Name": "Cairo Jazz Club 610",
+      "CulturalTip": "Enjoy Live Music in an Intimate Setting",
+      "Description": "A trendy and vibrant venue in Sheikh Zayed offering live music performances blending local and international talents. It's an ideal spot for jazz, fusion, and electronic music lovers.",
+      "Duration": "3-4 hours",
+      "OpenTime": "19:00:00",
+      "CloseTime": "02:00:00",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 99,
+      "CategoryID": 19
+    },
+    {
+      "Name": "El Moez Bath (Hammam Al-Malik Al-Zahir)",
+      "CulturalTip": "Visit as part of a walking tour of Islamic Cairo",
+      "Description": "A historical bathhouse recently restored and now offering guided tours to showcase how Egyptians enjoyed luxurious baths in the medieval period.",
+      "Duration": "1-2 hours",
+      "OpenTime": "09:00:00",
+      "CloseTime": "17:00:00",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 100,
+      "CategoryID": 19
+    },
+    {
+      "Name": "Bab Zuweila",
+      "CulturalTip": "Bring a camera for fantastic photo opportunities",
+      "Description": "One of the remaining medieval gates of Cairo, Bab Zuweila offers panoramic views of Old Cairo if you climb its minarets. It’s a historic site often overlooked by visitors.",
+      "Duration": "1-2 hours",
+      "OpenTime": "09:00:00",
+      "CloseTime": "17:00:00",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 101,
+      "CategoryID": 19
+    },
+    {
+      "Name": "Cave Church (St. Simon the Tanner Monastery)",
+      "CulturalTip": "Visit early morning or during service hours for a peaceful ambiance",
+      "Description": "Nestled in the Mokattam Hills, this awe-inspiring church is carved into the rock and can accommodate thousands of worshippers. It’s surrounded by the vibrant Garbage City, offering a unique cultural experience.",
+      "Duration": "2-3 hours",
+      "OpenTime": "08:00:00",
+      "CloseTime": "18:00:00",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 102,
+      "CategoryID": 19
+    },
+    {
+      "Name": "El-Fishawy Café",
+      "CulturalTip": "Enjoy traditional Egyptian tea or coffee while people-watching in the heart of Islamic Cairo.",
+      "Description": "An iconic coffeehouse located in Khan El Khalili, El-Fishawy Café has been serving customers since the 18th century. It's a great place to experience the buzz of Cairo's historic center.",
+      "Duration": "1-2 hours",
+      "OpenTime": "00:00:00",
+      "CloseTime": "23:59:59",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 103,
+      "CategoryID": 19
     }
   ]

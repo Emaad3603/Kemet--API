@@ -741,5 +741,65 @@
       "priceId": 14,
       "LocationId": 98,
       "CategoryID": 18
+    },
+    {
+      "Name": "Art Tour of Downtown Cairo's Hidden Galleries",
+      "CulturalTip": "Look out for local artists and emerging art trends in the tucked-away galleries.",
+      "Description": "Discover hidden art galleries in Downtown Cairo, offering a mix of contemporary art and classic Egyptian styles. This tour will take you to lesser-known spaces where you can engage with local artists and their works.",
+      "Duration": "2-3 hours",
+      "OpenTime": "10:00:00",
+      "CloseTime": "18:00:00",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 104,
+      "CategoryID": 20
+    },
+    {
+      "Name": "Nile Felucca Ride at Sunset",
+      "CulturalTip": "Bring your camera to capture the stunning views of the Nile at sunset.",
+      "Description": "A peaceful boat ride on the Nile aboard a traditional felucca boat, offering incredible views of Cairo’s skyline, including the Cairo Tower, the Nile River, and lush riverbanks at sunset.",
+      "Duration": "1-2 hours",
+      "OpenTime": "17:00:00",
+      "CloseTime": "19:00:00",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 105,
+      "CategoryID": 20
+    },
+    {
+      "Name": "Carlton Rooftop",
+      "CulturalTip": "Enjoy panoramic views of Cairo’s skyline while sipping on traditional Egyptian drinks.",
+      "Description": "Carlton Rooftop offers one of the best views of Cairo's skyline and the Nile River. It's a hidden gem, providing a relaxed atmosphere with delicious drinks and light bites. The rooftop is perfect for a peaceful evening out with breathtaking sunset views over the city.",
+      "Duration": "1-2 hours",
+      "OpenTime": "10:00:00",
+      "CloseTime": "23:00:00",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 106,
+      "CategoryID": 20
+    },
+    {
+      "Name": "Abdeen Palace Museum",
+      "CulturalTip": "Explore the lavish rooms and historical artifacts inside the former royal palace.",
+      "Description": "Abdeen Palace, once the official residence of Egypt’s royal family, is now a museum showcasing royal artifacts, manuscripts, and lavish interiors. It's a less-visited spot that provides a glimpse into Egypt's royal history.",
+      "Duration": "2-3 hours",
+      "OpenTime": "09:00:00",
+      "CloseTime": "17:00:00",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 107,
+      "CategoryID": 20
+    },
+    {
+      "Name": "the Cairo Opera House",
+      "CulturalTip": "Enjoy a performance or simply admire the stunning architecture of this cultural landmark.",
+      "Description": "The Cairo Opera House is a cultural hub offering performances in music, ballet, and theatre. It’s one of the most prestigious venues in the Arab world and often hosts world-class artists and performances.",
+      "Duration": "2-3 hours",
+      "OpenTime": "10:00:00",
+      "CloseTime": "23:00:00",
+      "Category": "Hidden Gems",
+      "priceId": 14,
+      "LocationId": 108,
+      "CategoryID": 20
     }
   ]

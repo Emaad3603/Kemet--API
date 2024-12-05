@@ -35,6 +35,10 @@ namespace Kemet.Core.Entities
         public Category Category { get; set; }
         
         public ICollection<PlaceImage> Images { get; set; } = new List<PlaceImage>();
+        //average ratings and the number of ratings
+
+        public double AverageRating { get; set; } = 0.0;  // Default to 0
+        public int RatingsCount { get; set; } = 0;       // Default to 0
 
     }
 }

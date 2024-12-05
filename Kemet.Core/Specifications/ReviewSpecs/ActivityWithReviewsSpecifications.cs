@@ -9,11 +9,12 @@ namespace Kemet.Core.Specifications.ReviewSpecs
 {
     public class ActivityWithReviewsSpecifications : BaseSpecifications<Activity>
     {
-        public ActivityWithReviewsSpecifications(/*int activityId*/) :base(/*a=>a.Id==activityId*/)
+        public ActivityWithReviewsSpecifications(int activityId) :base(a=>a.Id==activityId)
         {
         
-        Includes.Add(a=>a.Reviews);
-        
+            Includes.Add(a=>a.Reviews);
+         
+
         }
     }
 }
