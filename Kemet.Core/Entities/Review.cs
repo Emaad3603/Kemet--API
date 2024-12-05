@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kemet.Core.Entities.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,10 @@ namespace Kemet.Core.Entities
     public class Review :BaseEntity
     {
         public string UserId { get; set; }  // ID of the user who wrote the review
+
+        public string USERNAME { get; set; }
+
+        public string UserImageURl {  get; set; }
         public string Comment { get; set; } // The review text
         public int Rating { get; set; } // Rating, e.g., 1-5
 

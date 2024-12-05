@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
+using Kemet.APIs.DTOs.ReviewsDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.RepositoriesInterFaces;
@@ -70,13 +72,17 @@ namespace Kemet.APIs.Controllers
                     return NotFound(new ApiResponse(404, "No Activities found "));
                 }
              
-                var Activities = _mapper.Map<Activity, ActivityDTOs>(activity);
+                var Activities = _mapper.Map<Activity, DetailedActivityDTOs>(activity);
                 if (Activities == null)
                 {
                     return NotFound(new ApiResponse(404, "No Activities found "));
                 }
                 var fetchedReviews =  await   _context.Reviews.Where(r=>r.ActivityId == ActivityID).ToListAsync();
-                Activities.Reviews = fetchedReviews;
+                foreach(var fetchedReview in fetchedReviews)
+                {
+                    fetchedReview.ImageUrl = $"{"https://localhost:7051"}{fetchedReview.ImageUrl}";
+                }
+                Activities.Reviews =fetchedReviews;
                 var Result = Activities;
                 return Ok(Result);
             }

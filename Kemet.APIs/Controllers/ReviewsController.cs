@@ -69,6 +69,8 @@ namespace Kemet.APIs.Controllers
 
                 var review = new Review
                 {   UserId = user.Id,
+                    USERNAME = user.UserName,
+                    UserImageURl = $"{"https://localhost:7051"}{user.ImageURL}",
                     Rating = reviewDto.Rating,
                     Comment = reviewDto.Comment,
                     ActivityId = reviewDto.ActivityId,

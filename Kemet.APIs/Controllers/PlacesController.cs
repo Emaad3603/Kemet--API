@@ -84,6 +84,10 @@ namespace Kemet.APIs.Controllers
                     return NotFound(new ApiResponse(404, "No Places found "));
                 }
                 var fetchedPlaces = await _context.Reviews.Where(p => p.PlaceId == PlaceID).ToListAsync();
+                foreach (var fetchedPlace in fetchedPlaces)
+                {
+                    fetchedPlace.ImageUrl = $"{"https://localhost:7051"}{fetchedPlace.ImageUrl}";
+                }
                 Places.Reviews = fetchedPlaces;
                 var Result = Places;
                 return Ok(Result);

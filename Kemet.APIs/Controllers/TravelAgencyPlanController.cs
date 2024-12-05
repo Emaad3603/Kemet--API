@@ -57,9 +57,13 @@ namespace Kemet.APIs.Controllers
                 var plans = _mapper.Map<TravelAgencyPlan, TravelAgencyPlanDTOs>(plan);
                 if (plans == null)
                 {
-                    return NotFound(new ApiResponse(404, "No Exclusive Packages found "));S
+                    return NotFound(new ApiResponse(404, "No Exclusive Packages found "));
                 }
                 var fetchedReviews = await _context.Reviews.Where(r => r.TravelAgencyPlanId == PlanId).ToListAsync();
+                foreach (var fetchedReview in fetchedReviews)
+                {
+                    fetchedReview.ImageUrl = $"{"https://localhost:7051"}{fetchedReview.ImageUrl}";
+                }
                 plans.Reviews = fetchedReviews;
                 var Result = plans;
                 return Ok(Result);

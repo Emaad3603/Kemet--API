@@ -55,5 +55,7 @@ namespace Kemet.Repository.Data
         public DbSet<WishlistActivites> WishlistActivites { get; set; }
 
         public DbSet<WishlistPlans> WishlistPlans { get; set;}
+
+        public DbSet<Review> Reviews { get; set; }
     }
 }
