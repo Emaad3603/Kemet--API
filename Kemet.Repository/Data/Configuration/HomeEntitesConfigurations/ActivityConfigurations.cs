@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
 {
-    internal class ActivityConfigurations : IEntityTypeConfiguration<Activity>
+    public class ActivityConfigurations : IEntityTypeConfiguration<Activity>
     {
 
 

@@ -10,6 +10,7 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
         public string Duration { get; set; }
 
         public List<string> imageURLs { get; set; }
-        
+        public ICollection<Review> Reviews { get; set; }
+        public double AverageRating { get; set; }
     }
 }

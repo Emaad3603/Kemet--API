@@ -63,7 +63,12 @@ namespace Kemet.Repository.Repositories
         }
 
 
-        public async Task AddAsync(T entity) => await _context.Set<T>().AddAsync(entity);
+        public async Task AddAsync(T entity)
+        {
+          await _context.Set<T>().AddAsync(entity);
+          await  _context.SaveChangesAsync();
+
+        }
 
 
         public void Delete(T entity) => _context.Set<T>().Remove(entity);
