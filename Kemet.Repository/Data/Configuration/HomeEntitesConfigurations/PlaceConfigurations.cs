@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kemet.Repository.Data.Configuration
+namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
 {
     public class PlaceConfigurations : IEntityTypeConfiguration<Place>
     {
         public void Configure(EntityTypeBuilder<Place> builder)
         {
-            builder.Property(P=>P.Name)
+            builder.Property(P => P.Name)
                    .IsRequired();
 
             builder.Property(P => P.CultureTips)
@@ -22,7 +22,7 @@ namespace Kemet.Repository.Data.Configuration
             builder.Property(P => P.Description)
                   .IsRequired();
 
-           
+
             builder.Property(P => P.OpenTime)
                    .HasColumnType("Time")
                    .IsRequired();
@@ -30,14 +30,14 @@ namespace Kemet.Repository.Data.Configuration
                    .HasColumnType("Time")
                    .IsRequired();
             builder.Property(P => P.Duration)
-                  .IsRequired();
+                   .IsRequired();
             builder.HasOne(P => P.Price)
                    .WithOne()
                    .OnDelete(DeleteBehavior.SetNull);
-            
-          
-                
-                
+
+
+
+
 
         }
     }

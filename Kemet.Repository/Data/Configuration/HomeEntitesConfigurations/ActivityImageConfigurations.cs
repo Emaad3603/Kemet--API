@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kemet.Repository.Data.Configuration
+namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
 {
     public class ActivityImageConfigurations : IEntityTypeConfiguration<ActivityImage>
     {
