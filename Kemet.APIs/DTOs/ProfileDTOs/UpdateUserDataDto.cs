@@ -10,8 +10,8 @@
         public string? Nationality { get; set; }
         public List<int> InterestCategoryIds { get; set; } = new List<int>();
 
-        public IFormFile? ProfileImage { get; set; }
-        public IFormFile? BackgroundImage { get; set; }
+   //     public IFormFile? ProfileImage { get; set; }
+    //    public IFormFile? BackgroundImage { get; set; }
 
         public string? Bio { get; set; }
 

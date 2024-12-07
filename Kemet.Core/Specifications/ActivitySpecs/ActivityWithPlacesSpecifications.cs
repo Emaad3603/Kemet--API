@@ -14,14 +14,17 @@ namespace Kemet.Core.Specifications.ActivitySpecs
         {
             Includes.Add(A => A.Place);
             Includes.Add(A => A.Images);
-          //  Includes.Add(A=>A.Reviews);
-            
+            Includes.Add(A => A.Price);
+
+            //  Includes.Add(A=>A.Reviews);
+
         }
         public ActivityWithPlacesSpecifications() : base()
         {
             Includes.Add(A => A.Place);
             Includes.Add(A => A.Images);
             Includes.Add(A => A.Reviews);
+            Includes.Add(A => A.Price);
 
         }
     }

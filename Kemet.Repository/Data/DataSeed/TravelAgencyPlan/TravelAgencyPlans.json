@@ -2,7 +2,7 @@
   {
     "PlanName": "SinaiTour",
     "Duration": 5,
-    "PriceId": 1,
+    "priceId": 1,
     "Description": "Dahab",
     "PlanAvailability": "available",
     "PictureUrl": "uploads/Dahab.jpg",
@@ -11,7 +11,7 @@
   {
     "PlanName": "Kayak ",
     "Duration": 1,
-    "PriceId": 1,
+    "priceId": 2,
     "Description": "Lake Nasser",
     "PlanAvailability": "available",
     "PictureUrl": "uploads/Kayak-Nile.jpg ",
@@ -20,7 +20,7 @@
   {
     "PlanName": "The Nubian village ",
     "Duration": 3,
-    "PriceId": 1,
+    "priceId": 3,
     "Description": "El Nuba",
     "PlanAvailability": "available",
     "PictureUrl": "uploads/The-Nubian-village.jpg",
@@ -29,7 +29,7 @@
   {
     "PlanName": "Vinni Cafe ",
     "Duration": 1,
-    "PriceId": 1,
+    "priceId": 5,
     "Description": "Vinnni Cafe ",
     "PlanAvailability": "available",
     "PictureUrl": "uploads/Vinni-Cafe.jpg",
@@ -38,7 +38,7 @@
   {
     "PlanName": "Wadi El Hitan",
     "Duration": 1,
-    "PriceId": 1,
+    "priceId": 4,
     "Description": "wadi-el-hitan",
     "PlanAvailability": "available",
     "PictureUrl": "uploads/Wadi-El-Hitan.jpg",
