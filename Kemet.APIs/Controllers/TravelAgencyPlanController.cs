@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
@@ -34,7 +35,7 @@ namespace Kemet.APIs.Controllers
         {
             var spec = new TravelAgencyPlanSpecifications();
             var travelAgencyPlan = await _travelagencyplanRepo.GetAllWithSpecAsync(spec);
-            var Result = _mapper.Map<IEnumerable<TravelAgencyPlan>, IEnumerable<TravelAgencyPlanDTOs>>(travelAgencyPlan);
+            var Result = _mapper.Map<IEnumerable<TravelAgencyPlan>, IEnumerable<DetailedTravelAgencyPlanDto>>(travelAgencyPlan);
 
             return Ok(Result);
 
@@ -54,7 +55,7 @@ namespace Kemet.APIs.Controllers
                     return NotFound(new ApiResponse(404, "No Exclusive Packages found "));
                 }
 
-                var plans = _mapper.Map<TravelAgencyPlan, TravelAgencyPlanDTOs>(plan);
+                var plans = _mapper.Map<TravelAgencyPlan, DetailedTravelAgencyPlanDto>(plan);
                 if (plans == null)
                 {
                     return NotFound(new ApiResponse(404, "No Exclusive Packages found "));
@@ -62,7 +63,7 @@ namespace Kemet.APIs.Controllers
                 var fetchedReviews = await _context.Reviews.Where(r => r.TravelAgencyPlanId == PlanId).ToListAsync();
                 foreach (var fetchedReview in fetchedReviews)
                 {
-                    fetchedReview.ImageUrl = $"{"https://localhost:7051"}{fetchedReview.ImageUrl}";
+                    fetchedReview.ImageUrl = $"{"https://localhost:7051/"}{fetchedReview.ImageUrl}";
                 }
                 plans.Reviews = fetchedReviews;
                 var Result = plans;

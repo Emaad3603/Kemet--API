@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
@@ -78,7 +79,7 @@ namespace Kemet.APIs.Controllers
                     return NotFound(new ApiResponse(404, "No Places found "));
                 }
 
-                var Places = _mapper.Map<Place, PlacesDto>(place);
+                var Places = _mapper.Map<Place,DetailedPlaceDto>(place);
                 if (Places == null)
                 {
                     return NotFound(new ApiResponse(404, "No Places found "));
@@ -86,7 +87,7 @@ namespace Kemet.APIs.Controllers
                 var fetchedPlaces = await _context.Reviews.Where(p => p.PlaceId == PlaceID).ToListAsync();
                 foreach (var fetchedPlace in fetchedPlaces)
                 {
-                    fetchedPlace.ImageUrl = $"{"https://localhost:7051"}{fetchedPlace.ImageUrl}";
+                    fetchedPlace.ImageUrl = $"{"https://localhost:7051/"}{fetchedPlace.ImageUrl}";
                 }
                 Places.Reviews = fetchedPlaces;
                 var Result = Places;
