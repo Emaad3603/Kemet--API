@@ -18,14 +18,14 @@ namespace Kemet.Services
             _context = context;
         }
 
-        public async Task<RagionalSearchDTO> SearchAll(string textA )
+        public async Task<RagionalSearchDTO> SearchAll(string textA)
         {
             try
             {
                 var text = textA.ToLower();
-                var places = await _context.Places.Where(P => P.Name == text || P.Location.Address == text || P.CultureTips == text || P.Description == text || P.Category.CategoryName == text).ToListAsync();
-                var Activities = await _context.Activities.Where(A => A.Name == text || A.Location.Address == text || A.Category.CategoryName == text).ToListAsync();
-                var travelAgencyPlans = await _context.TravelAgencyPlans.Where(A => A.PlanName == text || A.Description == text || A.TravelAgency.UserName == text).ToListAsync();
+                var places = await _context.Places.Where(P => P.Name.Contains(text) || P.Location.Address.Contains(text) || P.CultureTips.Contains(text) || P.Description.Contains(text) || P.Category.CategoryName.Contains(text)).ToListAsync();
+                var Activities = await _context.Activities.Where(A => A.Name.Contains(text) || A.Location.Address.Contains(text) || A.Category.CategoryName.Contains(text)).ToListAsync();
+                var travelAgencyPlans = await _context.TravelAgencyPlans.Where(A => A.PlanName.Contains(text) || A.Description.Contains(text) || A.TravelAgency.UserName.Contains(text)).ToListAsync();
 
                 var result = new RagionalSearchDTO()
                 {
@@ -34,12 +34,14 @@ namespace Kemet.Services
                     TravelAgencyPlans = travelAgencyPlans
                 };
                 return result;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return new RagionalSearchDTO();
             }
-          
+
         }
+    
     }
 
 }
