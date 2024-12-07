@@ -87,7 +87,7 @@ namespace Kemet.APIs.Controllers
                 var fetchedPlaces = await _context.Reviews.Where(p => p.PlaceId == PlaceID).ToListAsync();
                 foreach (var fetchedPlace in fetchedPlaces)
                 {
-                    fetchedPlace.ImageUrl = $"{"https://localhost:7051/"}{fetchedPlace.ImageUrl}";
+                    fetchedPlace.ImageUrl = $"{"https://localhost:7051"}{fetchedPlace.ImageUrl}";
                 }
                 Places.Reviews = fetchedPlaces;
                 var Result = Places;

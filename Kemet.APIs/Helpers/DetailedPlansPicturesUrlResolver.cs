@@ -15,7 +15,7 @@ namespace Kemet.APIs.Helpers
         }
         public string Resolve(TravelAgencyPlan source, DetailedTravelAgencyPlanDto destination, string destMember, ResolutionContext context)
         {
-            return source.PictureUrl = $"{_configuration["BaseUrl"]}{source.PictureUrl}";
+            return source.PictureUrl = $"{_configuration["BaseUrl"]}/{source.PictureUrl}";
         }
     }
 }

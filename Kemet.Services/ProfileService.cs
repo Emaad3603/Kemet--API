@@ -26,12 +26,12 @@ namespace Kemet.Services
             
         }
 
-        public async Task<(bool IsSuccess, string Message, string ImageUrl)> UploadProfileImageAsync(string userEmail, IFormFile profileImage, IFormFile backgroundImage)
+        public async Task<(bool IsSuccess, string Message, string ImageUrl)> UploadProfileImageAsync(string userEmail, IFormFile? profileImage, IFormFile? backgroundImage)
         {
-            if (profileImage == null && backgroundImage == null || profileImage.Length == 0 && backgroundImage.Length ==0)
-            {
-                return (false, "Please select an image to upload.", null);
-            }
+            //if (profileImage == null && backgroundImage == null || profileImage.Length == 0 && backgroundImage.Length ==0)
+            //{
+            //    return (false, "Please select an image to upload.", null);
+            //}
 
             var user = await _userManager.FindByEmailAsync(userEmail);
             if (user == null)
@@ -62,12 +62,12 @@ namespace Kemet.Services
             }
             if(backgroundImage != null)
             {
-                string bGuniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(profileImage.FileName);
+                string bGuniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(backgroundImage.FileName);
                 string bGfilePath = Path.Combine(_bGuploadsFolder, bGuniqueFileName);
 
                 using (var fileStream = new FileStream(bGfilePath, FileMode.Create))
                 {
-                    await profileImage.CopyToAsync(fileStream);
+                    await backgroundImage.CopyToAsync(fileStream);
                 }
 
                 user.BackgroundImageURL = "/uploads/BackGroundImages/" + bGuniqueFileName;
