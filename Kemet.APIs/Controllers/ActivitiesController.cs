@@ -80,7 +80,7 @@ namespace Kemet.APIs.Controllers
                 var fetchedReviews =  await   _context.Reviews.Where(r=>r.ActivityId == ActivityID).ToListAsync();
                 foreach(var fetchedReview in fetchedReviews)
                 {
-                    fetchedReview.ImageUrl = $"{"https://localhost:7051"}{fetchedReview.ImageUrl}";
+                    fetchedReview.ImageUrl = $"{"https://localhost:7051/"}{fetchedReview.ImageUrl}";
                 }
                 Activities.Reviews =fetchedReviews;
                 var Result = Activities;
