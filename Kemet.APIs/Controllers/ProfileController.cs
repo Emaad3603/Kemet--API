@@ -1,11 +1,17 @@
-﻿using Kemet.APIs.DTOs;
+﻿using AutoMapper;
+using Kemet.APIs.DTOs;
+using Kemet.APIs.DTOs.DetailedDTOs;
+using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.DTOs.ProfileDTOs;
 using Kemet.APIs.Errors;
 using Kemet.APIs.Extensions;
+using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Entities.ModelView;
 using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -21,19 +27,22 @@ namespace Kemet.APIs.Controllers
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IProfileService _profileService;
         private readonly IConfiguration _configuration;
+        private readonly IMapper _mapper;
 
         public ProfileController(
             UserManager<AppUser> userManager,
             IinterestsRepository interestRepository,
               IWebHostEnvironment webHostEnvironment,
               IProfileService profileService,
-              IConfiguration configuration)
+              IConfiguration configuration,
+              IMapper mapper)
         {
             _userManager = userManager;
             _interestRepository = interestRepository;
             _webHostEnvironment = webHostEnvironment;
             _profileService = profileService;
             _configuration = configuration;
+            _mapper = mapper;
         }
 
         // GET: api/Profile/GetCurrentUserData
@@ -187,5 +196,25 @@ namespace Kemet.APIs.Controllers
                 return StatusCode(500, new { message = $"Internal server error: {ex.Message}" });
             }
         }
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult> GetAdventureMode()
+        {
+            var adventureObject = await _profileService.GetAdventureModeSuggest();
+            if (adventureObject.Place is null && adventureObject.Activity is null)
+            {
+                return BadRequest(new ApiResponse(400, "There was a proplem generating Adventure Mode Result !!"));
+            }
+            else
+            {
+                var result = new AdventureModeToReturn()
+                {
+                    placeDto = _mapper.Map<Place, DetailedPlaceDto>(adventureObject.Place),
+                    activityDTOs = _mapper.Map<Activity, DetailedActivityDTOs>(adventureObject.Activity)
+                };
+                return Ok(result);
+            }
+               
+        } 
     }
 }

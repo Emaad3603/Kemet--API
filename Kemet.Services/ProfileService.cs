@@ -8,6 +8,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kemet.Core.Entities.ModelView;
+using Kemet.Repository.Data;
+using Microsoft.EntityFrameworkCore;
+using Kemet.Core.Entities;
 
 namespace Kemet.Services
 {
@@ -16,14 +20,65 @@ namespace Kemet.Services
         private readonly UserManager<AppUser> _userManager;
         private readonly string _pPuploadsFolder;
         private readonly string _bGuploadsFolder;
-        
+        private readonly AppDbContext _context;
 
-        public ProfileService(UserManager<AppUser> userManager, string PPuploadsFolder , string BGuploadsFolder)
+        public ProfileService(UserManager<AppUser> userManager, string PPuploadsFolder , string BGuploadsFolder , AppDbContext context)
         {
             _userManager = userManager;
             _pPuploadsFolder = PPuploadsFolder;
             _bGuploadsFolder = BGuploadsFolder;
-            
+            _context = context;
+        }
+
+        public async Task<AdventureDTO> GetAdventureModeSuggest()
+        {
+            try
+            {
+                var currentTime = DateTime.UtcNow.TimeOfDay;
+                var random = new Random();
+                var allPlaces = await _context.Places.Include(p => p.Price).Include(p=>p.Images).ToListAsync();
+                var openPlaces = GetOpenPlaces(allPlaces);
+                var ranNumber = random.Next(1,openPlaces.Count() + 1);
+                var adventurePlace = openPlaces.Where(p => p.Id == ranNumber).FirstOrDefault();
+                if (adventurePlace != null)
+                {
+                    var actvityLen = await _context.Activities.Where(a => a.PlaceId == adventurePlace.Id).CountAsync() + 1;
+                    var actvities = await _context.Activities.Where(a => a.PlaceId == adventurePlace.Id).Include(a => a.Price).Include(a=>a.Images).ToListAsync();
+                    ranNumber = random.Next(1,actvityLen);
+                    var adventureActivity = actvities.Where(a => a.Id == ranNumber).FirstOrDefault();
+                    if (adventureActivity != null)
+                    {
+                        return new AdventureDTO()
+                        {
+                            Place = adventurePlace,
+                            Activity = adventureActivity,
+                        };
+                    }
+                    return new AdventureDTO()
+                    {
+                        Place = adventurePlace,
+                    };
+                }
+                return new AdventureDTO();
+            }catch(Exception e)
+            {
+                return new AdventureDTO();
+               
+            }
+
+        }
+        public IEnumerable<Place> GetOpenPlaces(IEnumerable<Place> places)
+        {
+            var currentTime = DateTime.UtcNow.TimeOfDay; // Current time as TimeSpan
+            return places.Where(place =>
+            {
+                // Handle scenarios where CloseTime is past midnight (e.g., open overnight)
+                if (place.CloseTime < place.OpenTime)
+                {
+                    return currentTime >= place.OpenTime || currentTime < place.CloseTime;
+                }
+                return currentTime >= place.OpenTime && currentTime < place.CloseTime;
+            }).ToList();
         }
 
         public async Task<(bool IsSuccess, string Message, string ImageUrl)> UploadProfileImageAsync(string userEmail, IFormFile profileImage, IFormFile backgroundImage)

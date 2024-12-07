@@ -60,7 +60,10 @@ namespace Kemet.APIs
             // Register services
             builder.Services.AddScoped<IProfileService>(provider => new ProfileService(
                 provider.GetRequiredService<UserManager<AppUser>>(),
-                PPuploadsFolder, BGuploadsFolder));
+                PPuploadsFolder, 
+                BGuploadsFolder,
+                provider.GetRequiredService<AppDbContext>()
+                ));
 
             //=================================================
            builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
