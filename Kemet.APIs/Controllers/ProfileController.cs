@@ -87,8 +87,8 @@ namespace Kemet.APIs.Controllers
 
         // PUT: api/Profile/UpdateUserData
         [HttpPut("UpdateUserData")]
-        [Consumes("multipart/form-data")]
-        public async Task<IActionResult> UpdateUserData([FromForm]UpdateUserDataDto dto)
+       // [Consumes("multipart/form-data")]
+        public async Task<IActionResult> UpdateUserData(UpdateUserDataDto dto)
         {
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
             if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
@@ -146,15 +146,15 @@ namespace Kemet.APIs.Controllers
 
             #region Images Region
             // Update user images if not null 
-            if(dto.ProfileImage != null || dto.BackgroundImage != null)
-            {
-                var ImagesDTO = new UploadProfileImageDto()
-                {
-                    ProfileImage = dto.ProfileImage,
-                    BackgroundImage = dto.BackgroundImage
-                };
-                await UploadProfileImage(ImagesDTO);
-            }
+            //if(dto.ProfileImage != null || dto.BackgroundImage != null)
+            //{
+            //    var ImagesDTO = new UploadProfileImageDto()
+            //    {
+            //        ProfileImage = dto.ProfileImage,
+            //        BackgroundImage = dto.BackgroundImage
+            //    };
+            //    await UploadProfileImage(ImagesDTO);
+            //}
           
             #endregion
 
@@ -167,9 +167,9 @@ namespace Kemet.APIs.Controllers
         }
 
         [HttpPost("upload-profile-image")]
-        public async Task<IActionResult> UploadProfileImage([FromForm] UploadProfileImageDto model)
+        public async Task<IActionResult> UploadProfileImage([FromForm] IFormFile model)
         {
-            if (model.ProfileImage == null && model.BackgroundImage == null || model.ProfileImage.Length == 0 && model.BackgroundImage.Length == 0)
+            if (model==null||model.Length==0)
             {
                 return BadRequest(new { message = "No file uploaded." });
             }
@@ -182,7 +182,37 @@ namespace Kemet.APIs.Controllers
 
                 var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
                 if (user == null) return NotFound("User not found.");
-                var result = await _profileService.UploadProfileImageAsync(user.Email, model.ProfileImage, model.BackgroundImage);
+                var result = await _profileService.UploadProfileImageAsync(user.Email, model, null);
+
+                if (!result.IsSuccess)
+                {
+                    return StatusCode(500, new { message = "Error uploading image." });
+                }
+
+                return Ok(new { message = "Image uploaded successfully.", filePath = result.ImageUrl });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = $"Internal server error: {ex.Message}" });
+            }
+        }
+        [HttpPost("upload-background-image")]
+        public async Task<IActionResult> UploadBackgroundImage([FromForm] IFormFile model)
+        {
+            if ( model==null||model.Length==0)
+            {
+                return BadRequest(new { message = "No file uploaded." });
+            }
+
+            try
+            {
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
+
+                var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+                if (user == null) return NotFound("User not found.");
+                var result = await _profileService.UploadProfileImageAsync(user.Email,null,model);
 
                 if (!result.IsSuccess)
                 {

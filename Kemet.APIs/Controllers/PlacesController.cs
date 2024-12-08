@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
@@ -78,7 +79,7 @@ namespace Kemet.APIs.Controllers
                     return NotFound(new ApiResponse(404, "No Places found "));
                 }
 
-                var Places = _mapper.Map<Place, PlacesDto>(place);
+                var Places = _mapper.Map<Place,DetailedPlaceDto>(place);
                 if (Places == null)
                 {
                     return NotFound(new ApiResponse(404, "No Places found "));

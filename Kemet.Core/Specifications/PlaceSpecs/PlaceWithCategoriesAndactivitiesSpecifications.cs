@@ -15,6 +15,7 @@ namespace Kemet.Core.Specifications.PlaceSpecs
 
             Includes.Add(P => P.Category);
             Includes.Add(P => P.Images);
+            Includes.Add(P => P.Price);
             //Includes.Add(p => p.Reviews);
 
         }
@@ -24,7 +25,9 @@ namespace Kemet.Core.Specifications.PlaceSpecs
             Includes.Add(P => P.Category);
             Includes.Add(P => P.Images);
             Includes.Add(p => p.Reviews);
-            
+            Includes.Add(P => P.Price);
+
+
         }
     }
 }
