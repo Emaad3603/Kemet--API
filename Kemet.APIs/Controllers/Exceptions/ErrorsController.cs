@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Kemet.APIs.Errors;
 
-namespace Talabat.APIs.Controllers
+namespace Kemet.APIs.Controllers
 {
     [Route("errors/{code}")]
     [ApiController]
