@@ -32,7 +32,7 @@ namespace Kemet.APIs.Controllers
             _context = context;
         }
 
-        [HttpGet()] // /api/Activities  Get
+        [HttpGet] // /api/Activities  Get
         public async Task<ActionResult<IEnumerable<ActivityDTOs>>> GetActivity()
         {
             try
@@ -91,7 +91,6 @@ namespace Kemet.APIs.Controllers
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
-        
 
     }
 }                       
