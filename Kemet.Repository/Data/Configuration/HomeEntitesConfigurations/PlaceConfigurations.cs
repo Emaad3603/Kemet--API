@@ -31,8 +31,11 @@ namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
                    .IsRequired();
             builder.Property(P => P.Duration)
                    .IsRequired();
+            builder.Property(P => P.priceId)
+                              .IsRequired();
+
             builder.HasOne(P => P.Price)
-                   .WithOne()
+                   .WithMany()
                    .OnDelete(DeleteBehavior.SetNull);
 
 

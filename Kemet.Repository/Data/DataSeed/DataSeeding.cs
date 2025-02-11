@@ -31,7 +31,6 @@ namespace Kemet.Repository.Data.DataSeed
                 }
             }
 
-            await context.SaveChangesAsync();
 
             // Seed Prices
             if (!context.Prices.Any())
@@ -58,6 +57,8 @@ namespace Kemet.Repository.Data.DataSeed
                 {
                     PropertyNameCaseInsensitive = true
                 });
+
+                var list = new List<Place>();
 
                 if (placesDto != null)
                 {
@@ -95,13 +96,14 @@ namespace Kemet.Repository.Data.DataSeed
                             place.Images = placeImages;
                         }
 
-                        await context.Places.AddAsync(place);
+                        list.Add(place);
                     }
                 }
-               
+
+                await context.Places.AddRangeAsync(list);
             }
 
-            await context.SaveChangesAsync();
+
 
             // Seed Activities
             if (!context.Activities.Any())
