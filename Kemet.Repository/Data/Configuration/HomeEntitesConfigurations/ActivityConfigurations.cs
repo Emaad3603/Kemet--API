@@ -43,7 +43,7 @@ namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
                 .OnDelete(DeleteBehavior.SetNull); //Disable cascade Delete;
 
             builder.HasOne(A => A.Price)
-                   .WithOne()
+                   .WithMany()
                    .OnDelete(DeleteBehavior.SetNull);
 
 
