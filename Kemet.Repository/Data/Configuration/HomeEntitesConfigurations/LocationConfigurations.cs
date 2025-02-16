@@ -14,6 +14,8 @@ namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
         public void Configure(EntityTypeBuilder<Location> builder)
         {
             builder.Property(L => L.Id).ValueGeneratedNever();
+            builder.Property(l => l.Coordinates)
+                 .HasColumnType("geography");
         }
     }
 }

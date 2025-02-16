@@ -2,6 +2,8 @@
 using Kemet.Core.Entities.Images;
 using Kemet.Repository.Data.DataSeed.DataSeedingDTOs;
 using Microsoft.EntityFrameworkCore;
+using NetTopologySuite;
+using NetTopologySuite.Geometries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +15,33 @@ namespace Kemet.Repository.Data.DataSeed
 {
     public static class DataSeeding
     {
-       
         public static async Task SeedDataAsync(AppDbContext context)
         {
             // Ensure the database is created
             await context.Database.EnsureCreatedAsync();
-       
+
             // Seed Locations
             if (!context.Locations.Any())
             {
                 var locationData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Locations.json");
-                locationData = JsonCleaner.CleanJson(locationData); // Clean JSON using JsonCleaner
-                var locations = JsonSerializer.Deserialize<List<Location>>(locationData);
+                locationData = JsonCleaner.CleanJson(locationData); // Clean JSON if needed
+
+                var locations = JsonSerializer.Deserialize<List<LocationDto>>(locationData);
                 if (locations != null)
                 {
-                    await context.Locations.AddRangeAsync(locations);
+                    var geometryFactory = NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326);
+
+                    var locationEntities = locations.Select(loc => new Core.Entities.Location
+                    {
+                        Id = loc.Id,
+                        Address = loc.Address,
+                        LocationLink = loc.LocationLink,
+                        Coordinates = geometryFactory.CreatePoint(new Coordinate(loc.Longitude, loc.Latitude))
+                    }).ToList();
+
+                    await context.Locations.AddRangeAsync(locationEntities);
                 }
             }
-
 
             // Seed Prices
             if (!context.Prices.Any())
@@ -49,6 +60,7 @@ namespace Kemet.Repository.Data.DataSeed
             // Base directory for images
             var baseImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images");
 
+            // Seed Places
             if (!context.Places.Any())
             {
                 var placeData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Places.json");
@@ -57,8 +69,6 @@ namespace Kemet.Repository.Data.DataSeed
                 {
                     PropertyNameCaseInsensitive = true
                 });
-
-                var list = new List<Place>();
 
                 if (placesDto != null)
                 {
@@ -80,9 +90,7 @@ namespace Kemet.Repository.Data.DataSeed
                         };
 
                         // Folder path for Place images
-                        // var folderPath = Path.Combine(baseImagePath, "Places", place.Name);
                         var folderPath = Path.Combine(baseImagePath, "Places", place.Name.Replace(" ", ""));
-
 
                         if (Directory.Exists(folderPath))
                         {
@@ -96,14 +104,10 @@ namespace Kemet.Repository.Data.DataSeed
                             place.Images = placeImages;
                         }
 
-                        list.Add(place);
+                        await context.Places.AddAsync(place);
                     }
                 }
-
-                await context.Places.AddRangeAsync(list);
             }
-
-
 
             // Seed Activities
             if (!context.Activities.Any())
@@ -132,13 +136,10 @@ namespace Kemet.Repository.Data.DataSeed
                             priceId = activityDto.PriceId,
                             LocationId = activityDto.LocationId,
                             CategoryId = activityDto.CategoryId,
-                          //  PictureUrl = activityDto.PictureUrl // Optional main image URL
                         };
 
                         // Folder path for Activity images
-                        //  var folderPath = Path.Combine(baseImagePath, "Activities", activity.Name);
                         var folderPath = Path.Combine(baseImagePath, "Activities", activity.Name.Replace(" ", ""));
-
 
                         if (Directory.Exists(folderPath))
                         {
@@ -159,7 +160,167 @@ namespace Kemet.Repository.Data.DataSeed
 
             // Save changes to the database
             await context.SaveChangesAsync();
-          
         }
+        //    public static async Task SeedDataAsync(AppDbContext context)
+        //    {
+        //        // Ensure the database is created
+        //        await context.Database.EnsureCreatedAsync();
+
+
+        //        // Seed Locations
+        //        if (!context.Locations.Any())
+        //        {
+        //            var locationData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Locations.json");
+        //            locationData = JsonCleaner.CleanJson(locationData); // Clean JSON if needed
+
+        //            var locations = JsonSerializer.Deserialize<List<LocationDto>>(locationData);
+        //            if (locations != null)
+        //            {
+        //                var geometryFactory = NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326);
+
+        //                var locationEntities = locations.Select(loc => new Core.Entities.Location
+        //                {
+        //                    Id = loc.Id,
+        //                    Address = loc.Address,
+        //                    LocationLink = loc.LocationLink,
+        //                    Coordinates = geometryFactory.CreatePoint(new Coordinate(loc.Longitude, loc.Latitude))
+        //                }).ToList();
+
+        //                await context.Locations.AddRangeAsync(locationEntities);
+        //            }
+
+
+        //            // Seed Prices
+        //            if (!context.Prices.Any())
+        //            {
+        //                var priceData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Prices.json");
+        //                priceData = JsonCleaner.CleanJson(priceData); // Clean JSON using JsonCleaner
+        //                var prices = JsonSerializer.Deserialize<List<Price>>(priceData);
+        //                if (prices != null)
+        //                {
+        //                    await context.Prices.AddRangeAsync(prices);
+        //                }
+        //            }
+
+        //            await context.SaveChangesAsync();
+
+        //            // Base directory for images
+        //            var baseImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images");
+
+        //            if (!context.Places.Any())
+        //            {
+        //                var placeData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Places.json");
+        //                placeData = JsonCleaner.CleanJson(placeData);
+        //                var placesDto = JsonSerializer.Deserialize<List<PlaceSeedDto>>(placeData, new JsonSerializerOptions
+        //                {
+        //                    PropertyNameCaseInsensitive = true
+        //                });
+
+        //                var list = new List<Place>();
+
+        //                if (placesDto != null)
+        //                {
+        //                    foreach (var placeDto in placesDto)
+        //                    {
+        //                        // Map DTO to Entity
+        //                        var place = new Place
+        //                        {
+        //                            Id = placeDto.Id,
+        //                            Name = placeDto.Name,
+        //                            CultureTips = placeDto.CulturalTip,
+        //                            Description = placeDto.Description,
+        //                            Duration = placeDto.Duration,
+        //                            OpenTime = placeDto.OpenTime,
+        //                            CloseTime = placeDto.CloseTime,
+        //                            priceId = placeDto.PriceId,
+        //                            locationId = placeDto.LocationId,
+        //                            CategoryId = placeDto.CategoryId,
+        //                        };
+
+        //                        // Folder path for Place images
+        //                        // var folderPath = Path.Combine(baseImagePath, "Places", place.Name);
+        //                        var folderPath = Path.Combine(baseImagePath, "Places", place.Name.Replace(" ", ""));
+
+
+        //                        if (Directory.Exists(folderPath))
+        //                        {
+        //                            var imageFiles = Directory.GetFiles(folderPath);
+        //                            var placeImages = imageFiles.Select(imageFile => new PlaceImage
+        //                            {
+        //                                ImageUrl = $"/Images/Places/{place.Name.Replace(" ", "")}/{Path.GetFileName(imageFile)}",
+        //                                PlaceId = place.Id
+        //                            }).ToList();
+
+        //                            place.Images = placeImages;
+        //                        }
+
+        //                        list.Add(place);
+        //                    }
+        //                }
+
+        //                await context.Places.AddRangeAsync(list);
+        //            }
+
+
+
+        //            // Seed Activities
+        //            if (!context.Activities.Any())
+        //            {
+        //                var activityData = File.ReadAllText("../Kemet.Repository/Data/DataSeed/SeedingData/Activities.json");
+        //                activityData = JsonCleaner.CleanJson(activityData);
+        //                var activitiesDto = JsonSerializer.Deserialize<List<ActivitySeedDto>>(activityData, new JsonSerializerOptions
+        //                {
+        //                    PropertyNameCaseInsensitive = true
+        //                });
+
+        //                if (activitiesDto != null)
+        //                {
+        //                    foreach (var activityDto in activitiesDto)
+        //                    {
+        //                        // Map DTO to Entity
+        //                        var activity = new Activity
+        //                        {
+        //                            Id = activityDto.Id,
+        //                            Name = activityDto.Name,
+        //                            CulturalTips = activityDto.CulturalTip ?? "No cultural tips available",
+        //                            Description = activityDto.Description,
+        //                            Duration = activityDto.Duration,
+        //                            OpenTime = activityDto.OpenTime,
+        //                            CloseTime = activityDto.CloseTime,
+        //                            priceId = activityDto.PriceId,
+        //                            LocationId = activityDto.LocationId,
+        //                            CategoryId = activityDto.CategoryId,
+        //                            //  PictureUrl = activityDto.PictureUrl // Optional main image URL
+        //                        };
+
+        //                        // Folder path for Activity images
+        //                        //  var folderPath = Path.Combine(baseImagePath, "Activities", activity.Name);
+        //                        var folderPath = Path.Combine(baseImagePath, "Activities", activity.Name.Replace(" ", ""));
+
+
+        //                        if (Directory.Exists(folderPath))
+        //                        {
+        //                            var imageFiles = Directory.GetFiles(folderPath);
+        //                            var activityImages = imageFiles.Select(imageFile => new ActivityImage
+        //                            {
+        //                                ImageUrl = $"/Images/Activities/{activity.Name.Replace(" ", "")}/{Path.GetFileName(imageFile)}",
+        //                                ActivityId = activity.Id
+        //                            }).ToList();
+
+        //                            activity.Images = activityImages;
+        //                        }
+
+        //                        await context.Activities.AddAsync(activity);
+
+        //                    }
+        //                }
+        //            }
+
+        //            // Save changes to the database
+        //            await context.SaveChangesAsync();
+
+        //        }
+        //    }
+        //}
     }
 }
