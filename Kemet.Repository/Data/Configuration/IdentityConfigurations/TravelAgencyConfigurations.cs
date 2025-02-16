@@ -16,9 +16,12 @@ namespace Kemet.Repository.Data.Configuration.Identity
           
 
 
-            builder.HasBaseType<AppUser>(); 
+            builder.HasBaseType<AppUser>();
 
-           
+            builder.Property(c => c.Location)
+                .HasColumnType("geography")
+                .IsRequired(false);
+
         }
     }
 }

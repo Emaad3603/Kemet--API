@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using NetTopologySuite.Geometries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Kemet.Core.Entities.Identity
         public string? BackgroundImageURL { get; set; }
 
         public DateTime CreationDate { get; set; } = DateTime.UtcNow;
+        public Point? Location { get; set; } // Stores the user's location as a spatial point
 
     }
 }

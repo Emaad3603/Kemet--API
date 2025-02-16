@@ -27,6 +27,9 @@ namespace Kemet.Repository.Data.Configuration.Identity
                    .WithOne()
                    .OnDelete(DeleteBehavior.SetNull);
 
+            builder.Property(c => c.Location)
+                  .HasColumnType("geography")
+                  .IsRequired(false);
         }
     }
 }

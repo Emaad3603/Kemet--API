@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -42,7 +43,10 @@ namespace Kemet.APIs
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<AppDbContext>(option =>
             {
-                option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                option.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection"),
+                    x => x.UseNetTopologySuite()
+                );
             });
 
             //allow the dependancy injection for  generic repository

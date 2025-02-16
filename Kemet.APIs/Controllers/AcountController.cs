@@ -10,11 +10,14 @@ using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Services.InterFaces;
 using Kemet.Repository.Data;
+using Kemet.Repository.Data.DataSeed.DataSeedingDTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using NetTopologySuite.Geometries;
+using NetTopologySuite;
 using Org.BouncyCastle.Bcpg;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -250,6 +253,21 @@ namespace Kemet.APIs.Controllers
             }
         }
 
+        [HttpPost("update-location")]
+        public async Task<IActionResult> UpdateLocation([FromBody] LocationDto locationDto)
+        {
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
+            if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
+
+            var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+            if (user == null) return NotFound("User not found.");
+
+            var geometryFactory = NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326);
+            user.Location = geometryFactory.CreatePoint(new Coordinate(locationDto.Longitude, locationDto.Latitude));
+
+            await _userManager.UpdateAsync(user);
+            return Ok(new { message = "Location updated successfully" });
+        }
 
     }
 

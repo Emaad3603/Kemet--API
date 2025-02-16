@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using NetTopologySuite.Geometries;
 
 #nullable disable
 
@@ -142,6 +143,9 @@ namespace Kemet.Repository.Data.Migrations
 
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Point>("Location")
+                        .HasColumnType("geography");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -289,13 +293,11 @@ namespace Kemet.Repository.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Point>("Coordinates")
+                        .IsRequired()
+                        .HasColumnType("geography");
+
                     b.Property<string>("LocationLink")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlaceLatitude")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlaceLongitude")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
