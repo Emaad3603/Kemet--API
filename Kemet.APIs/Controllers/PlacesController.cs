@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.Security.Claims;
 
 namespace Kemet.APIs.Controllers
@@ -24,6 +25,8 @@ namespace Kemet.APIs.Controllers
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IConfiguration _configuration;
+
 
         //getAll
         //getByid
@@ -32,46 +35,16 @@ namespace Kemet.APIs.Controllers
             ,IMapper mapper
             ,AppDbContext context
             ,UserManager<AppUser> userManager
+            ,IConfiguration configuration
             )
         {
             _placesRepo = placesRepo;
             _mapper = mapper;
             _context = context;
             _userManager = userManager;
+            _configuration = configuration;
         }
 
-
-
-
-        //[HttpGet] // /api/places  Get
-        //public async Task<ActionResult<IEnumerable<Place>>> GetPlaces()
-        //{
-        //    try { 
-
-        //    var spec = new PlaceWithCategoriesAndactivitiesSpecifications();
-        //    var place = (IEnumerable<Place>)await _placesRepo.GetAllWithSpecAsync(spec);
-
-        //        if(place == null)
-        //        {
-        //        return NotFound(new ApiResponse(404, "No Places found "));
-        //        }
-
-        //    var places=  _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(place);
-
-        //         if (places == null)
-        //         {
-        //        return NotFound(new ApiResponse(404, "No Places found "));
-        //         }
-
-        //         var Result = places.Where(P=>P.ImageURLs.Any()).ToList();
-
-        //           return Ok(Result);
-        //}catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
-        //    }
-
-        //}
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PlacesDto>>> GetPlaces()
         {
@@ -129,7 +102,7 @@ namespace Kemet.APIs.Controllers
                 var places=  _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(resultPlaces);
                 foreach(var place in places)
                 {
-                   var images =  await   _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID).Select(img => $"{"https://localhost:7051"}{img.ImageUrl}").ToListAsync();
+                   var images =  await   _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToListAsync();
                    place.ImageURLs = images;
                 }
 
@@ -164,7 +137,7 @@ namespace Kemet.APIs.Controllers
                 var fetchedPlaces = await _context.Reviews.Where(p => p.PlaceId == PlaceID).ToListAsync();
                 foreach (var fetchedPlace in fetchedPlaces)
                 {
-                    fetchedPlace.ImageUrl = $"{"https://localhost:7051"}{fetchedPlace.ImageUrl}";
+                    fetchedPlace.ImageUrl = $"{_configuration["BaseUrl"]}{fetchedPlace.ImageUrl}";
                 }
                 Places.Reviews = fetchedPlaces;
                 var Result = Places;

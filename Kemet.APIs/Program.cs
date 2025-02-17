@@ -37,7 +37,15 @@ namespace Kemet.APIs
                 options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
                 options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
             });
+            // Bind Appsettings from configuration
+            var appSettings = new Appsettings();
+            builder.Configuration.GetSection("Appsettings").Bind(appSettings);
 
+            // Register Appsettings for DI (for other parts of the app)
+            builder.Services.Configure<Appsettings>(builder.Configuration.GetSection("Appsettings"));
+            
+
+            //  var app = builder.Build();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -54,8 +62,9 @@ namespace Kemet.APIs
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             //==================================================================================
+            
             builder.Services.AddAutoMapper(M => M.AddProfile(new MappingProfiles()));
-
+           
             builder.Services.addApplicationServices();
 
             var PPuploadsFolder = builder.Configuration.GetValue<string>("PPUploadsFolder");

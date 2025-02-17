@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 
@@ -25,17 +26,21 @@ namespace Kemet.APIs.Controllers
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IConfiguration _configuration;
 
         public ActivitiesController(
             IGenericRepository<Activity>ActivityRepo
             ,IMapper mapper
             ,AppDbContext context
-            , UserManager<AppUser> userManager)
+            , UserManager<AppUser> userManager
+            ,IOptions<Appsettings>appsettings
+            ,IConfiguration configuration)
         {
             _activityRepo = ActivityRepo;
             _mapper = mapper;
             _context = context;
             _userManager = userManager;
+            _configuration = configuration;
         }
 
         [HttpGet] // /api/Activities  Get
@@ -98,7 +103,7 @@ namespace Kemet.APIs.Controllers
 
                 foreach (var Activity in activitiesDto)
                 {
-                    var images = await _context.ActivityImages.Where(p => p.ActivityId ==Activity.ActivityId).Select(img => $"{"https://localhost:7051"}{img.ImageUrl}").ToListAsync();
+                    var images = await _context.ActivityImages.Where(p => p.ActivityId ==Activity.ActivityId).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToListAsync();
                     Activity.imageURLs = images;
                 }
 
@@ -135,7 +140,7 @@ namespace Kemet.APIs.Controllers
                 var fetchedReviews =  await   _context.Reviews.Where(r=>r.ActivityId == ActivityID).ToListAsync();
                 foreach(var fetchedReview in fetchedReviews)
                 {
-                    fetchedReview.ImageUrl = $"{"https://localhost:7051"}{fetchedReview.ImageUrl}";
+                    fetchedReview.ImageUrl = $"{_configuration["BaseUrl"]}{fetchedReview.ImageUrl}";
                 }
                 Activities.Reviews =fetchedReviews;
                 var Result = Activities;
