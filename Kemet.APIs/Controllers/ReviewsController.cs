@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -30,14 +31,21 @@ namespace Kemet.APIs.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _environment;
+        private readonly IConfiguration _configuration;
 
-        public ReviewsController(IReviewRepository reviewRepo, IMapper mapper, UserManager<AppUser> userManager,AppDbContext context, IWebHostEnvironment environment)
+        public ReviewsController(IReviewRepository reviewRepo
+            , IMapper mapper
+            , UserManager<AppUser> userManager
+            ,AppDbContext context
+            , IWebHostEnvironment environment
+            , IConfiguration configuration)
         {
             _reviewRepo = reviewRepo;
             _mapper = mapper;
             _userManager = userManager;
            _context = context;
             _environment = environment;
+            _configuration = configuration;
         }
 
 
@@ -70,7 +78,7 @@ namespace Kemet.APIs.Controllers
                 var review = new Review
                 {   UserId = user.Id,
                     USERNAME = user.UserName,
-                    UserImageURl = $"{"https://localhost:7051"}{user.ImageURL}",
+                    UserImageURl = $"{_configuration["BaseUrl"]}{user.ImageURL}",
                     Rating = reviewDto.Rating,
                     Comment = reviewDto.Comment,
                     ActivityId = reviewDto.ActivityId,
