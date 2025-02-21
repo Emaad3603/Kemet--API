@@ -38,11 +38,11 @@ namespace Kemet.APIs
                 options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
             });
             // Bind Appsettings from configuration
-            var appSettings = new Appsettings();
-            builder.Configuration.GetSection("Appsettings").Bind(appSettings);
+            
+            
 
             // Register Appsettings for DI (for other parts of the app)
-            builder.Services.Configure<Appsettings>(builder.Configuration.GetSection("Appsettings"));
+            
             
 
             //  var app = builder.Build();

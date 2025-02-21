@@ -35,5 +35,7 @@ namespace Kemet.Core.Entities.Identity
         public int? WishlistID { get; set; }
 
         public Wishlist? Wishlist { get; set; }
+
+        public ICollection<BookedTrips> BookedTrips { get; set; } = new List<BookedTrips>();
     }
 }

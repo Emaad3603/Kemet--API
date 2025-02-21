@@ -30,6 +30,10 @@ namespace Kemet.Repository.Data.Configuration.Identity
             builder.Property(c => c.Location)
                   .HasColumnType("geography")
                   .IsRequired(false);
+
+            builder.HasMany(c => c.BookedTrips);
+                   
+                   
         }
     }
 }

@@ -1,0 +1,3157 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AlexandriaKayaking\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AlexandriaKayaking\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AlexandriaKayaking\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AlexandriaKayaking\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AlexandriaKayaking\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AlexandriaKayaking\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AlexandriaKayaking\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AlexandriaKayaking\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AlexandriaKayaking\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AlexandriaKayaking\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AlexandriaKayaking\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AlexandriaKayaking\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AlexandriaKayaking\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AlexandriaKayaking\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatCairoFestivalCityMall\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatCairoFestivalCityMall\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatCairoFestivalCityMall\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatCairoFestivalCityMall\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatCityCenterAlmaza\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatCityCenterAlmaza\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatCityCenterAlmaza\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatCityCenterAlmaza\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatCityCenterAlmaza\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatCityCenterAlmaza\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatCitystars\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatCitystars\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatCitystars\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatCitystars\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatCitystars\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatCitystars\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatCitystars\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatCitystars\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatMallofEgypt\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatMallofEgypt\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatMallofEgypt\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatMallofEgypt\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatMallofEgypt\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatMallofEgypt\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatMallofEgypt\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatMallofEgypt\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ArcadeatMallofEgypt\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ArcadeatMallofEgypt\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AutoVroom\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AutoVroom\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AutoVroom\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AutoVroom\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AutoVroom\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AutoVroom\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AutoVroom\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AutoVroom\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AutoVroom\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AutoVroom\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AutoVroom\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AutoVroom\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AutoVroom\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AutoVroom\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\AutoVroom\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\AutoVroom\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoBallooning\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoBallooning\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoBallooning\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoBallooning\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoBallooning\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoBallooning\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoBallooning\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoBallooning\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(10).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(10).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP(9).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP(9).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CairoSafari(4x4)\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CairoSafari(4x4)\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP(9).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP(9).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CarpetWeavinginNubia\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CarpetWeavinginNubia\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCairoFestivalCityMall\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCairoFestivalCityMall\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCairoFestivalCityMall\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCairoFestivalCityMall\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCityCenterAlmaza\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCityCenterAlmaza\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCityCenterAlmaza\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCityCenterAlmaza\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCityCenterAlmaza\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCityCenterAlmaza\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCityCenterAlmaza\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCityCenterAlmaza\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCitystars\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCitystars\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCitystars\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCitystars\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCitystars\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCitystars\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatCitystars\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatCitystars\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatMallofEgypt\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatMallofEgypt\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatMallofEgypt\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatMallofEgypt\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatMallofEgypt\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatMallofEgypt\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatMallofEgypt\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatMallofEgypt\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatMallofEgypt\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatMallofEgypt\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatMallofEgypt\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatMallofEgypt\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatMallofEgypt\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatMallofEgypt\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\CinemaatMallofEgypt\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\CinemaatMallofEgypt\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ConradCairoHealth&FitnessCenter\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Dahab\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Dahab\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP(9).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP(9).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\ElMoezStreet\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\ElMoezStreet\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FairmontSpa\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FairmontSpa\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FourSeasonsHotelSpa\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FourSeasonsHotelSpa\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FourSeasonsHotelSpa\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FourSeasonsHotelSpa\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FourSeasonsHotelSpa\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FourSeasonsHotelSpa\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FourSeasonsHotelSpa\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FourSeasonsHotelSpa\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FourSeasonsHotelSpa\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FourSeasonsHotelSpa\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\FourSeasonsHotelSpa\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\FourSeasonsHotelSpa\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GardenPromenadeCafe\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GardenPromenadeCafe\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GardenPromenadeCafe\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GardenPromenadeCafe\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GardenPromenadeCafe\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GardenPromenadeCafe\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GardenPromenadeCafe\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GardenPromenadeCafe\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GreatSandSea\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GreatSandSea\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GreatSandSea\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GreatSandSea\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GreatSandSea\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GreatSandSea\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GreatSandSea\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GreatSandSea\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GreatSandSea\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GreatSandSea\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GreatSandSea\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GreatSandSea\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GreatSandSea\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GreatSandSea\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\GreatSandSea\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\GreatSandSea\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\HotAirBallooninginLuxor\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\HotAirBallooninginLuxor\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\HotAirBallooninginLuxor\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\HotAirBallooninginLuxor\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\HotAirBallooninginLuxor\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\HotAirBallooninginLuxor\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\HotAirBallooninginLuxor\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\HotAirBallooninginLuxor\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\HotAirBallooninginLuxor\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\HotAirBallooninginLuxor\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\HotAirBallooninginLuxor\\download(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\HotAirBallooninginLuxor\\download(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\HotAirBallooninginLuxor\\download(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\HotAirBallooninginLuxor\\download(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\HotAirBallooninginLuxor\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\HotAirBallooninginLuxor\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\th(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\th(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\th(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\th(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Hurghada\\th(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Hurghada\\th(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(LakeNasser)\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(LakeNasser)\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(LakeNasser)\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(LakeNasser)\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(LakeNasser)\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(LakeNasser)\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(LakeNasser)\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(LakeNasser)\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(NileRiver)\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(NileRiver)\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(NileRiver)\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(NileRiver)\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(NileRiver)\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(NileRiver)\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(NileRiver)\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(NileRiver)\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(NileRiver)\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(NileRiver)\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(NileRiver)\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(NileRiver)\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(NileRiver)\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(NileRiver)\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(NileRiver)\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(NileRiver)\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kayak(NileRiver)\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kayak(NileRiver)\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kazoku\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kazoku\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Kazoku\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Kazoku\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LaPalmeraie\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LaPalmeraie\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LaPalmeraie\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LaPalmeraie\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LaPalmeraie\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LaPalmeraie\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LaPalmeraie\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LaPalmeraie\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LaPalmeraie\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LaPalmeraie\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\LakeNasser\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\LakeNasser\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\download(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\download(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MarsaAlam\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MarsaAlam\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MountSinai\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MountSinai\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MountSinai\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MountSinai\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MountSinai\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MountSinai\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MountSinai\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MountSinai\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MountSinai\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MountSinai\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MountSinai\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MountSinai\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MountSinai\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MountSinai\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MountSinai\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MountSinai\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\MountSinai\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\MountSinai\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NaguibMahfouzCafe\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NaguibMahfouzCafe\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NaguibMahfouzCafe\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NaguibMahfouzCafe\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NaguibMahfouzCafe\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NaguibMahfouzCafe\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NaguibMahfouzCafe\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NaguibMahfouzCafe\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NaguibMahfouzCafe\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NaguibMahfouzCafe\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\OIF.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\OIF.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\R.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\R.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\NileRiverCruise\\th.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\NileRiverCruise\\th.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\OsmanlyRestaurant\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\OsmanlyRestaurant\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\OsmanlyRestaurant\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\OsmanlyRestaurant\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\OsmanlyRestaurant\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\OsmanlyRestaurant\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\OsmanlyRestaurant\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\OsmanlyRestaurant\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\OsmanlyRestaurant\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\OsmanlyRestaurant\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\OsmanlyRestaurant\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\OsmanlyRestaurant\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\OsmanlyRestaurant\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\OsmanlyRestaurant\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\PotteryIndustry(FayoumPottery)\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\download(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\download(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\QuadBikingintheSahara\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\QuadBikingintheSahara\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohamedNationalPark\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohamedNationalPark\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RasMohammedNationalPark\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RasMohammedNationalPark\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\RockClimbinginSt.Catherine'sMountains\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SachiRestaurant\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SachiRestaurant\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SachiRestaurant\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SachiRestaurant\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SachiRestaurant\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SachiRestaurant\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SachiRestaurant\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SachiRestaurant\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SachiRestaurant\\th.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SachiRestaurant\\th.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(10).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(10).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP(9).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP(9).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardinginCairoDesert\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardinginCairoDesert\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardingintheWhiteDesert\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardingintheWhiteDesert\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardingintheWhiteDesert\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardingintheWhiteDesert\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardingintheWhiteDesert\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardingintheWhiteDesert\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SandboardingintheWhiteDesert\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SandboardingintheWhiteDesert\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Sequoia\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Sequoia\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Sequoia\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Sequoia\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Sequoia\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Sequoia\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Sequoia\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Sequoia\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Sequoia\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Sequoia\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Sequoia\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Sequoia\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Sequoia\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Sequoia\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SharmElSheikh\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SharmElSheikh\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SiwaOasisSafari\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SiwaOasisSafari\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SiwaOasisSafari\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SiwaOasisSafari\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SiwaOasisSafari\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SiwaOasisSafari\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SiwaOasisSafari\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SiwaOasisSafari\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SiwaOasisSafari\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SiwaOasisSafari\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SiwaOasisSafari\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SiwaOasisSafari\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SkiEgypt\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SkiEgypt\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SkiEgypt\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SkiEgypt\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SkiEgypt\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SkiEgypt\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SkiEgypt\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SkiEgypt\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SkiEgypt\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SkiEgypt\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SkiEgypt\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SkiEgypt\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SomaBay\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SomaBay\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SomaBay\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SomaBay\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SomaBay\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SomaBay\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SomaBay\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SomaBay\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SomaBay\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SomaBay\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SomaBay\\download(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SomaBay\\download(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SomaBay\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SomaBay\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SonestaCairoHotelSpa\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SonestaCairoHotelSpa\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SonestaCairoHotelSpa\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SonestaCairoHotelSpa\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SonestaCairoHotelSpa\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SonestaCairoHotelSpa\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SonestaCairoHotelSpa\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SonestaCairoHotelSpa\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\SonestaCairoHotelSpa\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\SonestaCairoHotelSpa\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\St.Catherine'sMonasteryHike\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\St.Catherine'sMonasteryHike\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\St.Catherine'sMonasteryHike\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\St.Catherine'sMonasteryHike\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\St.Catherine'sMonasteryHike\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\St.Catherine'sMonasteryHike\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\St.Catherine'sMonasteryHike\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\St.Catherine'sMonasteryHike\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TheRitz-CarltonSpa\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TheRitz-CarltonSpa\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TheRitz-CarltonSpa\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TheRitz-CarltonSpa\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TheRitz-CarltonSpa\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TheRitz-CarltonSpa\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TheRitz-CarltonSpa\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TheRitz-CarltonSpa\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TheRitz-CarltonSpa\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TheRitz-CarltonSpa\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TheRitz-CarltonSpa\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TheRitz-CarltonSpa\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TheRitz-CarltonSpa\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TheRitz-CarltonSpa\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TheRitz-CarltonSpa\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TheRitz-CarltonSpa\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianDance(RaqsSharqi)\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\TraditionalEgyptianMusic(OudandTabla)\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\VinniCafe&Deli\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\VinniCafe&Deli\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\VinniCafe&Deli\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\VinniCafe&Deli\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\VinniCafe&Deli\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\VinniCafe&Deli\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\VinniCafe&Deli\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\VinniCafe&Deli\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\VinniCafe&Deli\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\VinniCafe&Deli\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\VinniCafe&Deli\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\VinniCafe&Deli\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDeglaProtectorateHiking\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDeglaProtectorateHiking\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDeglaProtectorateHiking\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDeglaProtectorateHiking\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDeglaProtectorateHiking\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDegla\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDegla\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDegla\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDegla\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDegla\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDegla\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDegla\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDegla\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDegla\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDegla\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDegla\\canyon-rock-formations-wadi-degla-protectorate-egypt-canyons-valley-natural-maadi-cairo-273045425 (1).webp",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDegla\\canyon-rock-formations-wadi-degla-protectorate-egypt-canyons-valley-natural-maadi-cairo-273045425 (1).webp"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDegla\\canyon-rock-formations-wadi-degla-protectorate-egypt-canyons-valley-natural-maadi-cairo-273045425.webp",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDegla\\canyon-rock-formations-wadi-degla-protectorate-egypt-canyons-valley-natural-maadi-cairo-273045425.webp"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDegla\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDegla\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiDegla\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiDegla\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiEl-Hitan\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiEl-Hitan\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiEl-Hitan\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiEl-Hitan\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiEl-Hitan\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiEl-Hitan\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiEl-Hitan\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiEl-Hitan\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiEl-Hitan\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiEl-Hitan\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiEl-Hitan\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiEl-Hitan\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiEl-Hitan\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiEl-Hitan\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WadiEl-Hitan\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WadiEl-Hitan\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesert(FarafraOasis)\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesert(FarafraOasis)\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesertNationalPark\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesertNationalPark\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesertNationalPark\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesertNationalPark\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesertNationalPark\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesertNationalPark\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesertNationalPark\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesertNationalPark\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesertNationalPark\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesertNationalPark\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesertNationalPark\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesertNationalPark\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\WhiteDesertNationalPark\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\WhiteDesertNationalPark\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Zack’sBakeryCafe\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Zack’sBakeryCafe\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Zack’sBakeryCafe\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Zack’sBakeryCafe\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Zack’sBakeryCafe\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Zack’sBakeryCafe\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Zack’sBakeryCafe\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Zack’sBakeryCafe\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Zack’sBakeryCafe\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Zack’sBakeryCafe\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Activities\\Zack’sBakeryCafe\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Activities\\Zack’sBakeryCafe\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AbuSimbelTemples\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AbuSimbelTemples\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AbuSimbelTemples\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AbuSimbelTemples\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AbuSimbelTemples\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AbuSimbelTemples\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AbuSimbelTemples\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AbuSimbelTemples\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AbuSimbelTemples\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AbuSimbelTemples\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AbuSimbelTemples\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AbuSimbelTemples\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AbuSimbelTemples\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AbuSimbelTemples\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AbuSimbelTemples\\th(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AbuSimbelTemples\\th(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AbuSimbelTemples\\th.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AbuSimbelTemples\\th.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Al-AzharPark\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Al-AzharPark\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlManialPalace\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlManialPalace\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlManialPalace\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlManialPalace\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlManialPalace\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlManialPalace\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlManialPalace\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlManialPalace\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlManialPalace\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlManialPalace\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlManialPalace\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlManialPalace\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlManialPalace\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlManialPalace\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlManialPalace\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlManialPalace\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlexandriaNationalMuseums\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlexandriaNationalMuseums\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlexandriaNationalMuseums\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlexandriaNationalMuseums\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlexandriaNationalMuseums\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlexandriaNationalMuseums\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlexandriaNationalMuseums\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlexandriaNationalMuseums\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlexandriaNationalMuseums\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlexandriaNationalMuseums\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlexandriaNationalMuseums\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlexandriaNationalMuseums\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AlexandriaNationalMuseums\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AlexandriaNationalMuseums\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Amribnal-AsMosque\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Amribnal-AsMosque\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Amribnal-AsMosque\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Amribnal-AsMosque\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Amribnal-AsMosque\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Amribnal-AsMosque\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Amribnal-AsMosque\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Amribnal-AsMosque\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Amribnal-AsMosque\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Amribnal-AsMosque\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Amribnal-AsMosque\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Amribnal-AsMosque\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Amribnal-AsMosque\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Amribnal-AsMosque\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Amribnal-AsMosque\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Amribnal-AsMosque\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Amribnal-AsMosque\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Amribnal-AsMosque\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AquariumGrottoGarden\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AquariumGrottoGarden\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AquariumGrottoGarden\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AquariumGrottoGarden\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AquariumGrottoGarden\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AquariumGrottoGarden\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AquariumGrottoGarden\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AquariumGrottoGarden\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AquariumGrottoGarden\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AquariumGrottoGarden\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AquariumGrottoGarden\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AquariumGrottoGarden\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AquariumGrottoGarden\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AquariumGrottoGarden\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\ArkanPlaza\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\ArkanPlaza\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\ArkanPlaza\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\ArkanPlaza\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\ArkanPlaza\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\ArkanPlaza\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\ArkanPlaza\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\ArkanPlaza\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\ArkanPlaza\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\ArkanPlaza\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\ArkanPlaza\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\ArkanPlaza\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\ArkanPlaza\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\ArkanPlaza\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\ArkanPlaza\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\ArkanPlaza\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\AswanBotanicalGarden\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\AswanBotanicalGarden\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\BaronEmpainPalace\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\BaronEmpainPalace\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\BaronEmpainPalace\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\BaronEmpainPalace\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\BaronEmpainPalace\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\BaronEmpainPalace\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\BaronEmpainPalace\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\BaronEmpainPalace\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\BaronEmpainPalace\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\BaronEmpainPalace\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\BaronEmpainPalace\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\BaronEmpainPalace\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\BaronEmpainPalace\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\BaronEmpainPalace\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoFestivalCityMall\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoFestivalCityMall\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoFestivalCityMall\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoFestivalCityMall\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoFestivalCityMall\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoFestivalCityMall\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoFestivalCityMall\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoFestivalCityMall\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoFestivalCityMall\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoFestivalCityMall\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoFestivalCityMall\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoFestivalCityMall\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoFestivalCityMall\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoFestivalCityMall\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoFestivalCityMall\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoFestivalCityMall\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoFestivalCityMall\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoFestivalCityMall\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoTower\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoTower\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoTower\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoTower\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoTower\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoTower\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoTower\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoTower\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoTower\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoTower\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CairoTower\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CairoTower\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofQaitbay\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofQaitbay\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CitadelofSaladin\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CitadelofSaladin\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CityCenterAlmaza\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CityCenterAlmaza\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CityCenterAlmaza\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CityCenterAlmaza\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CityCenterAlmaza\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CityCenterAlmaza\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CityCenterAlmaza\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CityCenterAlmaza\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CityCenterAlmaza\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CityCenterAlmaza\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\CityCenterAlmaza\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\CityCenterAlmaza\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Citystars\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Citystars\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Citystars\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Citystars\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Citystars\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Citystars\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Citystars\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Citystars\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Citystars\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Citystars\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Citystars\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Citystars\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\DowntownMall\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\DowntownMall\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\DowntownMall\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\DowntownMall\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\DowntownMall\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\DowntownMall\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\FourSeasonsHotelAlexandria\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\FourSeasonsHotelAlexandria\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\FourSeasonsHotelAlexandria\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GrandEgyptianMuseums\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GrandEgyptianMuseums\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GrandEgyptianMuseums\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GrandEgyptianMuseums\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GrandEgyptianMuseums\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GrandEgyptianMuseums\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GrandEgyptianMuseums\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GrandEgyptianMuseums\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GrandEgyptianMuseums\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GrandEgyptianMuseums\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GrandEgyptianMuseums\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GrandEgyptianMuseums\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GreatPyramidsofEgypt\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GreatPyramidsofEgypt\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GreatPyramidsofEgypt\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GreatPyramidsofEgypt\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GreatPyramidsofEgypt\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GreatPyramidsofEgypt\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GreatPyramidsofEgypt\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GreatPyramidsofEgypt\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GreatPyramidsofEgypt\\pyramids.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GreatPyramidsofEgypt\\pyramids.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GreatSandSea\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GreatSandSea\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GreatSandSea\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GreatSandSea\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\GreatSandSea\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\GreatSandSea\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\download(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\download(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\download(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\download(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\KarnakTemple\\th(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\KarnakTemple\\th(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorMuseums\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorMuseums\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorMuseums\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorMuseums\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorMuseums\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorMuseums\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorMuseums\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorMuseums\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorMuseums\\ORA4.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorMuseums\\ORA4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorMuseums\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorMuseums\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorMuseums\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorMuseums\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\LuxorTemple\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\LuxorTemple\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiCorniche\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiCorniche\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiCorniche\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiCorniche\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiCorniche\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiCorniche\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiCorniche\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiCorniche\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiCorniche\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiCorniche\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiIsland\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiIsland\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiIsland\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiIsland\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiIsland\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiIsland\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiIsland\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiIsland\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiIsland\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiIsland\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MaadiIsland\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MaadiIsland\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MallofEgypt\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MallofEgypt\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MallofEgypt\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MallofEgypt\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MallofEgypt\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MallofEgypt\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MallofEgypt\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MallofEgypt\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MallofEgypt\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MallofEgypt\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MontazahGardens\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MontazahGardens\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MontazahGardens\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MontazahGardens\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MontazahGardens\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MontazahGardens\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MontazahGardens\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MontazahGardens\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MontazahGardens\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MontazahGardens\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MontazahGardens\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MontazahGardens\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MontazahGardens\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MontazahGardens\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\MontazahGardens\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\MontazahGardens\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SafirDahabResort\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SafirDahabResort\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SafirDahabResort\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SafirDahabResort\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SafirDahabResort\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SafirDahabResort\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SafirDahabResort\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SafirDahabResort\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SafirDahabResort\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SafirDahabResort\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SafirDahabResort\\download(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SafirDahabResort\\download(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SafirDahabResort\\download(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SafirDahabResort\\download(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SafirDahabResort\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SafirDahabResort\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SaintCatherine'sMonastery\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SaintCatherine'sMonastery\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SaintCatherine'sMonastery\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SaintCatherine'sMonastery\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SaintCatherine'sMonastery\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SaintCatherine'sMonastery\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SaintCatherine'sMonastery\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SaintCatherine'sMonastery\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SaintCatherine'sMonastery\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SaintCatherine'sMonastery\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SaintCatherine'sMonastery\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SaintCatherine'sMonastery\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SaintCatherine'sMonastery\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SaintCatherine'sMonastery\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SidiMorsiAbual-AbbasMosque\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SiwaOasis\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SiwaOasis\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\SteigenbergerMakadi\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\SteigenbergerMakadi\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\download(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\download(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\download(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\download(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\StellaDiMareGolfHotel\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\StellaDiMareGolfHotel\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheEgyptianMuseums\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheEgyptianMuseums\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheEgyptianMuseums\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheEgyptianMuseums\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheEgyptianMuseums\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheEgyptianMuseums\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheEgyptianMuseums\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheEgyptianMuseums\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheEgyptianMuseums\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheEgyptianMuseums\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheEgyptianMuseums\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheEgyptianMuseums\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheEgyptianMuseums\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheEgyptianMuseums\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheEgyptianMuseums\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheEgyptianMuseums\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheEgyptianMuseums\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheEgyptianMuseums\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheGrandHotelSharmElSheikh\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheGrandHotelSharmElSheikh\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheGrandHotelSharmElSheikh\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheGrandHotelSharmElSheikh\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheGrandHotelSharmElSheikh\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheHangingChurch\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheHangingChurch\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheHangingChurch\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheHangingChurch\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheHangingChurch\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheHangingChurch\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheHangingChurch\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheHangingChurch\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheHangingChurch\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheHangingChurch\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheHangingChurch\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheHangingChurch\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheHangingChurch\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheHangingChurch\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheHangingChurch\\th.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheHangingChurch\\th.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheNileCorniche\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheNileCorniche\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheNileCorniche\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheNileCorniche\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheNileCorniche\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheNileCorniche\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheNileCorniche\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheNileCorniche\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheNileCorniche\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheNileCorniche\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\TheNileCorniche\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\TheNileCorniche\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\Thenubianvillage\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\Thenubianvillage\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiAl-Hitan(WhaleValley)\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(10).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(10).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(11).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(11).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(6).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(6).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(7).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(7).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(8).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(8).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP(9).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP(9).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiDeglaProtectorate\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiDeglaProtectorate\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\OIP(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\OIP(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\OIP(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\OIP(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\OIP(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\OIP(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\OIP.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\OIP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\download(1).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\download(1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\download(2).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\download(2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\download(3).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\download(3).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\download(4).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\download(4).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\download(5).jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\download(5).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\Images\\Places\\WadiElRayan\\download.jpg",
+      "PackagePath": "staticwebassets\\Images\\Places\\WadiElRayan\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\189aa635-e863-4470-9d8b-1eade5d51ba7_Messi.jpg",
+      "PackagePath": "staticwebassets\\uploads\\189aa635-e863-4470-9d8b-1eade5d51ba7_Messi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\BackGroundImages\\1406d3c9-fea9-44ea-915c-e3abe9be4c58_Rhaff1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\BackGroundImages\\1406d3c9-fea9-44ea-915c-e3abe9be4c58_Rhaff1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\BackGroundImages\\ae05709c-6cd4-4ec2-8efa-7058a663a8e6_Rhaff1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\BackGroundImages\\ae05709c-6cd4-4ec2-8efa-7058a663a8e6_Rhaff1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\Dahab.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Dahab.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\ElmoezStreet.jpg",
+      "PackagePath": "staticwebassets\\uploads\\ElmoezStreet.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\ProfileImages\\d7116108-66ce-4aff-a400-2ff99dc3e9f3_Rhaff1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\ProfileImages\\d7116108-66ce-4aff-a400-2ff99dc3e9f3_Rhaff1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\The-Nubian-village.jpg",
+      "PackagePath": "staticwebassets\\uploads\\The-Nubian-village.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\Vinni-Cafe.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Vinni-Cafe.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\Wadi-El-Hitan.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Wadi-El-Hitan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\kayak-Nile.jpg",
+      "PackagePath": "staticwebassets\\uploads\\kayak-Nile.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\reviews\\141ad282-fb7a-46d6-a48c-c250179f763d_Messi.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\141ad282-fb7a-46d6-a48c-c250179f763d_Messi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\reviews\\2d8b9d6e-679c-42c5-ba88-8b98412a8eea_Messi.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\2d8b9d6e-679c-42c5-ba88-8b98412a8eea_Messi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\reviews\\3a8a907a-02cf-4387-812e-037f0066cd11_Rhaff1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\3a8a907a-02cf-4387-812e-037f0066cd11_Rhaff1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\reviews\\40b4d9d4-a154-4875-8f7e-d394019b13e0_Rhaff1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\40b4d9d4-a154-4875-8f7e-d394019b13e0_Rhaff1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\reviews\\634fd8db-6281-4b1b-a24a-de73d7b9d6f1_Rhaff1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\634fd8db-6281-4b1b-a24a-de73d7b9d6f1_Rhaff1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\reviews\\86afe72a-2a13-46c2-a012-955630c2d4ee_Messi.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\86afe72a-2a13-46c2-a012-955630c2d4ee_Messi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\reviews\\883ea5ac-1cc0-49fb-8224-ecfcaad60dff_Rhaff1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\883ea5ac-1cc0-49fb-8224-ecfcaad60dff_Rhaff1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\reviews\\f621e8e4-13c5-4ecf-a7de-8cc1f176207c_Rhaff1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\f621e8e4-13c5-4ecf-a7de-8cc1f176207c_Rhaff1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\wwwroot\\uploads\\reviews\\f7f1e576-a80f-418d-a094-419d4dd5f061_Rhaff1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\f7f1e576-a80f-418d-a094-419d4dd5f061_Rhaff1.jpg"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\win-x86\\staticwebassets\\msbuild.Kemet.APIs.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\win-x86\\staticwebassets\\msbuild.build.Kemet.APIs.props",
+      "PackagePath": "build\\Kemet.APIs.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\win-x86\\staticwebassets\\msbuild.buildMultiTargeting.Kemet.APIs.props",
+      "PackagePath": "buildMultiTargeting\\Kemet.APIs.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\win-x86\\staticwebassets\\msbuild.buildTransitive.Kemet.APIs.props",
+      "PackagePath": "buildTransitive\\Kemet.APIs.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -34,6 +34,7 @@ namespace Kemet.Repository.Data.DataSeed
                     var locationEntities = locations.Select(loc => new Core.Entities.Location
                     {
                         Id = loc.Id,
+
                         Address = loc.Address,
                         LocationLink = loc.LocationLink,
                         Coordinates = geometryFactory.CreatePoint(new Coordinate(loc.Longitude, loc.Latitude))

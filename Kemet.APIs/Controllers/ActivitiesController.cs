@@ -6,6 +6,7 @@ using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.RepositoriesInterFaces;
+using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Specifications.ActivitySpecs;
 using Kemet.Core.Specifications.PlaceSpecs;
 using Kemet.Repository.Data;
@@ -26,6 +27,7 @@ namespace Kemet.APIs.Controllers
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IHomeServices _homeServices;
         private readonly IConfiguration _configuration;
 
         public ActivitiesController(
@@ -33,13 +35,14 @@ namespace Kemet.APIs.Controllers
             ,IMapper mapper
             ,AppDbContext context
             , UserManager<AppUser> userManager
-            ,IOptions<Appsettings>appsettings
+            ,IHomeServices homeServices
             ,IConfiguration configuration)
         {
             _activityRepo = ActivityRepo;
             _mapper = mapper;
             _context = context;
             _userManager = userManager;
+            _homeServices = homeServices;
             _configuration = configuration;
         }
 
@@ -49,54 +52,27 @@ namespace Kemet.APIs.Controllers
             try
             {
                 // Check if the user is signed in
-                var userEmail = User.FindFirstValue(ClaimTypes.Email); // Assuming email is used for authentication
-                if (string.IsNullOrEmpty(userEmail))
-                {
-                    return Unauthorized(new ApiResponse(401, "User is not signed in."));
-                }
+                var userEmail = User.FindFirstValue(ClaimTypes.Email); 
 
                 // Fetch the user's location from the database
                 var user = await _userManager.FindByEmailAsync(userEmail);
+                var resultActivities = new List<Activity>();
                 if (user == null || user.Location == null)
                 {
-                    return NotFound(new ApiResponse(404, "User location not found."));
+                   resultActivities =  await _homeServices.GetActivities();
+                   
                 }
-
-                var userLocation = user.Location; // Assuming user.Location is a Point
-
-                // Initialize radius (10 km)
-                double radius = 10000; // 10 km in meters
-                List<Activity> nearbyActivities = new List<Activity>();
-
-                // Fetch activities within the radius, increasing the radius until at least 5 activities are found
-                while (nearbyActivities.Count < 10)
-                {
-                    // Fetch activities within the current radius
-                    var activitiesWithinRadius = await _context.Activities
-                        .Where(a => a.Location.Coordinates.Distance(userLocation) <= radius)
-                        .ToListAsync();
-
-                    // Add activities to the nearbyActivities list
-                    nearbyActivities.AddRange(activitiesWithinRadius);
-
-                    // If no activities are found, break the loop to avoid infinite looping
-                    if (!activitiesWithinRadius.Any())
+                else
+                { 
+                    var nearbyActivities = await _homeServices.GetNearbyActivities(user);
+                    // If no activities are found after increasing the radius, return a 404 response
+                    if (!nearbyActivities.Any())
                     {
-                        break;
+                        return NotFound(new ApiResponse(404, "No activities found within the maximum radius."));
                     }
-
-                    // Increase the radius by 10 km
-                    radius += 10000;
+                    // Take at least 5 activities (or all available if less than 5)
+                    resultActivities = nearbyActivities.Take(10).ToList();
                 }
-
-                // If no activities are found after increasing the radius, return a 404 response
-                if (!nearbyActivities.Any())
-                {
-                    return NotFound(new ApiResponse(404, "No activities found within the maximum radius."));
-                }
-
-                // Take at least 5 activities (or all available if less than 5)
-                var resultActivities = nearbyActivities.Take(10).ToList();
 
                 // Map activities to DTOs
                 var activitiesDto = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(resultActivities);
@@ -152,6 +128,37 @@ namespace Kemet.APIs.Controllers
             }
         }
 
+        [HttpGet("B7B7")]
+        public async Task<IActionResult> B7B7()
+        {
+            var places = await _context.Activities.ToListAsync();
+            var B7B7places = new List<B7B7ActivityDto>();
+            foreach (var place in places)
+            {
+                var images = await _context.ActivityImages.Where(p => p.ActivityId == place.Id).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").FirstOrDefaultAsync();
+                place.PictureUrl = images;
+            }
+            for (int i = 0; i < 47; i++)
+            {
+                var test = new B7B7ActivityDto();
+                test.ActivityId = places[i].Id;
+                test.CategoryName = await _context.Categories.Where(c => c.Id == places[i].CategoryId).Select(c => c.CategoryName).FirstOrDefaultAsync();
+                test.Name = places[i].Name;
+                test.CulturalTips = places[i].CulturalTips;
+                test.Address = await _context.Locations.Where(l => l.Id == places[i].LocationId).Select(l => l.Address).FirstOrDefaultAsync();
+                test.Duration = places[i].Duration;
+                test.CloseTime = places[i].CloseTime;
+                test.OpenTime = places[i].OpenTime;
+                test.Description = places[i].Description;
+                test.imageURL = places[i].PictureUrl;
+                test.LocationLink = await _context.Locations.Where(l => l.Id == places[i].LocationId).Select(l => l.LocationLink).FirstOrDefaultAsync();
+                test.TouristAdult = await _context.Prices.Where(p => p.Id == places[i].priceId).Select(p => p.TouristAdult).FirstOrDefaultAsync();
+                test.EgyptianAdult = await _context.Prices.Where(p => p.Id == places[i].priceId).Select(p => p.EgyptianAdult).FirstOrDefaultAsync();
+                B7B7places.Add(test);
+            }
+            return Ok(B7B7places);
+        }
     }
+    
 }                       
                         

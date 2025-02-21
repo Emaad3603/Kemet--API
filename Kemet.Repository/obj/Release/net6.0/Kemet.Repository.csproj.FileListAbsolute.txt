@@ -1,0 +1,16 @@
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\bin\Release\net6.0\Kemet.Repository.deps.json
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\bin\Release\net6.0\Kemet.Repository.dll
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\bin\Release\net6.0\Kemet.Repository.pdb
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\bin\Release\net6.0\Kemet.Core.dll
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\bin\Release\net6.0\Kemet.Core.pdb
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\Kemet.Repository.csproj.AssemblyReference.cache
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\Kemet.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\Kemet.Repository.AssemblyInfoInputs.cache
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\Kemet.Repository.AssemblyInfo.cs
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\Kemet.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\Kemet.Repository.sourcelink.json
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\Kemet.Repository.csproj.CopyComplete
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\Kemet.Repository.dll
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\refint\Kemet.Repository.dll
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\Kemet.Repository.pdb
+C:\Users\Emad\source\repos\Kemet--API\Kemet.Repository\obj\Release\net6.0\ref\Kemet.Repository.dll

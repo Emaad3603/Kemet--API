@@ -30,14 +30,50 @@ namespace Kemet.Services
             _context = context;
         }
 
-        public async Task<AdventureDTO> GetAdventureModeSuggest()
+        public async Task<AdventureDTO> GetAdventureModeSuggest(AppUser? user)
         {
             try
             {
                 var currentTime = DateTime.UtcNow.TimeOfDay;
                 var random = new Random();
                 var allPlaces = await _context.Places.Include(p => p.Price).Include(p=>p.Images).ToListAsync();
-                var openPlaces = GetOpenPlaces(allPlaces);
+                var nearbyPlaces = new  List<Place>();
+              
+                if (user is null || user.Location is null)
+                {
+                    nearbyPlaces = await _context.Places.ToListAsync();
+
+                }
+                else
+                {
+                    var userLocation = user.Location; // Assuming user.Location is a Point
+
+                    // Initialize radius (10 km)
+                    double radius = 10000; // 10 km in meters
+
+
+                    // Fetch places within the radius, increasing the radius until at least 5 places are found
+                    while (nearbyPlaces.Count < 10)
+                    {
+                        // Fetch places within the current radius
+                        var placesWithinRadius = await _context.Places
+                            .Where(p => p.Location.Coordinates.Distance(userLocation) <= radius)
+                            .ToListAsync();
+
+                        // Add places to the nearbyPlaces list
+                        nearbyPlaces.AddRange(placesWithinRadius);
+
+                        // If no places are found, break the loop to avoid infinite looping
+                        if (!placesWithinRadius.Any())
+                        {
+                            break;
+                        }
+
+                        // Increase the radius by 10 km
+                        radius += 10000;
+                    }
+                }
+                var openPlaces = GetOpenPlaces(nearbyPlaces);
                 var ranNumber = random.Next(1,openPlaces.Count() + 1);
                 var adventurePlace = openPlaces.Where(p => p.Id == ranNumber).FirstOrDefault();
                 if (adventurePlace != null)
@@ -83,10 +119,6 @@ namespace Kemet.Services
 
         public async Task<(bool IsSuccess, string Message, string ImageUrl)> UploadProfileImageAsync(string userEmail, IFormFile? profileImage, IFormFile? backgroundImage)
         {
-            //if (profileImage == null && backgroundImage == null || profileImage.Length == 0 && backgroundImage.Length ==0)
-            //{
-            //    return (false, "Please select an image to upload.", null);
-            //}
 
             var user = await _userManager.FindByEmailAsync(userEmail);
             if (user == null)

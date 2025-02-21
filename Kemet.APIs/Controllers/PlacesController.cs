@@ -5,6 +5,7 @@ using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.RepositoriesInterFaces;
+using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Specifications;
 using Kemet.Core.Specifications.ActivitySpecs;
 using Kemet.Core.Specifications.PlaceSpecs;
@@ -26,6 +27,7 @@ namespace Kemet.APIs.Controllers
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly IConfiguration _configuration;
+        private readonly IHomeServices _homeServices;
 
 
         //getAll
@@ -36,6 +38,7 @@ namespace Kemet.APIs.Controllers
             ,AppDbContext context
             ,UserManager<AppUser> userManager
             ,IConfiguration configuration
+            ,IHomeServices homeServices
             )
         {
             _placesRepo = placesRepo;
@@ -43,6 +46,7 @@ namespace Kemet.APIs.Controllers
             _context = context;
             _userManager = userManager;
             _configuration = configuration;
+            _homeServices = homeServices;
         }
 
         [HttpGet]
@@ -50,56 +54,30 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                // Check if the user is signed in
-                var userEmail = User.FindFirstValue(ClaimTypes.Email); // Assuming email is used for authentication
-                if (string.IsNullOrEmpty(userEmail))
-                {
-                    return Unauthorized(new ApiResponse(401, "User is not signed in."));
-                }
+                
+                var userEmail = User.FindFirstValue(ClaimTypes.Email); 
 
-                // Fetch the user's location from the database
                 var user = await _userManager.FindByEmailAsync(userEmail);
+
+                var resultPlaces = new List<Place>();
+
                 if (user == null || user.Location == null)
                 {
-                    return NotFound(new ApiResponse(404, "User location not found."));
+                  resultPlaces =   await  _homeServices.GetPlaces();
                 }
-
-                var userLocation = user.Location; // Assuming user.Location is a Point
-
-                // Initialize radius (10 km)
-                double radius = 10000; // 10 km in meters
-                List<Place> nearbyPlaces = new List<Place>();
-
-                // Fetch places within the radius, increasing the radius until at least 5 places are found
-                while (nearbyPlaces.Count < 10)
+                else
                 {
-                    // Fetch places within the current radius
-                    var placesWithinRadius = await _context.Places
-                        .Where(p => p.Location.Coordinates.Distance(userLocation) <= radius)
-                        .ToListAsync();
-
-                    // Add places to the nearbyPlaces list
-                    nearbyPlaces.AddRange(placesWithinRadius);
-
-                    // If no places are found, break the loop to avoid infinite looping
-                    if (!placesWithinRadius.Any())
+                  
+                  var nearbyPlaces = await _homeServices.GetNearbyPlaces(user);
+                  if (!nearbyPlaces.Any())
                     {
-                        break;
+                        return NotFound(new ApiResponse(404, "No places found within the maximum radius."));
                     }
-
-                    // Increase the radius by 10 km
-                    radius += 10000;
-                }
-
-                // If no places are found after increasing the radius, return a 404 response
-                if (!nearbyPlaces.Any())
-                {
-                    return NotFound(new ApiResponse(404, "No places found within the maximum radius."));
-                }
-
-                // Take at least 5 places (or all available if less than 5)
-                var resultPlaces = nearbyPlaces.Take(10).ToList();
+                  resultPlaces = nearbyPlaces.Take(10).ToList();
+                  
+                }            
                 var places=  _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(resultPlaces);
+
                 foreach(var place in places)
                 {
                    var images =  await   _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToListAsync();
@@ -147,6 +125,36 @@ namespace Kemet.APIs.Controllers
             {
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
+        }
+        [HttpGet("B7B7")]
+        public async Task<IActionResult> B7B7()
+        {
+            var places = await  _context.Places.ToListAsync();
+            var B7B7places = new List<B7B7DTO>();
+            foreach (var place in places )
+            {
+                var images = await  _context.PlaceImages.Where(p => p.PlaceId == place.Id).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").FirstOrDefaultAsync();               
+                place.PictureUrl = images;
+            }
+            for(int i = 0; i < 47; i++)
+            {
+                var test = new B7B7DTO();
+                test.PlaceId = places[i].Id;
+                test.CategoryName =await  _context.Categories.Where(c=>c.Id == places[i].CategoryId).Select(c=>c.CategoryName).FirstOrDefaultAsync();
+                test.Name = places[i].Name;
+                test.CulturalTips = places[i].CultureTips;
+                test.Address =await  _context.Locations.Where(l=>l.Id == places[i].locationId).Select(l=>l.Address).FirstOrDefaultAsync();
+                test.Duration = places[i].Duration;
+                test.CloseTime = places[i].CloseTime;
+                test.OpenTime = places[i].OpenTime;
+                test.Description = places[i].Description;
+                test.imageURLs = places[i].PictureUrl;
+                test.LocationLink = await _context.Locations.Where(l => l.Id == places[i].locationId).Select(l => l.LocationLink).FirstOrDefaultAsync();
+                test.TouristAdult = await _context.Prices.Where(p=>p.Id == places[i].priceId).Select(p=>p.TouristAdult).FirstOrDefaultAsync();
+                test.EgyptianAdult = await _context.Prices.Where(p => p.Id == places[i].priceId).Select(p => p.EgyptianAdult).FirstOrDefaultAsync();
+                B7B7places.Add(test);
+            }
+            return Ok(B7B7places);
         }
     }
 }
