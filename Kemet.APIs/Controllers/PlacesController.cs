@@ -85,7 +85,9 @@ namespace Kemet.APIs.Controllers
 
                 foreach(var place in places)
                 {
-                   var images =  await   _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToListAsync();
+                   var images =  await   _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID)
+                                                             .Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}")
+                                                             .ToListAsync();
                    place.ImageURLs = images;
                 }
 

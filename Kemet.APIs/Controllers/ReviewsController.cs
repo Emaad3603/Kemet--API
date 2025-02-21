@@ -170,65 +170,6 @@ namespace Kemet.APIs.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
-
-        [HttpGet("activity/details/{activityId}")]
-        public async Task<IActionResult>GetActivityWithReviews(int activityId) 
-        {
-            
-                var activity = await _reviewRepo.GetReviewsForActivityAsync(activityId);
-                if (activity == null) return NotFound("activity reviews not found.");
-
-
-
-
-            return Ok(activity);
-          
-
-            
-        }
-        [HttpGet("place/details/{placeId}")]
-        public async Task<IActionResult> GetPlaceWithReviews(int placeid)
-        {
-
-
-            var place = await _reviewRepo.GetReviewsForPlaceAsync(placeid);
-            if (place == null)
-                return NotFound("place reviews not found.");
-
-            return Ok(place);
-        }
-        [HttpGet("travelagencyplan/details/{TravelAgencyPlanId}")]
-        public async Task<IActionResult> GetReviewsForTravelAgencyPlan(int TravelAgencyPlanId)
-        {
-
-
-            var TravelAgencyPlan = await _reviewRepo.GetReviewsForTravelAgencyPlanAsync(TravelAgencyPlanId);
-            if (TravelAgencyPlan == null)
-                return NotFound("TravelAgencyPlan reviews not found.");
-
-            return Ok(TravelAgencyPlan);
-        }
-
-        [HttpGet("place/average-rating/{placeId}")]
-        public async Task<IActionResult> GetAverageRatingForPlace(int placeId)
-        {
-            var averageRating = await _reviewRepo.GetAverageRatingForPlaceAsync(placeId);
-            return Ok(averageRating);
-        }
-        [HttpGet("activity/average-rating/{activityId}")]
-        public async Task<IActionResult> GetAverageRatingForActivity(int activityId)
-        {
-            var averageRating = await _reviewRepo.GetAverageRatingForActivityAsync(activityId);
-            return Ok(averageRating);
-        }
-        [HttpGet("travelagencyplan/average-rating/{planId}")]
-        public async Task<IActionResult> GetAverageRatingForTravelAgencyPlan(int planId)
-        {
-            var averageRating = await _reviewRepo.GetAverageRatingForTravelAgencyPlanAsync(planId);
-            return Ok(averageRating);
-        }
-
     }
 
   
