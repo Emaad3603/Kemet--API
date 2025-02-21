@@ -55,9 +55,14 @@ namespace Kemet.APIs.Controllers
             try
             {
                 
-                var userEmail = User.FindFirstValue(ClaimTypes.Email); 
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                var user = new AppUser();
+                if (userEmail != null)
+                {
+                    user = await _userManager.FindByEmailAsync(userEmail);
+                }
 
-                var user = await _userManager.FindByEmailAsync(userEmail);
+                
 
                 var resultPlaces = new List<Place>();
 

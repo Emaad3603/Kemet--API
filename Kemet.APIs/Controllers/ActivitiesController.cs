@@ -52,10 +52,14 @@ namespace Kemet.APIs.Controllers
             try
             {
                 // Check if the user is signed in
-                var userEmail = User.FindFirstValue(ClaimTypes.Email); 
+                string userEmail =  User.FindFirstValue(ClaimTypes.Email);
 
                 // Fetch the user's location from the database
-                var user = await _userManager.FindByEmailAsync(userEmail);
+                var user = new AppUser();
+                if (userEmail != null)
+                {
+                    user = await _userManager.FindByEmailAsync(userEmail);
+                }
                 var resultActivities = new List<Activity>();
                 if (user == null || user.Location == null)
                 {
