@@ -15,5 +15,8 @@ namespace Kemet.Core.Repositories.InterFaces
         public Task AddActivityToWishlist (string userId , int activityId);
 
         public Task AddPlanToWishlist (string userId , int planId);
+        public  Task<bool> RemoveActivityFromWishlist(string userId, int activityId);
+        public Task<bool> RemovePlaceFromWishlist(string userId, int PlaceId);
+        public Task<bool> RemovePlanFromWishlist(string userId, int PlanId);
     }
 }

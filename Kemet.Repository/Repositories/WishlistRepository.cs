@@ -45,6 +45,22 @@ namespace Kemet.Repository.Repositories
            
 
         }
+        public async Task<bool> RemoveActivityFromWishlist(string userId, int activityId)
+        {
+            var wishlist = await _context.Wishlists
+                .Include(w => w.Activities)
+                .FirstOrDefaultAsync(w => w.UserID == userId);
+
+            if (wishlist == null) return false;
+
+            var activity = wishlist.Activities.FirstOrDefault(a => a.Id == activityId);
+            if (activity == null) return false;
+
+            wishlist.Activities.Remove(activity);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
 
         public async Task AddPlaceToWishlist(string userId, int placeId)
         {
@@ -69,7 +85,21 @@ namespace Kemet.Repository.Repositories
             await _context.WishlistPlaces.AddAsync(wishlistPlaces);
             await _context.SaveChangesAsync();
         }
+        public async Task<bool> RemovePlaceFromWishlist(string userId, int PlaceId)
+        {
+            var wishlist = await _context.Wishlists
+                .Include(w => w.Places)
+                .FirstOrDefaultAsync(w => w.UserID == userId);
 
+            if (wishlist == null) return false;
+
+            var place = wishlist.Places.FirstOrDefault(a => a.Id == PlaceId);
+            if (place == null) return false;
+
+            wishlist.Places.Remove(place);
+            await _context.SaveChangesAsync();
+            return true;
+        }
         public async Task AddPlanToWishlist(string userId, int planId)
         {
             var wishlist = await _context.Wishlists.Where(w => w.UserID == userId).FirstOrDefaultAsync();
@@ -95,7 +125,21 @@ namespace Kemet.Repository.Repositories
             await _context.WishlistPlans.AddAsync(wishlistPlans);
             await _context.SaveChangesAsync();
         }
+        public async Task<bool> RemovePlanFromWishlist(string userId, int PlanId)
+        {
+            var wishlist = await _context.Wishlists
+                .Include(w => w.Plans)
+                .FirstOrDefaultAsync(w => w.UserID == userId);
 
+            if (wishlist == null) return false;
+
+            var Plan = wishlist.Plans.FirstOrDefault(a => a.Id == PlanId);
+            if (Plan == null) return false;
+
+            wishlist.Plans.Remove(Plan);
+            await _context.SaveChangesAsync();
+            return true;
+        }
         public async Task<Wishlist> GetUserWishlist(string userID)
         {
             var wishlist = await _context.Wishlists.Where(w => w.UserID == userID).FirstOrDefaultAsync();
