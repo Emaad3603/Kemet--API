@@ -5,7 +5,7 @@
         public string? UserId { get; set; }
 
         public string? UserName { get; set; }
-        public DateOnly? Date { get; set; }
+        public DateOnly Date { get; set; }
         public string? ReviewTitle { get; set; }
         public string? VisitorType { get; set; }
         public string? UserImageUrl {  get; set; }

@@ -19,8 +19,10 @@ namespace Kemet.Repository.Data.Configuration
                      v => DateOnly.FromDateTime(v));
             builder.HasMany(b => b.Customer)
                    .WithMany(c => c.BookedTrips);
-                   
-                   
+
+            builder.Property(P => P.BookedPrice)
+                  .HasColumnType("decimal(18,2)");
+
         }
     }
 }

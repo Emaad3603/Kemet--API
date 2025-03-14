@@ -17,10 +17,14 @@ namespace Kemet.Core.Entities
 
         public ICollection<Customer> Customer { get; set; }
 
+        public string TravelAgencyName { get; set; }
+
         public int NumOfPeople { get; set; }
 
         public string ReserveType { get; set; }
 
         public DateOnly ReserveDate { get; set;}
+
+        public decimal BookedPrice { get; set; }
     }
 }

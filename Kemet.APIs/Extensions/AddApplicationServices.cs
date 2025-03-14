@@ -21,6 +21,7 @@ namespace Kemet.APIs.Extensions
             services.AddScoped<IinterestsRepository,InterestRepository>();
             services.AddScoped<ISearchInterface,SearchServices>();
             services.AddScoped<IHomeServices,HomeServices>();
+            services.AddScoped<IBookingServices,BookingServices>();
             services.AddScoped<OtpExtensions>();
             services.AddScoped<IWishlistRepository, WishlistRepository>();
             services.Configure<ApiBehaviorOptions>(options =>

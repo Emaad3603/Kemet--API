@@ -84,7 +84,10 @@ namespace Kemet.APIs.Controllers
                     ActivityId = reviewDto.ActivityId,
                     ImageUrl = imageUrl,
                     PlaceId = reviewDto.PlaceId,
-                    TravelAgencyPlanId = reviewDto.TravelAgencyPlanId
+                    TravelAgencyPlanId = reviewDto.TravelAgencyPlanId ,
+                    ReviewTitle = reviewDto.ReviewTitle ,
+                    VisitorType = reviewDto.VisitorType ,
+                    Date = reviewDto.Date
                 };
 
                await _reviewRepo.AddReviewAsync(review);
