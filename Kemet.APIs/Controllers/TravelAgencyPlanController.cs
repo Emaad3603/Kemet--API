@@ -67,6 +67,7 @@ namespace Kemet.APIs.Controllers
                 var fetchedReviews = await _context.Reviews.Where(r => r.TravelAgencyPlanId == PlanId).ToListAsync();
                 foreach (var fetchedReview in fetchedReviews)
                 {
+                    fetchedReview.TravelAgencyPlan = null;
                     fetchedReview.ImageUrl = $"{_configuration["BaseUrl"]}{fetchedReview.ImageUrl}";
                 }
                 plans.Reviews = fetchedReviews;

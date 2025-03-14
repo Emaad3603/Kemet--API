@@ -108,7 +108,12 @@ namespace Kemet.APIs.Helpers
                  .ForMember(dest => dest.TravelAgencyPlanId, opt => opt.MapFrom(src => src.TravelAgencyPlanId))
                  .ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.ImageUrl))
                  .ForMember(dest=>dest.UserName , opt=>opt.MapFrom(src=>src.USERNAME))
-                 .ForMember(dest=>dest.UserImageUrl , opt=>opt.MapFrom(src=>src.UserImageURl))               
+                 .ForMember(dest=>dest.UserImageUrl , opt=>opt.MapFrom(src=>src.UserImageURl))     
+                 .ForMember(dest=>dest.Date,opt=>opt.MapFrom(src=>src.Date))
+                 .ForMember(dest => dest.VisitorType, opt => opt.MapFrom(src => src.VisitorType))
+                 .ForMember(dest => dest.ReviewTitle, opt => opt.MapFrom(src => src.ReviewTitle))
+
+
                  .ReverseMap();
 
             CreateMap<Wishlist, WishlistDto>()
