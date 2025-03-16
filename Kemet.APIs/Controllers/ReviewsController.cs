@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -74,7 +75,8 @@ namespace Kemet.APIs.Controllers
                     var fileHelper = new FileUploadHelper(_environment);
                     imageUrl = await fileHelper.SaveFileAsync(reviewDto.Image, "uploads/reviews");
                 }
-
+                DateTime today= DateTime.UtcNow;
+                if (reviewDto.Date> today) { return BadRequest("this date isn't correct"); }
                 var review = new Review
                 {   UserId = user.Id,
                     USERNAME = user.UserName,
@@ -87,6 +89,8 @@ namespace Kemet.APIs.Controllers
                     TravelAgencyPlanId = reviewDto.TravelAgencyPlanId ,
                     ReviewTitle = reviewDto.ReviewTitle ,
                     VisitorType = reviewDto.VisitorType ,
+                    //Date = reviewDto.Date
+                    //  Date = DateTime.UtcNow
                     Date = reviewDto.Date
                 };
 

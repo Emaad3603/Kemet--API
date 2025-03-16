@@ -1,11 +1,13 @@
-﻿namespace Kemet.APIs.DTOs.ReviewsDTOs
+﻿using Kemet.Core.Entities;
+
+namespace Kemet.APIs.DTOs.ReviewsDTOs
 {
     public class ReviewDto
     {
         public string? UserId { get; set; }
 
         public string? UserName { get; set; }
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
         public string? ReviewTitle { get; set; }
         public string? VisitorType { get; set; }
         public string? UserImageUrl {  get; set; }
