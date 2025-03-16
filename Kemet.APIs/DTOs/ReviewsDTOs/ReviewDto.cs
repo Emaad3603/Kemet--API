@@ -22,5 +22,7 @@ namespace Kemet.APIs.DTOs.ReviewsDTOs
         public int? ActivityId { get; set; }
         public int? PlaceId { get; set; }
         public int? TravelAgencyPlanId { get; set; }
+
+        public string? TravelAgencyId { get; set; }
     }
 }
