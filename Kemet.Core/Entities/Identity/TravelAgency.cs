@@ -19,6 +19,6 @@ namespace Kemet.Core.Entities.Identity
 
         public string InstagramURL { get; set; }
       
-
+        public string Bio {  get; set; }
     }
 }

@@ -87,6 +87,7 @@ namespace Kemet.APIs.Controllers
                     ImageUrl = imageUrl,
                     PlaceId = reviewDto.PlaceId,
                     TravelAgencyPlanId = reviewDto.TravelAgencyPlanId ,
+                    TravelAgencyID = reviewDto.TravelAgencyId,
                     ReviewTitle = reviewDto.ReviewTitle ,
                     VisitorType = reviewDto.VisitorType ,
                     //Date = reviewDto.Date

@@ -21,5 +21,7 @@ namespace Kemet.APIs.DTOs.IdentityDTOs
         public string TaxNumber { get; set; }
         public string? FacebookURL { get; set; }
         public string? InstagramURL { get; set; }
+
+        public string? Bio {  get; set; }
     }
 }

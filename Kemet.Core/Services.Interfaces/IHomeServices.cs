@@ -16,6 +16,15 @@ namespace Kemet.Core.Services.Interfaces
         Task<List<Activity>> GetNearbyActivities(AppUser user);
 
         Task<List<Activity>> GetActivities();
+
+        Task<List<Activity>> GetActivitesInCairo();
+
+        Task<List<Activity>> GetActivityHiddenGems();
+
+        Task<List<Activity>> GetTopRatedActivities();
+
+
+
         Task<List<Place>> GetPlacesInCairo();
         Task<List<Place>> GetTopRatedPlaces();
         Task<List<Place>> GetPlacesHiddenGems();

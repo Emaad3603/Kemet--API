@@ -32,6 +32,9 @@ namespace Kemet.Core.Entities
         public int? TravelAgencyPlanId { get; set; }
         public TravelAgencyPlan? TravelAgencyPlan { get; set; }
 
+        public string? TravelAgencyID { get; set; }
+
+        public TravelAgency? TravelAgency { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow; // time of the created review
 
 

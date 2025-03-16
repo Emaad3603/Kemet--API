@@ -68,7 +68,7 @@ namespace Kemet.APIs.Helpers
                     Name = a.Name,
                     Duration = a.Duration,
 
-                    imageURLs = a.Images.Select(img => $"{"https://localhost:7051"}{img.ImageUrl}").ToList(),
+                   
                     AverageRating= a.AverageRating ,
                     RatingsCount = a.RatingsCount ,
                 }).ToList());
