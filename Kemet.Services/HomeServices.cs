@@ -7,9 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetTopologySuite.Geometries;
 
 namespace Kemet.Services
 {
@@ -111,5 +113,44 @@ namespace Kemet.Services
           return result;
         }
 
+        public async Task<List<Place>> GetPlacesHiddenGems() 
+        {
+            var places = await _context.Places.Where(p => p.CategoryId == 19).ToListAsync();
+            return places;
+        }
+        public async Task<List<Place>> GetTopRatedPlaces()
+        {
+            var places = await _context.Places.OrderByDescending(p => p.AverageRating).ToListAsync();
+            var result= places.Take(20).ToList();
+            return result;
+        }
+        public async Task<List<Place>> GetPlacesInCairo() 
+        {
+            //Define Cairo's Location (Longitude ,Latitude)
+            var CairoLocation = new NetTopologySuite.Geometries.Point(31.2357, 30.0444) { SRID = 4326 };
+
+            //start with a reasonable radius (20 km)
+            double radius = 20000;
+            double maxRadius = 100000;
+            List<Place> CairoPlaces = new List<Place>();
+
+            while (CairoPlaces.Count < 25 && radius <= maxRadius)
+            {
+                var placesWithinRadius = await _context.Places
+                        .Where(P => P.Location.Coordinates.Distance(CairoLocation) <= radius)
+                        .OrderBy(p => p.Location.Coordinates.Distance(CairoLocation))
+                        .ToListAsync();
+                CairoPlaces.AddRange(placesWithinRadius);
+                if (CairoPlaces.Count >= 25)
+                {
+                    break;
+                }
+                //Increase the radius gradually(e.g. ,by 10km)
+                radius += 10000;
+            }
+            return CairoPlaces;
+            }
+        
+        }
     }
-}
+

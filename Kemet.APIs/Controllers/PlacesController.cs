@@ -164,5 +164,160 @@ namespace Kemet.APIs.Controllers
             }
             return Ok(B7B7places);
         }
+        [HttpGet("PlacesHiddenGems")]
+        public async Task<ActionResult<PlacesDto>> GetPlacesHiddenGems()
+        {
+                var resultPlaces = await _homeServices.GetPlacesHiddenGems();
+               
+                var result = await MapPlacesWithImages(resultPlaces);
+                if (result == null) { return NotFound(new ApiResponse(404, "No places found within the maximum radius")); }
+                return Ok(result);
+
+
+            
+        }
+
+
+
+        //[HttpGet("TopExperienceCairo")]
+        //public async Task<IActionResult> GetTopExperienceCairo()
+        //{
+        //    var topExperiences = await _context.Places
+        //        .Where(p => p.Name.ToLower() == "cairo") // Example filter
+        //        .Take(10)
+        //        .ToListAsync();
+
+        //  //  var experienceDto = _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(topExperiences);
+        //    var places = _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(topExperiences);
+
+        //    foreach (var place in places)
+        //    {
+        //        var images = await _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID)
+        //                                                  .Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}")
+        //                                                  .ToListAsync();
+        //        place.ImageURLs = images;
+        //    }
+
+        //    var result = places.Where(a => a.ImageURLs.Any()).ToList();
+
+        //    return Ok(places);
+        //}
+        [HttpGet("placesTopRated")]
+        public async Task<IActionResult> GetPlacesTopRated()
+        {
+            try 
+            {
+                var resultPlaces = await _homeServices.GetTopRatedPlaces();
+                var result = await MapPlacesWithImages(resultPlaces);
+                if (result == null) { return NotFound(new ApiResponse(404, "No places found within the maximum radius")); }
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, new ApiResponse(500, $"Internal server error:{ex.Message}"));
+            }
+        }
+
+
+        [HttpGet("TopAttractionsNearMe")]
+        public async Task<IActionResult> GetTopAttractionsNearMe()
+        {
+            try
+            {
+
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                var user = new AppUser();
+                if (userEmail != null)
+                {
+                    user = await _userManager.FindByEmailAsync(userEmail);
+                }
+
+
+
+                var resultPlaces = new List<Place>();
+
+                if (user == null || user.Location == null)
+                {
+                    resultPlaces = await _homeServices.GetPlaces();
+                }
+                else
+                {
+
+                    var nearbyPlaces = await _homeServices.GetNearbyPlaces(user);
+                    if (!nearbyPlaces.Any())
+                    {
+                        return NotFound(new ApiResponse(404, "No places found within the maximum radius."));
+                    }
+                    resultPlaces = nearbyPlaces.Take(10).ToList();
+
+                }
+                var places = _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(resultPlaces);
+
+                foreach (var place in places)
+                {
+                    var images = await _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID)
+                                                              .Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}")
+                                                              .ToListAsync();
+                    place.ImageURLs = images;
+                }
+
+                var result = places.Where(a => a.ImageURLs.Any()).ToList();
+
+                return Ok(places);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
+        }
+
+        [HttpGet("PlacesInCairo")]
+        public async Task<IActionResult> GetPlacesIncairo()
+        {
+            try
+            {
+                var resultPlaces = await _homeServices.GetPlacesInCairo();
+                var result = await MapPlacesWithImages(resultPlaces);
+                if (result == null) { return NotFound(new ApiResponse(404, "No places found within the maximum radius")); }
+                return Ok(result);
+
+            }
+            catch (Exception ex) 
+            {
+
+                return StatusCode(500, new ApiResponse(500, $"Internal server error:{ex.Message}"));
+            }
+        }
+
+
+
+        private async Task<List<PlacesDto>> MapPlacesWithImages(List<Place> places) 
+        {
+            //map place to Dtos        
+        var placesDto=_mapper.Map<IEnumerable<Place>,IEnumerable<PlacesDto>>(places).ToList();
+            //fetch all images in one  query
+
+        var placeImages = await _context.PlaceImages
+                 .Where(img => places.Select(a => a.Id).Contains(img.PlaceId))
+                 .ToListAsync();
+            var imagesDict = placeImages
+                   .GroupBy(img => img.PlaceId)
+                   .ToDictionary(g => g.Key, g => g.Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToList());
+            //assign images to dtos
+            foreach (var place in placesDto) 
+            {
+            place.ImageURLs=imagesDict.ContainsKey(place.PlaceID)? imagesDict[place.PlaceID]:new List<string>();
+            }
+            //return only places that have images
+            return placesDto.Where(a=>a.ImageURLs.Any()).ToList();
+        }
     }
-}
+
+    
+
+
+    }
+
+
