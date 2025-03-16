@@ -24,5 +24,9 @@ namespace Kemet.Core.Services.Interfaces
         Task<List<Activity>> GetTopRatedActivities();
 
 
+
+        Task<List<Place>> GetPlacesInCairo();
+        Task<List<Place>> GetTopRatedPlaces();
+        Task<List<Place>> GetPlacesHiddenGems();
     }
 }
