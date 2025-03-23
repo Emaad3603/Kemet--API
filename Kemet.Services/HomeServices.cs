@@ -8,11 +8,10 @@ using Microsoft.Extensions.Configuration;
 using NetTopologySuite.Geometries;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NetTopologySuite.Geometries;
+
 
 namespace Kemet.Services
 {
@@ -96,7 +95,7 @@ namespace Kemet.Services
             List<Activity> nearbyActivities = new List<Activity>();
 
             // Fetch activities within the radius, increasing the radius until at least 5 activities are found
-            while (nearbyActivities.Count < 10)
+            while (nearbyActivities.Count < 20)
             {
                 // Fetch activities within the current radius
                 var activitiesWithinRadius = await _context.Activities.AsNoTracking()
@@ -172,7 +171,7 @@ namespace Kemet.Services
         public async Task<List<Place>> GetPlacesInCairo() 
         {
             //Define Cairo's Location (Longitude ,Latitude)
-            var CairoLocation = new NetTopologySuite.Geometries.Point(31.2357, 30.0444) { SRID = 4326 };
+            var CairoLocation = new Point(31.2357, 30.0444) { SRID = 4326 };
 
             //start with a reasonable radius (20 km)
             double radius = 20000;
