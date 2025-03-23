@@ -55,32 +55,9 @@ namespace Kemet.APIs.Controllers
             try
             {
                 
-                var userEmail = User.FindFirstValue(ClaimTypes.Email);
-                var user = new AppUser();
-                if (userEmail != null)
-                {
-                    user = await _userManager.FindByEmailAsync(userEmail);
-                }
-
                 
-
-                var resultPlaces = new List<Place>();
-
-                if (user == null || user.Location == null)
-                {
-                  resultPlaces =   await  _homeServices.GetPlaces();
-                }
-                else
-                {
-                  
-                  var nearbyPlaces = await _homeServices.GetNearbyPlaces(user);
-                  if (!nearbyPlaces.Any())
-                    {
-                        return NotFound(new ApiResponse(404, "No places found within the maximum radius."));
-                    }
-                  resultPlaces = nearbyPlaces.Take(10).ToList();
-                  
-                }            
+                var resultPlaces =   await  _homeServices.GetPlaces();
+                             
                 var places=  _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(resultPlaces);
 
                 foreach(var place in places)
@@ -177,31 +154,6 @@ namespace Kemet.APIs.Controllers
             
         }
 
-
-
-        //[HttpGet("TopExperienceCairo")]
-        //public async Task<IActionResult> GetTopExperienceCairo()
-        //{
-        //    var topExperiences = await _context.Places
-        //        .Where(p => p.Name.ToLower() == "cairo") // Example filter
-        //        .Take(10)
-        //        .ToListAsync();
-
-        //  //  var experienceDto = _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(topExperiences);
-        //    var places = _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(topExperiences);
-
-        //    foreach (var place in places)
-        //    {
-        //        var images = await _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID)
-        //                                                  .Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}")
-        //                                                  .ToListAsync();
-        //        place.ImageURLs = images;
-        //    }
-
-        //    var result = places.Where(a => a.ImageURLs.Any()).ToList();
-
-        //    return Ok(places);
-        //}
         [HttpGet("placesTopRated")]
         public async Task<IActionResult> GetPlacesTopRated()
         {
@@ -253,17 +205,8 @@ namespace Kemet.APIs.Controllers
                     resultPlaces = nearbyPlaces.Take(10).ToList();
 
                 }
-                var places = _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(resultPlaces);
+                var places = await MapPlacesWithImages(resultPlaces);
 
-                foreach (var place in places)
-                {
-                    var images = await _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID)
-                                                              .Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}")
-                                                              .ToListAsync();
-                    place.ImageURLs = images;
-                }
-
-                var result = places.Where(a => a.ImageURLs.Any()).ToList();
 
                 return Ok(places);
             }

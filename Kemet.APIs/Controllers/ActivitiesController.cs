@@ -200,6 +200,7 @@ namespace Kemet.APIs.Controllers
                     UserImageURl = r.UserImageURl,
                     CreatedAt = r.CreatedAt,
                     VisitorType = r.VisitorType,
+                    USERNAME = r.USERNAME
                 })
                 .ToListAsync();
 

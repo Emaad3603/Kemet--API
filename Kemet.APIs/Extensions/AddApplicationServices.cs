@@ -25,6 +25,9 @@ namespace Kemet.APIs.Extensions
             services.AddScoped<ITravelAgencyService,TravelAgencyService>();
             services.AddScoped<OtpExtensions>();
             services.AddScoped<IWishlistRepository, WishlistRepository>();
+            services.AddHttpClient<IAiService, AiService>();
+            services.AddScoped<IAiService, AiService>();
+
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = (actionContext) =>
