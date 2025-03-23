@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kemet.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+498440aaa3a1e74f1126967c28cc8e93a9a196da")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfe84965b483c28f5deec263d5df2c1d3c7917dd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kemet.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kemet.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
