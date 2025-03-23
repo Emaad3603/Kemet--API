@@ -447,6 +447,27 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/6.0.36": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.36",
+          "NetTopologySuite": "2.3.0",
+          "NetTopologySuite.IO.SqlServerBytes": "2.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.targets": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Tools/6.0.36": {
         "type": "package",
         "dependencies": {
@@ -1005,6 +1026,38 @@
           }
         }
       },
+      "NetTopologySuite/2.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NetTopologySuite.IO.SqlServerBytes/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NetTopologySuite": "[2.0.0, 3.0.0-A)"
+        },
+        "compile": {
+          "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.5.0": {
         "type": "package",
         "dependencies": {
@@ -1182,6 +1235,15 @@
           "lib/net6.0/System.IdentityModel.Tokens.Jwt.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "System.Memory/4.5.4": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
         }
       },
       "System.Reflection.Metadata/1.6.0": {
@@ -1407,7 +1469,8 @@
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.36",
           "Microsoft.EntityFrameworkCore": "6.0.36",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.36"
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.36",
+          "NetTopologySuite": "2.5.0"
         },
         "compile": {
           "bin/placeholder/Kemet.Core.dll": {}
@@ -1954,6 +2017,21 @@
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
         "microsoft.entityframeworkcore.sqlserver.6.0.36.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/6.0.36": {
+      "sha512": "uOwqufWFN5+uDxWcu8+O2SDRnau+8j8iaeTOzGQehgcssayr3J2lEkUBYk+uIot4MdkogrArxoNs+7dVBQCjpQ==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.sqlserver.nettopologysuite/6.0.36",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "build/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.targets",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.xml",
+        "microsoft.entityframeworkcore.sqlserver.nettopologysuite.6.0.36.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.nettopologysuite.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Tools/6.0.36": {
@@ -2932,6 +3010,33 @@
         "mimekit.nuspec"
       ]
     },
+    "NetTopologySuite/2.5.0": {
+      "sha512": "5/+2O2ADomEdUn09mlSigACdqvAf0m/pVPGtIPEPQWnyrVykYY0NlfXLIdkMgi41kvH9kNrPqYaFBTZtHYH7Xw==",
+      "type": "package",
+      "path": "nettopologysuite/2.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/NetTopologySuite.dll",
+        "lib/netstandard2.0/NetTopologySuite.xml",
+        "nettopologysuite.2.5.0.nupkg.sha512",
+        "nettopologysuite.nuspec"
+      ]
+    },
+    "NetTopologySuite.IO.SqlServerBytes/2.0.0": {
+      "sha512": "TuyMB0VSlRJx86UrWeQ+SGgOMudvhIL1qJJdWJw78nWsXIzKRP4ooQAhhhCCH7n8q1lvd0/NW3ByaLlHxxNSPQ==",
+      "type": "package",
+      "path": "nettopologysuite.io.sqlserverbytes/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.dll",
+        "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.xml",
+        "nettopologysuite.io.sqlserverbytes.2.0.0.nupkg.sha512",
+        "nettopologysuite.io.sqlserverbytes.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.5.0": {
       "sha512": "FK05XokgjgwlCI6wCT+D4/abtQkL1X1/B9Oas6uIwHFmYrIO9WUD5aLC9IzMs9GnHfUXOtXZ2S43gN1mhs5+aA==",
       "type": "package",
@@ -3212,6 +3317,29 @@
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
         "system.identitymodel.tokens.jwt.6.36.0.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
+      ]
+    },
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+      "type": "package",
+      "path": "system.memory/4.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.4.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Reflection.Metadata/1.6.0": {
@@ -3645,24 +3773,29 @@
       "Kemet.Repository >= 1.0.0",
       "Kemet.Services >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.36",
+      "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite >= 6.0.36",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.36",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\osama yasser\\.nuget\\packages\\": {}
+    "C:\\Users\\Emad\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.APIs\\Kemet.APIs.csproj",
+      "projectUniqueName": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\Kemet.APIs.csproj",
       "projectName": "Kemet.APIs",
-      "projectPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.APIs\\Kemet.APIs.csproj",
-      "packagesPath": "C:\\Users\\osama yasser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.APIs\\obj\\",
+      "projectPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\Kemet.APIs.csproj",
+      "packagesPath": "C:\\Users\\Emad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.APIs\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\osama yasser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Emad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3670,18 +3803,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Repository\\Kemet.Repository.csproj": {
-              "projectPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Repository\\Kemet.Repository.csproj"
+            "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Repository\\Kemet.Repository.csproj": {
+              "projectPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Repository\\Kemet.Repository.csproj"
             },
-            "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj": {
-              "projectPath": "C:\\Users\\osama yasser\\Source\\Repos\\Emaad3603\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj"
+            "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj": {
+              "projectPath": "C:\\Users\\Emad\\source\\repos\\Kemet--API\\Kemet.Services\\Kemet.Services.csproj"
             }
           }
         }
@@ -3690,11 +3822,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3706,6 +3833,10 @@
             "version": "[13.0.1, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[6.0.36, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": {
             "target": "Package",
             "version": "[6.0.36, )"
           },
@@ -3739,7 +3870,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

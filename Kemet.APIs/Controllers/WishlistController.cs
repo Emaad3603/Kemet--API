@@ -141,6 +141,40 @@ namespace Kemet.APIs.Controllers
 
             return Ok();
         }
+        [HttpDelete("RemoveFromWishlist")]
+        public async Task<ActionResult> RemoveFromWishlist(int itemId, string itemType)
+        {
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
+            if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
+
+            var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+            if (user == null) return NotFound("User not found.");
+
+            bool isDeleted = false;
+
+            switch (itemType.ToLower())
+            {
+                case "activity":
+                    isDeleted = await _wishlistRepository.RemoveActivityFromWishlist(user.Id, itemId);
+                    break;
+
+                case "place":
+                    isDeleted = await _wishlistRepository.RemovePlaceFromWishlist(user.Id, itemId);
+                    break;
+
+                case "plan":
+                    isDeleted = await _wishlistRepository.RemovePlanFromWishlist(user.Id, itemId);
+                    break;
+
+                default:
+                    return BadRequest("Invalid item type. Allowed values: activity, place, plan.");
+            }
+
+            if (!isDeleted)
+                return NotFound($"Item with ID {itemId} not found in the wishlist.");
+
+            return Ok(new { message = "Item removed successfully." });
+        }
 
     }
 }

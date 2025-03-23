@@ -20,8 +20,14 @@ namespace Kemet.APIs.Extensions
             services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddScoped<IinterestsRepository,InterestRepository>();
             services.AddScoped<ISearchInterface,SearchServices>();
+            services.AddScoped<IHomeServices,HomeServices>();
+            services.AddScoped<IBookingServices,BookingServices>();
+            services.AddScoped<ITravelAgencyService,TravelAgencyService>();
             services.AddScoped<OtpExtensions>();
             services.AddScoped<IWishlistRepository, WishlistRepository>();
+            services.AddHttpClient<IAiService, AiService>();
+            services.AddScoped<IAiService, AiService>();
+
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = (actionContext) =>

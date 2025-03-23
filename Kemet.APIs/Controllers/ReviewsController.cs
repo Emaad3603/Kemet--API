@@ -17,6 +17,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -30,14 +32,21 @@ namespace Kemet.APIs.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _environment;
+        private readonly IConfiguration _configuration;
 
-        public ReviewsController(IReviewRepository reviewRepo, IMapper mapper, UserManager<AppUser> userManager,AppDbContext context, IWebHostEnvironment environment)
+        public ReviewsController(IReviewRepository reviewRepo
+            , IMapper mapper
+            , UserManager<AppUser> userManager
+            ,AppDbContext context
+            , IWebHostEnvironment environment
+            , IConfiguration configuration)
         {
             _reviewRepo = reviewRepo;
             _mapper = mapper;
             _userManager = userManager;
            _context = context;
             _environment = environment;
+            _configuration = configuration;
         }
 
 
@@ -66,17 +75,24 @@ namespace Kemet.APIs.Controllers
                     var fileHelper = new FileUploadHelper(_environment);
                     imageUrl = await fileHelper.SaveFileAsync(reviewDto.Image, "uploads/reviews");
                 }
-
+                DateTime today= DateTime.UtcNow;
+                if (reviewDto.Date> today) { return BadRequest("this date isn't correct"); }
                 var review = new Review
                 {   UserId = user.Id,
                     USERNAME = user.UserName,
-                    UserImageURl = $"{"https://localhost:7051"}{user.ImageURL}",
+                    UserImageURl = $"{_configuration["BaseUrl"]}{user.ImageURL}",
                     Rating = reviewDto.Rating,
                     Comment = reviewDto.Comment,
                     ActivityId = reviewDto.ActivityId,
                     ImageUrl = imageUrl,
                     PlaceId = reviewDto.PlaceId,
-                    TravelAgencyPlanId = reviewDto.TravelAgencyPlanId
+                    TravelAgencyPlanId = reviewDto.TravelAgencyPlanId ,
+                    TravelAgencyID = reviewDto.TravelAgencyId,
+                    ReviewTitle = reviewDto.ReviewTitle ,
+                    VisitorType = reviewDto.VisitorType ,
+                    //Date = reviewDto.Date
+                    //  Date = DateTime.UtcNow
+                    Date = reviewDto.Date
                 };
 
                await _reviewRepo.AddReviewAsync(review);
@@ -162,65 +178,6 @@ namespace Kemet.APIs.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
-
-        [HttpGet("activity/details/{activityId}")]
-        public async Task<IActionResult>GetActivityWithReviews(int activityId) 
-        {
-            
-                var activity = await _reviewRepo.GetReviewsForActivityAsync(activityId);
-                if (activity == null) return NotFound("activity reviews not found.");
-
-
-
-
-            return Ok(activity);
-          
-
-            
-        }
-        [HttpGet("place/details/{placeId}")]
-        public async Task<IActionResult> GetPlaceWithReviews(int placeid)
-        {
-
-
-            var place = await _reviewRepo.GetReviewsForPlaceAsync(placeid);
-            if (place == null)
-                return NotFound("place reviews not found.");
-
-            return Ok(place);
-        }
-        [HttpGet("travelagencyplan/details/{TravelAgencyPlanId}")]
-        public async Task<IActionResult> GetReviewsForTravelAgencyPlan(int TravelAgencyPlanId)
-        {
-
-
-            var TravelAgencyPlan = await _reviewRepo.GetReviewsForTravelAgencyPlanAsync(TravelAgencyPlanId);
-            if (TravelAgencyPlan == null)
-                return NotFound("TravelAgencyPlan reviews not found.");
-
-            return Ok(TravelAgencyPlan);
-        }
-
-        [HttpGet("place/average-rating/{placeId}")]
-        public async Task<IActionResult> GetAverageRatingForPlace(int placeId)
-        {
-            var averageRating = await _reviewRepo.GetAverageRatingForPlaceAsync(placeId);
-            return Ok(averageRating);
-        }
-        [HttpGet("activity/average-rating/{activityId}")]
-        public async Task<IActionResult> GetAverageRatingForActivity(int activityId)
-        {
-            var averageRating = await _reviewRepo.GetAverageRatingForActivityAsync(activityId);
-            return Ok(averageRating);
-        }
-        [HttpGet("travelagencyplan/average-rating/{planId}")]
-        public async Task<IActionResult> GetAverageRatingForTravelAgencyPlan(int planId)
-        {
-            var averageRating = await _reviewRepo.GetAverageRatingForTravelAgencyPlanAsync(planId);
-            return Ok(averageRating);
-        }
-
     }
 
   

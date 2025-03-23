@@ -114,7 +114,8 @@ namespace Kemet.APIs.Controllers
                 Description = model.Description,
                 TaxNumber = model.TaxNumber,
                 FacebookURL = model.FacebookURL,
-                InstagramURL = model.InstagramURL
+                InstagramURL = model.InstagramURL,
+                Bio = model.Bio
             };
 
             var result = await _userManager.CreateAsync(travelAgency, model.Password);
@@ -151,6 +152,7 @@ namespace Kemet.APIs.Controllers
                 Token = token
             });
         }
+
 
         [HttpPost("forgot-password")]
         public async Task<IActionResult> GenerateAndSendOtp(ForgotPasswordRequestDTO request)
@@ -268,7 +270,26 @@ namespace Kemet.APIs.Controllers
             await _userManager.UpdateAsync(user);
             return Ok(new { message = "Location updated successfully" });
         }
+        [HttpPost("TravelAgencyLogin")]
+        public async Task<ActionResult<UserDto>> TravelAgencyLogin(SignInDTO model)
+        {
+            var user = (TravelAgency)await _userManager.FindByEmailAsync(model.Email);
+            if (user == null) return Unauthorized(new ApiResponse(401));
 
+            var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+            if (!result.Succeeded) return Unauthorized(new ApiResponse(401));
+
+            var userRoles = await _userManager.GetRolesAsync(user);
+            var token = await _tokenServices.CreateTokenAsync(user, _userManager);
+
+
+            return Ok(new UserDto
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                Token = token
+            });
+        }
     }
 
 }

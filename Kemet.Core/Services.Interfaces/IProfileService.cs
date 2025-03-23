@@ -1,3 +1,4 @@
+using Kemet.Core.Entities.Identity;
 using Kemet.Core.Entities.ModelView;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -14,7 +15,7 @@ namespace Kemet.Core.Services.Interfaces
 
         Task<(bool IsSuccess, string Message, string ImageUrl)> UploadProfileImageAsync(string userEmail, IFormFile profileImage , IFormFile backgroundImage);
 
-        Task<AdventureDTO> GetAdventureModeSuggest();
+        Task<AdventureDTO> GetAdventureModeSuggest(AppUser? user);
 
     }
 }

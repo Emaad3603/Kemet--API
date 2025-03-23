@@ -19,6 +19,9 @@ namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
             builder.Property(P => P.CultureTips)
                   .IsRequired();
 
+            //builder.Property(P => P.Category)
+            //     .IsRequired();
+
             builder.Property(P => P.Description)
                   .IsRequired();
 

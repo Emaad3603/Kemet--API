@@ -9,16 +9,17 @@ using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.Entities.WishlistEntites;
 using Microsoft.AspNetCore.Routing.Constraints;
+using Microsoft.Extensions.Options;
 
 namespace Kemet.APIs.Helpers
 {
     public class MappingProfiles : Profile
     {
-       
+        
 
-      
         public MappingProfiles()
-        {
+        {   
+          
             CreateMap<Place, PlacesDto>()
               .ForMember(d=>d.PlaceID,o=>o.MapFrom(s=>s.Id))
               .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
@@ -67,7 +68,7 @@ namespace Kemet.APIs.Helpers
                     Name = a.Name,
                     Duration = a.Duration,
 
-                    imageURLs = a.Images.Select(img => $"{"https://localhost:7051"}{img.ImageUrl}"/*img => img.ImageUrl*/).ToList(),
+                   
                     AverageRating= a.AverageRating ,
                     RatingsCount = a.RatingsCount ,
                 }).ToList());
@@ -107,7 +108,12 @@ namespace Kemet.APIs.Helpers
                  .ForMember(dest => dest.TravelAgencyPlanId, opt => opt.MapFrom(src => src.TravelAgencyPlanId))
                  .ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.ImageUrl))
                  .ForMember(dest=>dest.UserName , opt=>opt.MapFrom(src=>src.USERNAME))
-                 .ForMember(dest=>dest.UserImageUrl , opt=>opt.MapFrom(src=>src.UserImageURl))               
+                 .ForMember(dest=>dest.UserImageUrl , opt=>opt.MapFrom(src=>src.UserImageURl))     
+                 .ForMember(dest=>dest.Date,opt=>opt.MapFrom(src=>src.Date))
+                 .ForMember(dest => dest.VisitorType, opt => opt.MapFrom(src => src.VisitorType))
+                 .ForMember(dest => dest.ReviewTitle, opt => opt.MapFrom(src => src.ReviewTitle))
+
+
                  .ReverseMap();
 
             CreateMap<Wishlist, WishlistDto>()
@@ -170,9 +176,6 @@ namespace Kemet.APIs.Helpers
                  .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
                  
                  .ReverseMap();
-
-
-
         }
     }
 }

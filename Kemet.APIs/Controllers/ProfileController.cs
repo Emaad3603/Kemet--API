@@ -17,7 +17,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-
 namespace Kemet.APIs.Controllers
 {
     public class ProfileController : BaseApiController
@@ -77,8 +76,6 @@ namespace Kemet.APIs.Controllers
                 InterestCategoryIds = userInterests,
                 Bio = user.Bio,
                 WebsiteLink = user.WebsiteLink,
-                City = user.City,
-                Country = user.Country,
                 CreationDate = user.CreationDate,
             };
 
@@ -142,20 +139,6 @@ namespace Kemet.APIs.Controllers
             if (dto.InterestCategoryIds != null && dto.InterestCategoryIds.Any())
                 await _interestRepository.UpdateInterestsAsync(user.Id, dto.InterestCategoryIds);
 
-            #endregion
-
-            #region Images Region
-            // Update user images if not null 
-            //if(dto.ProfileImage != null || dto.BackgroundImage != null)
-            //{
-            //    var ImagesDTO = new UploadProfileImageDto()
-            //    {
-            //        ProfileImage = dto.ProfileImage,
-            //        BackgroundImage = dto.BackgroundImage
-            //    };
-            //    await UploadProfileImage(ImagesDTO);
-            //}
-          
             #endregion
 
             // Save changes to the user in the database
@@ -230,7 +213,13 @@ namespace Kemet.APIs.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAdventureMode()
         {
-            var adventureObject = await _profileService.GetAdventureModeSuggest();
+
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
+            if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
+
+            var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+            if (user == null) return NotFound("User not found.");
+            var adventureObject = await _profileService.GetAdventureModeSuggest(user);
             if (adventureObject.Place is null && adventureObject.Activity is null)
             {
                 return BadRequest(new ApiResponse(400, "There was a proplem generating Adventure Mode Result !!"));

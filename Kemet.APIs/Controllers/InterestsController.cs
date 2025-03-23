@@ -12,11 +12,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Kemet.Api.Controllers
+namespace Kemet.APIs.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class CustomerInterestsController : ControllerBase
+   
+    public class CustomerInterestsController :BaseApiController
     {
         private readonly IinterestsRepository _repository;
         private readonly UserManager<AppUser> _userManager;

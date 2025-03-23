@@ -10,6 +10,7 @@ using Kemet.Repository.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.Numerics;
 
 namespace Kemet.APIs.Controllers
@@ -20,15 +21,18 @@ namespace Kemet.APIs.Controllers
         private readonly IGenericRepository<TravelAgencyPlan> _travelagencyplanRepo;
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
         public TravelAgencyPlanController(
             IGenericRepository<TravelAgencyPlan>TravelagencyplanRepo
             ,IMapper mapper
-            ,AppDbContext context)
+            ,AppDbContext context
+            , IConfiguration configuration)
         {
             _travelagencyplanRepo = TravelagencyplanRepo;
             _mapper = mapper;
             _context = context;
+            _configuration = configuration;
         }
         [HttpGet] // /api/places  Get
         public async Task<ActionResult<IEnumerable<TravelAgencyPlan>>>GetTravelAgencyPlan ()
@@ -63,7 +67,8 @@ namespace Kemet.APIs.Controllers
                 var fetchedReviews = await _context.Reviews.Where(r => r.TravelAgencyPlanId == PlanId).ToListAsync();
                 foreach (var fetchedReview in fetchedReviews)
                 {
-                    fetchedReview.ImageUrl = $"{"https://localhost:7051"}{fetchedReview.ImageUrl}";
+                    fetchedReview.TravelAgencyPlan = null;
+                    fetchedReview.ImageUrl = $"{_configuration["BaseUrl"]}{fetchedReview.ImageUrl}";
                 }
                 plans.Reviews = fetchedReviews;
                 var Result = plans;

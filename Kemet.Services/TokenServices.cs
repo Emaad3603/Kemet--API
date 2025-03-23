@@ -29,6 +29,7 @@ namespace Kemet.Services
         {
             new Claim(ClaimTypes.GivenName, user.UserName),
             new Claim(ClaimTypes.Email, user.Email),
+            
         };
 
             var UserRoles = await _userManager.GetRolesAsync(user);
@@ -36,6 +37,12 @@ namespace Kemet.Services
             foreach (var Role in UserRoles)
             {
                 AuthClaims.Add(new Claim(ClaimTypes.Role, Role));
+            }
+
+            // Check if the user is a Customer and add the Nationality claim
+            if (user is Customer customer)
+            {
+                AuthClaims.Add(new Claim("Nationality", customer.Nationality));
             }
 
             var key = _configuration["JWT:Key"];

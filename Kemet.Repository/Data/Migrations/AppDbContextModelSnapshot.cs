@@ -23,6 +23,21 @@ namespace Kemet.Repository.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("BookedTripsCustomer", b =>
+                {
+                    b.Property<int>("BookedTripsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("BookedTripsId", "CustomerId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("BookedTripsCustomer");
+                });
+
             modelBuilder.Entity("Kemet.Core.Entities.Activity", b =>
                 {
                     b.Property<int>("Id")
@@ -89,6 +104,48 @@ namespace Kemet.Repository.Data.Migrations
                     b.HasIndex("priceId");
 
                     b.ToTable("Activities");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.BookedTrips", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("BookedPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("CustomerID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumOfPeople")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReserveDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReserveType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TrabelAgencyPlanID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TravelAgencyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("travelAgencyPlanId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("travelAgencyPlanId");
+
+                    b.ToTable("BookedTrips");
                 });
 
             modelBuilder.Entity("Kemet.Core.Entities.Category", b =>
@@ -405,6 +462,9 @@ namespace Kemet.Repository.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -413,6 +473,13 @@ namespace Kemet.Repository.Data.Migrations
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
+
+                    b.Property<string>("ReviewTitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TravelAgencyID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("TravelAgencyPlanId")
                         .HasColumnType("int");
@@ -429,11 +496,17 @@ namespace Kemet.Repository.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("VisitorType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ActivityId");
 
                     b.HasIndex("PlaceId");
+
+                    b.HasIndex("TravelAgencyID");
 
                     b.HasIndex("TravelAgencyPlanId");
 
@@ -767,6 +840,11 @@ namespace Kemet.Repository.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("TravelAgency_Bio");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -784,6 +862,21 @@ namespace Kemet.Repository.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("TravelAgency");
+                });
+
+            modelBuilder.Entity("BookedTripsCustomer", b =>
+                {
+                    b.HasOne("Kemet.Core.Entities.BookedTrips", null)
+                        .WithMany()
+                        .HasForeignKey("BookedTripsId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Kemet.Core.Entities.Identity.Customer", null)
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Kemet.Core.Entities.Activity", b =>
@@ -817,6 +910,17 @@ namespace Kemet.Repository.Data.Migrations
                     b.Navigation("Place");
 
                     b.Navigation("Price");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.BookedTrips", b =>
+                {
+                    b.HasOne("Kemet.Core.Entities.TravelAgencyPlan", "travelAgencyPlan")
+                        .WithMany()
+                        .HasForeignKey("travelAgencyPlanId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("travelAgencyPlan");
                 });
 
             modelBuilder.Entity("Kemet.Core.Entities.Images.ActivityImage", b =>
@@ -898,6 +1002,11 @@ namespace Kemet.Repository.Data.Migrations
                         .HasForeignKey("PlaceId")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("Kemet.Core.Entities.Identity.TravelAgency", "TravelAgency")
+                        .WithMany()
+                        .HasForeignKey("TravelAgencyID")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Kemet.Core.Entities.TravelAgencyPlan", "TravelAgencyPlan")
                         .WithMany("Reviews")
                         .HasForeignKey("TravelAgencyPlanId")
@@ -906,6 +1015,8 @@ namespace Kemet.Repository.Data.Migrations
                     b.Navigation("Activity");
 
                     b.Navigation("Place");
+
+                    b.Navigation("TravelAgency");
 
                     b.Navigation("TravelAgencyPlan");
                 });

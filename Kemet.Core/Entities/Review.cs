@@ -12,7 +12,9 @@ namespace Kemet.Core.Entities
         public string UserId { get; set; }  // ID of the user who wrote the review
 
         public string USERNAME { get; set; }
-
+        public DateTime Date { get; set; }
+        public string ReviewTitle { get; set; }
+        public string VisitorType { get; set; }
         public string UserImageURl {  get; set; }
         public string Comment { get; set; } // The review text
         public int Rating { get; set; } // Rating, e.g., 1-5
@@ -30,6 +32,9 @@ namespace Kemet.Core.Entities
         public int? TravelAgencyPlanId { get; set; }
         public TravelAgencyPlan? TravelAgencyPlan { get; set; }
 
+        public string? TravelAgencyID { get; set; }
+
+        public TravelAgency? TravelAgency { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow; // time of the created review
 
 
