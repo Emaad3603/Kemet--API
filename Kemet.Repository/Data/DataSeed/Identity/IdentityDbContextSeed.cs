@@ -13,7 +13,7 @@ namespace Kemet.Repository.Data.DataSeed.Identity
     {
         public static async Task SeedRolesAsync(RoleManager<IdentityRole> roleManager)
         {
-            var roles = new[] { "Customer", "TravelAgency" };
+            var roles = new[] { "Customer", "TravelAgency", "Admin" };
 
             foreach (var role in roles)
             {
@@ -70,6 +70,25 @@ namespace Kemet.Repository.Data.DataSeed.Identity
                 if (agencyResult.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(travelAgency, "TravelAgency");
+                }
+
+                var admin = new Admin
+                {
+                    UserName = "AdminUser",
+                    Email = "admin@gmail.com",
+                    PhoneNumber = "01028841860",
+                    FirstName = "Admin",
+                    LastName = "User",
+                    DateOfBirth = new DateOnly(2002, 10, 08),
+                    SSN = "123456789",
+                    Gender = "Male",
+                    Nationality = "American",
+                };
+
+                var adminResult = await _userManager.CreateAsync(admin, "Adm1n#Pa$$");
+                if (adminResult.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(admin, "Admin");
                 }
             }
         }
