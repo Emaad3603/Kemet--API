@@ -7,7 +7,7 @@ namespace Kemet.APIs.DTOs.ReviewsDTOs
         public string? UserId { get; set; }
 
         public string? UserName { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public string? ReviewTitle { get; set; }
         public string? VisitorType { get; set; }
         public string? UserImageUrl {  get; set; }

@@ -59,5 +59,9 @@ namespace Kemet.Repository.Data
         public DbSet<Review> Reviews { get; set; }
 
         public DbSet<BookedTrips> BookedTrips { get; set;}
+
+        public DbSet<TravelAgencyImages> TravelAgencyImages { get;set; }
+
+        public DbSet<TravelAgencyPlanImages> TravelAgencyPlanImages { get; set; }
     }
 }

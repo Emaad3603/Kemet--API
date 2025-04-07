@@ -17,11 +17,11 @@ namespace Kemet.Repository.Data.Configuration
                  .HasConversion(
                      v => v.ToDateTime(TimeOnly.MinValue),
                      v => DateOnly.FromDateTime(v));
-            builder.HasMany(b => b.Customer)
-                   .WithMany(c => c.BookedTrips);
 
-            builder.Property(P => P.BookedPrice)
-                  .HasColumnType("decimal(18,2)");
+            builder.HasOne(bt => bt.Customer)   // A BookedTrip belongs to one Customer
+         .WithMany(c => c.BookedTrips) // A Customer can have many BookedTrips
+         .HasForeignKey(bt => bt.CustomerID) // Explicitly define the FK
+         .OnDelete(DeleteBehavior.Cascade); // Ensure proper delete behavior
 
         }
     }

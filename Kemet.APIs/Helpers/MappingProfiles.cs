@@ -84,7 +84,7 @@ namespace Kemet.APIs.Helpers
                   .ForMember(d => d.EgyptianStudent, o => o.MapFrom(s => s.Price.EgyptianStudent))
                   .ForMember(d => d.TouristAdult, o => o.MapFrom(s => s.Price.TouristAdult))
                   .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
-
+                  .ForMember(d=>d.PlanLocation , o=>o.MapFrom(s=>s.PlanLocation))
                   .ForMember(d => d.AverageRating, o => o.MapFrom(s => s.AverageRating))
                   .ForMember(d => d.RatingsCount, o => o.MapFrom(s => s.RatingsCount))
                   .ForMember(d => d.Reviews, o => o.MapFrom(s => s.Reviews))
@@ -174,7 +174,7 @@ namespace Kemet.APIs.Helpers
                  .ForMember(d => d.EgyptianStudent, o => o.MapFrom(s => s.Price.EgyptianStudent))
                  .ForMember(d => d.TouristAdult, o => o.MapFrom(s => s.Price.TouristAdult))
                  .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
-                 
+                 .ForMember(d=>d.planLocation ,o=>o.MapFrom(o => o.PlanLocation))
                  .ReverseMap();
         }
     }

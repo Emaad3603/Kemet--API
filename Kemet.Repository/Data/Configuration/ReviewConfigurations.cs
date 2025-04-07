@@ -28,11 +28,11 @@ namespace Kemet.Repository.Data.Configuration
                 .HasForeignKey(r => r.TravelAgencyPlanId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            //builder.Property(B => B.Date) //Dateonly mesh supported fl Efcore
-            //    .HasConversion(
-            //        v => v.ToDateTime(TimeOnly.MinValue),
-            //        v => DateOnly.FromDateTime(v));
-           
+            builder.Property(B => B.Date) //Dateonly mesh supported fl Efcore
+                            .HasConversion(
+                                v => v.ToDateTime(TimeOnly.MinValue),
+                                v => DateOnly.FromDateTime(v));
+
 
         }
     }
