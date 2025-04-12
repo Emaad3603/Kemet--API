@@ -96,7 +96,29 @@ namespace Kemet.APIs.Controllers
             };
             return Ok(userDto);
         }
+        [HttpPost("register-admin")]
+        public async Task<IActionResult> RegisterAdmin(AdminRegisterDTOs model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+            var admin = new Admin
+            {
+                UserName = model.UserName,
+                Email = model.Email,
+                PhoneNumber = model.PhoneNumber,
+                FirstName = model.FirstName,
+                LastName = model.LastName
+            };
+
+            var result = await _userManager.CreateAsync(admin, model.Password);
+            if (!result.Succeeded)
+                return BadRequest(result.Errors);
+
+            await _userManager.AddToRoleAsync(admin, "Admin");
+
+            return Ok(new { Message = "Admin registered successfully" });
+        }
         [HttpPost("RegisterTravelAgency")]
         public async Task<ActionResult<UserDto>> RegisterTravelAgency(TravelAgencyRegisterDTO model)
         {
@@ -144,6 +166,30 @@ namespace Kemet.APIs.Controllers
             var userRoles = await _userManager.GetRolesAsync(user);
             var token = await _tokenServices.CreateTokenAsync(user, _userManager);
 
+
+            return Ok(new UserDto
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+               Token = token
+            });
+        }
+
+        [HttpPost("AdminLogin")]
+        public async Task<ActionResult<UserDto>> AdminLogin(SignInDTO model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null) return Unauthorized(new ApiResponse(401));
+
+            // Ensure the user is an admin
+            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+            if (!isAdmin) return Unauthorized(new ApiResponse(401, "User is not an admin"));
+
+            var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+            if (!result.Succeeded) return Unauthorized(new ApiResponse(401));
+
+            var userRoles = await _userManager.GetRolesAsync(user);
+            var token = await _tokenServices.CreateTokenAsync(user, _userManager);
 
             return Ok(new UserDto
             {

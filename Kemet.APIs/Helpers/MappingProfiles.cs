@@ -6,7 +6,9 @@ using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.DTOs.ReviewsDTOs;
 using Kemet.APIs.DTOs.WishlistDtos;
 using Kemet.Core.Entities;
+using Kemet.Core.Entities.AI_Entites;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Entities.Images;
 using Kemet.Core.Entities.WishlistEntites;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.Options;
@@ -18,8 +20,9 @@ namespace Kemet.APIs.Helpers
         
 
         public MappingProfiles()
-        {   
+        {
           
+
             CreateMap<Place, PlacesDto>()
               .ForMember(d=>d.PlaceID,o=>o.MapFrom(s=>s.Id))
               .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
@@ -43,6 +46,61 @@ namespace Kemet.APIs.Helpers
                   
                 
               }).ToList());
+            //==============================================================
+            /*  CreateMap<AddPlaceDtos, Place>()
+         .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+         .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+         .ForMember(dest => dest.Images, opt => opt.MapFrom(src =>
+             src.ImageURLs.Select(url => new PlaceImage { ImageUrl = url }).ToList()))
+         .ForMember(dest => dest.Price, opt => opt.MapFrom(src =>
+             new Price
+             {
+                 EgyptianAdult = src.EgyptianAdultCost,
+                 EgyptianStudent = src.EgyptianStudentCost,
+                 TouristAdult = src.TouristAdultCost,
+                 TouristStudent = src.TouristStudentCost
+
+             }))
+         .ForMember(dest => dest.Category, opt => opt.MapFrom(src =>
+             new Category
+             {
+                 CategoryName = src.CategoryName,
+                 CategoryType = "Historical"
+             }));  */
+            CreateMap<AddPlaceDtos, Place>()
+      .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+      .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+      .ForMember(dest => dest.Images, opt => opt.MapFrom(src =>
+          src.ImageURLs.Select(url => new PlaceImage { ImageUrl = url }).ToList()))
+      .ForMember(dest => dest.Category, opt => opt.MapFrom(src =>
+          new Category
+          {
+              CategoryName = src.CategoryName,
+              CategoryType = "Historical"
+          }));
+
+            //==============================================================
+            CreateMap<AddActivityDto, Activity>()
+     .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))  // Map Name
+     .ForMember(dest => dest.Duration, opt => opt.MapFrom(src => src.Duration))  // Map Duration
+     .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))  // Map Description
+     .ForMember(dest => dest.CulturalTips, opt => opt.MapFrom(src => src.CultureTips))  // Map CultureTips
+     .ForMember(dest => dest.PictureUrl, opt => opt.MapFrom(src => src.PictureUrl))  // Map PictureUrl
+     .ForMember(dest => dest.Category, opt => opt.MapFrom(src =>
+         new Category
+         {
+             CategoryName = src.CategoryName,
+             CategoryType = "Activity"  // Use a suitable category type
+         }))
+     .ForMember(dest => dest.Price, opt => opt.MapFrom(src => new Price
+     {
+         EgyptianAdult = src.EgyptianAdultCost,
+         EgyptianStudent = src.EgyptianStudentCost,
+         TouristAdult = src.TouristAdultCost,
+         TouristStudent = src.TouristStudentCost
+     }))
+     .ForMember(dest => dest.Images, opt => opt.MapFrom(src =>
+         src.ImageURLs.Select(url => new ActivityImage { ImageUrl = url }).ToList()));  // Map ImageURLs to ActivityImage collection
 
             CreateMap<Activity, ActivityDTOs>()
                            .ForMember(d=>d.ActivityId , o=>o.MapFrom(s=>s.Id))
@@ -176,6 +234,8 @@ namespace Kemet.APIs.Helpers
                  .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
                  
                  .ReverseMap();
+           
         }
+
     }
 }
