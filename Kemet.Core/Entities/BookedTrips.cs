@@ -15,7 +15,7 @@ namespace Kemet.Core.Entities
 
         public string CustomerID { get; set; }
 
-        public ICollection<Customer> Customer { get; set; }
+        public Customer Customer { get; set; }
 
         public string TravelAgencyName { get; set; }
 
@@ -25,6 +25,8 @@ namespace Kemet.Core.Entities
 
         public DateOnly ReserveDate { get; set;}
 
-        public decimal BookedPrice { get; set; }
+        public string BookedCategory { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; // time of the created review
     }
 }

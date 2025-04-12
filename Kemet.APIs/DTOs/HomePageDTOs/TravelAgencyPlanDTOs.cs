@@ -23,5 +23,7 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
         public double AverageRating { get; set; }
         public int? RatingsCount { get; set; }
 
+        public string PlanLocation { get; set; }
+
     }
 }

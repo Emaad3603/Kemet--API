@@ -64,7 +64,12 @@ namespace Kemet.APIs.Controllers
                 if (reviewDto == null)
                     return BadRequest("Invalid review data.");
 
-          
+
+                DateOnly parsedDate;
+                if (!DateOnly.TryParse(reviewDto.Date, out parsedDate))
+                {
+                    return BadRequest("Invalid date format. Use YYYY-MM-DD.");
+                }
 
                 string imageUrl = null;
                
@@ -75,8 +80,8 @@ namespace Kemet.APIs.Controllers
                     var fileHelper = new FileUploadHelper(_environment);
                     imageUrl = await fileHelper.SaveFileAsync(reviewDto.Image, "uploads/reviews");
                 }
-                DateTime today= DateTime.UtcNow;
-                if (reviewDto.Date> today) { return BadRequest("this date isn't correct"); }
+                
+                
                 var review = new Review
                 {   UserId = user.Id,
                     USERNAME = user.UserName,
@@ -92,7 +97,7 @@ namespace Kemet.APIs.Controllers
                     VisitorType = reviewDto.VisitorType ,
                     //Date = reviewDto.Date
                     //  Date = DateTime.UtcNow
-                    Date = reviewDto.Date
+                    Date = parsedDate
                 };
 
                await _reviewRepo.AddReviewAsync(review);
