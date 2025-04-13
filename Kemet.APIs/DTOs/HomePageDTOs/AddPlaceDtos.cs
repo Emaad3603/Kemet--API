@@ -19,7 +19,7 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
         public decimal EgyptianStudentCost { get; set; }
         public decimal TouristAdultCost { get; set; }
         public decimal TouristStudentCost { get; set; }
-        public List<string> ImageURLs { get; set; }
+        public List<IFormFile> ImageURLs { get; set; }
 
 
       
