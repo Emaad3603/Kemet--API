@@ -23,6 +23,21 @@ namespace Kemet.Repository.Data.Configuration
          .HasForeignKey(bt => bt.CustomerID) // Explicitly define the FK
          .OnDelete(DeleteBehavior.Cascade); // Ensure proper delete behavior
 
+            // Payment related configurations
+            builder.Property(b => b.PaymentStatus)
+                .HasMaxLength(20)
+                .IsRequired();
+
+            builder.Property(b => b.PaymentDate)
+                .IsRequired(false);
+
+            builder.Property(b => b.StripePaymentId)
+                .HasMaxLength(100)
+                .IsRequired(false);
+
+            builder.Property(b => b.BookedPrice)
+                .HasColumnType("decimal(18,2)")
+                .IsRequired();
         }
     }
 }
