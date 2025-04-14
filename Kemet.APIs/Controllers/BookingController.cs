@@ -80,7 +80,8 @@ namespace Kemet.APIs.Controllers
                 NumOfPeople = book.NumOfPeople,
                 ReserveDate = book.ReserveDate,
                 ReserveType = book.ReserveType,
-                TravelAgencyName = BookedAgency.UserName
+                TravelAgencyName = BookedAgency.UserName ,
+                BookedPrice = book.BookedPrice,
 
             };
             await _bookingRepository.AddAsync(trip);

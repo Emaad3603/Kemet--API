@@ -220,7 +220,7 @@ namespace Kemet.APIs.Controllers
             var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
             if (user == null) return NotFound("User not found.");
             var adventureObject = await _profileService.GetAdventureModeSuggest(user);
-            if (adventureObject.Place is null && adventureObject.Activity is null)
+            if (adventureObject.Place is null)
             {
                 return BadRequest(new ApiResponse(400, "There was a proplem generating Adventure Mode Result !!"));
             }
