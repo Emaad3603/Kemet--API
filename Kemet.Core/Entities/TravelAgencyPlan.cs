@@ -1,4 +1,5 @@
 ﻿using Kemet.Core.Entities.Identity;
+using Kemet.Core.Entities.Images;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Kemet.Core.Entities
         public int? priceId { get; set; }
         public Price Price { get; set; }
         public string Description { get; set; }
-        public string PlanAvailability { get; set; }
+        public string? PlanAvailability { get; set; }
         public string PictureUrl { get; set; }
 
         //navigation prop of travel agency and FK
@@ -26,6 +27,9 @@ namespace Kemet.Core.Entities
         public double AverageRating { get; set; } = 0.0;  // Default to 0
         public int RatingsCount { get; set; } = 0;       // Default to 0
 
+        public string? PlanLocation { get; set; }
+
+        public ICollection<TravelAgencyPlanImages> images { get; set; } = new List<TravelAgencyPlanImages>();
 
     }
 }

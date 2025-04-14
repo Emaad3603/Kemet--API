@@ -6,7 +6,9 @@ namespace Kemet.APIs.DTOs.DetailedDTOs
     {
         public int PlanId { get; set; }
         public string PlanName { get; set; }
-        string PlanAvailability { get; set; }
+        public string? PlanAvailability { get; set; }
+
+        public  string? planLocation { get; set; }
         public string Duration { get; set; }
 
         public string Description { get; set; }
@@ -24,7 +26,12 @@ namespace Kemet.APIs.DTOs.DetailedDTOs
 
         public decimal? TouristStudent { get; set; }
 
-      
+        public string TravelAgencyName { get; set; }
+
+        public string TravelAgencyDescription { get; set; }
+
+        public string TravelAgencyAddress { get; set; }
+
 
 
      

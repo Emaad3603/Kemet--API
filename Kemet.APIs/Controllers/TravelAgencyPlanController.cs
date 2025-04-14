@@ -3,11 +3,13 @@ using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
+using Kemet.Core.Entities.Identity;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Specifications.ActivitySpecs;
 using Kemet.Core.Specifications.TravelAgencyPlanSpecs;
 using Kemet.Repository.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -22,17 +24,20 @@ namespace Kemet.APIs.Controllers
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly UserManager<AppUser> _userManager;
 
         public TravelAgencyPlanController(
             IGenericRepository<TravelAgencyPlan>TravelagencyplanRepo
             ,IMapper mapper
             ,AppDbContext context
-            , IConfiguration configuration)
+            , IConfiguration configuration 
+            , UserManager<AppUser> userManager)
         {
             _travelagencyplanRepo = TravelagencyplanRepo;
             _mapper = mapper;
             _context = context;
             _configuration = configuration;
+            _userManager = userManager;
         }
         [HttpGet] // /api/places  Get
         public async Task<ActionResult<IEnumerable<TravelAgencyPlan>>>GetTravelAgencyPlan ()
@@ -71,6 +76,10 @@ namespace Kemet.APIs.Controllers
                     fetchedReview.ImageUrl = $"{_configuration["BaseUrl"]}{fetchedReview.ImageUrl}";
                 }
                 plans.Reviews = fetchedReviews;
+                var travelAgency = await _userManager.FindByIdAsync(plan.TravelAgencyId) as TravelAgency;
+                plans.TravelAgencyName = travelAgency.UserName;
+                plans.TravelAgencyAddress = travelAgency.Address;
+                plans.TravelAgencyDescription = travelAgency.Description;
                 var Result = plans;
                 return Ok(Result);
             }

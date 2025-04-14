@@ -12,7 +12,7 @@ namespace Kemet.Core.Entities
         public string UserId { get; set; }  // ID of the user who wrote the review
 
         public string USERNAME { get; set; }
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
         public string ReviewTitle { get; set; }
         public string VisitorType { get; set; }
         public string UserImageURl {  get; set; }

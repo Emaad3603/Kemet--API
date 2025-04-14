@@ -15,7 +15,7 @@ namespace Kemet.Core.Entities
 
         public string CustomerID { get; set; }
 
-        public ICollection<Customer> Customer { get; set; }
+        public Customer Customer { get; set; }
 
         public string TravelAgencyName { get; set; }
 
@@ -23,8 +23,17 @@ namespace Kemet.Core.Entities
 
         public string ReserveType { get; set; }
 
-        public DateOnly ReserveDate { get; set;}
+        public DateOnly ReserveDate { get; set; }
+
+        public string BookedCategory { get; set; }
 
         public decimal BookedPrice { get; set; }
+
+        // Payment related properties
+        public string PaymentStatus { get; set; } = "Pending"; // Pending, Paid, Failed, Refunded
+        public DateTime? PaymentDate { get; set; }
+        public string StripePaymentId { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; // time of the created review
     }
 }

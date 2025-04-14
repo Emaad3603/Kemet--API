@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kemet.Core.Entities.Images;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,5 +21,7 @@ namespace Kemet.Core.Entities.Identity
         public string InstagramURL { get; set; }
       
         public string Bio {  get; set; }
+
+        public ICollection<TravelAgencyImages>? Images { get; set; } = new List<TravelAgencyImages>();
     }
 }

@@ -56,7 +56,8 @@ namespace Kemet.APIs
                     x => x.UseNetTopologySuite()
                 );
             });
-
+            //*****************************************
+           builder.Services.AddScoped<FileUploadHelper>();
             //allow the dependancy injection for  generic repository
 
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));

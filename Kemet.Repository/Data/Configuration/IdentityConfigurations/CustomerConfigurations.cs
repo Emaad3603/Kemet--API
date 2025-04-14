@@ -31,9 +31,9 @@ namespace Kemet.Repository.Data.Configuration.Identity
                   .HasColumnType("geography")
                   .IsRequired(false);
 
-            builder.HasMany(c => c.BookedTrips);
-                   
-                   
+           
+
+
         }
     }
 }

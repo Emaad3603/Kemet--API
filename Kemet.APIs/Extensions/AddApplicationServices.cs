@@ -27,6 +27,7 @@ namespace Kemet.APIs.Extensions
             services.AddScoped<IWishlistRepository, WishlistRepository>();
             services.AddHttpClient<IAiService, AiService>();
             services.AddScoped<IAiService, AiService>();
+            services.AddScoped<IPaymentService, PaymentService>();
 
             services.Configure<ApiBehaviorOptions>(options =>
             {

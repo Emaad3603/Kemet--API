@@ -75,13 +75,18 @@ namespace Kemet.Services
                 }
                 var openPlaces = GetOpenPlaces(nearbyPlaces);
                 var ranNumber = random.Next(1,openPlaces.Count() + 1);
-                var adventurePlace = openPlaces.Where(p => p.Id == ranNumber).FirstOrDefault();
+                /*var adventurePlace = openPlaces.Where(p => p.Id == ranNumber).FirstOrDefault();*/
+                var p = openPlaces.ToArray();
+                var adventurePlace = p[ranNumber];
+
                 if (adventurePlace != null)
                 {
                     var actvityLen = await _context.Activities.Where(a => a.PlaceId == adventurePlace.Id).CountAsync() + 1;
                     var actvities = await _context.Activities.Where(a => a.PlaceId == adventurePlace.Id).Include(a => a.Price).Include(a=>a.Images).ToListAsync();
                     ranNumber = random.Next(1,actvityLen);
-                    var adventureActivity = actvities.Where(a => a.Id == ranNumber).FirstOrDefault();
+                    var A = actvities.ToArray();
+                    //var adventureActivity = actvities.Where(a => a.Id == ranNumber).FirstOrDefault();
+                    var adventureActivity = A[ranNumber];
                     if (adventureActivity != null)
                     {
                         return new AdventureDTO()
