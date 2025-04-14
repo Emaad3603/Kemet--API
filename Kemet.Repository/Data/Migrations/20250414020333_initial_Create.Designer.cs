@@ -13,8 +13,8 @@ using NetTopologySuite.Geometries;
 namespace Kemet.Repository.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250330034610_Add ImagesList to travelAgency & plan")]
-    partial class AddImagesListtotravelAgencyplan
+    [Migration("20250414020333_initial_Create")]
+    partial class initial_Create
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -105,6 +105,9 @@ namespace Kemet.Repository.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("BookedPrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -115,12 +118,24 @@ namespace Kemet.Repository.Data.Migrations
                     b.Property<int>("NumOfPeople")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentStatus")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<DateTime>("ReserveDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ReserveType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StripePaymentId")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("TrabelAgencyPlanID")
                         .HasColumnType("int");
@@ -398,6 +413,62 @@ namespace Kemet.Repository.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Locations");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.PaymentHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("BookedTripsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Currency")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
+                    b.Property<string>("ErrorMessage")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("EventDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EventType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Metadata")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("StripeEventId")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("StripePaymentId")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookedTripsId");
+
+                    b.ToTable("PaymentHistories");
                 });
 
             modelBuilder.Entity("Kemet.Core.Entities.Place", b =>
@@ -1018,6 +1089,17 @@ namespace Kemet.Repository.Data.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.PaymentHistory", b =>
+                {
+                    b.HasOne("Kemet.Core.Entities.BookedTrips", "BookedTrips")
+                        .WithMany()
+                        .HasForeignKey("BookedTripsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BookedTrips");
                 });
 
             modelBuilder.Entity("Kemet.Core.Entities.Place", b =>

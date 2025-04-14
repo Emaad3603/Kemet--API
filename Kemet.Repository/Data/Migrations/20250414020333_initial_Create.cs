@@ -6,7 +6,7 @@ using NetTopologySuite.Geometries;
 
 namespace Kemet.Repository.Data.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class initial_Create : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -185,6 +185,7 @@ namespace Kemet.Repository.Data.Migrations
                     TaxNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FacebookURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     InstagramURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TravelAgency_Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -246,7 +247,7 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.LocationId,
                         principalTable: "Locations",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Activities_Places_PlaceId",
                         column: x => x.PlaceId,
@@ -418,6 +419,26 @@ namespace Kemet.Repository.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TravelAgencyImages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImageURl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TravelAgencyID = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TravelAgencyImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TravelAgencyImages_AspNetUsers_TravelAgencyID",
+                        column: x => x.TravelAgencyID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TravelAgencyPlans",
                 columns: table => new
                 {
@@ -431,7 +452,8 @@ namespace Kemet.Repository.Data.Migrations
                     PictureUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TravelAgencyId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     AverageRating = table.Column<double>(type: "float", nullable: false),
-                    RatingsCount = table.Column<int>(type: "int", nullable: false)
+                    RatingsCount = table.Column<int>(type: "int", nullable: false),
+                    PlanLocation = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -497,6 +519,43 @@ namespace Kemet.Repository.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BookedTrips",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TrabelAgencyPlanID = table.Column<int>(type: "int", nullable: false),
+                    travelAgencyPlanId = table.Column<int>(type: "int", nullable: false),
+                    CustomerID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    TravelAgencyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumOfPeople = table.Column<int>(type: "int", nullable: false),
+                    ReserveType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReserveDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BookedCategory = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BookedPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PaymentStatus = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    StripePaymentId = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookedTrips", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BookedTrips_AspNetUsers_CustomerID",
+                        column: x => x.CustomerID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookedTrips_TravelAgencyPlans_travelAgencyPlanId",
+                        column: x => x.travelAgencyPlanId,
+                        principalTable: "TravelAgencyPlans",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Reviews",
                 columns: table => new
                 {
@@ -504,6 +563,9 @@ namespace Kemet.Repository.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     USERNAME = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ReviewTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VisitorType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserImageURl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
@@ -511,6 +573,7 @@ namespace Kemet.Repository.Data.Migrations
                     ActivityId = table.Column<int>(type: "int", nullable: true),
                     PlaceId = table.Column<int>(type: "int", nullable: true),
                     TravelAgencyPlanId = table.Column<int>(type: "int", nullable: true),
+                    TravelAgencyID = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -523,6 +586,12 @@ namespace Kemet.Repository.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_Reviews_AspNetUsers_TravelAgencyID",
+                        column: x => x.TravelAgencyID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Reviews_Places_PlaceId",
                         column: x => x.PlaceId,
                         principalTable: "Places",
@@ -534,6 +603,26 @@ namespace Kemet.Repository.Data.Migrations
                         principalTable: "TravelAgencyPlans",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TravelAgencyPlanImages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImageURl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TravelAgencyPlanID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TravelAgencyPlanImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TravelAgencyPlanImages_TravelAgencyPlans_TravelAgencyPlanID",
+                        column: x => x.TravelAgencyPlanID,
+                        principalTable: "TravelAgencyPlans",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -558,6 +647,34 @@ namespace Kemet.Repository.Data.Migrations
                         name: "FK_WishlistPlans_Wishlists_WishlistID",
                         column: x => x.WishlistID,
                         principalTable: "Wishlists",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PaymentHistories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookedTripsId = table.Column<int>(type: "int", nullable: false),
+                    EventType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Currency = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false),
+                    StripePaymentId = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    StripeEventId = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ErrorMessage = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    EventDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Metadata = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentHistories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PaymentHistories_BookedTrips_BookedTripsId",
+                        column: x => x.BookedTripsId,
+                        principalTable: "BookedTrips",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -634,9 +751,24 @@ namespace Kemet.Repository.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BookedTrips_CustomerID",
+                table: "BookedTrips",
+                column: "CustomerID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookedTrips_travelAgencyPlanId",
+                table: "BookedTrips",
+                column: "travelAgencyPlanId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CustomerInterests_CategoryId",
                 table: "CustomerInterests",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PaymentHistories_BookedTripsId",
+                table: "PaymentHistories",
+                column: "BookedTripsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PlaceImages_PlaceId",
@@ -669,9 +801,24 @@ namespace Kemet.Repository.Data.Migrations
                 column: "PlaceId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Reviews_TravelAgencyID",
+                table: "Reviews",
+                column: "TravelAgencyID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Reviews_TravelAgencyPlanId",
                 table: "Reviews",
                 column: "TravelAgencyPlanId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TravelAgencyImages_TravelAgencyID",
+                table: "TravelAgencyImages",
+                column: "TravelAgencyID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TravelAgencyPlanImages_TravelAgencyPlanID",
+                table: "TravelAgencyPlanImages",
+                column: "TravelAgencyPlanID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TravelAgencyPlans_priceId",
@@ -714,13 +861,6 @@ namespace Kemet.Repository.Data.Migrations
                 name: "IX_WishlistPlans_WishlistID",
                 table: "WishlistPlans",
                 column: "WishlistID");
-
-
-            migrationBuilder.Sql(
-     @"
-    CREATE SPATIAL INDEX IX_Locations_Coordinates
-    ON Locations (Coordinates);
-    ");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -750,10 +890,19 @@ namespace Kemet.Repository.Data.Migrations
                 name: "OTPs");
 
             migrationBuilder.DropTable(
+                name: "PaymentHistories");
+
+            migrationBuilder.DropTable(
                 name: "PlaceImages");
 
             migrationBuilder.DropTable(
                 name: "Reviews");
+
+            migrationBuilder.DropTable(
+                name: "TravelAgencyImages");
+
+            migrationBuilder.DropTable(
+                name: "TravelAgencyPlanImages");
 
             migrationBuilder.DropTable(
                 name: "WishlistActivites");
@@ -766,6 +915,9 @@ namespace Kemet.Repository.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "BookedTrips");
 
             migrationBuilder.DropTable(
                 name: "Activities");
@@ -790,10 +942,6 @@ namespace Kemet.Repository.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Wishlists");
-            // Drop the spatial index
-            migrationBuilder.Sql("DROP INDEX IX_Locations_Coordinates ON Locations");
-
-          
         }
     }
 }

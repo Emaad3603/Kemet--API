@@ -434,6 +434,7 @@ namespace Kemet.APIs.Controllers
                     user.UserName,
                     user.Email,
                     user.PhoneNumber,
+                    ImageURL = $"{_configuration["BaseUrl"]}{user.ImageURL}"
                 }).ToList();
 
                 return Ok(userDtos);
