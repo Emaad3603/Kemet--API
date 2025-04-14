@@ -397,6 +397,7 @@
     },
     {
       "Name": "AutoVroom",
+      "CulturalTip":"Arrive early, comfy clothes Tipping is optional ,confirm bookings",
       "Description": "A thrilling go-karting experience with various tracks and professional training. It features a 700-meter outdoor track, complete with a bridge and tunnel. Suitable for all ages and skill levels.",
       "Duration": "1-2 hours",
       "OpenTime": "12:00:00",
