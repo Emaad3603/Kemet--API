@@ -60,7 +60,7 @@ namespace Kemet.APIs.Controllers
                              
                 var places=  _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(resultPlaces);
 
-                foreach(var place in places)
+                foreach(var place in places.Take(10).ToList())
                 {
                    var images =  await   _context.PlaceImages.Where(p => p.PlaceId == place.PlaceID)
                                                              .Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}")

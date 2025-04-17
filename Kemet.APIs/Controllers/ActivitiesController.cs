@@ -52,7 +52,7 @@ namespace Kemet.APIs.Controllers
             try
             {
                 var resultActivities = await _homeServices.GetActivities();
-                var result =await  MapActivitiesWithImages(resultActivities);
+                var result =await  MapActivitiesWithImages(resultActivities.Take(10).ToList());
 
                 return Ok(result);
 

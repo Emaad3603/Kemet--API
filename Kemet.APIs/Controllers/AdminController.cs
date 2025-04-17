@@ -17,6 +17,8 @@ using Kemet.Core.Entities.Images;
 using System.Security.Claims;
 using Kemet.APIs.DTOs.IdentityDTOs;
 using Kemet.APIs.DTOs.ProfileDTOs;
+using Kemet.APIs.DTOs.ReviewsDTOs;
+using Kemet.Core.Repositories.InterFaces;
 
 namespace Kemet.APIs.Controllers
 {
@@ -34,6 +36,7 @@ namespace Kemet.APIs.Controllers
         private readonly IGenericRepository<Review> _reviewRepository;
         private readonly IWebHostEnvironment _environment;
         private readonly FileUploadHelper _fileUploadHelper;
+        private readonly IReviewRepository _reviewRepo;
 
         public AdminController(AppDbContext context,
             IMapper mapper,
@@ -44,8 +47,8 @@ namespace Kemet.APIs.Controllers
             IGenericRepository<Activity>activityRepository,
             IGenericRepository<Review>reviewRepository,
             IWebHostEnvironment environment,
-            FileUploadHelper fileUploadHelper
-
+            FileUploadHelper fileUploadHelper,
+            IReviewRepository reviewRepo
             )
         {
             _context = context;
@@ -58,38 +61,120 @@ namespace Kemet.APIs.Controllers
             _reviewRepository = reviewRepository;
             _environment = environment;
             _fileUploadHelper = fileUploadHelper;
+            _reviewRepo = reviewRepo;
         }
 
-      
         [HttpPost("addplace")]
-        public async Task<IActionResult> AddPlace([FromBody] AddPlaceDtos dto)
+        public async Task<IActionResult> AddPlace([FromForm] AddPlaceDtos dto)
         {
             try
             {
+                // Validate ImageURLs
+                if (dto.ImageURLs == null || !dto.ImageURLs.Any())
+                {
+                    return BadRequest(new { 
+                        message = "The ImageURLs field is required.",
+                        errors = new { 
+                            ImageURLs = new[] { "The ImageURLs field is required." } 
+                        } 
+                    });
+                }
+                
+                // Check if price already exists
                 var existingPrice = await _context.Prices.FirstOrDefaultAsync(p =>
                     p.EgyptianAdult == dto.EgyptianAdultCost &&
                     p.EgyptianStudent == dto.EgyptianStudentCost &&
                     p.TouristAdult == dto.TouristAdultCost &&
                     p.TouristStudent == dto.TouristStudentCost);
-                var test = _context.Prices.Count();
-                var price = existingPrice ?? new Price
-                {
-                    Id = test++, 
-                    EgyptianAdult = dto.EgyptianAdultCost,
-                    EgyptianStudent = dto.EgyptianStudentCost,
-                    TouristAdult = dto.TouristAdultCost,
-                    TouristStudent = dto.TouristStudentCost
-                };
 
+                Price price;
+                if (existingPrice != null)
+                {
+                    price = existingPrice;
+                }
+                else
+                {
+                    // Find the max price ID and add 1 to ensure a unique ID
+                    var maxPriceId = await _context.Prices.MaxAsync(p => (int?)p.Id) ?? 0;
+                    
+                    price = new Price
+                    {
+                        Id = maxPriceId + 1, // Explicitly set ID to avoid primary key violation
+                        EgyptianAdult = dto.EgyptianAdultCost,
+                        EgyptianStudent = dto.EgyptianStudentCost,
+                        TouristAdult = dto.TouristAdultCost,
+                        TouristStudent = dto.TouristStudentCost
+                    };
+                    
+                    _context.Prices.Add(price);
+                    await _context.SaveChangesAsync(); // Save to get the ID
+                }
+
+                // Map and set price
                 var place = _mapper.Map<Place>(dto);
                 place.Price = price;
-                var category = _context.Categories.Where(c => c.CategoryName == dto.CategoryName && c.CategoryType == "place").FirstOrDefault();
+                place.CultureTips = dto.CulturalTips;
+                place.OpenTime = dto.OpenTime;
+                place.CloseTime = dto.CloseTime;
+                // Validate and set category
+                var category = await _context.Categories
+                    .FirstOrDefaultAsync(c => c.CategoryName == dto.CategoryName && c.CategoryType == "place");
+
+                if (category == null)
+                {
+                    return BadRequest(new { message = "Invalid CategoryName or CategoryType" });
+                }
+
                 place.Category = category;
                 place.CategoryId = category.Id;
+
+                // Add place first to get its ID
                 await _placeRepository.AddAsync(place);
                 await _context.SaveChangesAsync();
 
-                return Ok(new { message = "Place added successfully", data = place });
+                // Handle image uploads
+                var savedImageUrls = new List<string>();
+                var directoryPath = Path.Combine(_environment.WebRootPath, "images", "places");
+
+                if (!Directory.Exists(directoryPath))
+                    Directory.CreateDirectory(directoryPath);
+
+                foreach (var image in dto.ImageURLs)
+                {
+                    if (image.Length > 0)
+                    {
+                        var fileName = Guid.NewGuid() + Path.GetExtension(image.FileName);
+                        var filePath = Path.Combine(directoryPath, fileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await image.CopyToAsync(stream);
+                        }
+
+                        var placeImage = new PlaceImage
+                        {
+                            ImageUrl = $"/images/places/{fileName}",
+                            PlaceId = place.Id
+                        };
+
+                        _context.PlaceImages.Add(placeImage);
+                        savedImageUrls.Add(placeImage.ImageUrl);
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    message = "Place added successfully",
+                    data = new
+                    {
+                        place.Id,
+                        place.Name,
+                        place.Description,
+                        Images = savedImageUrls
+                    }
+                });
             }
             catch (Exception ex)
             {
@@ -101,12 +186,7 @@ namespace Kemet.APIs.Controllers
             }
         }
 
-      
-
-        //=============================================================================
-       
         //  Update Place
-
         [HttpPut("editplace/{id}")]
         public async Task<IActionResult> EditPlace(int id, [FromForm] AddPlaceDtos dto)
         {
@@ -116,59 +196,88 @@ namespace Kemet.APIs.Controllers
                     .Include(p => p.Images)
                     .Include(p => p.Price)
                     .Include(p => p.Category)
-                    .FirstOrDefaultAsync(p => p.Id == id); 
+                    .FirstOrDefaultAsync(p => p.Id == id);
 
                 if (existingPlace == null)
                     return NotFound(new { message = "Place not found" });
 
+                // Update basic fields
                 existingPlace.Name = dto.Name;
                 existingPlace.Description = dto.Description;
-                existingPlace.CultureTips = dto.CultureTips;
+                existingPlace.CultureTips = dto.CulturalTips;
                 existingPlace.Duration = dto.Duration;
 
-                
+                // Remove existing images
                 _context.PlaceImages.RemoveRange(existingPlace.Images);
-
                 var newImages = new List<PlaceImage>();
-                
-                foreach (var file in dto.ImageURLs)
-                {
-                    var imageUrl = await _fileUploadHelper.SaveFileAsync(file, "images");
-                    newImages.Add(new PlaceImage { ImageUrl = imageUrl, PlaceId = id });
-                }
-             
-                existingPlace.Images = newImages;
 
+                // Handle image uploads
+                var directoryPath = Path.Combine(_environment.WebRootPath, "images", "places");
+
+                if (!Directory.Exists(directoryPath))
+                    Directory.CreateDirectory(directoryPath);
+
+                if (dto.ImageURLs != null && dto.ImageURLs.Any())
+                {
+                    foreach (var file in dto.ImageURLs)
+                    {
+                        if (file.Length > 0)
+                        {
+                            var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                            var filePath = Path.Combine(directoryPath, fileName);
+
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await file.CopyToAsync(stream);
+                            }
+
+                            newImages.Add(new PlaceImage
+                            {
+                                ImageUrl = $"/images/places/{fileName}",
+                                PlaceId = id
+                            });
+                        }
+                    }
+
+                    existingPlace.Images = newImages;
+                }
+
+                // Handle price
                 var existingPrice = await _context.Prices.FirstOrDefaultAsync(p =>
                     p.EgyptianAdult == dto.EgyptianAdultCost &&
                     p.EgyptianStudent == dto.EgyptianStudentCost &&
                     p.TouristAdult == dto.TouristAdultCost &&
                     p.TouristStudent == dto.TouristStudentCost);
 
-              
-               
+                if (existingPrice != null)
+                {
+                    existingPlace.Price = existingPrice;
+                }
+                else
+                {
+                    // Find the max price ID and add 1 to ensure a unique ID
+                    var maxPriceId = await _context.Prices.MaxAsync(p => (int?)p.Id) ?? 0;
+                    
                     var newPrice = new Price
                     {
+                        Id = maxPriceId + 1, // Explicitly set ID to avoid primary key violation
                         EgyptianAdult = dto.EgyptianAdultCost,
                         EgyptianStudent = dto.EgyptianStudentCost,
                         TouristAdult = dto.TouristAdultCost,
                         TouristStudent = dto.TouristStudentCost
                     };
-                var place = _mapper.Map<Place>(dto);
-                place.Price = newPrice;
-                var category = _context.Categories.Where(c => c.CategoryName == dto.CategoryName && c.CategoryType == "place").FirstOrDefault();
-                place.Category = category;
-                place.CategoryId = category.Id;
-                await _context.Prices.AddAsync(newPrice);
+                    await _context.Prices.AddAsync(newPrice);
                     existingPlace.Price = newPrice;
-              
+                }
 
+                // Handle category
                 var existingCategory = await _context.Categories
-                    .FirstOrDefaultAsync(c => c.CategoryName == dto.CategoryName);
+                    .FirstOrDefaultAsync(c => c.CategoryName == dto.CategoryName && c.CategoryType == "place");
 
                 if (existingCategory != null)
                 {
                     existingPlace.Category = existingCategory;
+                    existingPlace.CategoryId = existingCategory.Id;
                 }
                 else
                 {
@@ -179,10 +288,25 @@ namespace Kemet.APIs.Controllers
                     };
                     await _context.Categories.AddAsync(newCategory);
                     existingPlace.Category = newCategory;
+                    existingPlace.CategoryId = newCategory.Id;
                 }
-
+                existingPlace.OpenTime = dto.OpenTime;
+                existingPlace.CloseTime = dto.CloseTime;
                 await _context.SaveChangesAsync();
-                return Ok(new { message = "Place updated successfully", data = existingPlace });
+
+                return Ok(new
+                {
+                    message = "Place updated successfully",
+                    data = new
+                    {
+                        existingPlace.Id,
+                        existingPlace.Name,
+                        existingPlace.Description,
+                        existingPlace.CultureTips,
+                        existingPlace.Duration,
+                        Images = existingPlace.Images.Select(i => i.ImageUrl).ToList()
+                    }
+                });
             }
             catch (Exception ex)
             {
@@ -193,8 +317,6 @@ namespace Kemet.APIs.Controllers
                 });
             }
         }
-
-
 
 
         [HttpDelete("DeletePlace/{id}")]
@@ -225,8 +347,6 @@ namespace Kemet.APIs.Controllers
 
             return Ok(new { message = "Place and all related data deleted successfully." });
         }
-
-
 
         //  Get All Places (Admin View)
 
@@ -260,45 +380,154 @@ namespace Kemet.APIs.Controllers
         }
 
         [HttpPost("AddActivity")]
-        public async Task<IActionResult> AddActivity([FromBody] AddActivityDto activityDto)
+        public async Task<IActionResult> AddActivity([FromForm] AddActivityDto activityDto)
         {
             try
             {
+                if (activityDto.ImageURLs == null || !activityDto.ImageURLs.Any())
+                {
+                    return BadRequest(new { 
+                        message = "The ImageURLs field is required.",
+                        errors = new { 
+                            ImageURLs = new[] { "The ImageURLs field is required." } 
+                        } 
+                    });
+                }
+
+                // First, create and save the category if needed
+                var category = await _context.Categories
+                    .FirstOrDefaultAsync(c => c.CategoryName == activityDto.CategoryName && c.CategoryType == "activity");
+
+                if (category == null)
+                {
+                    category = new Category
+                    {
+                        CategoryName = activityDto.CategoryName,
+                        CategoryType = "activity"
+                    };
+                    _context.Categories.Add(category);
+                    await _context.SaveChangesAsync(); // Save to get the ID
+                }
+
+                // Handle the price separately to avoid PK issues
+                Price price;
                 var existingPrice = await _context.Prices.FirstOrDefaultAsync(p =>
                     p.EgyptianAdult == activityDto.EgyptianAdultCost &&
                     p.EgyptianStudent == activityDto.EgyptianStudentCost &&
                     p.TouristAdult == activityDto.TouristAdultCost &&
                     p.TouristStudent == activityDto.TouristStudentCost);
-                var test = _context.Prices.Count();
-                var price = existingPrice ?? new Price
-                {
-                    Id = test++,
-                    EgyptianAdult = activityDto.EgyptianAdultCost,
-                    EgyptianStudent = activityDto.EgyptianStudentCost,
-                    TouristAdult = activityDto.TouristAdultCost,
-                    TouristStudent = activityDto.TouristStudentCost
-                };
 
-                var activity = _mapper.Map<Activity>(activityDto);
-                activity.Price = price;
-                var category = _context.Categories.Where(c => c.CategoryName == activityDto.CategoryName && c.CategoryType == "activity").FirstOrDefault();
-                activity.Category = category;
-                activity.CategoryId = category.Id;
-                await _context.Activities.AddAsync(activity);
+                if (existingPrice != null)
+                {
+                    price = existingPrice;
+                }
+                else
+                {
+                    // Find the max price ID and add 1 to ensure a unique ID
+                    var maxPriceId = await _context.Prices.MaxAsync(p => (int?)p.Id) ?? 0;
+                    
+                    price = new Price
+                    {
+                        Id = maxPriceId + 1, // Explicitly set ID to avoid primary key violation
+                        EgyptianAdult = activityDto.EgyptianAdultCost,
+                        EgyptianStudent = activityDto.EgyptianStudentCost,
+                        TouristAdult = activityDto.TouristAdultCost,
+                        TouristStudent = activityDto.TouristStudentCost
+                    };
+                    
+                    // This ensures the EF Core won't try to insert with ID = 0
+                    _context.Prices.Add(price);
+                    await _context.SaveChangesAsync(); // Save to get the ID
+                }
+
+                // Create the activity using the IDs we now have
+                var activity = new Activity
+                {
+                    Name = activityDto.Name,
+                    Description = activityDto.Description,
+                    Duration = activityDto.Duration,
+                    CulturalTips = activityDto.CulturalTips,
+                    priceId = price.Id,
+                    CategoryId = category.Id,
+                    AverageRating = 0,
+                    RatingsCount = 0,
+                    CloseTime = activityDto.CloseTime ,
+                    OpenTime = activityDto.OpenTime ,  // Default value, adjust as needed
+                    GroupSize = 10     
+                    
+                    // Default value, adjust as needed
+                };
+                
+                _context.Activities.Add(activity);
                 await _context.SaveChangesAsync();
 
-                return Ok(new { message = "Activity added successfully", data = activity });
+                // Handle image uploads
+                var savedImageUrls = new List<string>();
+                var directoryPath = Path.Combine(_environment.WebRootPath, "images", "activities");
+
+                if (!Directory.Exists(directoryPath))
+                    Directory.CreateDirectory(directoryPath);
+
+                foreach (var image in activityDto.ImageURLs)
+                {
+                    if (image.Length > 0)
+                    {
+                        var fileName = Guid.NewGuid() + Path.GetExtension(image.FileName);
+                        var filePath = Path.Combine(directoryPath, fileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await image.CopyToAsync(stream);
+                        }
+
+                        var activityImage = new ActivityImage
+                        {
+                            ImageUrl = $"/images/activities/{fileName}",
+                            ActivityId = activity.Id
+                        };
+
+                        _context.ActivityImages.Add(activityImage);
+                        savedImageUrls.Add(activityImage.ImageUrl);
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    message = "Activity added successfully",
+                    data = new
+                    {
+                        activity.Id,
+                        activity.Name,
+                        activity.Description,
+                        activity.Duration,
+                        price.EgyptianAdult,
+                        price.TouristAdult,
+                        CategoryName = category.CategoryName,
+                        Images = savedImageUrls
+                    }
+                });
             }
             catch (Exception ex)
             {
+                // Log the full exception details including inner exceptions
+                var errorMessage = ex.Message;
+                var innerException = ex.InnerException;
+                while (innerException != null)
+                {
+                    errorMessage += $" | Inner Exception: {innerException.Message}";
+                    innerException = innerException.InnerException;
+                }
+                
                 return StatusCode(500, new
                 {
                     StatusCode = 500,
-                    Message = ex.InnerException?.Message ?? ex.Message
+                    Message = errorMessage,
+                    StackTrace = ex.StackTrace
                 });
             }
         }
-
 
         [HttpPut("editactivity/{id}")]
         public async Task<IActionResult> EditActivity(int id, [FromForm] AddActivityDto dto)
@@ -314,49 +543,76 @@ namespace Kemet.APIs.Controllers
                 if (existingActivity == null)
                     return NotFound(new { message = "Activity not found" });
 
-               
+                // Update basic fields
                 existingActivity.Name = dto.Name;
                 existingActivity.Description = dto.Description;
-                existingActivity.CulturalTips = dto.CultureTips;
+                existingActivity.CulturalTips = dto.CulturalTips;
                 existingActivity.Duration = dto.Duration;
 
-                
+                // Remove existing images
                 _context.ActivityImages.RemoveRange(existingActivity.Images);
-
                 var newImages = new List<ActivityImage>();
-                foreach (var file in dto.ImageURLs)
-                {
-                    var imageUrl = await _fileUploadHelper.SaveFileAsync(file, "activityimages");
-                    newImages.Add(new ActivityImage { ImageUrl = imageUrl, ActivityId = id });
-                }
-                existingActivity.Images = newImages;
 
-               
+                // Handle image uploads
+                var directoryPath = Path.Combine(_environment.WebRootPath, "images", "activities");
+
+                if (!Directory.Exists(directoryPath))
+                    Directory.CreateDirectory(directoryPath);
+
+                if (dto.ImageURLs != null && dto.ImageURLs.Count > 0)
+                {
+                    foreach (var file in dto.ImageURLs)
+                    {
+                        if (file.Length > 0)
+                        {
+                            var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                            var filePath = Path.Combine(directoryPath, fileName);
+
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await file.CopyToAsync(stream);
+                            }
+
+                            newImages.Add(new ActivityImage
+                            {
+                                ImageUrl = $"/images/activities/{fileName}",
+                                ActivityId = id
+                            });
+                        }
+                    }
+
+                    existingActivity.Images = newImages;
+                }
+
+                // Handle price
                 var existingPrice = await _context.Prices.FirstOrDefaultAsync(p =>
                     p.EgyptianAdult == dto.EgyptianAdultCost &&
                     p.EgyptianStudent == dto.EgyptianStudentCost &&
                     p.TouristAdult == dto.TouristAdultCost &&
                     p.TouristStudent == dto.TouristStudentCost);
 
-               
-               
+                if (existingPrice != null)
+                {
+                    existingActivity.Price = existingPrice;
+                }
+                else
+                {
+                    // Find the max price ID and add 1 to ensure a unique ID
+                    var maxPriceId = await _context.Prices.MaxAsync(p => (int?)p.Id) ?? 0;
+                    
                     var newPrice = new Price
                     {
+                        Id = maxPriceId + 1, // Explicitly set ID to avoid primary key violation
                         EgyptianAdult = dto.EgyptianAdultCost,
                         EgyptianStudent = dto.EgyptianStudentCost,
                         TouristAdult = dto.TouristAdultCost,
                         TouristStudent = dto.TouristStudentCost
                     };
-                var activity = _mapper.Map<Activity>(dto);
-                activity.Price = newPrice;
-                var category = _context.Categories.Where(c => c.CategoryName == dto.CategoryName && c.CategoryType == "activity").FirstOrDefault();
-                activity.Category = category;
-                activity.CategoryId = category.Id;
-                await _context.Prices.AddAsync(newPrice);
+                    await _context.Prices.AddAsync(newPrice);
                     existingActivity.Price = newPrice;
-              
+                }
 
-               
+                // Handle category (reuse or create)
                 var existingCategory = await _context.Categories
                     .FirstOrDefaultAsync(c => c.CategoryName == dto.CategoryName && c.CategoryType == "activity");
 
@@ -376,7 +632,22 @@ namespace Kemet.APIs.Controllers
                 }
 
                 await _context.SaveChangesAsync();
-                return Ok(new { message = "Activity updated successfully", data = existingActivity });
+
+                return Ok(new
+                {
+                    message = "Activity updated successfully",
+                    data = new
+                    {
+                        existingActivity.Id,
+                        existingActivity.Name,
+                        existingActivity.Description,
+                        existingActivity.CulturalTips,
+                        existingActivity.Duration,
+                        Price = existingActivity.Price,
+                        Images = existingActivity.Images.Select(i => i.ImageUrl).ToList(),
+                        Category = existingActivity.Category?.CategoryName
+                    }
+                });
             }
             catch (Exception ex)
             {
@@ -388,8 +659,6 @@ namespace Kemet.APIs.Controllers
             }
         }
 
-
-     
         [HttpDelete("DeleteActivity/{id}")]
         public async Task<IActionResult> DeleteActivity(int id)
         {
@@ -418,7 +687,22 @@ namespace Kemet.APIs.Controllers
 
             return Ok(new { message = "Activity and all related data deleted successfully." });
         }
-        //======================================================================
+        [HttpGet("GetAllActivities")]
+        public async Task<ActionResult<ActivityDTOs>> GetActivites()
+        {
+            try
+            {
+                var resultActivities = await _homeServices.GetActivities();
+                var result = await MapActivitiesWithImages(resultActivities);
+
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
+        }
         [HttpGet("GetAllCustomers")]
         public async Task<IActionResult> GetAllCustomers()
         {
@@ -449,36 +733,6 @@ namespace Kemet.APIs.Controllers
             }
         }
 
-        //[HttpGet("GetAllUsers")]
-        //public async Task<IActionResult> GetAllUsers()
-        //{
-        //    try
-        //    {
-        //        var users = await _userManager.Users.ToListAsync();
-
-
-        //        var userDtos = users.Select(user => new
-        //        {
-        //            user.Id,
-        //            user.UserName,
-        //            user.Email,
-        //            user.PhoneNumber,
-
-
-
-        //        }).ToList();
-
-        //        return Ok(userDtos);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new
-        //        {
-        //            StatusCode = 500,
-        //            Message = ex.InnerException?.Message ?? ex.Message
-        //        });
-        //    }
-        //}
 
         [HttpGet("GetAllTravelAgencies")]
         public async Task<IActionResult> GetAllTravelAgencies()
@@ -551,37 +805,88 @@ namespace Kemet.APIs.Controllers
             return Ok(new { message = "Travel agency added successfully." });
         }
 
-        //[HttpGet("all-reviews")]
-        //public async Task<IActionResult> GetAllReviewsWithType()
-        //{
-        //    var reviews = await _context.Reviews
-        //        .Include(r => r.Place)
-        //        .Include(r => r.Activity)
-        //        .Include(r => r.TravelAgencyPlan)
-        //        .ToListAsync();
+        private async Task<List<ActivityDTOs>> MapActivitiesWithImages(List<Activity> activities)
+        {
+            // Map activities to DTOs
+            var activitiesDto = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activities).ToList();
 
-        //    var mappedReviews = reviews.Select(r => new
-        //    {
-        //        r.Id,
-        //        r.ReviewTitle,
-        //        r.Comment,
-        //        r.Rating,
-        //        r.Date,
-        //        r.USERNAME,
-        //        r.UserImageURl,
-        //        r.VisitorType,
-        //        Type = r.PlaceId != null ? "Place"
-        //              : r.ActivityId != null ? "Activity"
-        //              : r.TravelAgencyPlanId != null ? "TravelAgencyPlan"
-        //              : "Unknown",
-        //        EntityName = r.Place != null ? r.Place.Name
-        //                    : r.Activity != null ? r.Activity.Name
-        //                    : r.TravelAgencyPlan != null ? r.TravelAgencyPlan.PlanName
-        //                    : null
-        //    });
+            // Fetch all images in one query
+            var activityImages = await _context.ActivityImages
+                .Where(img => activities.Select(a => a.Id).Contains(img.ActivityId))
+                .ToListAsync();
 
-        //    return Ok(mappedReviews);
-        //}
+            // Group images by ActivityId
+            var imagesDict = activityImages
+                .GroupBy(img => img.ActivityId)
+                .ToDictionary(g => g.Key, g => g.Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToList());
+
+            // Assign images to DTOs
+            foreach (var activity in activitiesDto)
+            {
+                activity.imageURLs = imagesDict.ContainsKey(activity.ActivityId) ? imagesDict[activity.ActivityId] : new List<string>();
+            }
+
+            // Return only activities that have images
+            return activitiesDto.Where(a => a.imageURLs.Any()).ToList();
+        }
+
+        [HttpGet("reviews")]
+        public async Task<ActionResult<IEnumerable<AdminReviewDto>>> GetAllReviews()
+        {
+            var reviews = await _reviewRepo.GetAllReviewsForAdminAsync();
+            if (reviews == null || !reviews.Any())
+                return Ok(new List<AdminReviewDto>());
+
+            var reviewsToReturn = new List<AdminReviewDto>();
+
+            foreach (var review in reviews)
+            {
+                var reviewDto = new AdminReviewDto
+                {
+                    Id = review.Id,
+                    UserId = review.UserId,
+                    UserName = review.USERNAME,
+                    Date = review.Date,
+                    ReviewTitle = review.ReviewTitle,
+                    VisitorType = review.VisitorType,
+                    UserImageURL = review.UserImageURl,
+                    Comment = review.Comment,
+                    Rating = review.Rating,
+                    ImageUrl = review.ImageUrl,
+                    CreatedAt = review.CreatedAt,
+                    ActivityId = review.ActivityId,
+                    PlaceId = review.PlaceId,
+                    TravelAgencyPlanId = review.TravelAgencyPlanId,
+                    TravelAgencyId = review.TravelAgencyID
+                };
+
+                // Set review type and item name
+                if (review.PlaceId != null)
+                {
+                    reviewDto.ReviewType = "Place";
+                    reviewDto.ItemName = review.Place?.Name ?? "Unknown Place";
+                }
+                else if (review.ActivityId != null)
+                {
+                    reviewDto.ReviewType = "Activity";
+                    reviewDto.ItemName = review.Activity?.Name ?? "Unknown Activity";
+                }
+                else if (review.TravelAgencyPlanId != null)
+                {
+                    reviewDto.ReviewType = "TravelAgencyPlan";
+                    reviewDto.ItemName = review.TravelAgencyPlan?.PlanName ?? "Unknown Plan";
+                }
+                else if (review.TravelAgencyID != null)
+                {
+                    reviewDto.ReviewType = "TravelAgency";
+                    reviewDto.ItemName = "Travel Agency"; // You might need to fetch the agency name
+                }
+
+                reviewsToReturn.Add(reviewDto);
+            }
+
+            return Ok(reviewsToReturn);
+        }
 
     }
 }

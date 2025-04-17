@@ -82,8 +82,8 @@ namespace Kemet.APIs.Helpers
      .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))  // Map Name
      .ForMember(dest => dest.Duration, opt => opt.MapFrom(src => src.Duration))  // Map Duration
      .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))  // Map Description
-     .ForMember(dest => dest.CulturalTips, opt => opt.MapFrom(src => src.CultureTips))  // Map CultureTips
-     .ForMember(dest => dest.PictureUrl, opt => opt.MapFrom(src => src.PictureUrl))  // Map PictureUrl
+     .ForMember(dest => dest.CulturalTips, opt => opt.MapFrom(src => src.CulturalTips))  // Map CultureTips
+     
      .ForMember(dest => dest.Category, opt => opt.MapFrom(src =>
          new Category
          {
