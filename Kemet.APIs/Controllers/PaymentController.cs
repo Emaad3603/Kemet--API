@@ -10,6 +10,7 @@ using Stripe;
 using Microsoft.EntityFrameworkCore;
 using Kemet.Repository.Data;
 using Kemet.Core.RepositoriesInterFaces;
+using Kemet.APIs.Errors;
 
 namespace Kemet.APIs.Controllers
 {
@@ -36,42 +37,56 @@ namespace Kemet.APIs.Controllers
         [HttpPost("create-payment-intent/{bookingId}")]
         public async Task<IActionResult> CreatePaymentIntent(int bookingId)
         {
-            var booking = await _bookingRepository.GetAsync(bookingId);
-            if (booking == null)
-                return NotFound("Booking not found");
+            try
+            {
+                var booking = await _bookingRepository.GetAsync(bookingId);
+                if (booking == null)
+                    return NotFound("Booking not found");
 
-            // Verify the booking belongs to the current user
-            var userEmail = User.FindFirstValue(ClaimTypes.Email);
-            if (booking.Customer.Email != userEmail)
-                return Unauthorized("This booking does not belong to you");
+                // Verify the booking belongs to the current user
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                if (booking.Customer.Email != userEmail)
+                    return Unauthorized("This booking does not belong to you");
 
-            var (success, message, clientSecret) = await _paymentService.CreatePaymentIntentAsync(booking);
-            
-            if (!success)
-                return BadRequest(message);
+                var (success, message, clientSecret) = await _paymentService.CreatePaymentIntentAsync(booking);
+                
+                if (!success)
+                    return BadRequest(message);
 
-            return Ok(new { clientSecret });
+                return Ok(new { clientSecret });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
 
         [HttpPost("confirm-payment")]
         public async Task<IActionResult> ConfirmPayment([FromBody] string paymentIntentId)
         {
-            var (success, message) = await _paymentService.ConfirmPaymentAsync(paymentIntentId);
-            
-            if (!success)
-                return BadRequest(message);
+            try
+            {
+                var (success, message) = await _paymentService.ConfirmPaymentAsync(paymentIntentId);
+                
+                if (!success)
+                    return BadRequest(message);
 
-            return Ok(new { message });
+                return Ok(new { message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
 
         [HttpPost("webhook")]
         [AllowAnonymous]
         public async Task<IActionResult> Webhook()
         {
-            var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
-            
             try
             {
+                var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
+                
                 var stripeSignature = Request.Headers["Stripe-Signature"];
                 var (success, message) = await _paymentService.HandleStripeWebhookAsync(json, stripeSignature);
                 
@@ -84,43 +99,61 @@ namespace Kemet.APIs.Controllers
             {
                 return BadRequest(e.Message);
             }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
 
         [HttpGet("history/{bookingId}")]
         public async Task<IActionResult> GetPaymentHistory(int bookingId)
         {
-            var booking = await _bookingRepository.GetAsync(bookingId);
-            if (booking == null)
-                return NotFound("Booking not found");
+            try
+            {
+                var booking = await _bookingRepository.GetAsync(bookingId);
+                if (booking == null)
+                    return NotFound("Booking not found");
 
-            // Verify the booking belongs to the current user
-            var userEmail = User.FindFirstValue(ClaimTypes.Email);
-            if (booking.Customer.Email != userEmail)
-                return Unauthorized("This booking does not belong to you");
+                // Verify the booking belongs to the current user
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                if (booking.Customer.Email != userEmail)
+                    return Unauthorized("This booking does not belong to you");
 
-            var paymentHistory = await _context.PaymentHistories
-                .Where(ph => ph.BookedTripsId == bookingId)
-                .OrderByDescending(ph => ph.EventDate)
-                .ToListAsync();
+                var paymentHistory = await _context.PaymentHistories
+                    .Where(ph => ph.BookedTripsId == bookingId)
+                    .OrderByDescending(ph => ph.EventDate)
+                    .ToListAsync();
 
-            return Ok(paymentHistory);
+                return Ok(paymentHistory);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
 
         [HttpGet("user-history")]
         public async Task<IActionResult> GetUserPaymentHistory()
         {
-            var userEmail = User.FindFirstValue(ClaimTypes.Email);
-            if (string.IsNullOrEmpty(userEmail))
-                return Unauthorized();
+            try
+            {
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                if (string.IsNullOrEmpty(userEmail))
+                    return Unauthorized();
 
-            var paymentHistory = await _context.PaymentHistories
-                .Include(ph => ph.BookedTrips)
-                    .ThenInclude(bt => bt.travelAgencyPlan)
-                .Where(ph => ph.BookedTrips.Customer.Email == userEmail)
-                .OrderByDescending(ph => ph.EventDate)
-                .ToListAsync();
+                var paymentHistory = await _context.PaymentHistories
+                    .Include(ph => ph.BookedTrips)
+                        .ThenInclude(bt => bt.travelAgencyPlan)
+                    .Where(ph => ph.BookedTrips.Customer.Email == userEmail)
+                    .OrderByDescending(ph => ph.EventDate)
+                    .ToListAsync();
 
-            return Ok(paymentHistory);
+                return Ok(paymentHistory);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
     }
-} 
+}

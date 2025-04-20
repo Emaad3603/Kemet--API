@@ -178,11 +178,7 @@ namespace Kemet.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    StatusCode = 500,
-                    Message = ex.InnerException?.Message ?? ex.Message
-                });
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
 
@@ -310,11 +306,7 @@ namespace Kemet.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    StatusCode = 500,
-                    Message = ex.InnerException?.Message ?? ex.Message
-                });
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
 
@@ -322,30 +314,37 @@ namespace Kemet.APIs.Controllers
         [HttpDelete("DeletePlace/{id}")]
         public async Task<IActionResult> DeletePlace(int id)
         {
-            var place = await _context.Places
-                .Include(p => p.Images)
-                .Include(p => p.Reviews)
-                .FirstOrDefaultAsync(p => p.Id == id);
-
-            if (place == null)
-                return NotFound(new ApiResponse(404, "Place not found"));
-
-           
-            if (place.Reviews.Any())
-                _context.Reviews.RemoveRange(place.Reviews);
-
-           
-            if (place.Images.Any())
+            try
             {
-           
+                var place = await _context.Places
+                    .Include(p => p.Images)
+                    .Include(p => p.Reviews)
+                    .FirstOrDefaultAsync(p => p.Id == id);
 
-                _context.PlaceImages.RemoveRange(place.Images);
+                if (place == null)
+                    return NotFound(new ApiResponse(404, "Place not found"));
+
+               
+                if (place.Reviews.Any())
+                    _context.Reviews.RemoveRange(place.Reviews);
+
+               
+                if (place.Images.Any())
+                {
+               
+
+                    _context.PlaceImages.RemoveRange(place.Images);
+                }
+
+                _context.Places.Remove(place);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Place and all related data deleted successfully." });
             }
-
-            _context.Places.Remove(place);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "Place and all related data deleted successfully." });
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
 
         //  Get All Places (Admin View)
@@ -355,8 +354,6 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-
-
                 var resultPlaces = await _homeServices.GetPlaces();
 
                 var places = _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(resultPlaces);
@@ -511,21 +508,7 @@ namespace Kemet.APIs.Controllers
             }
             catch (Exception ex)
             {
-                // Log the full exception details including inner exceptions
-                var errorMessage = ex.Message;
-                var innerException = ex.InnerException;
-                while (innerException != null)
-                {
-                    errorMessage += $" | Inner Exception: {innerException.Message}";
-                    innerException = innerException.InnerException;
-                }
-                
-                return StatusCode(500, new
-                {
-                    StatusCode = 500,
-                    Message = errorMessage,
-                    StackTrace = ex.StackTrace
-                });
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
 
@@ -651,41 +634,44 @@ namespace Kemet.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    StatusCode = 500,
-                    Message = ex.InnerException?.Message ?? ex.Message
-                });
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
 
         [HttpDelete("DeleteActivity/{id}")]
         public async Task<IActionResult> DeleteActivity(int id)
         {
-            var activity = await _context.Activities
-                .Include(p => p.Images)
-                .Include(p => p.Reviews)
-                .FirstOrDefaultAsync(p => p.Id == id);
-
-            if (activity == null)
-                return NotFound(new ApiResponse(404, "Activity not found"));
-
-
-            if (activity.Reviews.Any())
-                _context.Reviews.RemoveRange(activity.Reviews);
-
-
-            if (activity.Images.Any())
+            try
             {
-               
+                var activity = await _context.Activities
+                    .Include(p => p.Images)
+                    .Include(p => p.Reviews)
+                    .FirstOrDefaultAsync(p => p.Id == id);
 
-                _context.ActivityImages.RemoveRange(activity.Images);
+                if (activity == null)
+                    return NotFound(new ApiResponse(404, "Activity not found"));
+
+
+                if (activity.Reviews.Any())
+                    _context.Reviews.RemoveRange(activity.Reviews);
+
+
+                if (activity.Images.Any())
+                {
+                   
+
+                    _context.ActivityImages.RemoveRange(activity.Images);
+                }
+
+                _context.Activities.Remove(activity);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Activity and all related data deleted successfully." });
             }
-
-            _context.Activities.Remove(activity);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "Activity and all related data deleted successfully." });
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
         [HttpGet("GetAllActivities")]
         public async Task<ActionResult<ActivityDTOs>> GetActivites()
@@ -725,11 +711,7 @@ namespace Kemet.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    StatusCode = 500,
-                    Message = ex.InnerException?.Message ?? ex.Message
-                });
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
 
@@ -763,130 +745,180 @@ namespace Kemet.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    StatusCode = 500,
-                    Message = ex.InnerException?.Message ?? ex.Message
-                });
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
         [HttpPost("AddTravelAgency")]
         public async Task<IActionResult> AddTravelAgency([FromBody] TravelAgencyRegisterDTO dto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var existingUser = await _userManager.FindByEmailAsync(dto.Email);
-            if (existingUser != null)
-                return BadRequest(new { message = "Email is already in use." });
-
-            var travelAgency = new TravelAgency
+            try
             {
-                UserName = dto.UserName,
-                Email = dto.Email,
-                PhoneNumber = dto.PhoneNumber,
-                Address = dto.Address,
-                Description = dto.Description,
-                TaxNumber = dto.TaxNumber,
-                FacebookURL = dto.FacebookURL,
-                InstagramURL = dto.InstagramURL,
-                Bio = dto.Bio,
-               
-            };
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-            var result = await _userManager.CreateAsync(travelAgency, dto.Password);
+                var existingUser = await _userManager.FindByEmailAsync(dto.Email);
+                if (existingUser != null)
+                    return BadRequest(new { message = "Email is already in use." });
 
-            if (!result.Succeeded)
-                return BadRequest(result.Errors);
+                var travelAgency = new TravelAgency
+                {
+                    UserName = dto.UserName,
+                    Email = dto.Email,
+                    PhoneNumber = dto.PhoneNumber,
+                    Address = dto.Address,
+                    Description = dto.Description,
+                    TaxNumber = dto.TaxNumber,
+                    FacebookURL = dto.FacebookURL,
+                    InstagramURL = dto.InstagramURL,
+                    Bio = dto.Bio,
+                
+                };
 
-            // Optional: Assign a role like "TravelAgency"
-            await _userManager.AddToRoleAsync(travelAgency, "TravelAgency");
+                var result = await _userManager.CreateAsync(travelAgency, dto.Password);
 
-            return Ok(new { message = "Travel agency added successfully." });
+                if (!result.Succeeded)
+                    return BadRequest(result.Errors);
+
+                // Optional: Assign a role like "TravelAgency"
+                await _userManager.AddToRoleAsync(travelAgency, "TravelAgency");
+
+                return Ok(new { message = "Travel agency added successfully." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
 
         private async Task<List<ActivityDTOs>> MapActivitiesWithImages(List<Activity> activities)
         {
-            // Map activities to DTOs
-            var activitiesDto = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activities).ToList();
-
-            // Fetch all images in one query
-            var activityImages = await _context.ActivityImages
-                .Where(img => activities.Select(a => a.Id).Contains(img.ActivityId))
-                .ToListAsync();
-
-            // Group images by ActivityId
-            var imagesDict = activityImages
-                .GroupBy(img => img.ActivityId)
-                .ToDictionary(g => g.Key, g => g.Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToList());
-
-            // Assign images to DTOs
-            foreach (var activity in activitiesDto)
+            try
             {
-                activity.imageURLs = imagesDict.ContainsKey(activity.ActivityId) ? imagesDict[activity.ActivityId] : new List<string>();
-            }
+                // Map activities to DTOs
+                var activitiesDto = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activities).ToList();
 
-            // Return only activities that have images
-            return activitiesDto.Where(a => a.imageURLs.Any()).ToList();
+                // Fetch all images in one query
+                var activityImages = await _context.ActivityImages
+                    .Where(img => activities.Select(a => a.Id).Contains(img.ActivityId))
+                    .ToListAsync();
+
+                // Group images by ActivityId
+                var imagesDict = activityImages
+                    .GroupBy(img => img.ActivityId)
+                    .ToDictionary(g => g.Key, g => g.Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToList());
+
+                // Assign images to DTOs
+                foreach (var activity in activitiesDto)
+                {
+                    activity.imageURLs = imagesDict.ContainsKey(activity.ActivityId) ? imagesDict[activity.ActivityId] : new List<string>();
+                }
+
+                // Return only activities that have images
+                return activitiesDto.Where(a => a.imageURLs.Any()).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error mapping activities with images: {ex.Message}");
+            }
         }
 
         [HttpGet("reviews")]
         public async Task<ActionResult<IEnumerable<AdminReviewDto>>> GetAllReviews()
         {
-            var reviews = await _reviewRepo.GetAllReviewsForAdminAsync();
-            if (reviews == null || !reviews.Any())
-                return Ok(new List<AdminReviewDto>());
-
-            var reviewsToReturn = new List<AdminReviewDto>();
-
-            foreach (var review in reviews)
+            try
             {
-                var reviewDto = new AdminReviewDto
-                {
-                    Id = review.Id,
-                    UserId = review.UserId,
-                    UserName = review.USERNAME,
-                    Date = review.Date,
-                    ReviewTitle = review.ReviewTitle,
-                    VisitorType = review.VisitorType,
-                    UserImageURL = review.UserImageURl,
-                    Comment = review.Comment,
-                    Rating = review.Rating,
-                    ImageUrl = review.ImageUrl,
-                    CreatedAt = review.CreatedAt,
-                    ActivityId = review.ActivityId,
-                    PlaceId = review.PlaceId,
-                    TravelAgencyPlanId = review.TravelAgencyPlanId,
-                    TravelAgencyId = review.TravelAgencyID
-                };
+                var reviews = await _reviewRepo.GetAllReviewsForAdminAsync();
+                if (reviews == null || !reviews.Any())
+                    return Ok(new List<AdminReviewDto>());
 
-                // Set review type and item name
-                if (review.PlaceId != null)
+                var reviewsToReturn = new List<AdminReviewDto>();
+
+                foreach (var review in reviews)
                 {
-                    reviewDto.ReviewType = "Place";
-                    reviewDto.ItemName = review.Place?.Name ?? "Unknown Place";
-                }
-                else if (review.ActivityId != null)
-                {
-                    reviewDto.ReviewType = "Activity";
-                    reviewDto.ItemName = review.Activity?.Name ?? "Unknown Activity";
-                }
-                else if (review.TravelAgencyPlanId != null)
-                {
-                    reviewDto.ReviewType = "TravelAgencyPlan";
-                    reviewDto.ItemName = review.TravelAgencyPlan?.PlanName ?? "Unknown Plan";
-                }
-                else if (review.TravelAgencyID != null)
-                {
-                    reviewDto.ReviewType = "TravelAgency";
-                    reviewDto.ItemName = "Travel Agency"; // You might need to fetch the agency name
+                    var reviewDto = new AdminReviewDto
+                    {
+                        Id = review.Id,
+                        UserId = review.UserId,
+                        UserName = review.USERNAME,
+                        Date = review.Date,
+                        ReviewTitle = review.ReviewTitle,
+                        VisitorType = review.VisitorType,
+                        UserImageURL = review.UserImageURl,
+                        Comment = review.Comment,
+                        Rating = review.Rating,
+                        ImageUrl = review.ImageUrl,
+                        CreatedAt = review.CreatedAt,
+                        ActivityId = review.ActivityId,
+                        PlaceId = review.PlaceId,
+                        TravelAgencyPlanId = review.TravelAgencyPlanId,
+                        TravelAgencyId = review.TravelAgencyID
+                    };
+
+                    // Set review type and item name
+                    if (review.PlaceId != null)
+                    {
+                        reviewDto.ReviewType = "Place";
+                        reviewDto.ItemName = review.Place?.Name ?? "Unknown Place";
+                    }
+                    else if (review.ActivityId != null)
+                    {
+                        reviewDto.ReviewType = "Activity";
+                        reviewDto.ItemName = review.Activity?.Name ?? "Unknown Activity";
+                    }
+                    else if (review.TravelAgencyPlanId != null)
+                    {
+                        reviewDto.ReviewType = "TravelAgencyPlan";
+                        reviewDto.ItemName = review.TravelAgencyPlan?.PlanName ?? "Unknown Plan";
+                    }
+                    else if (review.TravelAgencyID != null)
+                    {
+                        reviewDto.ReviewType = "TravelAgency";
+                        reviewDto.ItemName = "Travel Agency"; // You might need to fetch the agency name
+                    }
+
+                    reviewsToReturn.Add(reviewDto);
                 }
 
-                reviewsToReturn.Add(reviewDto);
+                return Ok(reviewsToReturn);
             }
-
-            return Ok(reviewsToReturn);
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
 
+        [HttpDelete("DeleteReview/{id}")]
+        public async Task<IActionResult> DeleteReview(int id)
+        {
+            try
+            {
+                // Find the review by ID
+                var review = await _context.Reviews.FirstOrDefaultAsync(r => r.Id == id);
+                if (review == null)
+                {
+                    return NotFound(new { message = "Review not found" });
+                }
+
+                // Delete the associated image if it exists
+                if (!string.IsNullOrEmpty(review.ImageUrl))
+                {
+                    var imagePath = Path.Combine(_environment.WebRootPath, review.ImageUrl.TrimStart('/'));
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        System.IO.File.Delete(imagePath);
+                    }
+                }
+
+                // Remove the review from the database
+                _context.Reviews.Remove(review);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Review deleted successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
+        }
     }
 }

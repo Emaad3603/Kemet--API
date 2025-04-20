@@ -49,22 +49,23 @@ namespace Kemet.APIs.Controllers
                 var userInterests = await _repository.GetUserInterestsAsync(user.Id);
                 return Ok(userInterests);
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
 
         [HttpPost("AddInterests")]
-        public async Task<IActionResult> AddInterest( CustomerInterestsDto interests)
+        public async Task<IActionResult> AddInterest(CustomerInterestsDto interests)
         {
-            if (interests == null)
-            {
-                return BadRequest(new ApiResponse(400, "Interest cannot be null."));
-            }
-
             try
             {
+                if (interests == null)
+                {
+                    return BadRequest(new ApiResponse(400, "Interest cannot be null."));
+                }
+
                 var userEmail = User.FindFirstValue(ClaimTypes.Email);
                 if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
 
@@ -85,14 +86,14 @@ namespace Kemet.APIs.Controllers
         [HttpPut("UpdateInterests")]
         public async Task<IActionResult> UpdateInterest(CustomerInterestsDto interests)
         {
-            var categoryIds = interests.CategoryIds;
-            if (categoryIds == null || !categoryIds.Any())
-            {
-                return BadRequest(new ApiResponse(400, "Category IDs cannot be null or empty."));
-            }
-
             try
             {
+                var categoryIds = interests.CategoryIds;
+                if (categoryIds == null || !categoryIds.Any())
+                {
+                    return BadRequest(new ApiResponse(400, "Category IDs cannot be null or empty."));
+                }
+
                 var userEmail = User.FindFirstValue(ClaimTypes.Email);
                 if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
 
@@ -104,7 +105,7 @@ namespace Kemet.APIs.Controllers
                 {
                     return NotFound(new ApiResponse(404, "Interest not found."));
                 }
-                await  _repository.UpdateInterestsAsync(user.Id, categoryIds);
+                await _repository.UpdateInterestsAsync(user.Id, categoryIds);
 
                 return Ok();
             }
@@ -113,8 +114,5 @@ namespace Kemet.APIs.Controllers
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
-
-     
     }
-    
 }

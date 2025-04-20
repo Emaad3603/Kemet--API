@@ -48,117 +48,129 @@ namespace Kemet.APIs.Controllers
         [HttpGet("GetCurrentUserData")]
         public async Task<IActionResult> GetCurrentUserData()
         {
-            var userEmail = User.FindFirstValue(ClaimTypes.Email);
-            if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
-
-            var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
-            if (user == null) return NotFound("User not found.");
-
-            var userInterests = await _interestRepository.GetUserInterestsAsync(user.Id);
-
-            var response = new GetCurrentUserDataResponseDto()
+            try
             {
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                DateOfBirth = user.DateOfBirth,
-                SSN = user.SSN,
-                Gender = user.Gender,
-                Nationality = user.Nationality,
-                // Resolve Profile Image URL
-                ProfileImageURL = !string.IsNullOrEmpty(user.ImageURL)
-                        ? $"{_configuration["BaseUrl"]}/{user.ImageURL}"
-                        : string.Empty,
-                // Resolve Background Image URL
-                BackgroundImageURL = !string.IsNullOrEmpty(user.BackgroundImageURL)
-                        ? $"{_configuration["BaseUrl"]}/{user.BackgroundImageURL}"
-                        : string.Empty,
-                InterestCategoryIds = userInterests,
-                Bio = user.Bio,
-                WebsiteLink = user.WebsiteLink,
-                CreationDate = user.CreationDate,
-            };
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
 
-            return Ok(response);
+                var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+                if (user == null) return NotFound("User not found.");
+
+                var userInterests = await _interestRepository.GetUserInterestsAsync(user.Id);
+
+                var response = new GetCurrentUserDataResponseDto()
+                {
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    DateOfBirth = user.DateOfBirth,
+                    SSN = user.SSN,
+                    Gender = user.Gender,
+                    Nationality = user.Nationality,
+                    // Resolve Profile Image URL
+                    ProfileImageURL = !string.IsNullOrEmpty(user.ImageURL)
+                            ? $"{_configuration["BaseUrl"]}/{user.ImageURL}"
+                            : string.Empty,
+                    // Resolve Background Image URL
+                    BackgroundImageURL = !string.IsNullOrEmpty(user.BackgroundImageURL)
+                            ? $"{_configuration["BaseUrl"]}/{user.BackgroundImageURL}"
+                            : string.Empty,
+                    InterestCategoryIds = userInterests,
+                    Bio = user.Bio,
+                    WebsiteLink = user.WebsiteLink,
+                    CreationDate = user.CreationDate,
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
 
         // PUT: api/Profile/UpdateUserData
         [HttpPut("UpdateUserData")]
-       // [Consumes("multipart/form-data")]
         public async Task<IActionResult> UpdateUserData(UpdateUserDataDto dto)
         {
-            var userEmail = User.FindFirstValue(ClaimTypes.Email);
-            if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
+            try
+            {
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
 
-            var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
-            if (user == null) return NotFound("User not found.");
+                var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+                if (user == null) return NotFound("User not found.");
 
-            #region Update User Fields
-            // Update user fields only if they are provided
-            if (!string.IsNullOrEmpty(dto.UserName))
-                if(await _userManager.CheckUserNameExistsAsync(dto.UserName))
-                {
-                    user.UserName = dto.UserName;
-                }
-                else
-                {
-                    return BadRequest(new ApiResponse(400, "Username already exists"));
-                }
+                #region Update User Fields
+                // Update user fields only if they are provided
+                if (!string.IsNullOrEmpty(dto.UserName))
+                    if (await _userManager.CheckUserNameExistsAsync(dto.UserName))
+                    {
+                        user.UserName = dto.UserName;
+                    }
+                    else
+                    {
+                        return BadRequest(new ApiResponse(400, "Username already exists"));
+                    }
 
+                if (!string.IsNullOrEmpty(dto.FirstName))
+                    user.FirstName = dto.FirstName;
 
-            if (!string.IsNullOrEmpty(dto.FirstName))
-                user.FirstName = dto.FirstName;
+                if (!string.IsNullOrEmpty(dto.LastName))
+                    user.LastName = dto.LastName;
 
-            if (!string.IsNullOrEmpty(dto.LastName))
-                user.LastName = dto.LastName;
+                if (dto.DateOfBirth != default(DateOnly))
+                    user.DateOfBirth = dto.DateOfBirth;
 
-            if (dto.DateOfBirth != default(DateOnly))
-                user.DateOfBirth = dto.DateOfBirth;
+                if (!string.IsNullOrEmpty(dto.Gender))
+                    user.Gender = dto.Gender;
 
-            if (!string.IsNullOrEmpty(dto.Gender))
-                user.Gender = dto.Gender;
+                if (!string.IsNullOrEmpty(dto.Nationality))
+                    user.Nationality = dto.Nationality;
 
-            if (!string.IsNullOrEmpty(dto.Nationality))
-                user.Nationality = dto.Nationality;
+                if (!string.IsNullOrEmpty(dto.Country))
+                    user.Country = dto.Country;
 
-            if (!string.IsNullOrEmpty(dto.Country))
-                user.Country = dto.Country;
+                if (!string.IsNullOrEmpty(dto.City))
+                    user.City = dto.City;
 
-            if (!string.IsNullOrEmpty(dto.City))
-                user.City = dto.City;
+                if (!string.IsNullOrEmpty(dto.Bio))
+                    user.Bio = dto.Bio;
 
-            if (!string.IsNullOrEmpty(dto.Bio))
-                user.Bio = dto.Bio;
+                if (!string.IsNullOrEmpty(dto.WebsiteLink))
+                    user.WebsiteLink = dto.WebsiteLink;
+                #endregion
 
-            if (!string.IsNullOrEmpty(dto.WebsiteLink))
-                user.WebsiteLink = dto.WebsiteLink; 
-            #endregion
+                #region Customer interests Region
+                // Update user interests with InterestRepository if the list is not null
+                if (dto.InterestCategoryIds != null && dto.InterestCategoryIds.Any())
+                    await _interestRepository.UpdateInterestsAsync(user.Id, dto.InterestCategoryIds);
 
-            #region Customer interests Region
-            // Update user interests with InterestRepository if the list is not null
-            if (dto.InterestCategoryIds != null && dto.InterestCategoryIds.Any())
-                await _interestRepository.UpdateInterestsAsync(user.Id, dto.InterestCategoryIds);
+                #endregion
 
-            #endregion
+                // Save changes to the user in the database
+                var result = await _userManager.UpdateAsync(user);
+                if (!result.Succeeded)
+                    return StatusCode(500, "Failed to update user data.");
 
-            // Save changes to the user in the database
-            var result = await _userManager.UpdateAsync(user);
-            if (!result.Succeeded)
-                return StatusCode(500, "Failed to update user data.");
-
-            return Ok("User data updated successfully.");
+                return Ok("User data updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
 
         [HttpPost("upload-profile-image")]
         public async Task<IActionResult> UploadProfileImage([FromForm] IFormFile model)
         {
-            if (model==null||model.Length==0)
-            {
-                return BadRequest(new { message = "No file uploaded." });
-            }
-
             try
             {
+                if (model == null || model.Length == 0)
+                {
+                    return BadRequest(new { message = "No file uploaded." });
+                }
+
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
                 var userEmail = User.FindFirstValue(ClaimTypes.Email);
                 if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
@@ -169,71 +181,78 @@ namespace Kemet.APIs.Controllers
 
                 if (!result.IsSuccess)
                 {
-                    return StatusCode(500, new { message = "Error uploading image." });
+                    return StatusCode(500, new ApiResponse(500, "Error uploading image."));
                 }
 
                 return Ok(new { message = "Image uploaded successfully.", filePath = result.ImageUrl });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Internal server error: {ex.Message}" });
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
+
         [HttpPost("upload-background-image")]
         public async Task<IActionResult> UploadBackgroundImage([FromForm] IFormFile model)
         {
-            if ( model==null||model.Length==0)
-            {
-                return BadRequest(new { message = "No file uploaded." });
-            }
-
             try
             {
+                if (model == null || model.Length == 0)
+                {
+                    return BadRequest(new { message = "No file uploaded." });
+                }
+
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
                 var userEmail = User.FindFirstValue(ClaimTypes.Email);
                 if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
 
                 var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
                 if (user == null) return NotFound("User not found.");
-                var result = await _profileService.UploadProfileImageAsync(user.Email,null,model);
+                var result = await _profileService.UploadProfileImageAsync(user.Email, null, model);
 
                 if (!result.IsSuccess)
                 {
-                    return StatusCode(500, new { message = "Error uploading image." });
+                    return StatusCode(500, new ApiResponse(500, "Error uploading image."));
                 }
 
                 return Ok(new { message = "Image uploaded successfully.", filePath = result.ImageUrl });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"Internal server error: {ex.Message}" });
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
+
         [Authorize]
         [HttpGet]
         public async Task<ActionResult> GetAdventureMode()
         {
-
-            var userEmail = User.FindFirstValue(ClaimTypes.Email);
-            if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
-
-            var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
-            if (user == null) return NotFound("User not found.");
-            var adventureObject = await _profileService.GetAdventureModeSuggest(user);
-            if (adventureObject.Place is null)
+            try
             {
-                return BadRequest(new ApiResponse(400, "There was a proplem generating Adventure Mode Result !!"));
-            }
-            else
-            {
-                var result = new AdventureModeToReturn()
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                if (string.IsNullOrEmpty(userEmail)) return Unauthorized();
+
+                var user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+                if (user == null) return NotFound("User not found.");
+                var adventureObject = await _profileService.GetAdventureModeSuggest(user);
+                if (adventureObject.Place is null)
                 {
-                    placeDto = _mapper.Map<Place, DetailedPlaceDto>(adventureObject.Place),
-                    activityDTOs = _mapper.Map<Activity, DetailedActivityDTOs>(adventureObject.Activity)
-                };
-                return Ok(result);
+                    return BadRequest(new ApiResponse(400, "There was a proplem generating Adventure Mode Result !!"));
+                }
+                else
+                {
+                    var result = new AdventureModeToReturn()
+                    {
+                        placeDto = _mapper.Map<Place, DetailedPlaceDto>(adventureObject.Place),
+                        activityDTOs = _mapper.Map<Activity, DetailedActivityDTOs>(adventureObject.Activity)
+                    };
+                    return Ok(result);
+                }
             }
-               
-        } 
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
+        }
     }
 }

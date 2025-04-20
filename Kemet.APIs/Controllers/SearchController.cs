@@ -32,11 +32,11 @@ namespace Kemet.APIs.Controllers
                     return Ok(result);
                 }
                 return BadRequest(new ApiResponse(404, "search text can be empty"));
-            }catch (Exception ex)
-            {
-                return StatusCode(500, new { message = $"Internal server error: {ex.Message}" });
             }
-         
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
     }
 }
