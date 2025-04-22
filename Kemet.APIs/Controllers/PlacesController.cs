@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Stripe;
 using System.Security.Claims;
 
 namespace Kemet.APIs.Controllers
@@ -67,8 +68,8 @@ namespace Kemet.APIs.Controllers
                 }
 
                 var result = places.Where(a => a.ImageURLs.Any()).ToList();
-
-                return Ok(places);
+                
+                return Ok(result);
             }
             catch (Exception ex)
             {
