@@ -6,7 +6,7 @@ using NetTopologySuite.Geometries;
 
 namespace Kemet.Repository.Data.Migrations
 {
-    public partial class initial_Create : Migration
+    public partial class initialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -175,6 +175,12 @@ namespace Kemet.Repository.Data.Migrations
                     SSN = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nationality = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Customer_SSN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_Nationality = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),

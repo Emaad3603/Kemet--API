@@ -23,5 +23,11 @@ namespace Kemet.Services
           var plans = await   _context.BookedTrips.Where(b=>b.CustomerID == UserID).Include(b=>b.travelAgencyPlan).ToListAsync() ;
           return plans;
         }
+
+        public async Task<BookedTrips> getBookedTrip (int bookingID)
+        {
+          var result = await  _context.BookedTrips.Where(b=>b.Id == bookingID).Include(b=>b.Customer).FirstOrDefaultAsync();
+            return result;
+        }
     }
 }

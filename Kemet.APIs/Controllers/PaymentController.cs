@@ -18,18 +18,19 @@ namespace Kemet.APIs.Controllers
     public class PaymentController : BaseApiController
     {
         private readonly IPaymentService _paymentService;
-        private readonly IGenericRepository<BookedTrips> _bookingRepository;
+        private readonly IBookingServices _bookingServices;
         private readonly IConfiguration _configuration;
         private readonly AppDbContext _context;
 
         public PaymentController(
             IPaymentService paymentService, 
-            IGenericRepository<BookedTrips> bookingRepository,
+            IBookingServices bookingServices,
             IConfiguration configuration,
             AppDbContext context)
         {
             _paymentService = paymentService;
-            _bookingRepository = bookingRepository;
+            _bookingServices = bookingServices;
+            
             _configuration = configuration;
             _context = context;
         }
@@ -39,7 +40,7 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                var booking = await _bookingRepository.GetAsync(bookingId);
+                var booking = await _bookingServices.getBookedTrip(bookingId);
                 if (booking == null)
                     return NotFound("Booking not found");
 
@@ -110,7 +111,7 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                var booking = await _bookingRepository.GetAsync(bookingId);
+                var booking = await _bookingServices.getBookedTrip(bookingId);
                 if (booking == null)
                     return NotFound("Booking not found");
 

@@ -24,7 +24,7 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
 
         public decimal TouristStudentCost { get; set; }
 
-        public List<IFormFile> ImageURLs { get; set; }
+        public List<IFormFile?> ImageURLs { get; set; }
 
         public TimeSpan OpenTime { get; set; }
 

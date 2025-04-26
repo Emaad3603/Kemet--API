@@ -2,7 +2,6 @@
 using Google.Cloud.TextToSpeech.V1;
 using Google.Cloud.Translate.V3;
 using Kemet.APIs.DTOs.TranslateDTOs;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 

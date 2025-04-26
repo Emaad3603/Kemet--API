@@ -13,8 +13,8 @@ using NetTopologySuite.Geometries;
 namespace Kemet.Repository.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250414020333_initial_Create")]
-    partial class initial_Create
+    [Migration("20250426145754_AddCustomEntities")]
+    partial class AddCustomEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -895,18 +895,9 @@ namespace Kemet.Repository.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Kemet.Core.Entities.Identity.Customer", b =>
+            modelBuilder.Entity("Kemet.Core.Entities.Identity.Admin", b =>
                 {
                     b.HasBaseType("Kemet.Core.Entities.Identity.AppUser");
-
-                    b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -930,6 +921,51 @@ namespace Kemet.Repository.Data.Migrations
                     b.Property<string>("SSN")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Admin");
+                });
+
+            modelBuilder.Entity("Kemet.Core.Entities.Identity.Customer", b =>
+                {
+                    b.HasBaseType("Kemet.Core.Entities.Identity.AppUser");
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Customer_DateOfBirth");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Customer_FirstName");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Customer_Gender");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Customer_LastName");
+
+                    b.Property<string>("Nationality")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Customer_Nationality");
+
+                    b.Property<string>("SSN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Customer_SSN");
 
                     b.Property<string>("WebsiteLink")
                         .HasColumnType("nvarchar(max)");

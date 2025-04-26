@@ -4,9 +4,11 @@ using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Services.InterFaces;
+using Kemet.Repository;
 using Kemet.Repository.Repositories;
 using Kemet.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Kemet.APIs.Extensions
 {
@@ -15,6 +17,7 @@ namespace Kemet.APIs.Extensions
         public static IServiceCollection addApplicationServices(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(MappingProfiles));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ITokenServices, TokenServices>();
             services.AddScoped<IEmailSettings, EmailSettings>();
             services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
@@ -33,14 +36,15 @@ namespace Kemet.APIs.Extensions
             {
                 options.InvalidModelStateResponseFactory = (actionContext) =>
                 {
-                    var errors = actionContext.ModelState.Where(P => P.Value.Errors.Count() > 0)
-                                            .SelectMany(P => P.Value.Errors)
-                                            .Select(E => E.ErrorMessage)
-                                            .ToArray();
+                    var errors = actionContext.ModelState
+                        .Where(P => P.Value?.Errors.Count > 0)
+                        .SelectMany(P => P.Value!.Errors)
+                        .Select(E => E.ErrorMessage)
+                        .ToArray();
+                    
                     var validationErrorResponse = new ApiValidationErrorResponse()
                     {
                         Errors = errors
-
                     };
                     return new BadRequestObjectResult(validationErrorResponse);
                 };

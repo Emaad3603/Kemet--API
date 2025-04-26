@@ -154,7 +154,7 @@ namespace Kemet.APIs
                 await _context.Database.MigrateAsync();
 
                 var _userManager = services.GetRequiredService<UserManager<AppUser>>();
-
+                await IdentityDbContextSeed.SeedRolesAsync(roleManager);
                 await IdentityDbContextSeed.SeedUserAsync(_userManager, roleManager);
                 await CategoryDataSeed.SeedCategoriesAsync(_context);
 

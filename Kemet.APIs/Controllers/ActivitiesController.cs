@@ -5,6 +5,7 @@ using Kemet.APIs.DTOs.ReviewsDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Specifications.ActivitySpecs;
@@ -23,27 +24,29 @@ namespace Kemet.APIs.Controllers
    
     public class ActivitiesController : BaseApiController
     {
-        private readonly IGenericRepository<Activity> _activityRepo;
+        
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly IHomeServices _homeServices;
         private readonly IConfiguration _configuration;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ActivitiesController(
-            IGenericRepository<Activity>ActivityRepo
-            ,IMapper mapper
+        public ActivitiesController(         
+            IMapper mapper
             ,AppDbContext context
             , UserManager<AppUser> userManager
             ,IHomeServices homeServices
-            ,IConfiguration configuration)
+            ,IConfiguration configuration 
+            ,IUnitOfWork unitOfWork)
         {
-            _activityRepo = ActivityRepo;
+            
             _mapper = mapper;
             _context = context;
             _userManager = userManager;
             _homeServices = homeServices;
             _configuration = configuration;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
@@ -159,7 +162,7 @@ namespace Kemet.APIs.Controllers
             {
                 // Fetch activity using specification pattern
                 var spec = new ActivityWithPlacesSpecifications(activityID);
-                var activity = await _activityRepo.GetWithSpecAsync(spec);
+                var activity = await _unitOfWork.Repository<Activity>().GetWithSpecAsync(spec);
 
                 if (activity == null)
                 {
@@ -236,7 +239,7 @@ namespace Kemet.APIs.Controllers
             {
                 // Map activities to DTOs
                 var activitiesDto = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activities).ToList();
-
+                
                 // Fetch all images in one query
                 var activityImages = await _context.ActivityImages
                     .Where(img => activities.Select(a => a.Id).Contains(img.ActivityId))
