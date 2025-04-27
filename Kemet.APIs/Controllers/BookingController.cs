@@ -90,7 +90,11 @@ namespace Kemet.APIs.Controllers
             return Ok(new { 
                 success = true,
                 message = "Booking created successfully",
-                bookingId = trip.Id 
+                bookingId = trip.Id ,
+                numOfPeople = book.NumOfPeople,
+                reserveType = book.ReserveType,
+                reserveDate = book.ReserveDate,
+                visitorType = PRiceCategory.ToString(),
             });
         }
 

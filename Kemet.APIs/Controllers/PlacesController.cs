@@ -3,6 +3,7 @@ using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
+using Kemet.Core.Entities.AI_Entites;
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
@@ -16,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Stripe;
+using System.Diagnostics;
 using System.Security.Claims;
 
 namespace Kemet.APIs.Controllers
@@ -101,6 +103,7 @@ namespace Kemet.APIs.Controllers
                     fetchedPlace.ImageUrl = $"{_configuration["BaseUrl"]}{fetchedPlace.ImageUrl}";
                 }
                 Places.Reviews = fetchedPlaces;
+                Places.CategoryName = await _context.Categories.Where(c => c.Id == place.CategoryId).Select(c => c.CategoryName).FirstOrDefaultAsync();
                 var Result = Places;
                 return Ok(Result);
             }

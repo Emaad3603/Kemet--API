@@ -174,7 +174,7 @@ namespace Kemet.APIs.Controllers
 
                 // Fetch and format reviews
                 activityDto.Reviews = await GetFormattedReviews(activityID);
-
+                activityDto.CategoryName = await _context.Categories.Where(c=>c.Id == activity.CategoryId).Select(c=>c.CategoryName).FirstOrDefaultAsync();
                 return Ok(activityDto);
             }
             catch (Exception ex)
