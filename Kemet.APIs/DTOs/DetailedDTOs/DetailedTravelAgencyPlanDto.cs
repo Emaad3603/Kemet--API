@@ -32,7 +32,7 @@ namespace Kemet.APIs.DTOs.DetailedDTOs
 
         public string TravelAgencyAddress { get; set; }
 
-
+        public List<string> MoreImagesUrl { get; set; }
 
      
 
