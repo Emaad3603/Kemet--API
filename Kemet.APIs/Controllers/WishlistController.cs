@@ -80,7 +80,7 @@ namespace Kemet.APIs.Controllers
                 }
                 foreach (var activity in wishlist.Activities)
                 {
-                    var fetchedActivity = await _context.Activities.Where(a => a.Id == activity.Id).Include(a => a.Images).FirstOrDefaultAsync();
+                    var fetchedActivity = await _context.Activities.Where(a => a.Id == activity.ActivityID).Include(a => a.Images).FirstOrDefaultAsync();
                     var mappedActivity = _mapper.Map<Activity, ActivityDTOs>(fetchedActivity);
                     wishlistActivites.Add(mappedActivity);
                 }
