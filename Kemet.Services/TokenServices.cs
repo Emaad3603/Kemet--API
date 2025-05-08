@@ -1,6 +1,8 @@
 ﻿using Kemet.Core.Entities.Identity;
 using Kemet.Core.Services.InterFaces;
+using Kemet.Repository.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -17,10 +19,12 @@ namespace Kemet.Services
     public class TokenServices : ITokenServices
     {
         private readonly IConfiguration _configuration;
+        
 
-        public TokenServices(IConfiguration configuration)
+        public TokenServices(IConfiguration configuration )
         {
             _configuration = configuration;
+            
         }
 
         public async Task<string> CreateTokenAsync(AppUser user, UserManager<AppUser> _userManager)
@@ -40,8 +44,9 @@ namespace Kemet.Services
             }
 
             // Check if the user is a Customer and add the Nationality claim
+            
             if (user is Customer customer)
-            {
+            {             
                 AuthClaims.Add(new Claim("Nationality", customer.Nationality));
             }
 

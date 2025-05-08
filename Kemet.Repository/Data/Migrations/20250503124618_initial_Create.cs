@@ -6,24 +6,11 @@ using NetTopologySuite.Geometries;
 
 namespace Kemet.Repository.Data.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class initial_Create : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "AspNetRoles",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
-
+           
             migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
@@ -156,7 +143,7 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.priceId,
                         principalTable: "Prices",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -259,13 +246,13 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.PlaceId,
                         principalTable: "Places",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Activities_Prices_priceId",
                         column: x => x.priceId,
                         principalTable: "Prices",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -475,7 +462,7 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.priceId,
                         principalTable: "Prices",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(

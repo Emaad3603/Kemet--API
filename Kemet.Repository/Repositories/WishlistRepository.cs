@@ -53,7 +53,7 @@ namespace Kemet.Repository.Repositories
 
             if (wishlist == null) return false;
 
-            var activity = wishlist.Activities.FirstOrDefault(a => a.Id == activityId);
+            var activity = wishlist.Activities.FirstOrDefault(a => a.ActivityID == activityId);
             if (activity == null) return false;
 
             wishlist.Activities.Remove(activity);
@@ -93,7 +93,7 @@ namespace Kemet.Repository.Repositories
 
             if (wishlist == null) return false;
 
-            var place = wishlist.Places.FirstOrDefault(a => a.Id == PlaceId);
+            var place = wishlist.Places.FirstOrDefault(a => a.PlaceID == PlaceId);
             if (place == null) return false;
 
             wishlist.Places.Remove(place);
@@ -133,7 +133,7 @@ namespace Kemet.Repository.Repositories
 
             if (wishlist == null) return false;
 
-            var Plan = wishlist.Plans.FirstOrDefault(a => a.Id == PlanId);
+            var Plan = wishlist.Plans.FirstOrDefault(a => a.TravelAgencyPlanID == PlanId);
             if (Plan == null) return false;
 
             wishlist.Plans.Remove(Plan);

@@ -32,7 +32,7 @@ namespace Kemet.Services
             StripeConfiguration.ApiKey = _stripeSecretKey;
         }
 
-        public async Task<(bool success, string message, string clientSecret)> CreatePaymentIntentAsync(BookedTrips booking, string currency = "usd")
+        public async Task<(bool success, string message, string clientSecret , string paymentIntendId)> CreatePaymentIntentAsync(BookedTrips booking, string currency = "usd")
         {
             try
             {
@@ -56,15 +56,15 @@ namespace Kemet.Services
                 await RecordPaymentHistory(booking.Id, "PaymentIntentCreated", "Pending", 
                     booking.BookedPrice, currency, paymentIntent.Id, null, null);
 
-                return (true, "Payment intent created successfully", paymentIntent.ClientSecret);
+                return (true, "Payment intent created successfully", paymentIntent.ClientSecret,paymentIntent.Id);
             }
             catch (StripeException e)
             {
-                return (false, e.Message, null);
+                return (false, e.Message, null,null);
             }
             catch (Exception e)
             {
-                return (false, "An error occurred while creating payment intent", null);
+                return (false, "An error occurred while creating payment intent", null,null);
             }
         }
 
@@ -157,23 +157,27 @@ namespace Kemet.Services
                 var email = new Email
                 {
                     Recipients = booking.Customer.Email,
-                    Subject = "Payment Confirmation - Kemet Travel",
+                    Subject = "Payment Confirmation – Kemet Travel",
                     Body = $@"
 Dear {booking.Customer.UserName},
 
-Your payment for the following booking has been successfully processed:
+Thank you for booking your trip with Kemet Travel. We are pleased to confirm that your payment has been successfully processed.
 
-Booking Details:
-- Plan: {booking.travelAgencyPlan.PlanName}
-- Date: {booking.ReserveDate}
-- Number of People: {booking.NumOfPeople}
-- Amount Paid: {booking.BookedPrice} USD
+Your booking details are as follows:
 
-Thank you for choosing Kemet Travel!
+Plan: {booking.travelAgencyPlan.PlanName}  
+Date: {booking.ReserveDate:dddd, dd MMMM yyyy}  
+Number of Guests: {booking.NumOfPeople}  
+Total Amount Paid: ${booking.BookedPrice} USD
 
-Best regards,
+If you have any questions or need further assistance, please do not hesitate to contact us.
+
+We look forward to providing you with a memorable experience!
+
+Best regards,  
 Kemet Travel Team"
                 };
+
 
                 await _emailSettings.SendEmailAsync(email);
             }
@@ -278,20 +282,36 @@ Kemet Travel Team"
             string stripeEventId,
             string metadata)
         {
-            var paymentHistory = new PaymentHistory
+            var pay = await  _context.PaymentHistories.Where(p => p.StripePaymentId == stripePaymentId).FirstOrDefaultAsync();
+            if (pay != null)
             {
-                BookedTripsId = bookedTripsId,
-                EventType = eventType,
-                Status = status,
-                Amount = amount,
-                Currency = currency,
-                StripePaymentId = stripePaymentId,
-                StripeEventId = stripeEventId,
-                Metadata = metadata
-            };
+                pay.Id = bookedTripsId;
+                pay.EventType = eventType;
+                pay.Status = status;
+                pay.Amount = amount;
+                pay.Currency = currency;
+                pay.StripePaymentId = stripePaymentId;
+                pay.StripeEventId = stripeEventId;
+                pay.Metadata = metadata;
+                await   _context.SaveChangesAsync();
+            }
+            if (pay is null)
+            {
+                var paymentHistory = new PaymentHistory
+                {
+                    BookedTripsId = bookedTripsId,
+                    EventType = eventType,
+                    Status = status,
+                    Amount = amount,
+                    Currency = currency,
+                    StripePaymentId = stripePaymentId,
+                    StripeEventId = stripeEventId,
+                    Metadata = metadata
+                };
 
-            await _context.PaymentHistories.AddAsync(paymentHistory);
-            await _context.SaveChangesAsync();
+                await _context.PaymentHistories.AddAsync(paymentHistory);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 } 

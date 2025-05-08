@@ -13,8 +13,8 @@ using NetTopologySuite.Geometries;
 namespace Kemet.Repository.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250426144143_initial Create")]
-    partial class initialCreate
+    [Migration("20250505133624_fix payment history Again")]
+    partial class fixpaymenthistoryAgain
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -455,7 +455,6 @@ namespace Kemet.Repository.Data.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("StripeEventId")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 

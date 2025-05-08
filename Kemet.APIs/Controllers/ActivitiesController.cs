@@ -188,32 +188,50 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                var places = await _context.Activities.ToListAsync();
-                var B7B7places = new List<B7B7ActivityDto>();
-                foreach (var place in places)
+                var Activities = await _context.Activities.ToListAsync();
+                var B7B7Activities = new List<B7B7ActivityDto>();
+                foreach (var Activity in Activities)
                 {
-                    var images = await _context.ActivityImages.Where(p => p.ActivityId == place.Id).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").FirstOrDefaultAsync();
-                    place.PictureUrl = images;
+                    var images = await _context.ActivityImages.Where(p => p.ActivityId == Activity.Id).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").FirstOrDefaultAsync();
+                    Activity.PictureUrl = images;
                 }
-                for (int i = 0; i < 47; i++)
+                foreach (var Activity in Activities)
                 {
-                    var test = new B7B7ActivityDto();
-                    test.ActivityId = places[i].Id;
-                    test.CategoryName = await _context.Categories.Where(c => c.Id == places[i].CategoryId).Select(c => c.CategoryName).FirstOrDefaultAsync();
-                    test.Name = places[i].Name;
-                    test.CulturalTips = places[i].CulturalTips;
-                    test.Address = await _context.Locations.Where(l => l.Id == places[i].LocationId).Select(l => l.Address).FirstOrDefaultAsync();
-                    test.Duration = places[i].Duration;
-                    test.CloseTime = places[i].CloseTime;
-                    test.OpenTime = places[i].OpenTime;
-                    test.Description = places[i].Description;
-                    test.imageURL = places[i].PictureUrl;
-                    test.LocationLink = await _context.Locations.Where(l => l.Id == places[i].LocationId).Select(l => l.LocationLink).FirstOrDefaultAsync();
-                    test.TouristAdult = await _context.Prices.Where(p => p.Id == places[i].priceId).Select(p => p.TouristAdult).FirstOrDefaultAsync();
-                    test.EgyptianAdult = await _context.Prices.Where(p => p.Id == places[i].priceId).Select(p => p.EgyptianAdult).FirstOrDefaultAsync();
-                    B7B7places.Add(test);
+                    var test = new B7B7ActivityDto
+                    {
+                        ActivityId = Activity.Id,
+                        CategoryName = await _context.Categories
+                            .Where(c => c.Id == Activity.CategoryId)
+                            .Select(c => c.CategoryName)
+                            .FirstOrDefaultAsync(),
+                        Name = Activity.Name,
+                        CulturalTips = Activity.CulturalTips,
+                        Address = await _context.Locations
+                            .Where(l => l.Id == Activity.LocationId)
+                            .Select(l => l.Address)
+                            .FirstOrDefaultAsync(),
+                        Duration = Activity.Duration,
+                        CloseTime = Activity.CloseTime,
+                        OpenTime = Activity.OpenTime,
+                        Description = Activity.Description,
+                        imageURL = Activity.PictureUrl,
+                        LocationLink = await _context.Locations
+                            .Where(l => l.Id == Activity.LocationId)
+                            .Select(l => l.LocationLink)
+                            .FirstOrDefaultAsync(),
+                        TouristAdult = await _context.Prices
+                            .Where(p => p.Id == Activity.priceId)
+                            .Select(p => p.TouristAdult)
+                            .FirstOrDefaultAsync(),
+                        EgyptianAdult = await _context.Prices
+                            .Where(p => p.Id == Activity.priceId)
+                            .Select(p => p.EgyptianAdult)
+                            .FirstOrDefaultAsync()
+                    };
+
+                    B7B7Activities.Add(test);
                 }
-                return Ok(B7B7places);
+                return Ok(B7B7Activities);
             }
             catch (Exception ex)
             {

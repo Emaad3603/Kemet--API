@@ -37,6 +37,8 @@ namespace Kemet.APIs.Controllers
         private readonly IWebHostEnvironment _environment;
         private readonly FileUploadHelper _fileUploadHelper;
         private readonly IReviewRepository _reviewRepo;
+        private readonly IBackgroundTaskQueue _queue;
+        private readonly ILogger<AdminController> _logger;
 
         public AdminController(AppDbContext context,
             IMapper mapper,
@@ -48,7 +50,9 @@ namespace Kemet.APIs.Controllers
             IGenericRepository<Review>reviewRepository,
             IWebHostEnvironment environment,
             FileUploadHelper fileUploadHelper,
-            IReviewRepository reviewRepo
+            IReviewRepository reviewRepo,
+            IBackgroundTaskQueue queue ,
+            ILogger<AdminController> logger
             )
         {
             _context = context;
@@ -62,6 +66,8 @@ namespace Kemet.APIs.Controllers
             _environment = environment;
             _fileUploadHelper = fileUploadHelper;
             _reviewRepo = reviewRepo;
+            _queue = queue;
+            _logger = logger;
         }
 
         [HttpPost("addplace")]
@@ -163,7 +169,7 @@ namespace Kemet.APIs.Controllers
                 }
 
                 await _context.SaveChangesAsync();
-
+                UpdateModelData();
                 return Ok(new
                 {
                     message = "Place added successfully",
@@ -289,7 +295,7 @@ namespace Kemet.APIs.Controllers
                 existingPlace.OpenTime = dto.OpenTime;
                 existingPlace.CloseTime = dto.CloseTime;
                 await _context.SaveChangesAsync();
-
+                UpdateModelData();
                 return Ok(new
                 {
                     message = "Place updated successfully",
@@ -338,7 +344,7 @@ namespace Kemet.APIs.Controllers
 
                 _context.Places.Remove(place);
                 await _context.SaveChangesAsync();
-
+                UpdateModelData();
                 return Ok(new { message = "Place and all related data deleted successfully." });
             }
             catch (Exception ex)
@@ -489,7 +495,7 @@ namespace Kemet.APIs.Controllers
                 }
 
                 await _context.SaveChangesAsync();
-
+                UpdateModelData();
                 return Ok(new
                 {
                     message = "Activity added successfully",
@@ -615,7 +621,7 @@ namespace Kemet.APIs.Controllers
                 }
 
                 await _context.SaveChangesAsync();
-
+                UpdateModelData();
                 return Ok(new
                 {
                     message = "Activity updated successfully",
@@ -919,6 +925,27 @@ namespace Kemet.APIs.Controllers
             {
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
+        }
+
+        private void UpdateModelData()
+        {
+            _queue.QueueBackgroundWorkItem(async ct =>
+            {
+                try
+                {
+                    using var client = new HttpClient();
+                    var requestUri = "https://web-production-bbbd2.up.railway.app/api/sync-from-dotnet";
+
+                    // POST with empty body
+                    await client.PostAsync(requestUri, new StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json"), ct)
+                                .ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    // Optional: log error so you know if the background call fails
+                    _logger.LogError(ex, "Fire-and-forget POST failed.");
+                }
+            });
         }
     }
 }

@@ -4,7 +4,7 @@
 
 namespace Kemet.Repository.Data.Migrations
 {
-    public partial class fixpaymentproblems : Migration
+    public partial class fixpaymenthistory : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

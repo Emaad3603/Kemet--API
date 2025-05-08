@@ -82,6 +82,7 @@ namespace Kemet.APIs.Controllers
                 plans.TravelAgencyName = travelAgency.UserName;
                 plans.TravelAgencyAddress = travelAgency.Address;
                 plans.TravelAgencyDescription = travelAgency.Description;
+                plans.MoreImagesUrl = images;
                 var Result = plans;
                 return Ok(Result);
             }

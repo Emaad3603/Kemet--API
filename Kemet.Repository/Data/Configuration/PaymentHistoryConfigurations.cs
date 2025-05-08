@@ -40,7 +40,7 @@ namespace Kemet.Repository.Data.Configuration
 
             builder.Property(ph => ph.StripeEventId)
                 .HasMaxLength(100)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.Property(ph => ph.ErrorMessage)
                 .HasMaxLength(500)

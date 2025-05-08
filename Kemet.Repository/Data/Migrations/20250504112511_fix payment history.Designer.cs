@@ -13,8 +13,8 @@ using NetTopologySuite.Geometries;
 namespace Kemet.Repository.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250426145754_AddCustomEntities")]
-    partial class AddCustomEntities
+    [Migration("20250504112511_fix payment history")]
+    partial class fixpaymenthistory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

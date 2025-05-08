@@ -125,24 +125,41 @@ namespace Kemet.APIs.Controllers
                     var images = await _context.PlaceImages.Where(p => p.PlaceId == place.Id).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").FirstOrDefaultAsync();               
                     place.PictureUrl = images;
                 }
-                for (int i = 0; i < 47; i++)
+                foreach (var place in places)
                 {
                     var test = new B7B7DTO();
-                    test.PlaceId = places[i].Id;
-                    test.CategoryName = await _context.Categories.Where(c => c.Id == places[i].CategoryId).Select(c => c.CategoryName).FirstOrDefaultAsync();
-                    test.Name = places[i].Name;
-                    test.CulturalTips = places[i].CultureTips;
-                    test.Address = await _context.Locations.Where(l => l.Id == places[i].locationId).Select(l => l.Address).FirstOrDefaultAsync();
-                    test.Duration = places[i].Duration;
-                    test.CloseTime = places[i].CloseTime;
-                    test.OpenTime = places[i].OpenTime;
-                    test.Description = places[i].Description;
-                    test.imageURLs = places[i].PictureUrl;
-                    test.LocationLink = await _context.Locations.Where(l => l.Id == places[i].locationId).Select(l => l.LocationLink).FirstOrDefaultAsync();
-                    test.TouristAdult = await _context.Prices.Where(p => p.Id == places[i].priceId).Select(p => p.TouristAdult).FirstOrDefaultAsync();
-                    test.EgyptianAdult = await _context.Prices.Where(p => p.Id == places[i].priceId).Select(p => p.EgyptianAdult).FirstOrDefaultAsync();
+                    test.PlaceId = place.Id;
+                    test.CategoryName = await _context.Categories
+                        .Where(c => c.Id == place.CategoryId)
+                        .Select(c => c.CategoryName)
+                        .FirstOrDefaultAsync();
+                    test.Name = place.Name;
+                    test.CulturalTips = place.CultureTips;
+                    test.Address = await _context.Locations
+                        .Where(l => l.Id == place.locationId)
+                        .Select(l => l.Address)
+                        .FirstOrDefaultAsync();
+                    test.Duration = place.Duration;
+                    test.CloseTime = place.CloseTime;
+                    test.OpenTime = place.OpenTime;
+                    test.Description = place.Description;
+                    test.imageURLs = place.PictureUrl;
+                    test.LocationLink = await _context.Locations
+                        .Where(l => l.Id == place.locationId)
+                        .Select(l => l.LocationLink)
+                        .FirstOrDefaultAsync();
+                    test.TouristAdult = await _context.Prices
+                        .Where(p => p.Id == place.priceId)
+                        .Select(p => p.TouristAdult)
+                        .FirstOrDefaultAsync();
+                    test.EgyptianAdult = await _context.Prices
+                        .Where(p => p.Id == place.priceId)
+                        .Select(p => p.EgyptianAdult)
+                        .FirstOrDefaultAsync();
+
                     B7B7places.Add(test);
                 }
+
                 return Ok(B7B7places);
             }
             catch (Exception ex)

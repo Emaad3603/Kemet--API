@@ -66,9 +66,6 @@ namespace Kemet.Repository.Data
 
         public DbSet<PaymentHistory> PaymentHistories { get; set; }
 
-        // Add DbSet for your custom entities like Customer, Admin, TravelAgency, etc.
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<TravelAgency> TravelAgencies { get; set; }
-        public DbSet<Admin> Admins { get; set; }
+        
     }
 }

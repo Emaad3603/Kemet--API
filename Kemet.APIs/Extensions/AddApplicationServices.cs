@@ -31,6 +31,8 @@ namespace Kemet.APIs.Extensions
             services.AddHttpClient<IAiService, AiService>();
             services.AddScoped<IAiService, AiService>();
             services.AddScoped<IPaymentService, PaymentService>();
+            services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
+            services.AddHostedService<QueuedHostedService>();
 
             services.Configure<ApiBehaviorOptions>(options =>
             {

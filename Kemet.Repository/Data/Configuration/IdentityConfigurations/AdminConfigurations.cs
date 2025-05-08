@@ -20,13 +20,6 @@ namespace Kemet.Repository.Data.Configuration.IdentityConfigurations
                        v => v.ToDateTime(TimeOnly.MinValue),
                        v => DateOnly.FromDateTime(v));
 
-            builder.Property(c => c.Location)
-                  .HasColumnType("geography")
-                  .IsRequired(false);
-
-
-
-
         }
     }
 }
