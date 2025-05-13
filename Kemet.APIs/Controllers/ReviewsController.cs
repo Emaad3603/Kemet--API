@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.DTOs.ReviewsDTOs;
 using Kemet.APIs.Errors;
@@ -37,18 +37,17 @@ namespace Kemet.APIs.Controllers
         public ReviewsController(IReviewRepository reviewRepo
             , IMapper mapper
             , UserManager<AppUser> userManager
-            ,AppDbContext context
+            , AppDbContext context
             , IWebHostEnvironment environment
             , IConfiguration configuration)
         {
             _reviewRepo = reviewRepo;
             _mapper = mapper;
             _userManager = userManager;
-           _context = context;
+            _context = context;
             _environment = environment;
             _configuration = configuration;
         }
-
 
         [HttpPost]
         public async Task<IActionResult> AddReview([FromForm] ReviewDto reviewDto)
@@ -64,7 +63,6 @@ namespace Kemet.APIs.Controllers
                 if (reviewDto == null)
                     return BadRequest("Invalid review data.");
 
-
                 DateOnly parsedDate;
                 if (!DateOnly.TryParse(reviewDto.Date, out parsedDate))
                 {
@@ -72,7 +70,6 @@ namespace Kemet.APIs.Controllers
                 }
 
                 string imageUrl = null;
-               
 
                 // Handle image upload
                 if (reviewDto.Image != null)
@@ -80,10 +77,10 @@ namespace Kemet.APIs.Controllers
                     var fileHelper = new FileUploadHelper(_environment);
                     imageUrl = await fileHelper.SaveFileAsync(reviewDto.Image, "uploads/reviews");
                 }
-                
-                
+
                 var review = new Review
-                {   UserId = user.Id,
+                {
+                    UserId = user.Id,
                     USERNAME = user.UserName,
                     UserImageURl = $"{_configuration["BaseUrl"]}{user.ImageURL}",
                     Rating = reviewDto.Rating,
@@ -91,18 +88,15 @@ namespace Kemet.APIs.Controllers
                     ActivityId = reviewDto.ActivityId,
                     ImageUrl = imageUrl,
                     PlaceId = reviewDto.PlaceId,
-                    TravelAgencyPlanId = reviewDto.TravelAgencyPlanId ,
+                    TravelAgencyPlanId = reviewDto.TravelAgencyPlanId,
                     TravelAgencyID = reviewDto.TravelAgencyId,
-                    ReviewTitle = reviewDto.ReviewTitle ,
-                    VisitorType = reviewDto.VisitorType ,
-                    //Date = reviewDto.Date
-                    //  Date = DateTime.UtcNow
+                    ReviewTitle = reviewDto.ReviewTitle,
+                    VisitorType = reviewDto.VisitorType,
                     Date = parsedDate
                 };
 
-               await _reviewRepo.AddReviewAsync(review);
+                await _reviewRepo.AddReviewAsync(review);
 
-            
                 return Ok("Review added successfully!");
             }
             catch (Exception ex)
@@ -111,7 +105,7 @@ namespace Kemet.APIs.Controllers
             }
         }
 
-       [HttpPut("{reviewId}")]
+        [HttpPut("{reviewId}")]
         public async Task<IActionResult> UpdateReview(int reviewId, [FromForm] ReviewDto reviewDto)
         {
             try
@@ -180,14 +174,8 @@ namespace Kemet.APIs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
     }
-
-  
-
 }
-
-
-

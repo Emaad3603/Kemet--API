@@ -29,7 +29,7 @@ namespace Kemet.Repository.Data.DataSeed.Identity
         {
             // Ensure roles are created
             await SeedRolesAsync(roleManager);
-
+            var x = await _userManager.Users.CountAsync();
             if (await _userManager.Users.CountAsync() == 0)
             {
                 // Seed a Customer

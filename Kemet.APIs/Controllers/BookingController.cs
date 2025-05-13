@@ -1,4 +1,5 @@
 ﻿using Kemet.APIs.DTOs.BookingDTOs;
+using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.RepositoriesInterFaces;
@@ -59,15 +60,16 @@ namespace Kemet.APIs.Controllers
             if (book.ReserveDate < today) { return BadRequest("this date isn't correct"); }
 
             var ORiginalPlan = await _context.TravelAgencyPlans.Where(p => p.Id == book.TravelAgencyPlanID).Include(p=>p.Price).FirstOrDefaultAsync();
+            if (ORiginalPlan?.Price == null) return BadRequest("Price information not found for the plan");
 
             string PRiceCategory;
 
             var priceMapping = new Dictionary<decimal, string>
                                 {
-                                    { (decimal)ORiginalPlan.Price.EgyptianStudent, "EgyptianStudent" },
-                                    { (decimal)ORiginalPlan.Price.EgyptianAdult, "EgyptianAdult" },
-                                    { (decimal)ORiginalPlan.Price.TouristAdult, "TouristAdult" },
-                                    { (decimal)ORiginalPlan.Price.TouristStudent, "TouristStudent" }
+                                    { (decimal)(ORiginalPlan.Price.EgyptianStudent ?? 0), "EgyptianStudent" },
+                                    { (decimal)(ORiginalPlan.Price.EgyptianAdult ?? 0), "EgyptianAdult" },
+                                    { (decimal)(ORiginalPlan.Price.TouristAdult ?? 0), "TouristAdult" },
+                                    { (decimal)(ORiginalPlan.Price.TouristStudent ?? 0), "TouristStudent" }
                                 };
 
             PRiceCategory = priceMapping.TryGetValue(book.BookedPrice, out var category) ? category : "Unknown";
@@ -80,34 +82,45 @@ namespace Kemet.APIs.Controllers
                 NumOfPeople = book.NumOfPeople,
                 ReserveDate = book.ReserveDate,
                 ReserveType = book.ReserveType,
-                TravelAgencyName = BookedAgency.UserName ,
+                TravelAgencyName = BookedAgency.UserName,
                 BookedPrice = book.BookedPrice,
-
             };
             await _bookingRepository.AddAsync(trip);
-
-            trip.Customer = null;
-            trip.travelAgencyPlan.TravelAgency = null;
             
-            return Ok(trip);
+            return Ok(new { 
+                success = true,
+                message = "Booking created successfully",
+                bookingId = trip.Id ,
+                numOfPeople = book.NumOfPeople,
+                reserveType = book.ReserveType,
+                reserveDate = book.ReserveDate,
+                visitorType = PRiceCategory.ToString(),
+            });
         }
 
         [HttpGet("GetUserBookedTrips")]
         public async Task<ActionResult<ICollection<BookedTrips>>> GetUserBookedTrips()
         {
-            // Check if the user is signed in
-            string userEmail = User.FindFirstValue(ClaimTypes.Email);
-
-            // Fetch the user's location from the database
-            var user = new Customer();
-            if (userEmail != null)
+            try
             {
-                 user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+                // Check if the user is signed in
+                string userEmail = User.FindFirstValue(ClaimTypes.Email);
+
+                // Fetch the user's location from the database
+                var user = new Customer();
+                if (userEmail != null)
+                {
+                     user = await _userManager.FindByEmailAsync(userEmail) as Customer;
+                }
+                if (user == null) return NotFound("User not found.");
+                var trips =  await  _bookingServices.getUserBookedtripsAsync(user.Id);
+                if (trips == null) return NotFound();
+                return Ok(trips);
             }
-            if (user == null) return NotFound("User not found.");
-            var trips =  await  _bookingServices.getUserBookedtripsAsync(user.Id);
-            if (trips == null) return NotFound();
-            return Ok(trips);
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using Kemet.APIs.DTOs.ReviewsDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Specifications.ActivitySpecs;
@@ -23,27 +24,29 @@ namespace Kemet.APIs.Controllers
    
     public class ActivitiesController : BaseApiController
     {
-        private readonly IGenericRepository<Activity> _activityRepo;
+        
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly IHomeServices _homeServices;
         private readonly IConfiguration _configuration;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ActivitiesController(
-            IGenericRepository<Activity>ActivityRepo
-            ,IMapper mapper
+        public ActivitiesController(         
+            IMapper mapper
             ,AppDbContext context
             , UserManager<AppUser> userManager
             ,IHomeServices homeServices
-            ,IConfiguration configuration)
+            ,IConfiguration configuration 
+            ,IUnitOfWork unitOfWork)
         {
-            _activityRepo = ActivityRepo;
+            
             _mapper = mapper;
             _context = context;
             _userManager = userManager;
             _homeServices = homeServices;
             _configuration = configuration;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
@@ -52,16 +55,16 @@ namespace Kemet.APIs.Controllers
             try
             {
                 var resultActivities = await _homeServices.GetActivities();
-                var result =await  MapActivitiesWithImages(resultActivities);
+                var result =await  MapActivitiesWithImages(resultActivities.Take(10).ToList());
 
                 return Ok(result);
-
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
+
         [HttpGet("ActivitiesInCairo")]
         public async Task<ActionResult<ActivityDTOs>> GetActivitesInCairo()
         {
@@ -71,13 +74,13 @@ namespace Kemet.APIs.Controllers
                 var result = await MapActivitiesWithImages(resultActivities);
                 if(result == null) { return NotFound(new ApiResponse(404, "No activities found within the maximum radius.")); }
                 return Ok(result);
-
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
+
         [HttpGet("ActivitiesHiddenGems")]
         public async Task<ActionResult<ActivityDTOs>> GetActivitesHiddenGems()
         {
@@ -87,13 +90,13 @@ namespace Kemet.APIs.Controllers
                 var result = await MapActivitiesWithImages(resultActivities);
                 if (result == null) { return NotFound(new ApiResponse(404, "No activities found within the maximum radius.")); }
                 return Ok(result);
-
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
+
         [HttpGet("ActivitiesTopRated")]
         public async Task<ActionResult<ActivityDTOs>> GetActivitesTopRated()
         {
@@ -103,14 +106,12 @@ namespace Kemet.APIs.Controllers
                 var result = await MapActivitiesWithImages(resultActivities);
                 if (result == null) { return NotFound(new ApiResponse(404, "No activities found within the maximum radius.")); }
                 return Ok(result);
-
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
-
 
         [HttpGet("NearbyActivities")] // /api/Activities  Get
         public async Task<ActionResult<IEnumerable<ActivityDTOs>>> GetNearbyActivity()
@@ -154,7 +155,6 @@ namespace Kemet.APIs.Controllers
             }
         }
 
-
         [HttpGet("GetActivityByID")]
         public async Task<ActionResult<DetailedActivityDTOs>> GetActivityById(int activityID)
         {
@@ -162,7 +162,7 @@ namespace Kemet.APIs.Controllers
             {
                 // Fetch activity using specification pattern
                 var spec = new ActivityWithPlacesSpecifications(activityID);
-                var activity = await _activityRepo.GetWithSpecAsync(spec);
+                var activity = await _unitOfWork.Repository<Activity>().GetWithSpecAsync(spec);
 
                 if (activity == null)
                 {
@@ -174,7 +174,7 @@ namespace Kemet.APIs.Controllers
 
                 // Fetch and format reviews
                 activityDto.Reviews = await GetFormattedReviews(activityID);
-
+                activityDto.CategoryName = await _context.Categories.Where(c=>c.Id == activity.CategoryId).Select(c=>c.CategoryName).FirstOrDefaultAsync();
                 return Ok(activityDto);
             }
             catch (Exception ex)
@@ -183,86 +183,135 @@ namespace Kemet.APIs.Controllers
             }
         }
 
-        // Helper method to fetch and format reviews
-        private async Task<List<Review>> GetFormattedReviews(int activityID)
-        {
-            var reviews = await _context.Reviews
-                .Where(r => r.ActivityId == activityID)
-                .Select(r => new Review
-                {
-                    Id = r.Id,
-                    ActivityId = r.ActivityId,
-                    Rating = r.Rating,
-                    Comment = r.Comment,
-                    ImageUrl = r.ImageUrl != null ? $"{_configuration["BaseUrl"]}{r.ImageUrl}" : null ,
-                    ReviewTitle = r.ReviewTitle,
-                    Date = r.Date ,
-                    UserImageURl = r.UserImageURl,
-                    CreatedAt = r.CreatedAt,
-                    VisitorType = r.VisitorType,
-                    USERNAME = r.USERNAME
-                })
-                .ToListAsync();
-
-            return reviews;
-        }
-
         [HttpGet("B7B7")]
         public async Task<IActionResult> B7B7()
         {
-            var places = await _context.Activities.ToListAsync();
-            var B7B7places = new List<B7B7ActivityDto>();
-            foreach (var place in places)
+            try
             {
-                var images = await _context.ActivityImages.Where(p => p.ActivityId == place.Id).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").FirstOrDefaultAsync();
-                place.PictureUrl = images;
+                var Activities = await _context.Activities.ToListAsync();
+                var B7B7Activities = new List<B7B7ActivityDto>();
+                foreach (var Activity in Activities)
+                {
+                    var images = await _context.ActivityImages.Where(p => p.ActivityId == Activity.Id).Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").FirstOrDefaultAsync();
+                    Activity.PictureUrl = images;
+                }
+                foreach (var Activity in Activities)
+                {
+                    var test = new B7B7ActivityDto
+                    {
+                        ActivityId = Activity.Id,
+                        CategoryName = await _context.Categories
+                            .Where(c => c.Id == Activity.CategoryId)
+                            .Select(c => c.CategoryName)
+                            .FirstOrDefaultAsync(),
+                        Name = Activity.Name,
+                        CulturalTips = Activity.CulturalTips,
+                        Address = await _context.Locations
+                            .Where(l => l.Id == Activity.LocationId)
+                            .Select(l => l.Address)
+                            .FirstOrDefaultAsync(),
+                        Duration = Activity.Duration,
+                        CloseTime = Activity.CloseTime,
+                        OpenTime = Activity.OpenTime,
+                        Description = Activity.Description,
+                        imageURL = Activity.PictureUrl,
+                        LocationLink = await _context.Locations
+                            .Where(l => l.Id == Activity.LocationId)
+                            .Select(l => l.LocationLink)
+                            .FirstOrDefaultAsync(),
+                        TouristAdult = await _context.Prices
+                            .Where(p => p.Id == Activity.priceId)
+                            .Select(p => p.TouristAdult)
+                            .FirstOrDefaultAsync(),
+                        EgyptianAdult = await _context.Prices
+                            .Where(p => p.Id == Activity.priceId)
+                            .Select(p => p.EgyptianAdult)
+                            .FirstOrDefaultAsync()
+                    };
+
+                    B7B7Activities.Add(test);
+                }
+                return Ok(B7B7Activities);
             }
-            for (int i = 0; i < 47; i++)
+            catch (Exception ex)
             {
-                var test = new B7B7ActivityDto();
-                test.ActivityId = places[i].Id;
-                test.CategoryName = await _context.Categories.Where(c => c.Id == places[i].CategoryId).Select(c => c.CategoryName).FirstOrDefaultAsync();
-                test.Name = places[i].Name;
-                test.CulturalTips = places[i].CulturalTips;
-                test.Address = await _context.Locations.Where(l => l.Id == places[i].LocationId).Select(l => l.Address).FirstOrDefaultAsync();
-                test.Duration = places[i].Duration;
-                test.CloseTime = places[i].CloseTime;
-                test.OpenTime = places[i].OpenTime;
-                test.Description = places[i].Description;
-                test.imageURL = places[i].PictureUrl;
-                test.LocationLink = await _context.Locations.Where(l => l.Id == places[i].LocationId).Select(l => l.LocationLink).FirstOrDefaultAsync();
-                test.TouristAdult = await _context.Prices.Where(p => p.Id == places[i].priceId).Select(p => p.TouristAdult).FirstOrDefaultAsync();
-                test.EgyptianAdult = await _context.Prices.Where(p => p.Id == places[i].priceId).Select(p => p.EgyptianAdult).FirstOrDefaultAsync();
-                B7B7places.Add(test);
+                return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
-            return Ok(B7B7places);
+        }
+
+        [HttpGet("badrequest")]
+        public async Task<ActionResult> GetBadRequest()
+        {
+            return BadRequest(new ApiResponse(400));
+        }
+
+        [HttpGet("unauthorized")]
+        public async Task<ActionResult> GetUnauthorizedError()
+        {
+            return Unauthorized(new ApiResponse(401));
         }
 
         private async Task<List<ActivityDTOs>> MapActivitiesWithImages(List<Activity> activities)
         {
-            // Map activities to DTOs
-            var activitiesDto = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activities).ToList();
-
-            // Fetch all images in one query
-            var activityImages = await _context.ActivityImages
-                .Where(img => activities.Select(a => a.Id).Contains(img.ActivityId))
-                .ToListAsync();
-
-            // Group images by ActivityId
-            var imagesDict = activityImages
-                .GroupBy(img => img.ActivityId)
-                .ToDictionary(g => g.Key, g => g.Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToList());
-
-            // Assign images to DTOs
-            foreach (var activity in activitiesDto)
+            try
             {
-                activity.imageURLs = imagesDict.ContainsKey(activity.ActivityId) ? imagesDict[activity.ActivityId] : new List<string>();
-            }
+                // Map activities to DTOs
+                var activitiesDto = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTOs>>(activities).ToList();
+                
+                // Fetch all images in one query
+                var activityImages = await _context.ActivityImages
+                    .Where(img => activities.Select(a => a.Id).Contains(img.ActivityId))
+                    .ToListAsync();
 
-            // Return only activities that have images
-            return activitiesDto.Where(a => a.imageURLs.Any()).ToList();
+                // Group images by ActivityId
+                var imagesDict = activityImages
+                    .GroupBy(img => img.ActivityId)
+                    .ToDictionary(g => g.Key, g => g.Select(img => $"{_configuration["BaseUrl"]}{img.ImageUrl}").ToList());
+
+                // Assign images to DTOs
+                foreach (var activity in activitiesDto)
+                {
+                    activity.imageURLs = imagesDict.ContainsKey(activity.ActivityId) ? imagesDict[activity.ActivityId] : new List<string>();
+                }
+
+                // Return only activities that have images
+                return activitiesDto.Where(a => a.imageURLs.Any()).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error mapping activities with images: {ex.Message}", ex);
+            }
+        }
+
+        // Helper method to fetch and format reviews
+        private async Task<List<Review>> GetFormattedReviews(int activityID)
+        {
+            try
+            {
+                var reviews = await _context.Reviews
+                    .Where(r => r.ActivityId == activityID)
+                    .Select(r => new Review
+                    {
+                        Id = r.Id,
+                        ActivityId = r.ActivityId,
+                        Rating = r.Rating,
+                        Comment = r.Comment,
+                        ImageUrl = r.ImageUrl != null ? $"{_configuration["BaseUrl"]}{r.ImageUrl}" : null ,
+                        ReviewTitle = r.ReviewTitle,
+                        Date = r.Date ,
+                        UserImageURl = r.UserImageURl,
+                        CreatedAt = r.CreatedAt,
+                        VisitorType = r.VisitorType,
+                        USERNAME = r.USERNAME
+                    })
+                    .ToListAsync();
+
+                return reviews;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error fetching and formatting reviews: {ex.Message}", ex);
+            }
         }
     }
-    
-}                       
-                        
+}

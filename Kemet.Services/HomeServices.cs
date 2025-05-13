@@ -71,7 +71,7 @@ namespace Kemet.Services
         public async Task<List<Activity>> GetActivities()
         {
            var activites = await _activityRepo.GetAllAsync();
-           var result = activites.Take(20).ToList();
+           var result = activites.ToList();
            return result;
         }
 
@@ -153,7 +153,7 @@ namespace Kemet.Services
         public async Task<List<Place>> GetPlaces()
         {
           var places =   await   _placesRepo.GetAllAsync();
-          var result =  places.Take(10).ToList();
+          var result =  places.ToList();
           return result;
         }
 

@@ -10,20 +10,7 @@ namespace Kemet.Repository.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "AspNetRoles",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
-
+           
             migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
@@ -156,7 +143,7 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.priceId,
                         principalTable: "Prices",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -175,6 +162,12 @@ namespace Kemet.Repository.Data.Migrations
                     SSN = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nationality = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Customer_SSN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_Nationality = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -253,13 +246,13 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.PlaceId,
                         principalTable: "Places",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Activities_Prices_priceId",
                         column: x => x.priceId,
                         principalTable: "Prices",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -469,7 +462,7 @@ namespace Kemet.Repository.Data.Migrations
                         column: x => x.priceId,
                         principalTable: "Prices",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(

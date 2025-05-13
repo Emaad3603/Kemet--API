@@ -14,10 +14,10 @@ namespace Kemet.Core.Entities
         public string Status { get; set; } // Paid, Failed, Refunded
         public decimal Amount { get; set; }
         public string Currency { get; set; }
-        public string StripePaymentId { get; set; }
-        public string StripeEventId { get; set; }
-        public string ErrorMessage { get; set; }
+        public string? StripePaymentId { get; set; }
+        public string? StripeEventId { get; set; }
+        public string? ErrorMessage { get; set; }
         public DateTime EventDate { get; set; } = DateTime.UtcNow;
-        public string Metadata { get; set; } // Additional payment details in JSON format
+        public string? Metadata { get; set; } // Additional payment details in JSON format
     }
 } 

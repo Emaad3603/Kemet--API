@@ -11,5 +11,6 @@ namespace Kemet.Core.Services.Interfaces
     public interface IBookingServices
     {
         Task<ICollection<BookedTrips>> getUserBookedtripsAsync(string UserID);
+        Task<BookedTrips> getBookedTrip(int bookingID);
     }
 }

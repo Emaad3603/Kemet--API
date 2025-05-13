@@ -75,11 +75,14 @@ namespace Kemet.APIs.Controllers
                     fetchedReview.TravelAgencyPlan = null;
                     fetchedReview.ImageUrl = $"{_configuration["BaseUrl"]}{fetchedReview.ImageUrl}";
                 }
+                var images =  await  _context.TravelAgencyPlanImages.Where(ti=>ti.TravelAgencyPlanID == PlanId).Select(t => $"{_configuration["BaseUrl"]}{t.ImageURl}").ToListAsync();
+
                 plans.Reviews = fetchedReviews;
                 var travelAgency = await _userManager.FindByIdAsync(plan.TravelAgencyId) as TravelAgency;
                 plans.TravelAgencyName = travelAgency.UserName;
                 plans.TravelAgencyAddress = travelAgency.Address;
                 plans.TravelAgencyDescription = travelAgency.Description;
+                plans.MoreImagesUrl = images;
                 var Result = plans;
                 return Ok(Result);
             }

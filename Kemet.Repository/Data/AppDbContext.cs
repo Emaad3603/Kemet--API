@@ -65,5 +65,7 @@ namespace Kemet.Repository.Data
         public DbSet<TravelAgencyPlanImages> TravelAgencyPlanImages { get; set; }
 
         public DbSet<PaymentHistory> PaymentHistories { get; set; }
+
+        
     }
 }

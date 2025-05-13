@@ -103,5 +103,15 @@ namespace Kemet.Repository.Repositories
              .Where(r => r.TravelAgencyPlanId == planId)
              .ToListAsync();
         }
+        
+        public async Task<IEnumerable<Review>> GetAllReviewsForAdminAsync()
+        {
+            return await _context.Set<Review>()
+                .Include(r => r.Place)
+                .Include(r => r.Activity)
+                .Include(r => r.TravelAgencyPlan)
+                .OrderByDescending(r => r.CreatedAt)
+                .ToListAsync();
+        }
     }
 }

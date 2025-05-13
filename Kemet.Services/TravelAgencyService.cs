@@ -30,26 +30,51 @@ namespace Kemet.Services
 
         public async Task<ICollection<TravelAgencyBookedCustomersModelView>> GetCustomersAsync(string TravelAgencyName)
         {
-            var booking = await _context.BookedTrips
-                                        .Where(b => b.TravelAgencyName == TravelAgencyName)
-                                        .GroupBy(b => b.CustomerID)
-                                        .Select(g => g.OrderByDescending(b => b.CreatedAt).FirstOrDefault()) // Or use FirstOrDefault() or Max() depending on preference
-                                        .Select(b => new TravelAgencyBookedCustomersModelView()
-                                        {
-                                            PlanName = b.travelAgencyPlan.PlanName,
-                                            PlanID = b.travelAgencyPlan.Id,
-                                            BookedCategory = b.BookedCategory,
-                                            BookingId = b.Id,
-                                            CustomerCountry = b.Customer.Country,
-                                            CustomerEmail = b.Customer.Email,
-                                            CustomerName = b.Customer.UserName,
-                                            CustomerNumber = b.Customer.PhoneNumber,
-                                            Date = b.ReserveDate,
-                                            CreatedAt = b.CreatedAt
-                                        })
-                                        .ToListAsync();
+            //var booking = await _context.BookedTrips
+            //                            .Where(b => b.TravelAgencyName == TravelAgencyName)
+            //                            .GroupBy(b => b.CustomerID)
+            //                            .Select(g => g.OrderByDescending(b => b.CreatedAt).FirstOrDefault()) // Or use FirstOrDefault() or Max() depending on preference
+            //                            .Select(b => new TravelAgencyBookedCustomersModelView()
+            //                            {
+            //                                PlanName = b.travelAgencyPlan.PlanName,
+            //                                PlanID = b.travelAgencyPlan.Id,
+            //                                BookedCategory = b.BookedCategory,
+            //                                BookingId = b.Id,
+            //                                CustomerCountry = b.Customer.Country,
+            //                                CustomerEmail = b.Customer.Email,
+            //                                CustomerName = b.Customer.UserName,
+            //                                CustomerNumber = b.Customer.PhoneNumber,
+            //                                Date = b.ReserveDate,
+            //                                CreatedAt = b.CreatedAt
+            //                            })
+            //                            .ToListAsync();
+                         var bookings = await _context.BookedTrips
+                 .Where(b => b.TravelAgencyName == TravelAgencyName)
+                 .Include(b => b.Customer)
+                 .Include(b => b.travelAgencyPlan)
+                 .ToListAsync();
 
-            return booking;
+            var latestBookingsPerCustomer = bookings
+                .GroupBy(b => b.CustomerID)
+                .Select(g => g.OrderByDescending(b => b.CreatedAt).FirstOrDefault())
+                .Where(b => b != null)
+                .Select(b => new TravelAgencyBookedCustomersModelView
+                {
+                    PlanName = b.travelAgencyPlan.PlanName,
+                    PlanID = b.travelAgencyPlan.Id,
+                    BookedCategory = b.BookedCategory,
+                    BookingId = b.Id,
+                    CustomerCountry = b.Customer.Country,
+                    CustomerEmail = b.Customer.Email,
+                    CustomerName = b.Customer.UserName,
+                    CustomerNumber = b.Customer.PhoneNumber,
+                    Date = b.ReserveDate,
+                    CreatedAt = b.CreatedAt
+                })
+                .ToList();
+
+
+            return latestBookingsPerCustomer;
         }
 
         public async  Task<ICollection<TravelAgencyPlan>> GetTravelAgencyPlans(string travelAgencyID , IConfiguration configuration)

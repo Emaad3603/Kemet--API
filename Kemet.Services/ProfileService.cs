@@ -34,15 +34,13 @@ namespace Kemet.Services
         {
             try
             {
-                var currentTime = DateTime.UtcNow.TimeOfDay;
                 var random = new Random();
                 var allPlaces = await _context.Places.Include(p => p.Price).Include(p=>p.Images).ToListAsync();
-                var nearbyPlaces = new  List<Place>();
+                var nearbyPlaces = new List<Place>();
               
                 if (user is null || user.Location is null)
                 {
                     nearbyPlaces = await _context.Places.ToListAsync();
-
                 }
                 else
                 {
@@ -51,8 +49,7 @@ namespace Kemet.Services
                     // Initialize radius (10 km)
                     double radius = 10000; // 10 km in meters
 
-
-                    // Fetch places within the radius, increasing the radius until at least 5 places are found
+                    // Fetch places within the radius, increasing the radius until at least 10 places are found
                     while (nearbyPlaces.Count < 10)
                     {
                         // Fetch places within the current radius
@@ -73,40 +70,89 @@ namespace Kemet.Services
                         radius += 10000;
                     }
                 }
-                var openPlaces = GetOpenPlaces(nearbyPlaces);
-                var ranNumber = random.Next(1,openPlaces.Count() + 1);
-                /*var adventurePlace = openPlaces.Where(p => p.Id == ranNumber).FirstOrDefault();*/
-                var p = openPlaces.ToArray();
-                var adventurePlace = p[ranNumber];
+                
+                var openPlaces = GetOpenPlaces(nearbyPlaces).ToList();
+                
+                // Check if there are any open places
+                if (!openPlaces.Any())
+                {
+                    return new AdventureDTO(); // Return empty DTO if no open places
+                }
+                
+                // Get a random place directly from the list
+                var adventurePlace = openPlaces.ElementAt(random.Next(openPlaces.Count));
 
                 if (adventurePlace != null)
                 {
-                    var actvityLen = await _context.Activities.Where(a => a.PlaceId == adventurePlace.Id).CountAsync() + 1;
-                    var actvities = await _context.Activities.Where(a => a.PlaceId == adventurePlace.Id).Include(a => a.Price).Include(a=>a.Images).ToListAsync();
-                    ranNumber = random.Next(1,actvityLen);
-                    var A = actvities.ToArray();
-                    //var adventureActivity = actvities.Where(a => a.Id == ranNumber).FirstOrDefault();
-                    var adventureActivity = A[ranNumber];
-                    if (adventureActivity != null)
+                    // Get activities within a geographical radius of the selected place
+                    List<Activity> activitiesNearby;
+                    
+                    if (adventurePlace.Location != null)
                     {
-                        return new AdventureDTO()
-                        {
-                            Place = adventurePlace,
-                            Activity = adventureActivity,
-                        };
+                        // Get activities near the selected place by location
+                        activitiesNearby = await _context.Activities
+                            .Where(a => a.Location != null && 
+                                   a.Location.Coordinates.Distance(adventurePlace.Location.Coordinates) <= 10000) // 10km radius
+                            .Include(a => a.Price)
+                            .Include(a => a.Images)
+                            .ToListAsync();
                     }
+                    else
+                    {
+                        // If place has no location, get activities associated with nearby places
+                        var nearbyPlaceIds = openPlaces
+                            .Where(p => p.Id != adventurePlace.Id)
+                            .Take(5)
+                            .Select(p => p.Id)
+                            .ToList();
+                            
+                        activitiesNearby = await _context.Activities
+                            .Where(a => nearbyPlaceIds.Contains(a.PlaceId ?? 0) || a.PlaceId == adventurePlace.Id)
+                            .Include(a => a.Price)
+                            .Include(a => a.Images)
+                            .ToListAsync();
+                    }
+                    
+                    // If no nearby activities found, get any random activities
+                    if (!activitiesNearby.Any())
+                    {
+                        activitiesNearby = await _context.Activities
+                            .Include(a => a.Price)
+                            .Include(a => a.Images)
+                            .Take(20)
+                            .ToListAsync();
+                    }
+                    
+                    // If there are activities available
+                    if (activitiesNearby.Any())
+                    {
+                        // Get a random activity directly from the list
+                        var adventureActivity = activitiesNearby.ElementAt(random.Next(activitiesNearby.Count));
+                        
+                        if (adventureActivity != null)
+                        {
+                            return new AdventureDTO()
+                            {
+                                Place = adventurePlace,
+                                Activity = adventureActivity,
+                            };
+                        }
+                    }
+                    
                     return new AdventureDTO()
                     {
                         Place = adventurePlace,
                     };
                 }
+                
                 return new AdventureDTO();
-            }catch(Exception e)
-            {
-                return new AdventureDTO();
-               
             }
-
+            catch(Exception e)
+            {
+                // Log the exception for debugging
+                Console.WriteLine($"Adventure mode error: {e.Message}");
+                return new AdventureDTO();
+            }
         }
         public IEnumerable<Place> GetOpenPlaces(IEnumerable<Place> places)
         {

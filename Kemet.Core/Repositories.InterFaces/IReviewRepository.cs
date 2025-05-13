@@ -18,5 +18,7 @@ namespace Kemet.Core.Repositories.InterFaces
         Task<IReadOnlyList<Review>> GetReviewsForActivityAsync(int activityId);
 
         Task<IReadOnlyList<Review>> GetReviewsForTravelAgencyPlanAsync(int planId);
+
+        Task<IEnumerable<Review>> GetAllReviewsForAdminAsync();
     }
 }

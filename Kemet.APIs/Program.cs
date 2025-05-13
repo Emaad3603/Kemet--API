@@ -36,14 +36,18 @@ namespace Kemet.APIs
                 options.JsonSerializerOptions.Converters.Add(new DateOnlyConverter());
                 options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
                 options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+                options.JsonSerializerOptions.NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals;
             });
             // Bind Appsettings from configuration
-            
-            
+
+            var credentialsPath = Path.Combine(Directory.GetCurrentDirectory(), "secrets", "kemet-457321-0a298073023d.json");
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credentialsPath);
+
+
 
             // Register Appsettings for DI (for other parts of the app)
-            
-            
+
+
 
             //  var app = builder.Build();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -148,10 +152,10 @@ namespace Kemet.APIs
 
             try
             {
-                await _context.Database.MigrateAsync();
+                //await _context.Database.MigrateAsync();
 
                 var _userManager = services.GetRequiredService<UserManager<AppUser>>();
-
+                await IdentityDbContextSeed.SeedRolesAsync(roleManager);
                 await IdentityDbContextSeed.SeedUserAsync(_userManager, roleManager);
                 await CategoryDataSeed.SeedCategoriesAsync(_context);
 
