@@ -13,7 +13,8 @@ A full-stack tourism management platform built with ASP.NET Core Web API and Ang
 - **Entity-Relationship Design:** Normalized relational database schema with clear entity relationships, supporting scalability and maintainability.
 - **AI-Powered Personalization:** Integrated Gemini AI and a Python Flask API to generate personalized travel plans based on user preferences and historical data.
 - **AI Chatbot:** Implemented an AI chatbot using Copilot to provide real-time assistance and recommendations to users.
-
+- **Adventure Mode:** A spontaneous travel experience where the system suggests a completely random activity or place based on the user’s current location. This suggestion is not tied to their interests — it's meant to surprise the traveler.
+- **Language Assistant:** A real-time text and voice translation tool to help tourists communicate abroad, integrated as part of the app's assistant features.
 ## 🛠️ Technologies
 
 - **Backend:** ASP.NET Core Web API, Entity Framework Core, SQL Server
@@ -22,7 +23,9 @@ A full-stack tourism management platform built with ASP.NET Core Web API and Ang
 - **Authentication:** JWT Authentication, Role-based Authorization
 - **Architecture:** RESTful API design, Clean Architecture, Repository & Service patterns
 - **AI Integration:** Gemini AI, Python Flask API, Copilot AI
-
+- **geolocation:** via browser or mobile GPS.
+- **Google Cloud Translation API**
+- 
 ## 📊 Impact
 
 This project demonstrates advanced skills in full-stack development, secure payment processing, AI integration, and the design of scalable, user-centric tourism solutions.
