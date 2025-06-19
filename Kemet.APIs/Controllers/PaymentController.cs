@@ -52,15 +52,21 @@ namespace Kemet.APIs.Controllers
 
                 // Verify the booking belongs to the current user
                 var userEmail = User.FindFirstValue(ClaimTypes.Email);
-                if (booking.Customer.Email != userEmail)
+                if (string.IsNullOrEmpty(userEmail))
+                    return Unauthorized("User email not found in token");
+                if (booking.Customer == null || booking.Customer.Email != userEmail)
                     return Unauthorized("This booking does not belong to you");
 
-                var (success, message, clientSecret,paymentIntendId) = await _paymentService.CreatePaymentIntentAsync(booking);
-                
+                var result = await _paymentService.CreatePaymentIntentAsync(booking);
+                if (result.success == false)
+                    return StatusCode(500, new ApiResponse(500, "Payment service failed to respond"));
+
+                var (success, message, clientSecret, paymentIntendId) = result;
+
                 if (!success)
                     return BadRequest(message);
 
-                return Ok(new { clientSecret,paymentIntendId });
+                return Ok(new { clientSecret, paymentIntendId });
             }
             catch (Exception ex)
             {
@@ -180,6 +186,7 @@ namespace Kemet.APIs.Controllers
                         var res = new PaymentHistoryDto()
                         {
                             PlanName = ph.BookedTrips?.travelAgencyPlan?.PlanName ?? "Unknown Plan",
+                            PlanID = ph.BookedTrips?.travelAgencyPlan?.Id ?? 0,
                             BookingID = ph.BookedTripsId,
                             EventType = ph.EventType,
                             Amount = ph.Amount,

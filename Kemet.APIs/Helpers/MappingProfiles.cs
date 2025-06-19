@@ -144,6 +144,8 @@ namespace Kemet.APIs.Helpers
                   .ForMember(d => d.AverageRating, o => o.MapFrom(s => s.AverageRating))
                   .ForMember(d => d.RatingsCount, o => o.MapFrom(s => s.RatingsCount))
                   .ForMember(d => d.Reviews, o => o.MapFrom(s => s.Reviews))
+                  .ForMember(d=>d.HalfBoardPriceAddittion , o=>o.MapFrom(s=>s.HalfBoardPriceAddittion))
+                  .ForMember(d=>d.FullBoardPriceAddition , o=>o.MapFrom(s=>s.FullBoardPriceAddition))
                   .ReverseMap();
 
             CreateMap<IEnumerable<TravelAgencyPlan>, IEnumerable<TravelAgencyPlanDTOs>>()
@@ -152,7 +154,7 @@ namespace Kemet.APIs.Helpers
                   Name = a.PlanName, 
                   AverageRating = a.AverageRating ,
                   RatingsCount = a.RatingsCount ,
-              
+                 
                   
               }).ToList());
 
@@ -231,6 +233,8 @@ namespace Kemet.APIs.Helpers
                  .ForMember(d => d.TouristAdult, o => o.MapFrom(s => s.Price.TouristAdult))
                  .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
                  .ForMember(d=>d.planLocation ,o=>o.MapFrom(o => o.PlanLocation))
+                  .ForMember(d => d.HalfBoardPriceAddittion, o => o.MapFrom(s => s.HalfBoardPriceAddittion))
+                  .ForMember(d => d.FullBoardPriceAddition, o => o.MapFrom(s => s.FullBoardPriceAddition))
                  .ReverseMap();
            
         }

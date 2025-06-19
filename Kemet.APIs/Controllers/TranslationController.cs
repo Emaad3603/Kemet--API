@@ -13,7 +13,7 @@ namespace Kemet.APIs.Controllers
         public async Task<IActionResult> Translate([FromBody] TranslateRequest request)
         {
             // Path to your credentials JSON (same one you used in Program.cs)
-            var credentialsPath = Path.Combine(Directory.GetCurrentDirectory(), "secrets", "kemet-457321-0a298073023d.json");
+            var credentialsPath = Path.Combine(Directory.GetCurrentDirectory(), "secrets", "kemet-463013-589b203a5de7.json");
 
             // Read the project_id from the JSON file
             var json = await System.IO.File.ReadAllTextAsync(credentialsPath);

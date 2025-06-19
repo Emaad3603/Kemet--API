@@ -9,6 +9,7 @@ using Kemet.Repository.Repositories;
 using Kemet.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using StackExchange.Redis;
 
 namespace Kemet.APIs.Extensions
 {
@@ -33,7 +34,7 @@ namespace Kemet.APIs.Extensions
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
             services.AddHostedService<QueuedHostedService>();
-
+            services.AddScoped<ICacheRepository, CacheRepository>();
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = (actionContext) =>

@@ -15,5 +15,7 @@ namespace Kemet.APIs.DTOs.BookingDTOs
         public DateOnly ReserveDate { get; set; }
 
         public decimal BookedPrice { get; set; }
+
+        public decimal FullBookedPrice { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.Entities.ModelView;
+using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Services;
 using Microsoft.AspNetCore.Hosting;
@@ -21,13 +22,15 @@ namespace Kemet.APIs.Controllers
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IProfileService _profileService;
+        private readonly ICacheRepository _cache;
 
         public TravelAgencyController(
             UserManager<AppUser> userManager ,
             ITravelAgencyService travelAgencyService ,
             IConfiguration configuration ,
             IWebHostEnvironment webHostEnvironment,
-            IProfileService profileService 
+            IProfileService profileService ,
+            ICacheRepository cache
             )
         {
             _userManager = userManager;
@@ -35,6 +38,7 @@ namespace Kemet.APIs.Controllers
             _configuration = configuration;
             _webHostEnvironment = webHostEnvironment;
             _profileService = profileService;
+            _cache = cache;
         }
         [HttpGet]
         public async Task<TravelAgencyProfileDto> GetTravelAgnecy (string travelAgencyName)
@@ -282,9 +286,14 @@ namespace Kemet.APIs.Controllers
 
             if (!result.IsSuccess)
                 return BadRequest(result.Message);
-
+            await PlansInvalidateCacheAsync();
             return Ok(result.Message);
         }
 
+        private async Task PlansInvalidateCacheAsync()
+        {
+            await _cache.RemoveAsync("Plans_list");
+
+        }
     }
 }

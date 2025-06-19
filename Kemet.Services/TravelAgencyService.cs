@@ -250,6 +250,8 @@ namespace Kemet.Services
                     PlanLocation = dto.PlanLocation,
                     priceId = price.Id,
                     Price = price,
+                    HalfBoardPriceAddittion = dto.HalfBoardPriceAddittion,
+                    FullBoardPriceAddition  = dto.FullBoardPriceAddition,
                 };
 
                 // Save gallery images
@@ -299,6 +301,8 @@ namespace Kemet.Services
             plan.Description = dto.Description;
             plan.PlanAvailability = dto.PlanAvailability;
             plan.PlanLocation = dto.PlanLocation;
+            plan.HalfBoardPriceAddittion = dto.HalfBoardPriceAddittion;
+            plan.FullBoardPriceAddition = dto.FullBoardPriceAddition;
 
             // Update price
             if (plan.Price != null)

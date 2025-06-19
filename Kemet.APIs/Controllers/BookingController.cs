@@ -1,4 +1,5 @@
-﻿using Kemet.APIs.DTOs.BookingDTOs;
+﻿using Kemet.APIs.DTOs;
+using Kemet.APIs.DTOs.BookingDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
@@ -21,13 +22,15 @@ namespace Kemet.APIs.Controllers
         private readonly IGenericRepository<TravelAgencyPlan> _travelAgencyPlanRepository;
         private readonly IBookingServices _bookingServices;
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
         public BookingController
             (UserManager<AppUser> userManager,
               IGenericRepository<BookedTrips> bookingRepository,
               IGenericRepository<TravelAgencyPlan> travelAgencyPlanRepository,
               IBookingServices bookingServices ,
-              AppDbContext context
+              AppDbContext context,
+              IConfiguration configuration
 
             )
         {
@@ -36,6 +39,7 @@ namespace Kemet.APIs.Controllers
             _travelAgencyPlanRepository = travelAgencyPlanRepository;
             _bookingServices = bookingServices;
             _context = context;
+            _configuration = configuration;
         }
         [HttpPost("BookTrip")]
         public async Task<IActionResult> BookTrip(BookDTO book)
@@ -84,6 +88,7 @@ namespace Kemet.APIs.Controllers
                 ReserveType = book.ReserveType,
                 TravelAgencyName = BookedAgency.UserName,
                 BookedPrice = book.BookedPrice,
+                FullBookedPrice =book.FullBookedPrice
             };
             await _bookingRepository.AddAsync(trip);
             
@@ -99,7 +104,7 @@ namespace Kemet.APIs.Controllers
         }
 
         [HttpGet("GetUserBookedTrips")]
-        public async Task<ActionResult<ICollection<BookedTrips>>> GetUserBookedTrips()
+        public async Task<ActionResult<ICollection<UserBookingHistoryDto>>> GetUserBookedTrips()
         {
             try
             {
@@ -115,12 +120,45 @@ namespace Kemet.APIs.Controllers
                 if (user == null) return NotFound("User not found.");
                 var trips =  await  _bookingServices.getUserBookedtripsAsync(user.Id);
                 if (trips == null) return NotFound();
-                return Ok(trips);
+                var resTrips = new List<UserBookingHistoryDto>();
+                foreach (var trip in trips)
+                {
+                    var resTrip = new UserBookingHistoryDto()
+                    {
+                        bookingId = trip.Id,
+                        TravelAgencyPlanID = trip.TrabelAgencyPlanID,
+                        TravelAgencyPlan = trip.travelAgencyPlan,
+                        TravelAgencyName = trip.TravelAgencyName,
+
+                        NumOfPeople = trip.NumOfPeople,
+                        ReserveType = trip.ReserveType,
+                        ReserveDate = trip.ReserveDate,
+                        BookedCategory = trip.BookedCategory,
+                        BookedPrice = trip.BookedPrice,
+                        FullBookedPrice = trip.FullBookedPrice,
+                        PaymentStatus = trip.PaymentStatus,
+                        PaymentDate = trip.PaymentDate,
+                        StripePaymentId = trip.StripePaymentId,
+                        CreatedAt = trip.CreatedAt,
+                        PlanName = trip.travelAgencyPlan.PlanName,
+                        PlanDuration = trip.travelAgencyPlan.Duration,
+                        PlanImage =$"{_configuration["BaseUrl"]}/{trip.travelAgencyPlan.PictureUrl}"
+                    };
+                    resTrips.Add(resTrip);
+                }
+                return Ok(resTrips);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
+        }
+        [HttpGet("GetBookedTrip")]
+        public async Task<ActionResult<BookedTrips>> GetBookedTripByID (int id)
+        {
+           var res = await _bookingServices.getBookedTrip(id);
+           res.Customer = null;
+           return Ok(res);
         }
     }
 }

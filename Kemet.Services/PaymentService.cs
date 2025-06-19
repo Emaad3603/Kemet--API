@@ -38,7 +38,7 @@ namespace Kemet.Services
             {
                 var options = new PaymentIntentCreateOptions
                 {
-                    Amount = (long)(booking.BookedPrice * 100), // Convert to cents
+                    Amount = (long)(booking.FullBookedPrice * 100), // Convert to cents
                     Currency = currency,
                     PaymentMethodTypes = new List<string> { "card" },
                     Metadata = new Dictionary<string, string>
@@ -285,7 +285,7 @@ Kemet Travel Team"
             var pay = await  _context.PaymentHistories.Where(p => p.StripePaymentId == stripePaymentId).FirstOrDefaultAsync();
             if (pay != null)
             {
-                pay.Id = bookedTripsId;
+               
                 pay.EventType = eventType;
                 pay.Status = status;
                 pay.Amount = amount;
@@ -293,6 +293,7 @@ Kemet Travel Team"
                 pay.StripePaymentId = stripePaymentId;
                 pay.StripeEventId = stripeEventId;
                 pay.Metadata = metadata;
+                _context.PaymentHistories.Update(pay);
                 await   _context.SaveChangesAsync();
             }
             if (pay is null)

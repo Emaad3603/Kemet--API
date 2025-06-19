@@ -24,6 +24,8 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
         public int? RatingsCount { get; set; }
 
         public string PlanLocation { get; set; }
+        public decimal? HalfBoardPriceAddittion { get; set; }
 
+        public decimal? FullBoardPriceAddition { get; set; }
     }
 }

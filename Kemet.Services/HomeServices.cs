@@ -1,5 +1,6 @@
 ﻿using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Repository.Data;
@@ -21,18 +22,21 @@ namespace Kemet.Services
         private readonly IGenericRepository<Place> _placesRepo;
         private readonly IGenericRepository<Activity> _activityRepo;
         private readonly IConfiguration _configuration;
+      
 
         public HomeServices(
                            AppDbContext context
                           ,IGenericRepository<Place> placesRepo
                           ,IGenericRepository<Activity> ActivityRepo
                           ,IConfiguration configuration
+                        
                           )
         {
             _context = context;
             _placesRepo = placesRepo;
             _activityRepo = ActivityRepo;
             _configuration = configuration;
+          
         }
 
         public async Task<List<Activity>> GetActivitesInCairo()
@@ -194,7 +198,40 @@ namespace Kemet.Services
             }
             return CairoPlaces;
             }
-        
+
+        public async Task<List<Place>> GetPlacesByCustomerInterests(string customerId)
+        {
+            // Get category IDs from the customer interests form
+            var categoryIds = await _context.CustomerInterests
+                .Where(ci => ci.CustomerId == customerId)
+                .Select(ci => ci.CategoryId)
+                .ToListAsync();
+
+            // Get places that match any of those category IDs
+            var places = await _context.Places
+                .Where(p => categoryIds.Contains(p.CategoryId))
+                .ToListAsync();
+
+            return places;
         }
+
+        public async Task<List<Activity>> GetActivitiesByCustomerInterests(string customerId)
+        {
+            // Get category IDs from the customer interests form
+            var categoryIds = await _context.CustomerInterests
+                .Where(ci => ci.CustomerId == customerId)
+                .Select(ci => ci.CategoryId)
+                .ToListAsync();
+
+            // Get places that match any of those category IDs
+            var Activities = await _context.Activities
+                .Where(p => categoryIds.Contains(p.CategoryId))
+                .ToListAsync();
+
+            return Activities;
+        }
+
+      
+    }
     }
 

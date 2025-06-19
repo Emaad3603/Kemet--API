@@ -29,6 +29,8 @@ namespace Kemet.Core.Entities
 
         public decimal BookedPrice { get; set; }
 
+        public decimal FullBookedPrice { get; set; }
+
         // Payment related properties
         public string PaymentStatus { get; set; } = "Pending"; // Pending, Paid, Failed, Refunded
         public DateTime? PaymentDate { get; set; }

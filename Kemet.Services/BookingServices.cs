@@ -20,17 +20,23 @@ namespace Kemet.Services
         }
         public async Task<ICollection<BookedTrips>> getUserBookedtripsAsync(string UserID)
         {
-          var plans = await   _context.BookedTrips.Where(b=>b.CustomerID == UserID).Include(b=>b.travelAgencyPlan).ToListAsync() ;
-          foreach ( var plan in plans)
+          var Trips = await   _context.BookedTrips.Where(b=>b.CustomerID == UserID).Include(b=>b.travelAgencyPlan).ToListAsync() ;
+          foreach ( var trip in Trips)
             {
-                plan.Customer = null;
+                if (trip.travelAgencyPlan == null)
+                {
+                    var plan = await _context.TravelAgencyPlans.Where(t=>t.Id == trip.TrabelAgencyPlanID).FirstOrDefaultAsync() ;
+                    trip.travelAgencyPlan = plan;
+                }
+                trip.Customer = null;
             }
-          return plans;
+          return Trips;
         }
 
         public async Task<BookedTrips> getBookedTrip (int bookingID)
         {
-          var result = await  _context.BookedTrips.Where(b=>b.Id == bookingID).Include(b=>b.Customer).FirstOrDefaultAsync();
+            var result = await  _context.BookedTrips.Where(b=>b.Id == bookingID).Include(b=>b.Customer).FirstOrDefaultAsync();
+            
             return result;
         }
     }
