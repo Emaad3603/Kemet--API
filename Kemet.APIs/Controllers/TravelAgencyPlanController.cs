@@ -4,6 +4,7 @@ using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Specifications.ActivitySpecs;
 using Kemet.Core.Specifications.TravelAgencyPlanSpecs;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Numerics;
+using System.Text.Json;
 
 namespace Kemet.APIs.Controllers
 {
@@ -25,27 +27,35 @@ namespace Kemet.APIs.Controllers
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
         private readonly UserManager<AppUser> _userManager;
-
+        private readonly ICacheRepository _cache;
+        private readonly TimeSpan _cacheDuration = TimeSpan.FromMinutes(30);
         public TravelAgencyPlanController(
             IGenericRepository<TravelAgencyPlan>TravelagencyplanRepo
             ,IMapper mapper
             ,AppDbContext context
             , IConfiguration configuration 
-            , UserManager<AppUser> userManager)
+            , UserManager<AppUser> userManager
+            ,ICacheRepository cache)
         {
             _travelagencyplanRepo = TravelagencyplanRepo;
             _mapper = mapper;
             _context = context;
             _configuration = configuration;
             _userManager = userManager;
+            _cache = cache;
         }
         [HttpGet] // /api/places  Get
         public async Task<ActionResult<IEnumerable<TravelAgencyPlan>>>GetTravelAgencyPlan ()
         {
+            string cacheKey = "Plans_list";
+            var cached = await _cache.GetAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cached))
+                return Ok(JsonSerializer.Deserialize<List<DetailedTravelAgencyPlanDto>>(cached)!);
             var spec = new TravelAgencyPlanSpecifications();
             var travelAgencyPlan = await _travelagencyplanRepo.GetAllWithSpecAsync(spec);
             var Result = _mapper.Map<IEnumerable<TravelAgencyPlan>, IEnumerable<DetailedTravelAgencyPlanDto>>(travelAgencyPlan);
-
+            await _cache.SetAsync(cacheKey, Result, _cacheDuration);
             return Ok(Result);
 
 

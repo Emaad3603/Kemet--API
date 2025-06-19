@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 using System.Text;
 
 namespace Kemet.APIs
@@ -40,9 +41,13 @@ namespace Kemet.APIs
             });
             // Bind Appsettings from configuration
 
-            var credentialsPath = Path.Combine(Directory.GetCurrentDirectory(), "secrets", "kemet-457321-0a298073023d.json");
+            var credentialsPath = Path.Combine(Directory.GetCurrentDirectory(), "secrets", "kemet-463013-589b203a5de7.json");
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credentialsPath);
-
+            builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+            {
+                var configuration = builder.Configuration.GetConnectionString("Redis");
+                return ConnectionMultiplexer.Connect(configuration);
+            });
 
 
             // Register Appsettings for DI (for other parts of the app)
@@ -152,7 +157,7 @@ namespace Kemet.APIs
 
             try
             {
-                //await _context.Database.MigrateAsync();
+                await _context.Database.MigrateAsync();
 
                 var _userManager = services.GetRequiredService<UserManager<AppUser>>();
                 await IdentityDbContextSeed.SeedRolesAsync(roleManager);

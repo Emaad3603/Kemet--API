@@ -18,7 +18,9 @@ namespace Kemet.Core.Entities.ModelView
         public IFormFile? PictureUrl { get; set; } // Optional
         public string? TravelAgencyId { get; set; }
         public string? PlanLocation { get; set; }
+        public decimal? HalfBoardPriceAddittion { get; set; }
 
+        public decimal? FullBoardPriceAddition { get; set; }
         public int? PriceId { get; set; }
         public PriceDto? Price { get; set; }
 

@@ -34,7 +34,9 @@ namespace Kemet.APIs.DTOs.DetailedDTOs
 
         public List<string> MoreImagesUrl { get; set; }
 
-     
+        public decimal? HalfBoardPriceAddittion { get; set; }
+
+        public decimal? FullBoardPriceAddition { get; set; }
 
 
     }

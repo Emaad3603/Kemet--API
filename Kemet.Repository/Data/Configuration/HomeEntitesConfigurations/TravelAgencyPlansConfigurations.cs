@@ -32,7 +32,10 @@ namespace Kemet.Repository.Data.Configuration.HomeEntitesConfigurations
             builder.HasOne(TP => TP.Price)
                    .WithOne()
                    .OnDelete(DeleteBehavior.SetNull);
-
+            builder.Property(P => P.HalfBoardPriceAddittion)
+                 .HasColumnType("decimal(18,2)");
+            builder.Property(P => P.FullBoardPriceAddition)
+                 .HasColumnType("decimal(18,2)");
         }
     }
 }

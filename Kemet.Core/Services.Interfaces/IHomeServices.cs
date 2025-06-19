@@ -28,5 +28,8 @@ namespace Kemet.Core.Services.Interfaces
         Task<List<Place>> GetPlacesInCairo();
         Task<List<Place>> GetTopRatedPlaces();
         Task<List<Place>> GetPlacesHiddenGems();
+
+        Task<List<Place>> GetPlacesByCustomerInterests(string customerId);
+        Task<List<Activity>> GetActivitiesByCustomerInterests(string customerId);
     }
 }

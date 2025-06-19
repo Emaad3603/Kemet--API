@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using System.Text.Json;
 
 namespace Kemet.APIs.Controllers
 {
@@ -31,14 +32,18 @@ namespace Kemet.APIs.Controllers
         private readonly IHomeServices _homeServices;
         private readonly IConfiguration _configuration;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ICacheRepository _cache;
+        private readonly TimeSpan _cacheDuration = TimeSpan.FromMinutes(30);
 
         public ActivitiesController(         
             IMapper mapper
             ,AppDbContext context
-            , UserManager<AppUser> userManager
+            ,UserManager<AppUser> userManager
             ,IHomeServices homeServices
             ,IConfiguration configuration 
-            ,IUnitOfWork unitOfWork)
+            ,IUnitOfWork unitOfWork
+            ,ICacheRepository cache
+            )
         {
             
             _mapper = mapper;
@@ -47,6 +52,7 @@ namespace Kemet.APIs.Controllers
             _homeServices = homeServices;
             _configuration = configuration;
             _unitOfWork = unitOfWork;
+            _cache = cache;
         }
 
         [HttpGet]
@@ -54,9 +60,14 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                string cacheKey = "Activities_list";
+                var cached = await _cache.GetAsync(cacheKey);
+
+                if (!string.IsNullOrEmpty(cached))
+                    return Ok(JsonSerializer.Deserialize<List<ActivityDTOs>>(cached)!);
                 var resultActivities = await _homeServices.GetActivities();
                 var result =await  MapActivitiesWithImages(resultActivities.Take(10).ToList());
-
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -70,9 +81,15 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                string cacheKey = "Cairo_Activities_list";
+                var cached = await _cache.GetAsync(cacheKey);
+
+                if (!string.IsNullOrEmpty(cached))
+                    return Ok(JsonSerializer.Deserialize<List<ActivityDTOs>>(cached)!);
                 var resultActivities = await _homeServices.GetActivitesInCairo();
                 var result = await MapActivitiesWithImages(resultActivities);
                 if(result == null) { return NotFound(new ApiResponse(404, "No activities found within the maximum radius.")); }
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -86,9 +103,15 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                string cacheKey = "Hidden_Activities_list";
+                var cached = await _cache.GetAsync(cacheKey);
+
+                if (!string.IsNullOrEmpty(cached))
+                    return Ok(JsonSerializer.Deserialize<List<ActivityDTOs>>(cached)!);
                 var resultActivities = await _homeServices.GetActivityHiddenGems();
                 var result = await MapActivitiesWithImages(resultActivities);
                 if (result == null) { return NotFound(new ApiResponse(404, "No activities found within the maximum radius.")); }
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -250,7 +273,33 @@ namespace Kemet.APIs.Controllers
         {
             return Unauthorized(new ApiResponse(401));
         }
+        [HttpGet("ActivitesForYou")]
+        public async Task<ActionResult> GetActivitiesWithInterests()
+        {
+            try
+            {
+                // Check if the user is signed in
+                string userEmail = User.FindFirstValue(ClaimTypes.Email);
 
+                // Fetch the user's location from the database
+                var user = new AppUser();
+                if (userEmail != null)
+                {
+                    user = await _userManager.FindByEmailAsync(userEmail);
+                }
+
+                var activities = await _homeServices.GetActivitiesByCustomerInterests(user.Id);
+                if (activities == null || activities.Count == 0)
+                {
+                    return NotFound();
+                }
+                var resActivities = await MapActivitiesWithImages(activities);
+                return Ok(resActivities);
+            }catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         private async Task<List<ActivityDTOs>> MapActivitiesWithImages(List<Activity> activities)
         {
             try

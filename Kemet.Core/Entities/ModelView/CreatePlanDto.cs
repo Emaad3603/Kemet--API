@@ -12,7 +12,9 @@ namespace Kemet.Core.Entities.ModelView
         public IFormFile PictureUrl { get; set; } // this can also be an IFormFile if uploaded
         public string? TravelAgencyId { get; set; }
         public string? PlanLocation { get; set; }
+        public decimal? HalfBoardPriceAddittion { get; set; }
 
+        public decimal? FullBoardPriceAddition { get; set; }
         public PriceDto Price { get; set; }
 
         public List<IFormFile> Images { get; set; } = new();

@@ -39,6 +39,8 @@ namespace Kemet.APIs.Controllers
         private readonly IReviewRepository _reviewRepo;
         private readonly IBackgroundTaskQueue _queue;
         private readonly ILogger<AdminController> _logger;
+        private readonly ICacheRepository _cache;
+        private readonly TimeSpan _cacheDuration = TimeSpan.FromMinutes(30);
 
         public AdminController(AppDbContext context,
             IMapper mapper,
@@ -52,7 +54,8 @@ namespace Kemet.APIs.Controllers
             FileUploadHelper fileUploadHelper,
             IReviewRepository reviewRepo,
             IBackgroundTaskQueue queue ,
-            ILogger<AdminController> logger
+            ILogger<AdminController> logger ,
+            ICacheRepository cache
             )
         {
             _context = context;
@@ -68,6 +71,7 @@ namespace Kemet.APIs.Controllers
             _reviewRepo = reviewRepo;
             _queue = queue;
             _logger = logger;
+            _cache = cache;
         }
 
         [HttpPost("addplace")]
@@ -296,6 +300,7 @@ namespace Kemet.APIs.Controllers
                 existingPlace.CloseTime = dto.CloseTime;
                 await _context.SaveChangesAsync();
                 UpdateModelData();
+                await PlacesInvalidateCacheAsync();
                 return Ok(new
                 {
                     message = "Place updated successfully",
@@ -345,6 +350,7 @@ namespace Kemet.APIs.Controllers
                 _context.Places.Remove(place);
                 await _context.SaveChangesAsync();
                 UpdateModelData();
+                await PlacesInvalidateCacheAsync();
                 return Ok(new { message = "Place and all related data deleted successfully." });
             }
             catch (Exception ex)
@@ -622,6 +628,7 @@ namespace Kemet.APIs.Controllers
 
                 await _context.SaveChangesAsync();
                 UpdateModelData();
+                await ActivitiesInvalidateCacheAsync();
                 return Ok(new
                 {
                     message = "Activity updated successfully",
@@ -671,6 +678,8 @@ namespace Kemet.APIs.Controllers
 
                 _context.Activities.Remove(activity);
                 await _context.SaveChangesAsync();
+                UpdateModelData();
+                await ActivitiesInvalidateCacheAsync();
 
                 return Ok(new { message = "Activity and all related data deleted successfully." });
             }
@@ -947,5 +956,20 @@ namespace Kemet.APIs.Controllers
                 }
             });
         }
+
+        private async Task PlacesInvalidateCacheAsync()
+        {
+            await _cache.RemoveAsync("places_list");
+            await _cache.RemoveAsync("hidden_places_list");
+            await _cache.RemoveAsync("Cairo_places_list");
+        }
+        private async Task ActivitiesInvalidateCacheAsync()
+        {
+            await _cache.RemoveAsync("Activities_list");
+            await _cache.RemoveAsync("Cairo_Activities_list");
+            await _cache.RemoveAsync("Hidden_Activities_list");
+        }
+       
     }
+
 }

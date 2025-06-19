@@ -29,6 +29,10 @@ namespace Kemet.Core.Entities
 
         public string? PlanLocation { get; set; }
 
+        public decimal? HalfBoardPriceAddittion {  get; set; }     
+
+        public decimal? FullBoardPriceAddition { get; set; }
+
         public ICollection<TravelAgencyPlanImages> images { get; set; } = new List<TravelAgencyPlanImages>();
 
     }

@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using Google.Type;
 using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.Errors;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.AI_Entites;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Services.Interfaces;
 using Kemet.Core.Specifications;
@@ -19,6 +21,7 @@ using Microsoft.Extensions.Options;
 using Stripe;
 using System.Diagnostics;
 using System.Security.Claims;
+using System.Text.Json;
 
 namespace Kemet.APIs.Controllers
 {
@@ -31,7 +34,8 @@ namespace Kemet.APIs.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly IConfiguration _configuration;
         private readonly IHomeServices _homeServices;
-
+        private readonly ICacheRepository _cache;
+        private readonly TimeSpan _cacheDuration = TimeSpan.FromMinutes(30);
 
         //getAll
         //getByid
@@ -42,6 +46,7 @@ namespace Kemet.APIs.Controllers
             ,UserManager<AppUser> userManager
             ,IConfiguration configuration
             ,IHomeServices homeServices
+            ,ICacheRepository cache
             )
         {
             _placesRepo = placesRepo;
@@ -50,6 +55,7 @@ namespace Kemet.APIs.Controllers
             _userManager = userManager;
             _configuration = configuration;
             _homeServices = homeServices;
+            _cache = cache;
         }
 
         [HttpGet]
@@ -57,6 +63,12 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                string cacheKey = "places_list";
+                var cached = await _cache.GetAsync(cacheKey);
+
+                if (!string.IsNullOrEmpty(cached))
+                    return JsonSerializer.Deserialize<List<PlacesDto>>(cached)!;
+
                 var resultPlaces = await _homeServices.GetPlaces();
                              
                 var places = _mapper.Map<IEnumerable<Place>, IEnumerable<PlacesDto>>(resultPlaces);
@@ -70,7 +82,7 @@ namespace Kemet.APIs.Controllers
                 }
 
                 var result = places.Where(a => a.ImageURLs.Any()).ToList();
-                
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -169,13 +181,19 @@ namespace Kemet.APIs.Controllers
         }
 
         [HttpGet("PlacesHiddenGems")]
-        public async Task<ActionResult<PlacesDto>> GetPlacesHiddenGems()
+        public async Task<ActionResult<IEnumerable<PlacesDto>>> GetPlacesHiddenGems()
         {
             try
             {
+                string cacheKey = "hidden_places_list";
+                var cached = await _cache.GetAsync(cacheKey);
+
+                if (!string.IsNullOrEmpty(cached))
+                    return JsonSerializer.Deserialize<List<PlacesDto>>(cached)!;
                 var resultPlaces = await _homeServices.GetPlacesHiddenGems();
                 var result = await MapPlacesWithImages(resultPlaces);
                 if (result == null) { return NotFound(new ApiResponse(404, "No places found within the maximum radius")); }
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -241,15 +259,47 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                string cacheKey = "Cairo_places_list";
+                var cached = await _cache.GetAsync(cacheKey);
+
+                if (!string.IsNullOrEmpty(cached))
+                    return Ok(JsonSerializer.Deserialize<List<PlacesDto>>(cached)!);
                 var resultPlaces = await _homeServices.GetPlacesInCairo();
                 var result = await MapPlacesWithImages(resultPlaces);
                 if (result == null) { return NotFound(new ApiResponse(404, "No places found within the maximum radius")); }
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex) 
             {
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
+        }
+
+        [HttpGet("PlacesForYou")]
+        public async Task<IActionResult> GetPlacesByInterests()
+        {
+            try
+            {
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                var user = new AppUser();
+                if (userEmail != null)
+                {
+                    user = await _userManager.FindByEmailAsync(userEmail);
+                }
+                var places = await _homeServices.GetPlacesByCustomerInterests(user.Id);
+
+                if (places == null || places.Count == 0)
+                {
+                    return NotFound();
+                }
+                var resPlaces = await MapPlacesWithImages(places);
+                return Ok(resPlaces);
+            }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+                
         }
 
         private async Task<List<PlacesDto>> MapPlacesWithImages(List<Place> places) 

@@ -11,6 +11,7 @@
 
         public string PlanName { get; set; } 
 
+        public int? PlanID { get; set; }
         public int BookingID { get; set; }
     }
 }

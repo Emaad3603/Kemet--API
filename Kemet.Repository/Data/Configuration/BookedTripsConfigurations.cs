@@ -38,6 +38,10 @@ namespace Kemet.Repository.Data.Configuration
             builder.Property(b => b.BookedPrice)
                 .HasColumnType("decimal(18,2)")
                 .IsRequired();
+
+            builder.Property(b => b.FullBookedPrice)
+               .HasColumnType("decimal(18,2)")
+               .IsRequired();
         }
     }
 }
