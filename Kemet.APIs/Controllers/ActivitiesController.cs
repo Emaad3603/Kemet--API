@@ -3,6 +3,7 @@ using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.DTOs.ReviewsDTOs;
 using Kemet.APIs.Errors;
+using Kemet.APIs.Helpers;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.Repositories.InterFaces;
@@ -12,6 +13,7 @@ using Kemet.Core.Specifications.ActivitySpecs;
 using Kemet.Core.Specifications.PlaceSpecs;
 using Kemet.Repository.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -60,6 +62,8 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                var jsonOptions = JsonOptionsHelper.GetOptions();
+
                 string cacheKey = "Activities_list";
                 var cached = await _cache.GetAsync(cacheKey);
 
@@ -67,7 +71,8 @@ namespace Kemet.APIs.Controllers
                     return Ok(JsonSerializer.Deserialize<List<ActivityDTOs>>(cached)!);
                 var resultActivities = await _homeServices.GetActivities();
                 var result =await  MapActivitiesWithImages(resultActivities.Take(10).ToList());
-                await _cache.SetAsync(cacheKey, result, _cacheDuration);
+                var serialized = JsonSerializer.Serialize(result, jsonOptions);
+                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -81,6 +86,7 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                var jsonOptions = JsonOptionsHelper.GetOptions();
                 string cacheKey = "Cairo_Activities_list";
                 var cached = await _cache.GetAsync(cacheKey);
 
@@ -89,7 +95,8 @@ namespace Kemet.APIs.Controllers
                 var resultActivities = await _homeServices.GetActivitesInCairo();
                 var result = await MapActivitiesWithImages(resultActivities);
                 if(result == null) { return NotFound(new ApiResponse(404, "No activities found within the maximum radius.")); }
-                await _cache.SetAsync(cacheKey, result, _cacheDuration);
+                var serialized = JsonSerializer.Serialize(result, jsonOptions);
+                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -103,6 +110,8 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                var jsonOptions = JsonOptionsHelper.GetOptions();
+
                 string cacheKey = "Hidden_Activities_list";
                 var cached = await _cache.GetAsync(cacheKey);
 
@@ -111,7 +120,8 @@ namespace Kemet.APIs.Controllers
                 var resultActivities = await _homeServices.GetActivityHiddenGems();
                 var result = await MapActivitiesWithImages(resultActivities);
                 if (result == null) { return NotFound(new ApiResponse(404, "No activities found within the maximum radius.")); }
-                await _cache.SetAsync(cacheKey, result, _cacheDuration);
+                var serialized = JsonSerializer.Serialize(result, jsonOptions);
+                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)

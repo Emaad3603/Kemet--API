@@ -19,6 +19,7 @@ using Kemet.APIs.DTOs.IdentityDTOs;
 using Kemet.APIs.DTOs.ProfileDTOs;
 using Kemet.APIs.DTOs.ReviewsDTOs;
 using Kemet.Core.Repositories.InterFaces;
+using NetTopologySuite.Geometries;
 
 namespace Kemet.APIs.Controllers
 {
@@ -79,70 +80,79 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                // Validate ImageURLs
                 if (dto.ImageURLs == null || !dto.ImageURLs.Any())
                 {
-                    return BadRequest(new { 
+                    return BadRequest(new
+                    {
                         message = "The ImageURLs field is required.",
-                        errors = new { 
-                            ImageURLs = new[] { "The ImageURLs field is required." } 
-                        } 
+                        errors = new { ImageURLs = new[] { "The ImageURLs field is required." } }
                     });
                 }
-                
-                // Check if price already exists
+
                 var existingPrice = await _context.Prices.FirstOrDefaultAsync(p =>
                     p.EgyptianAdult == dto.EgyptianAdultCost &&
                     p.EgyptianStudent == dto.EgyptianStudentCost &&
                     p.TouristAdult == dto.TouristAdultCost &&
                     p.TouristStudent == dto.TouristStudentCost);
 
-                Price price;
-                if (existingPrice != null)
+                Price price = existingPrice ?? new Price
                 {
-                    price = existingPrice;
-                }
-                else
+                    Id = (await _context.Prices.MaxAsync(p => (int?)p.Id) ?? 0) + 1,
+                    EgyptianAdult = dto.EgyptianAdultCost,
+                    EgyptianStudent = dto.EgyptianStudentCost,
+                    TouristAdult = dto.TouristAdultCost,
+                    TouristStudent = dto.TouristStudentCost
+                };
+
+                if (existingPrice == null)
                 {
-                    // Find the max price ID and add 1 to ensure a unique ID
-                    var maxPriceId = await _context.Prices.MaxAsync(p => (int?)p.Id) ?? 0;
-                    
-                    price = new Price
-                    {
-                        Id = maxPriceId + 1, // Explicitly set ID to avoid primary key violation
-                        EgyptianAdult = dto.EgyptianAdultCost,
-                        EgyptianStudent = dto.EgyptianStudentCost,
-                        TouristAdult = dto.TouristAdultCost,
-                        TouristStudent = dto.TouristStudentCost
-                    };
-                    
                     _context.Prices.Add(price);
-                    await _context.SaveChangesAsync(); // Save to get the ID
+                    await _context.SaveChangesAsync();
                 }
 
-                // Map and set price
                 var place = _mapper.Map<Place>(dto);
                 place.Price = price;
                 place.CultureTips = dto.CulturalTips;
                 place.OpenTime = dto.OpenTime;
                 place.CloseTime = dto.CloseTime;
-                // Validate and set category
-                var category = await _context.Categories
-                    .FirstOrDefaultAsync(c => c.CategoryName == dto.CategoryName && c.CategoryType == "place");
 
+                var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryName == dto.CategoryName && c.CategoryType == "place");
                 if (category == null)
-                {
                     return BadRequest(new { message = "Invalid CategoryName or CategoryType" });
-                }
 
                 place.Category = category;
                 place.CategoryId = category.Id;
 
-                // Add place first to get its ID
+                // Handle Location (reuse if exists)
+                var existingLocation = await _context.Locations.FirstOrDefaultAsync(l =>
+                    l.Address == dto.Address &&
+                    l.Coordinates.X == dto.Longitude &&
+                    l.Coordinates.Y == dto.Latitude);
+
+                Core.Entities.Location location;
+                if (existingLocation != null)
+                {
+                    location = existingLocation;
+                }
+                else
+                {
+                    var maxLocationId = await _context.Locations.MaxAsync(l => (int?)l.Id) ?? 0;
+                    location = new Core.Entities.Location
+                    {
+                        Id = maxLocationId + 1,
+                        Address = dto.Address,
+                        LocationLink = dto.LocationLink,
+                        Coordinates = new Point(dto.Longitude, dto.Latitude) { SRID = 4326 }
+                    };
+                    _context.Locations.Add(location);
+                    await _context.SaveChangesAsync();
+                }
+
+                place.Location = location;
+
                 await _placeRepository.AddAsync(place);
                 await _context.SaveChangesAsync();
 
-                // Handle image uploads
                 var savedImageUrls = new List<string>();
                 var directoryPath = Path.Combine(_environment.WebRootPath, "images", "places");
 
@@ -156,17 +166,14 @@ namespace Kemet.APIs.Controllers
                         var fileName = Guid.NewGuid() + Path.GetExtension(image.FileName);
                         var filePath = Path.Combine(directoryPath, fileName);
 
-                        using (var stream = new FileStream(filePath, FileMode.Create))
-                        {
-                            await image.CopyToAsync(stream);
-                        }
+                        using var stream = new FileStream(filePath, FileMode.Create);
+                        await image.CopyToAsync(stream);
 
                         var placeImage = new PlaceImage
                         {
                             ImageUrl = $"/images/places/{fileName}",
                             PlaceId = place.Id
                         };
-
                         _context.PlaceImages.Add(placeImage);
                         savedImageUrls.Add(placeImage.ImageUrl);
                     }
@@ -174,6 +181,7 @@ namespace Kemet.APIs.Controllers
 
                 await _context.SaveChangesAsync();
                 UpdateModelData();
+
                 return Ok(new
                 {
                     message = "Place added successfully",
@@ -191,6 +199,7 @@ namespace Kemet.APIs.Controllers
                 return StatusCode(500, new ApiResponse(500, $"Internal server error: {ex.Message}"));
             }
         }
+
 
         //  Update Place
         [HttpPut("editplace/{id}")]
@@ -298,6 +307,34 @@ namespace Kemet.APIs.Controllers
                 }
                 existingPlace.OpenTime = dto.OpenTime;
                 existingPlace.CloseTime = dto.CloseTime;
+
+                // Handle Location (reuse or create new)
+                var matchedLocation = await _context.Locations.FirstOrDefaultAsync(l =>
+                    l.Address == dto.Address &&
+                    l.Coordinates.X == dto.Longitude &&
+                    l.Coordinates.Y == dto.Latitude);
+
+                if (matchedLocation != null)
+                {
+                    existingPlace.Location = matchedLocation;
+                }
+                else
+                {
+                    var maxLocationId = await _context.Locations.MaxAsync(l => (int?)l.Id) ?? 0;
+
+                    var newLocation = new Core.Entities.Location
+                    {
+                        Id = maxLocationId + 1,
+                        Address = dto.Address,
+                        LocationLink = dto.LocationLink,
+                        Coordinates = new Point(dto.Longitude, dto.Latitude) { SRID = 4326 }
+                    };
+
+                    _context.Locations.Add(newLocation);
+                    existingPlace.Location = newLocation;
+                    await _context.SaveChangesAsync();
+                }
+
                 await _context.SaveChangesAsync();
                 UpdateModelData();
                 await PlacesInvalidateCacheAsync();
@@ -466,7 +503,34 @@ namespace Kemet.APIs.Controllers
                     
                     // Default value, adjust as needed
                 };
-                
+                // Try to find existing location (by address + coordinates)
+                var existingLocation = await _context.Locations.FirstOrDefaultAsync(l =>
+                    l.Address == activityDto.Address &&
+                    l.Coordinates.X == activityDto.Longitude &&
+                    l.Coordinates.Y == activityDto.Latitude);
+
+                Core.Entities.Location location;
+
+                if (existingLocation != null)
+                {
+                    location = existingLocation;
+                }
+                else
+                {
+                    var maxLocationId = await _context.Locations.MaxAsync(l => (int?)l.Id) ?? 0;
+                    location = new Core.Entities.Location
+                    {
+                        Id = maxLocationId + 1,
+                        Address = activityDto.Address,
+                        LocationLink = activityDto.LocationLink,
+                        Coordinates = new Point(activityDto.Longitude, activityDto.Latitude) { SRID = 4326 }
+                    };
+                    _context.Locations.Add(location);
+                    await _context.SaveChangesAsync();
+                }
+
+                activity.Location = location;
+
                 _context.Activities.Add(activity);
                 await _context.SaveChangesAsync();
 
@@ -625,7 +689,31 @@ namespace Kemet.APIs.Controllers
                     await _context.Categories.AddAsync(newCategory);
                     existingActivity.Category = newCategory;
                 }
+                var matchedLocation = await _context.Locations.FirstOrDefaultAsync(l =>
+       l.Address == dto.Address &&
+       l.Coordinates.X == dto.Longitude &&
+       l.Coordinates.Y == dto.Latitude);
 
+                if (matchedLocation != null)
+                {
+                    existingActivity.Location = matchedLocation;
+                }
+                else
+                {
+                    var maxLocationId = await _context.Locations.MaxAsync(l => (int?)l.Id) ?? 0;
+
+                    var newLocation = new Core.Entities.Location
+                    {
+                        Id = maxLocationId + 1,
+                        Address = dto.Address,
+                        LocationLink = dto.LocationLink,
+                        Coordinates = new Point(dto.Longitude, dto.Latitude) { SRID = 4326 }
+                    };
+
+                    _context.Locations.Add(newLocation);
+                    existingActivity.Location = newLocation;
+                    await _context.SaveChangesAsync();
+                }
                 await _context.SaveChangesAsync();
                 UpdateModelData();
                 await ActivitiesInvalidateCacheAsync();

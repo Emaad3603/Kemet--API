@@ -2,6 +2,7 @@
 using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.Errors;
+using Kemet.APIs.Helpers;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
 using Kemet.Core.Repositories.InterFaces;
@@ -45,21 +46,37 @@ namespace Kemet.APIs.Controllers
             _cache = cache;
         }
         [HttpGet] // /api/places  Get
-        public async Task<ActionResult<IEnumerable<TravelAgencyPlan>>>GetTravelAgencyPlan ()
+        public async Task<ActionResult<IEnumerable<TravelAgencyPlan>>> GetTravelAgencyPlan()
         {
             string cacheKey = "Plans_list";
             var cached = await _cache.GetAsync(cacheKey);
 
+            var jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve,
+                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+                NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals
+            };
+
+            jsonOptions.Converters.Add(new DateOnlyConverter());
+
             if (!string.IsNullOrEmpty(cached))
-                return Ok(JsonSerializer.Deserialize<List<DetailedTravelAgencyPlanDto>>(cached)!);
+            {
+                var deserialized = JsonSerializer.Deserialize<List<DetailedTravelAgencyPlanDto>>(cached, jsonOptions);
+                return Ok(deserialized);
+            }
+
             var spec = new TravelAgencyPlanSpecifications();
             var travelAgencyPlan = await _travelagencyplanRepo.GetAllWithSpecAsync(spec);
-            var Result = _mapper.Map<IEnumerable<TravelAgencyPlan>, IEnumerable<DetailedTravelAgencyPlanDto>>(travelAgencyPlan);
-            await _cache.SetAsync(cacheKey, Result, _cacheDuration);
-            return Ok(Result);
+            var result = _mapper.Map<IEnumerable<TravelAgencyPlan>, IEnumerable<DetailedTravelAgencyPlanDto>>(travelAgencyPlan);
 
+            var serializedResult = JsonSerializer.Serialize(result, jsonOptions);
+            await _cache.SetAsync(cacheKey, serializedResult, _cacheDuration);
 
+            return Ok(result);
         }
+
 
         [HttpGet("GetTravelAgencyPlanByID")]
         public async Task<ActionResult<TravelAgencyPlanDTOs>> GetTravelAgencyPlanById(int PlanId)
