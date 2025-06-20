@@ -21,6 +21,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Kemet.APIs.Controllers
 {
@@ -62,17 +63,38 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                var jsonOptions = JsonOptionsHelper.GetOptions();
-
                 string cacheKey = "Activities_list";
                 var cached = await _cache.GetAsync(cacheKey);
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+
+                jsonOptions.Converters.Add(new DateOnlyConverter());
 
                 if (!string.IsNullOrEmpty(cached))
-                    return Ok(JsonSerializer.Deserialize<List<ActivityDTOs>>(cached)!);
+                {
+                    try
+                    {
+                        var result = JsonSerializer.Deserialize<List<ActivityDTOs>>(cached, jsonOptions);
+                        if (result != null)
+                        {
+                            return Ok(result);
+                        }
+                    }
+                    catch (JsonException)
+                    {
+                        // If deserialization fails, continue to fetch fresh data
+                    }
+                }
+
                 var resultActivities = await _homeServices.GetActivities();
-                var result =await  MapActivitiesWithImages(resultActivities.Take(10).ToList());
-                var serialized = JsonSerializer.Serialize(result, jsonOptions);
-                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
+                var result = await MapActivitiesWithImages(resultActivities.Take(10).ToList());
+                
+                // CacheRepository will handle the serialization with ReferenceHandler.Preserve
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -86,17 +108,39 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                var jsonOptions = JsonOptionsHelper.GetOptions();
                 string cacheKey = "Cairo_Activities_list";
                 var cached = await _cache.GetAsync(cacheKey);
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+
+                jsonOptions.Converters.Add(new DateOnlyConverter());
 
                 if (!string.IsNullOrEmpty(cached))
-                    return Ok(JsonSerializer.Deserialize<List<ActivityDTOs>>(cached)!);
+                {
+                    try
+                    {
+                        var result = JsonSerializer.Deserialize<List<ActivityDTOs>>(cached, jsonOptions);
+                        if (result != null)
+                        {
+                            return Ok(result);
+                        }
+                    }
+                    catch (JsonException)
+                    {
+                        // If deserialization fails, continue to fetch fresh data
+                    }
+                }
+
                 var resultActivities = await _homeServices.GetActivitesInCairo();
                 var result = await MapActivitiesWithImages(resultActivities);
                 if(result == null) { return NotFound(new ApiResponse(404, "No activities found within the maximum radius.")); }
-                var serialized = JsonSerializer.Serialize(result, jsonOptions);
-                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
+                
+                // CacheRepository will handle the serialization with ReferenceHandler.Preserve
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -110,18 +154,39 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                var jsonOptions = JsonOptionsHelper.GetOptions();
-
                 string cacheKey = "Hidden_Activities_list";
                 var cached = await _cache.GetAsync(cacheKey);
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+
+                jsonOptions.Converters.Add(new DateOnlyConverter());
 
                 if (!string.IsNullOrEmpty(cached))
-                    return Ok(JsonSerializer.Deserialize<List<ActivityDTOs>>(cached)!);
+                {
+                    try
+                    {
+                        var result = JsonSerializer.Deserialize<List<ActivityDTOs>>(cached, jsonOptions);
+                        if (result != null)
+                        {
+                            return Ok(result);
+                        }
+                    }
+                    catch (JsonException)
+                    {
+                        // If deserialization fails, continue to fetch fresh data
+                    }
+                }
+
                 var resultActivities = await _homeServices.GetActivityHiddenGems();
                 var result = await MapActivitiesWithImages(resultActivities);
                 if (result == null) { return NotFound(new ApiResponse(404, "No activities found within the maximum radius.")); }
-                var serialized = JsonSerializer.Serialize(result, jsonOptions);
-                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
+                
+                // CacheRepository will handle the serialization with ReferenceHandler.Preserve
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)

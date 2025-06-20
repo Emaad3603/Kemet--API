@@ -24,6 +24,7 @@ using Stripe;
 using System.Diagnostics;
 using System.Security.Claims;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Kemet.APIs.Controllers
 {
@@ -65,13 +66,32 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                var jsonOptions = JsonOptionsHelper.GetOptions();
-
                 string cacheKey = "places_list";
                 var cached = await _cache.GetAsync(cacheKey);
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+
+                jsonOptions.Converters.Add(new DateOnlyConverter());
 
                 if (!string.IsNullOrEmpty(cached))
-                    return JsonSerializer.Deserialize<List<PlacesDto>>(cached)!;
+                {
+                    try
+                    {
+                        var result = JsonSerializer.Deserialize<List<PlacesDto>>(cached, jsonOptions);
+                        if (result != null)
+                        {
+                            return Ok(result);
+                        }
+                    }
+                    catch (JsonException)
+                    {
+                        // If deserialization fails, continue to fetch fresh data
+                    }
+                }
 
                 var resultPlaces = await _homeServices.GetPlaces();
                              
@@ -86,8 +106,9 @@ namespace Kemet.APIs.Controllers
                 }
 
                 var result = places.Where(a => a.ImageURLs.Any()).ToList();
-                var serialized = JsonSerializer.Serialize(result, jsonOptions);
-                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
+                
+                // CacheRepository will handle the serialization with ReferenceHandler.Preserve
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -190,18 +211,39 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                var jsonOptions = JsonOptionsHelper.GetOptions();
-
                 string cacheKey = "hidden_places_list";
                 var cached = await _cache.GetAsync(cacheKey);
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+
+                jsonOptions.Converters.Add(new DateOnlyConverter());
 
                 if (!string.IsNullOrEmpty(cached))
-                    return JsonSerializer.Deserialize<List<PlacesDto>>(cached)!;
+                {
+                    try
+                    {
+                        var result = JsonSerializer.Deserialize<List<PlacesDto>>(cached, jsonOptions);
+                        if (result != null)
+                        {
+                            return Ok(result);
+                        }
+                    }
+                    catch (JsonException)
+                    {
+                        // If deserialization fails, continue to fetch fresh data
+                    }
+                }
+
                 var resultPlaces = await _homeServices.GetPlacesHiddenGems();
                 var result = await MapPlacesWithImages(resultPlaces);
                 if (result == null) { return NotFound(new ApiResponse(404, "No places found within the maximum radius")); }
-                var serialized = JsonSerializer.Serialize(result, jsonOptions);
-                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
+                
+                // CacheRepository will handle the serialization with ReferenceHandler.Preserve
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
                 
             }
@@ -268,18 +310,39 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
-                var jsonOptions = JsonOptionsHelper.GetOptions();
-
                 string cacheKey = "Cairo_places_list";
                 var cached = await _cache.GetAsync(cacheKey);
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+
+                jsonOptions.Converters.Add(new DateOnlyConverter());
 
                 if (!string.IsNullOrEmpty(cached))
-                    return Ok(JsonSerializer.Deserialize<List<PlacesDto>>(cached)!);
+                {
+                    try
+                    {
+                        var result = JsonSerializer.Deserialize<List<PlacesDto>>(cached, jsonOptions);
+                        if (result != null)
+                        {
+                            return Ok(result);
+                        }
+                    }
+                    catch (JsonException)
+                    {
+                        // If deserialization fails, continue to fetch fresh data
+                    }
+                }
+
                 var resultPlaces = await _homeServices.GetPlacesInCairo();
                 var result = await MapPlacesWithImages(resultPlaces);
                 if (result == null) { return NotFound(new ApiResponse(404, "No places found within the maximum radius")); }
-                var serialized = JsonSerializer.Serialize(result, jsonOptions);
-                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
+                
+                // CacheRepository will handle the serialization with ReferenceHandler.Preserve
+                await _cache.SetAsync(cacheKey, result, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex) 
