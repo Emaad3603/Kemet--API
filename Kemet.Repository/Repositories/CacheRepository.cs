@@ -1,39 +1,42 @@
-﻿using Kemet.Core.Repositories.InterFaces;
+﻿using Kemet.APIs.Helpers;
+using Kemet.Core.Repositories.InterFaces;
 using StackExchange.Redis;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
-namespace Kemet.Repository.Repositories
+public class CacheRepository : ICacheRepository
 {
-    public class CacheRepository : ICacheRepository
+    private readonly IDatabase _database;
+    private readonly JsonSerializerOptions _jsonOptions;
+
+    public CacheRepository(IConnectionMultiplexer connection)
     {
-        private readonly IDatabase _database;
+        _database = connection.GetDatabase();
 
-        public CacheRepository(IConnectionMultiplexer connection)
+        _jsonOptions = new JsonSerializerOptions
         {
-            _database = connection.GetDatabase();
-        }
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            ReferenceHandler = ReferenceHandler.Preserve // Or Preserve if needed
+        };
 
-        public async Task<string?> GetAsync(string key)
-        {
-            var value = await _database.StringGetAsync(key);
-            return !value.IsNullOrEmpty ? value : default;
-        }
-
-        public async Task SetAsync(string key, object value, TimeSpan duration)
-        {
-            var redisValue = JsonSerializer.Serialize(value);
-            await _database.StringSetAsync(key, redisValue, duration);
-        }
-
-        public async Task RemoveAsync(string key)
-        {
-            await _database.KeyDeleteAsync(key);
-        }
+        _jsonOptions.Converters.Add(new DateOnlyConverter());
     }
 
+    public async Task<string?> GetAsync(string key)
+    {
+        var value = await _database.StringGetAsync(key);
+        return !value.IsNullOrEmpty ? value : default;
+    }
+
+    public async Task SetAsync(string key, object value, TimeSpan duration)
+    {
+        var json = JsonSerializer.Serialize(value, _jsonOptions);
+        await _database.StringSetAsync(key, json, duration);
+    }
+
+    public async Task RemoveAsync(string key)
+    {
+        await _database.KeyDeleteAsync(key);
+    }
 }

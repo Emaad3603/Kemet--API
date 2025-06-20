@@ -5,18 +5,22 @@ using Kemet.APIs.Errors;
 using Kemet.APIs.Helpers;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
+using Kemet.Core.Entities.Wrapper;
 using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Specifications.ActivitySpecs;
 using Kemet.Core.Specifications.TravelAgencyPlanSpecs;
 using Kemet.Repository.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Org.BouncyCastle.Crypto;
 using System.Numerics;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Kemet.APIs.Controllers
 {
@@ -45,36 +49,45 @@ namespace Kemet.APIs.Controllers
             _userManager = userManager;
             _cache = cache;
         }
-        [HttpGet] // /api/places  Get
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<TravelAgencyPlan>>> GetTravelAgencyPlan()
         {
             string cacheKey = "Plans_list";
             var cached = await _cache.GetAsync(cacheKey);
-
             var jsonOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve,
-                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
-                NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                ReferenceHandler = ReferenceHandler.Preserve
             };
 
             jsonOptions.Converters.Add(new DateOnlyConverter());
 
             if (!string.IsNullOrEmpty(cached))
             {
-                var deserialized = JsonSerializer.Deserialize<List<DetailedTravelAgencyPlanDto>>(cached, jsonOptions);
-                return Ok(deserialized);
+                try
+                {
+                    // Deserialize directly as IEnumerable since CacheRepository uses ReferenceHandler.Preserve
+                    var result = JsonSerializer.Deserialize<IEnumerable<DetailedTravelAgencyPlanDto>>(cached, jsonOptions);
+                    if (result != null)
+                    {
+                        return Ok(result);
+                    }
+                }
+                catch (JsonException)
+                {
+                    // If deserialization fails, continue to fetch fresh data
+                }
             }
 
             var spec = new TravelAgencyPlanSpecifications();
             var travelAgencyPlan = await _travelagencyplanRepo.GetAllWithSpecAsync(spec);
-            var result = _mapper.Map<IEnumerable<TravelAgencyPlan>, IEnumerable<DetailedTravelAgencyPlanDto>>(travelAgencyPlan);
-
-            var serializedResult = JsonSerializer.Serialize(result, jsonOptions);
-            await _cache.SetAsync(cacheKey, serializedResult, _cacheDuration);
-
-            return Ok(result);
+            var Result = _mapper.Map<IEnumerable<TravelAgencyPlan>, IEnumerable<DetailedTravelAgencyPlanDto>>(travelAgencyPlan);
+           
+            // CacheRepository will handle the serialization with ReferenceHandler.Preserve
+            await _cache.SetAsync(cacheKey, Result, _cacheDuration);
+            
+            return Ok(Result);
         }
 
 
