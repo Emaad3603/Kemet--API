@@ -3,6 +3,7 @@ using Google.Type;
 using Kemet.APIs.DTOs.DetailedDTOs;
 using Kemet.APIs.DTOs.HomePageDTOs;
 using Kemet.APIs.Errors;
+using Kemet.APIs.Helpers;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.AI_Entites;
 using Kemet.Core.Entities.Identity;
@@ -14,6 +15,7 @@ using Kemet.Core.Specifications.ActivitySpecs;
 using Kemet.Core.Specifications.PlaceSpecs;
 using Kemet.Repository.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -63,6 +65,8 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                var jsonOptions = JsonOptionsHelper.GetOptions();
+
                 string cacheKey = "places_list";
                 var cached = await _cache.GetAsync(cacheKey);
 
@@ -82,7 +86,8 @@ namespace Kemet.APIs.Controllers
                 }
 
                 var result = places.Where(a => a.ImageURLs.Any()).ToList();
-                await _cache.SetAsync(cacheKey, result, _cacheDuration);
+                var serialized = JsonSerializer.Serialize(result, jsonOptions);
+                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -185,6 +190,8 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                var jsonOptions = JsonOptionsHelper.GetOptions();
+
                 string cacheKey = "hidden_places_list";
                 var cached = await _cache.GetAsync(cacheKey);
 
@@ -193,8 +200,10 @@ namespace Kemet.APIs.Controllers
                 var resultPlaces = await _homeServices.GetPlacesHiddenGems();
                 var result = await MapPlacesWithImages(resultPlaces);
                 if (result == null) { return NotFound(new ApiResponse(404, "No places found within the maximum radius")); }
-                await _cache.SetAsync(cacheKey, result, _cacheDuration);
+                var serialized = JsonSerializer.Serialize(result, jsonOptions);
+                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
                 return Ok(result);
+                
             }
             catch (Exception ex)
             {
@@ -259,6 +268,8 @@ namespace Kemet.APIs.Controllers
         {
             try
             {
+                var jsonOptions = JsonOptionsHelper.GetOptions();
+
                 string cacheKey = "Cairo_places_list";
                 var cached = await _cache.GetAsync(cacheKey);
 
@@ -267,7 +278,8 @@ namespace Kemet.APIs.Controllers
                 var resultPlaces = await _homeServices.GetPlacesInCairo();
                 var result = await MapPlacesWithImages(resultPlaces);
                 if (result == null) { return NotFound(new ApiResponse(404, "No places found within the maximum radius")); }
-                await _cache.SetAsync(cacheKey, result, _cacheDuration);
+                var serialized = JsonSerializer.Serialize(result, jsonOptions);
+                await _cache.SetAsync(cacheKey, serialized, _cacheDuration);
                 return Ok(result);
             }
             catch (Exception ex) 

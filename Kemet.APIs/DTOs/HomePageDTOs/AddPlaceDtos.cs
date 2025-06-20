@@ -29,5 +29,12 @@ namespace Kemet.APIs.DTOs.HomePageDTOs
         public TimeSpan OpenTime { get; set; }
 
         public TimeSpan CloseTime { get; set; }
+
+        public string Address { get; set; }
+        public string? LocationLink { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+
+
     }
 }
