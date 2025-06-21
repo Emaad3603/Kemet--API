@@ -5,7 +5,6 @@ using Kemet.APIs.Errors;
 using Kemet.APIs.Helpers;
 using Kemet.Core.Entities;
 using Kemet.Core.Entities.Identity;
-using Kemet.Core.Entities.Wrapper;
 using Kemet.Core.Repositories.InterFaces;
 using Kemet.Core.RepositoriesInterFaces;
 using Kemet.Core.Specifications.ActivitySpecs;
