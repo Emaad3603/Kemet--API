@@ -40,9 +40,7 @@ namespace Kemet.APIs.DTOs.DetailedDTOs
         public string? LocationLink { get; set; }
 
 
-        public string? PlaceLatitude { get; set; }
-
-
-        public string? PlaceLongitude { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }

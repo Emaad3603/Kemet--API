@@ -199,6 +199,10 @@ namespace Kemet.APIs.Helpers
                  .ForMember(d => d.TouristAdult, o => o.MapFrom(s => s.Price.TouristAdult))
                  .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
                  .ForMember(d => d.CategoryName, o => o.MapFrom(s => s.Category.CategoryName))
+                 .ForMember(d => d.Address ,o=>o.MapFrom(s=>s.Location.Address))
+                 .ForMember(d => d.LocationLink, o => o.MapFrom(s => s.Location.LocationLink))
+                 .ForMember(d => d.Latitude, o => o.MapFrom(s => s.Location.Coordinates.Y))
+                 .ForMember(d => d.Longitude, o => o.MapFrom(s => s.Location.Coordinates.X))
                  .ReverseMap();
             CreateMap<Place,DetailedPlaceDto>()
                 .ForMember(w=>w.PlaceId,o=>o.MapFrom(s=>s.Id))
@@ -217,6 +221,10 @@ namespace Kemet.APIs.Helpers
                  .ForMember(d => d.TouristAdult, o => o.MapFrom(s => s.Price.TouristAdult))
                  .ForMember(d => d.TouristStudent, o => o.MapFrom(s => s.Price.TouristStudent))
                  .ForMember(d => d.CategoryName, o => o.MapFrom(s => s.Category.CategoryName))
+                 .ForMember(d => d.Address, o => o.MapFrom(s => s.Location.Address))
+                 .ForMember(d => d.LocationLink, o => o.MapFrom(s => s.Location.LocationLink))
+                 .ForMember(d => d.Latitude, o => o.MapFrom(s => s.Location.Coordinates.Y))
+                 .ForMember(d => d.Longitude, o => o.MapFrom(s => s.Location.Coordinates.X))
                  .ReverseMap();
 
             CreateMap<TravelAgencyPlan,DetailedTravelAgencyPlanDto>()

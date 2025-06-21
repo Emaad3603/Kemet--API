@@ -78,10 +78,10 @@ namespace Kemet.APIs.Controllers
                 {
                     try
                     {
-                        var result = JsonSerializer.Deserialize<List<ActivityDTOs>>(cached, jsonOptions);
-                        if (result != null)
+                        var cacheResult = JsonSerializer.Deserialize<List<ActivityDTOs>>(cached, jsonOptions);
+                        if (cacheResult != null)
                         {
-                            return Ok(result);
+                            return Ok(cacheResult);
                         }
                     }
                     catch (JsonException)
@@ -123,10 +123,10 @@ namespace Kemet.APIs.Controllers
                 {
                     try
                     {
-                        var result = JsonSerializer.Deserialize<List<ActivityDTOs>>(cached, jsonOptions);
-                        if (result != null)
+                        var cacheResult = JsonSerializer.Deserialize<List<ActivityDTOs>>(cached, jsonOptions);
+                        if (cacheResult != null)
                         {
-                            return Ok(result);
+                            return Ok(cacheResult);
                         }
                     }
                     catch (JsonException)
@@ -169,10 +169,10 @@ namespace Kemet.APIs.Controllers
                 {
                     try
                     {
-                        var result = JsonSerializer.Deserialize<List<ActivityDTOs>>(cached, jsonOptions);
-                        if (result != null)
+                        var cacheResult = JsonSerializer.Deserialize<List<ActivityDTOs>>(cached, jsonOptions);
+                        if (cacheResult != null)
                         {
-                            return Ok(result);
+                            return Ok(cacheResult);
                         }
                     }
                     catch (JsonException)

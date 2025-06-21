@@ -81,10 +81,10 @@ namespace Kemet.APIs.Controllers
                 {
                     try
                     {
-                        var result = JsonSerializer.Deserialize<List<PlacesDto>>(cached, jsonOptions);
-                        if (result != null)
+                        var cacheResult = JsonSerializer.Deserialize<List<PlacesDto>>(cached, jsonOptions);
+                        if (cacheResult != null)
                         {
-                            return Ok(result);
+                            return Ok(cacheResult);
                         }
                     }
                     catch (JsonException)
@@ -226,10 +226,10 @@ namespace Kemet.APIs.Controllers
                 {
                     try
                     {
-                        var result = JsonSerializer.Deserialize<List<PlacesDto>>(cached, jsonOptions);
-                        if (result != null)
+                        var cacheResult = JsonSerializer.Deserialize<List<PlacesDto>>(cached, jsonOptions);
+                        if (cacheResult != null)
                         {
-                            return Ok(result);
+                            return Ok(cacheResult);
                         }
                     }
                     catch (JsonException)
@@ -325,10 +325,10 @@ namespace Kemet.APIs.Controllers
                 {
                     try
                     {
-                        var result = JsonSerializer.Deserialize<List<PlacesDto>>(cached, jsonOptions);
-                        if (result != null)
+                        var cacheResult = JsonSerializer.Deserialize<List<PlacesDto>>(cached, jsonOptions);
+                        if (cacheResult != null)
                         {
-                            return Ok(result);
+                            return Ok(cacheResult);
                         }
                     }
                     catch (JsonException)
